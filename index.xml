@@ -20,5 +20,38 @@
       <description>I should probably start blogging again.</description>
     </item>
     
+    <item>
+      <title>Python Meetup Talk - 2019-10-09</title>
+      <link>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</link>
+      <pubDate>Thu, 10 Oct 2019 10:18:17 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</guid>
+      <description>I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
+The main points:
+ We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice  </description>
+    </item>
+    
+    <item>
+      <title>Turn a Chromebook into the ULTIMATE GOLANG/PYTHON DEVELOPER MACHINE</title>
+      <link>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</link>
+      <pubDate>Mon, 26 Dec 2016 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
+      <description>This is a recycled post from my tumblr weblog
+Ha ha ha just lying the real title should be
+Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
+    </item>
+    
+    <item>
+      <title>What I Like About My New Job</title>
+      <link>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</link>
+      <pubDate>Mon, 11 May 2015 19:55:10 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
+      <description>This is a recycled post from my tumblr weblog. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.
+Please note I am contractually prohibited from saying what I don&amp;rsquo;t like about most of my prior employers so don&amp;rsquo;t expect any negative posts.
+I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco.</description>
+    </item>
+    
   </channel>
 </rss>
