@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.jasonscheirer.com/weblog/hello-world/</loc>
-    <lastmod>2020-01-04T10:18:17-08:00</lastmod>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2020-02-04T16:45:45-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jasonscheirer.com/</loc>
+    <loc>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</loc>
+    <lastmod>2020-02-04T16:45:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/weblog/hello-world/</loc>
     <lastmod>2020-01-04T10:18:17-08:00</lastmod>
   </url>
   
