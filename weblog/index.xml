@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Weblog on Jason Scheirer</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Weblog on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate>
-    
-	<atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Dingus Chromebook still works</title>
+      <link>https://www.jasonscheirer.com/weblog/chromebook-still-works/</link>
+      <pubDate>Mon, 10 Feb 2020 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/chromebook-still-works/</guid>
+      <description>So I bought that dang Chromebook over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.</description>
+    </item>
     
     <item>
       <title>Five Years in the Bay Area</title>

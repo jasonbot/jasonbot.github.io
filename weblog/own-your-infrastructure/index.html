@@ -1,167 +1,73 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Jason Scheirer  | Own your infrastructure</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.58.3" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Own your infrastructure</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1611096741">
+	
+</head>
+<body>
+	<header>
+	====================<br>
+	== <a href="https://www.jasonscheirer.com/">Jason Scheirer</a> ==<br>
+	====================
+	<div style="float: right;"></div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+</header>
 
-    
-    
-      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
-    
+	
+	<main>
+		<article>
+			<h1>Own your infrastructure</h1>
+			<b><time>2020-02-04 16:45:45</time></b>
+		       
 
-    
-
-    
-      
-    
-
-    
-    
-    <meta property="og:title" content="Own your infrastructure" />
-<meta property="og:description" content="I&rsquo;ve been sharecropping on Amazon&rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
-This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
-However, when you&rsquo;re on-call, you no longer own your uptime." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.jasonscheirer.com/weblog/own-your-infrastructure/" />
-<meta property="article:published_time" content="2020-02-04T16:45:45-08:00" />
-<meta property="article:modified_time" content="2020-02-04T16:45:45-08:00" />
-<meta itemprop="name" content="Own your infrastructure">
-<meta itemprop="description" content="I&rsquo;ve been sharecropping on Amazon&rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
-This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
-However, when you&rsquo;re on-call, you no longer own your uptime.">
-
-
-<meta itemprop="datePublished" content="2020-02-04T16:45:45-08:00" />
-<meta itemprop="dateModified" content="2020-02-04T16:45:45-08:00" />
-<meta itemprop="wordCount" content="219">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Own your infrastructure"/>
-<meta name="twitter:description" content="I&rsquo;ve been sharecropping on Amazon&rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
-This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
-However, when you&rsquo;re on-call, you no longer own your uptime."/>
-
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="https://www.jasonscheirer.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      Jason Scheirer
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
-</nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-
-    <header class="mt4 w-100">
-      <p class="f6 b helvetica tracked">
-          
-        WEBLOG
-      </p>
-      <h1 class="f1 athelas mb1">Own your infrastructure</h1>
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2020-02-04T16:45:45-08:00">February 4, 2020</time>
-      
-      
-    </header>
-
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>I&rsquo;ve been sharecropping on Amazon&rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).</p>
-
+			<div>
+				<p>I&rsquo;ve been sharecropping on Amazon&rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).</p>
 <p>This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.</p>
-
 <p>However, when you&rsquo;re on-call, you no longer own your uptime. Amazon will randomly flip bits. Its hosted services will go down without warning and leave you helpless but to wait &ndash; you&rsquo;re down until Amazon Hosted Whatever Thing decides to go back up (and the status page will lie about it being up).</p>
-
 <p>Now I&rsquo;m at a new place where the systems team (I am back in plain old Software Engineering, hopefully out of DevOps forever) actually runs data centers. Everything is done in VMs and not containers. And it&rsquo;s so refreshing. Not only can we be 100% responsible for fixing downtime, but it provides a much stabler and less abstract system to build software on top of. When the solution to a problem is &ldquo;this Bash script&rdquo; and not &ldquo;this Byzantine pipeline only one guy understands&rdquo; it makes the infrastructure easier to reason aboue and less prone to failure.</p>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6">
-      
-      
-      </div>
-    </section>
 
-    <aside class="w-30-l mt6-l">
-
-
-
-
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/weblog/chromebook-still-works/">My Dingus Chromebook still works</a></li>
+				
+				<li><a href="/weblog/five-years-in-the-bay/">Five Years in the Bay Area</a></li>
+				
+				<li><a href="/weblog/own-your-infrastructure/">Own your infrastructure</a></li>
+				
+				<li><a href="/weblog/hello-world/">Hello, World</a></li>
+				
+				<li><a href="/weblog/python-meetup-sf-2019/">Python Meetup Talk - 2019-10-09</a></li>
+				
+			</ul>
+		</div>
+	</div>
 </aside>
 
-  </article>
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.jasonscheirer.com/" >
-    &copy;  Jason Scheirer 2020 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-</div>
-  </div>
+	<footer>
+	<p>&copy; 2021 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
 </footer>
 
-    
-
-  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
-
-
-  </body>
+</body>
 </html>

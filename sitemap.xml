@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.jasonscheirer.com/weblog/five-years-in-the-bay/</loc>
-    <lastmod>2020-02-08T06:25:45-08:00</lastmod>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2020-02-10T01:11:45-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jasonscheirer.com/</loc>
+    <loc>https://www.jasonscheirer.com/weblog/chromebook-still-works/</loc>
+    <lastmod>2020-02-10T01:11:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/weblog/five-years-in-the-bay/</loc>
     <lastmod>2020-02-08T06:25:45-08:00</lastmod>
   </url>
   
