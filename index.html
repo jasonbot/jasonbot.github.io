@@ -10,7 +10,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1611251338"><link rel="stylesheet" href="/css/code.css?rnd=1611251338">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1611272872"><link rel="stylesheet" href="/css/code.css?rnd=1611272872">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -134,6 +134,30 @@ Please note I am contractually prohibited from saying what I don&rsquo;t like ab
 I&rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco.
 		
 			<a href="https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/bottle-introspection/">Stupid simple API reference for bottle.py web services</a></h1>
+	<b><time>2012-03-25 22:11:11</time></b>
+	
+	<div>
+		I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:
+@bottle.route(&#39;/&#39;) def index(): bottle.response.content_type = &#39;text/plain&#39; return (&#34;=== API REFERENCE ===\n&#34; + &#34;\n&#34;.join(x[&#39;rule&#39;] for x in bottle.app().routes)) 
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/cpp-is-ok/">C&#43;&#43; is not so bad</a></h1>
+	<b><time>2010-09-20 16:45:45</time></b>
+	
+	<div>
+		For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.
+I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the with statement for the same tightly scoped data lifetime in Python.
 		
 	</div>
 </article>
