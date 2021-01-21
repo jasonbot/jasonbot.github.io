@@ -109,5 +109,15 @@ I&amp;rsquo;ve gone from developer at a large software corporation in the suburb
 I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the with statement for the same tightly scoped data lifetime in Python.</description>
     </item>
     
+    <item>
+      <title>I don’t really use OSX anymore</title>
+      <link>https://www.jasonscheirer.com/weblog/osx-less-and-less/</link>
+      <pubDate>Tue, 09 Feb 2010 01:15:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/osx-less-and-less/</guid>
+      <description>I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&amp;quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.
+I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat and SuSE were a little hard to get going for beginners, and the packages supplied were always a weird grab bag of old and new.</description>
+    </item>
+    
   </channel>
 </rss>
