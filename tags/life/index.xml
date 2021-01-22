@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>life on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/life/</link>
+    <description>Recent content in life on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Feb 2020 06:25:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Five Years in the Bay Area</title>
+      <link>https://www.jasonscheirer.com/weblog/five-years-in-the-bay/</link>
+      <pubDate>Sat, 08 Feb 2020 06:25:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/five-years-in-the-bay/</guid>
+      <description>February 8th marks the fifth anniversary of me moving to the Bay Area to work for tech startups. In restrospect it&amp;rsquo;s been a great experience despite it being the Bay Area.
+Culture Living in the Inland Empire, I was an hour away from LA and all that culture, but I never bothered doing it. Living 5 miles outside of San Francisco has mean the City is a constant part of my life: restaurants, concerts, museums, lots of things I could have theoretically done more of in SoCal but never bothered to.</description>
+    </item>
+    
+    <item>
+      <title>Hello, World</title>
+      <link>https://www.jasonscheirer.com/weblog/hello-world/</link>
+      <pubDate>Sat, 04 Jan 2020 10:18:17 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/hello-world/</guid>
+      <description>I should probably start blogging again.</description>
+    </item>
+    
+    <item>
+      <title>What I Like About My New Job</title>
+      <link>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</link>
+      <pubDate>Mon, 11 May 2015 19:55:10 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
+      <description>This is a recycled post from my tumblr weblog. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.
+Please note I am contractually prohibited from saying what I don&amp;rsquo;t like about most of my prior employers so don&amp;rsquo;t expect any negative posts.
+I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco.</description>
+    </item>
+    
+  </channel>
+</rss>

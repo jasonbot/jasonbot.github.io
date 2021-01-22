@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pinebook on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/pinebook/</link>
+    <description>Recent content in pinebook on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jan 2021 12:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/pinebook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pinebook Pro: The Tinkering Laptop</title>
+      <link>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</link>
+      <pubDate>Tue, 19 Jan 2021 12:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</guid>
+      <description>As the parent of an almost three year old, I don&amp;rsquo;t get much time to myself, and I&amp;rsquo;ve given up on video games that don&amp;rsquo;t have playtimes under 15 minutes (that discounts anything with load times or cutscenes). In my spare time I have to find other things to do that are low impact and can be cut into small amounts of time.
+I&amp;rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has inspired me to tinker with old software and resource constrained devices.</description>
+    </item>
+    
+  </channel>
+</rss>

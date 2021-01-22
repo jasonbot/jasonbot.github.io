@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/mac/</link>
+    <description>Recent content in mac on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Feb 2010 01:15:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I don’t really use OSX anymore</title>
+      <link>https://www.jasonscheirer.com/weblog/osx-less-and-less/</link>
+      <pubDate>Tue, 09 Feb 2010 01:15:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/osx-less-and-less/</guid>
+      <description>I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&amp;quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.
+I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat and SuSE were a little hard to get going for beginners, and the packages supplied were always a weird grab bag of old and new.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/programming/</link>
+    <description>Recent content in programming on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Feb 2020 16:45:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Own your infrastructure</title>
+      <link>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</link>
+      <pubDate>Tue, 04 Feb 2020 16:45:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</guid>
+      <description>I&amp;rsquo;ve been sharecropping on Amazon&amp;rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&amp;rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
+This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
+However, when you&amp;rsquo;re on-call, you no longer own your uptime.</description>
+    </item>
+    
+    <item>
+      <title>Turn a Chromebook into the ULTIMATE GOLANG/PYTHON DEVELOPER MACHINE</title>
+      <link>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</link>
+      <pubDate>Mon, 26 Dec 2016 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
+      <description>This is a recycled post from my tumblr weblog
+Ha ha ha just lying the real title should be
+Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; is not so bad</title>
+      <link>https://www.jasonscheirer.com/weblog/cpp-is-ok/</link>
+      <pubDate>Mon, 20 Sep 2010 16:45:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/cpp-is-ok/</guid>
+      <description>For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.
+I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the with statement for the same tightly scoped data lifetime in Python.</description>
+    </item>
+    
+    <item>
+      <title>I don’t really use OSX anymore</title>
+      <link>https://www.jasonscheirer.com/weblog/osx-less-and-less/</link>
+      <pubDate>Tue, 09 Feb 2010 01:15:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/osx-less-and-less/</guid>
+      <description>I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&amp;quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.
+I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat and SuSE were a little hard to get going for beginners, and the packages supplied were always a weird grab bag of old and new.</description>
+    </item>
+    
+  </channel>
+</rss>

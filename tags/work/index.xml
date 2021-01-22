@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>work on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/work/</link>
+    <description>Recent content in work on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Feb 2020 16:45:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Own your infrastructure</title>
+      <link>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</link>
+      <pubDate>Tue, 04 Feb 2020 16:45:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</guid>
+      <description>I&amp;rsquo;ve been sharecropping on Amazon&amp;rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&amp;rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
+This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
+However, when you&amp;rsquo;re on-call, you no longer own your uptime.</description>
+    </item>
+    
+    <item>
+      <title>Python Meetup Talk - 2019-10-09</title>
+      <link>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</link>
+      <pubDate>Thu, 10 Oct 2019 10:18:17 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</guid>
+      <description>I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
+The main points:
+ We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice  </description>
+    </item>
+    
+    <item>
+      <title>What I Like About My New Job</title>
+      <link>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</link>
+      <pubDate>Mon, 11 May 2015 19:55:10 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
+      <description>This is a recycled post from my tumblr weblog. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.
+Please note I am contractually prohibited from saying what I don&amp;rsquo;t like about most of my prior employers so don&amp;rsquo;t expect any negative posts.
+I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco.</description>
+    </item>
+    
+  </channel>
+</rss>

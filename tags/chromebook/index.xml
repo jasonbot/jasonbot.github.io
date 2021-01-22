@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chromebook on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/chromebook/</link>
+    <description>Recent content in chromebook on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Feb 2020 01:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/chromebook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Dingus Chromebook still works</title>
+      <link>https://www.jasonscheirer.com/weblog/chromebook-still-works/</link>
+      <pubDate>Mon, 10 Feb 2020 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/chromebook-still-works/</guid>
+      <description>So I bought that dang Chromebook over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.</description>
+    </item>
+    
+    <item>
+      <title>Turn a Chromebook into the ULTIMATE GOLANG/PYTHON DEVELOPER MACHINE</title>
+      <link>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</link>
+      <pubDate>Mon, 26 Dec 2016 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
+      <description>This is a recycled post from my tumblr weblog
+Ha ha ha just lying the real title should be
+Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
+    </item>
+    
+  </channel>
+</rss>

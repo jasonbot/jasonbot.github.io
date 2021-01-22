@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hardware on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/hardware/</link>
+    <description>Recent content in hardware on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jan 2021 12:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pinebook Pro: The Tinkering Laptop</title>
+      <link>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</link>
+      <pubDate>Tue, 19 Jan 2021 12:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</guid>
+      <description>As the parent of an almost three year old, I don&amp;rsquo;t get much time to myself, and I&amp;rsquo;ve given up on video games that don&amp;rsquo;t have playtimes under 15 minutes (that discounts anything with load times or cutscenes). In my spare time I have to find other things to do that are low impact and can be cut into small amounts of time.
+I&amp;rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has inspired me to tinker with old software and resource constrained devices.</description>
+    </item>
+    
+    <item>
+      <title>My Dingus Chromebook still works</title>
+      <link>https://www.jasonscheirer.com/weblog/chromebook-still-works/</link>
+      <pubDate>Mon, 10 Feb 2020 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/chromebook-still-works/</guid>
+      <description>So I bought that dang Chromebook over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.</description>
+    </item>
+    
+    <item>
+      <title>Own your infrastructure</title>
+      <link>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</link>
+      <pubDate>Tue, 04 Feb 2020 16:45:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</guid>
+      <description>I&amp;rsquo;ve been sharecropping on Amazon&amp;rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&amp;rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
+This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
+However, when you&amp;rsquo;re on-call, you no longer own your uptime.</description>
+    </item>
+    
+    <item>
+      <title>Turn a Chromebook into the ULTIMATE GOLANG/PYTHON DEVELOPER MACHINE</title>
+      <link>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</link>
+      <pubDate>Mon, 26 Dec 2016 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
+      <description>This is a recycled post from my tumblr weblog
+Ha ha ha just lying the real title should be
+Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
+    </item>
+    
+  </channel>
+</rss>

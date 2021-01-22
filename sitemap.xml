@@ -3,13 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
+    <lastmod>2021-01-19T12:11:45-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2021-01-19T12:11:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/pinebook/</loc>
     <lastmod>2021-01-19T12:11:45-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</loc>
     <lastmod>2021-01-19T12:11:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2021-01-19T12:11:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/chromebook/</loc>
+    <lastmod>2020-02-10T01:11:45-08:00</lastmod>
   </url>
   
   <url>
@@ -23,7 +43,22 @@
   </url>
   
   <url>
+    <loc>https://www.jasonscheirer.com/tags/life/</loc>
+    <lastmod>2020-02-08T06:25:45-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</loc>
+    <lastmod>2020-02-04T16:45:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2020-02-04T16:45:45-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/work/</loc>
     <lastmod>2020-02-04T16:45:45-08:00</lastmod>
   </url>
   
@@ -35,6 +70,11 @@
   <url>
     <loc>https://www.jasonscheirer.com/weblog/</loc>
     <lastmod>2020-01-04T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/python/</loc>
+    <lastmod>2019-10-10T10:18:17-08:00</lastmod>
   </url>
   
   <url>
@@ -53,8 +93,18 @@
   </url>
   
   <url>
+    <loc>https://www.jasonscheirer.com/tags/bottle.py/</loc>
+    <lastmod>2012-03-25T22:11:11-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.jasonscheirer.com/weblog/bottle-introspection/</loc>
     <lastmod>2012-03-25T22:11:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/c&#43;&#43;/</loc>
+    <lastmod>2010-09-20T16:45:45-08:00</lastmod>
   </url>
   
   <url>
@@ -68,15 +118,16 @@
   </url>
   
   <url>
+    <loc>https://www.jasonscheirer.com/tags/mac/</loc>
+    <lastmod>2010-02-09T01:15:00-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.jasonscheirer.com/about/</loc>
   </url>
   
   <url>
     <loc>https://www.jasonscheirer.com/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
   </url>
   
 </urlset>
