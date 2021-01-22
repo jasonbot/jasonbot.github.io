@@ -126,7 +126,7 @@ I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat a
       
       <guid>https://www.jasonscheirer.com/about/</guid>
       <description>I am Jason Scheirer, a completely unremarkable software developer in the Bay Area initially from the Inland Empire. I have been programming since I was in elementary school. I got my first job writing &amp;ldquo;web applications&amp;rdquo; as a junior in high school and have been doing it ever since. I have been out of school since 2005, writing software full time ever since.
-The theme for this weblog is a fork of smol.</description>
+The theme for this weblog is a fork of smol, built in Hugo, and hosted on Github Pages through the magic of a CNAME.</description>
     </item>
     
   </channel>
