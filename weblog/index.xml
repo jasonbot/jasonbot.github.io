@@ -8,6 +8,26 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Trying out Rectangle</title>
+      <link>https://www.jasonscheirer.com/weblog/trying-out-rectangle/</link>
+      <pubDate>Mon, 08 Feb 2021 10:00:00 -0600</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/trying-out-rectangle/</guid>
+      <description>I&amp;rsquo;ve been using the Rectangle window manager for mac for the last couple of weeks and it&amp;rsquo;s been the most helpful thing since Mission Control (and setting up a hot corner to activate it).
+I&amp;rsquo;ve tried to use full tiling managers before but I&amp;rsquo;ve found it difficult because 1) Irregularly sized window totally mess up the flow, 2) I am so used to the WIMP paradigm, including moving windows around so I have only been semi-functional with and 3) really weird shortcuts I have to memorize.</description>
+    </item>
+    
+    <item>
+      <title>The 2020s and the Post-Office World</title>
+      <link>https://www.jasonscheirer.com/weblog/the-post-office-world/</link>
+      <pubDate>Mon, 08 Feb 2021 07:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/the-post-office-world/</guid>
+      <description>I moved to the Bay Area 6 years ago after stubbornly refusing to for over a decade before because I wanted to be in the middle of the world of software. 2020 made some of that luster wear off.
+Our office closed at the end of March, 2020, for what was scheduled to be 2 months, which eventually stretched out into over 6 months, until finally we were told to clean off our desks by Thanksgiving as we were permanently remote.</description>
+    </item>
+    
+    <item>
       <title>Pinebook Pro: The Tinkering Laptop</title>
       <link>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</link>
       <pubDate>Tue, 19 Jan 2021 12:11:45 -0800</pubDate>
@@ -15,6 +35,16 @@
       <guid>https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/</guid>
       <description>As the parent of an almost three year old, I don&amp;rsquo;t get much time to myself, and I&amp;rsquo;ve given up on video games that don&amp;rsquo;t have playtimes under 15 minutes (that discounts anything with load times or cutscenes). In my spare time I have to find other things to do that are low impact and can be cut into small amounts of time.
 I&amp;rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has inspired me to tinker with old software and resource constrained devices.</description>
+    </item>
+    
+    <item>
+      <title>Twenty Years in Twenty Paragraphs</title>
+      <link>https://www.jasonscheirer.com/weblog/twenty-years-in-twenty-paragraphs/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:12 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/twenty-years-in-twenty-paragraphs/</guid>
+      <description>2001: High school. Getting into college wasa full time job. Standardized tests. Had a job at the County of Riverside writing webapps. Accepted a no-application-needed scholarship to UC Riverside in Computer Science. 9/11 happened the week before classes started.
+2002: Mad at the lack of attention I was getting from my CS advisors, and the fact that I was setting the curve in my courses, changed majros to Linguistics. Figured I could switch back if needed.</description>
     </item>
     
     <item>
