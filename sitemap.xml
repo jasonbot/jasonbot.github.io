@@ -3,17 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2021-02-08T10:00:00-06:00</lastmod>
+    <loc>https://www.jasonscheirer.com/tags/internet/</loc>
+    <lastmod>2021-02-18T08:00:00-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.jasonscheirer.com/tags/mac/</loc>
-    <lastmod>2021-02-08T10:00:00-06:00</lastmod>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2021-02-18T08:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2021-02-18T08:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/</loc>
+    <lastmod>2021-02-18T08:00:00-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2021-02-18T08:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/python/</loc>
+    <lastmod>2021-02-12T08:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</loc>
+    <lastmod>2021-02-12T08:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.jasonscheirer.com/tags/mac/</loc>
     <lastmod>2021-02-08T10:00:00-06:00</lastmod>
   </url>
   
@@ -73,11 +98,6 @@
   </url>
   
   <url>
-    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2020-02-04T16:45:45-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.jasonscheirer.com/weblog/hello-world/</loc>
     <lastmod>2020-01-04T10:18:17-08:00</lastmod>
   </url>
@@ -85,11 +105,6 @@
   <url>
     <loc>https://www.jasonscheirer.com/weblog/</loc>
     <lastmod>2020-01-04T12:00:00-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.jasonscheirer.com/tags/python/</loc>
-    <lastmod>2019-10-10T10:18:17-08:00</lastmod>
   </url>
   
   <url>

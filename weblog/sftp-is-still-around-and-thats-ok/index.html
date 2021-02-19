@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>SFTP is still around and that&#39;s OK</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1613702280"><link rel="stylesheet" href="/css/code.css?rnd=1613702280">
+	
+</head>
+<body>
+	<header>
+	<h1>Jason Scheirer</h1>
+	<div class="subtitle">A personal web site for a computer person</div><br>
+	<p>
+	<nav>
+			
+				<a href="/"><b>main</b></a>
+			
+
+			
+
+			
+			
+
+			
+			
+		
+			|
+				
+					<a href="/tags/"><b>tags</b></a>
+				
+
+			
+
+			
+			
+		
+			|
+				
+					<a href="/about/"><b>about</b></a>
+				
+
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>SFTP is still around and that&#39;s OK</h1>
+			
+			<b><time>2021-02-18</time></b>
+			
+		       
+		           <a href="/tags/programming">programming</a>
+        	       
+		           <a href="/tags/internet">internet</a>
+        	       
+
+			<div>
+				<p>So it&rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.</p>
+<p>A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.</p>
+<h1 id="sftp-is-format-agnostic">SFTP is format agnostic</h1>
+<p>This goes for HTTP as well, but you need to <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">correctly</a> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">set</a> headers, and there&rsquo;s a constant, incessant push for change for change&rsquo;s sake.</p>
+<h1 id="sftp-works-for-cold-storage">SFTP works for cold storage</h1>
+<p>SFTP servers are a known entity, and can be used to point at an old directory full of files somewhere, an enterprise-grade SAN, or whatever. It&rsquo;s file-focused where modern HTTP is more interaction/endpoint focused.</p>
+<h1 id="the-s-in-sftp-is-already-secure">The S in SFTP is already &ldquo;secure&rdquo;</h1>
+<p>HTTP is insecure by default, though in recent years yes, HTTPS is now almost a default (but not behind the edge, which is a story for another day).</p>
+<p>SFTP starts via an SSH session with proper key negotiation. This means every workflow you do with SSH (like exchanging keys that are not necessarily signed by a root authority) is supported with SFTP. Having just written a downtime postmortem about a party not presenting a correctly configured certificate chain on their HTTP service, the fact that less can go wrong in SFTP is comforting.</p>
+<h1 id="its-hard-to-get-sftp-wrong">It&rsquo;s hard to get SFTP wrong</h1>
+<p>HTTP changes. To do something simple like send a file in chunks you have to set up an HTTP server correctly and support all kinds of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests">operating modes</a> and implement <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding">a bunch</a> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length">of headers</a> and make sure both the server and client and any proxy handles it correctly. SFTP has significantly less cruft, significantly fewer implementations, and therefore significantly fewer configurations to thing about.</p>
+<h1 id="sftp-semantically-matches-some-workflows-better">SFTP semantically matches some workflows better</h1>
+<p>When you think about what you are doing, to download a batch file you:</p>
+<ol>
+<li>Connect to a machine*</li>
+<li>Go to the expected location</li>
+<li>Download the file in a stream</li>
+<li>Verify the file</li>
+<li>Remove the remote file</li>
+</ol>
+<p>* Yes, this includes opening socket connection, doing TLS negotiation, and then authenticating, which are 3 additional steps to be berought into consideration</p>
+<p>In HTTP, it&rsquo;s:</p>
+<ol>
+<li><code>HTTP GET</code> the location (steps 1, 2, 3)</li>
+<li>Verify that locally (your application code)</li>
+<li><code>HTTP DELETE</code> the resource (provided the proxy/framework/application properly supports <code>DELETE</code>)</li>
+</ol>
+<p>Since steps 1-3 are all enmeshed, you have to introspect on where the failure mode happened to figure out what went wrong. With SFTP it&rsquo;s</p>
+<ol>
+<li>Connect to SFTP server (step 1)</li>
+<li><code>CD path</code> (step 2)</li>
+<li><code>GET file</code> (step 3)</li>
+<li>Verify file locally (application code) (step 4)</li>
+<li><code>RM path</code> (step 5)</li>
+</ol>
+<p>Semantically the steps to accomplish the workflow make it easier to wrap eachstep in a single try-except rather than have to dig into what went wrong in the HTTP transaction. The code, while simple, is simple. This makes it more readable and easier to both write and reason about.</p>
+<h1 id="its-easy-to-consume">It&rsquo;s easy to consume</h1>
+<p>Consuming files via an SFTP client is as easy to do as consuming via an HTTP client, with signficiantly fewer failure modes.</p>
+<h1 id="it-works-to-keep-the-world-working">It works to keep the world working</h1>
+<p><a href="https://www.treasurysoftware.com/ACH/ssh-sftp.aspx">SFTP powers the financial world</a>. Every day millions (billions? I honestly have no idea) of financial transactions are compelted via the ACH system, which is text files over SFTP. Similar batch jobs are completed for all kinds of similar systems which may be mainframes running COBOL or &ldquo;cutting-edge&rdquo; Enterprise Java rats' nests of code copying files over to a Linux machine somewhere to expose them to the world.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/weblog/sftp-is-still-around-and-thats-ok/">SFTP is still around and that&#39;s OK</a></li>
+				
+				<li><a href="/weblog/dont-use-tempfiles/">You Don&#39;t Need to Make That Temporary File, Dude</a></li>
+				
+				<li><a href="/weblog/trying-out-rectangle/">Trying out Rectangle</a></li>
+				
+				<li><a href="/weblog/the-post-office-world/">The 2020s and the Post-Office World</a></li>
+				
+				<li><a href="/weblog/pinebook-pro-the-tinkering-laptop/">Pinebook Pro: The Tinkering Laptop</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2021 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

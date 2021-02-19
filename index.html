@@ -10,7 +10,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1612970964"><link rel="stylesheet" href="/css/code.css?rnd=1612970964">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1613702280"><link rel="stylesheet" href="/css/code.css?rnd=1613702280">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -55,6 +55,48 @@
 	
 	<main>
 		
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/">SFTP is still around and that&#39;s OK</a></h1>
+	
+	<b><time>2021-02-18</time></b>
+	
+	
+	<a href="/tags/programming">programming</a>
+	
+	<a href="/tags/internet">internet</a>
+	
+	<div>
+		So it&rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.
+A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.
+SFTP is format agnostic This goes for HTTP as well, but you need to correctly set headers, and there&rsquo;s a constant, incessant push for change for change&rsquo;s sake.
+		
+			<a href="https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/dont-use-tempfiles/">You Don&#39;t Need to Make That Temporary File, Dude</a></h1>
+	
+	<b><time>2021-02-12</time></b>
+	
+	
+	<a href="/tags/python">python</a>
+	
+	<a href="/tags/programming">programming</a>
+	
+	<div>
+		This was initially a blog post I wrote on my employer&rsquo;s internal system, but it&rsquo;s interestingly useful and it doesn&rsquo;t contain any trade secrets so I figure I&rsquo;ll share.
+ A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
+You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &ldquo;file-like object&rdquo; will accept an in-memory piece of information in addition to a file on disk.
+		
+			<a href="https://www.jasonscheirer.com/weblog/dont-use-tempfiles/">Read more...</a>
+		
+	</div>
+</article>
+
 		
 			<article>
 	<h1><a href="https://www.jasonscheirer.com/weblog/trying-out-rectangle/">Trying out Rectangle</a></h1>

@@ -6,7 +6,18 @@
     <description>Recent content in python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Oct 2019 10:18:17 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Feb 2021 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You Don&#39;t Need to Make That Temporary File, Dude</title>
+      <link>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</link>
+      <pubDate>Fri, 12 Feb 2021 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
+      <description>This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.
+ A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
+You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk.</description>
+    </item>
+    
     <item>
       <title>Python Meetup Talk - 2019-10-09</title>
       <link>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</link>

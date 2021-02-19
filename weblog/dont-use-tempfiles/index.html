@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>You Don&#39;t Need to Make That Temporary File, Dude</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1613702280"><link rel="stylesheet" href="/css/code.css?rnd=1613702280">
+	
+</head>
+<body>
+	<header>
+	<h1>Jason Scheirer</h1>
+	<div class="subtitle">A personal web site for a computer person</div><br>
+	<p>
+	<nav>
+			
+				<a href="/"><b>main</b></a>
+			
+
+			
+
+			
+			
+
+			
+			
+		
+			|
+				
+					<a href="/tags/"><b>tags</b></a>
+				
+
+			
+
+			
+			
+		
+			|
+				
+					<a href="/about/"><b>about</b></a>
+				
+
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>You Don&#39;t Need to Make That Temporary File, Dude</h1>
+			
+			<b><time>2021-02-12</time></b>
+			
+		       
+		           <a href="/tags/python">python</a>
+        	       
+		           <a href="/tags/programming">programming</a>
+        	       
+
+			<div>
+				<blockquote>
+<p>This was initially a blog post I wrote on my employer&rsquo;s internal system, but it&rsquo;s interestingly useful and it doesn&rsquo;t contain any trade secrets so I figure I&rsquo;ll share.</p>
+</blockquote>
+<p>A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the <a href="https://docs.python.org/3/library/tempfile.html">tempfile module</a>.</p>
+<p>You very seldom ACTUALLY need to do this. The <a href="https://docs.python.org/3/library/io.html#binary-i-o">BytesIO</a> class follows <a href="https://docs.python.org/3/glossary.html#term-file-object">the exact same protocol</a>, the file protocol, so any API that accepts a &ldquo;file-like object&rdquo; will accept an in-memory piece of information in addition to a file on disk. It&rsquo;s faster, safer, and less ugly.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">xyz = <span style="color:#a31515">&#39;/tmp/dingus&#39;</span>
+
+<span style="color:#00f">with</span> open(xyz, <span style="color:#a31515">&#39;w&#39;</span>) <span style="color:#00f">as</span> file_handle:
+  file_handle.write(<span style="color:#a31515">b</span><span style="color:#a31515">&#39;My brilliant string&#39;</span>)
+</code></pre></div><p>can be replaced with</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">xyz = io.BytesIO()
+xyz.write(<span style="color:#a31515">b</span><span style="color:#a31515">&#39;My brilliant string&#39;</span>)
+</code></pre></div><p>You don&rsquo;t even have to <code>with</code> the BytesIO &ndash; in fact, if you do, it&rsquo;ll delete the buffer.</p>
+<p><strong>TL;DR</strong></p>
+<p>Don&rsquo;t do this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
+    <span style="color:#00f">try</span>:
+       temp_file = tempfile.NamedTemporaryFile(delete=<span style="color:#00f">False</span>)
+       sftp_client.get(filename, temp_file.name)
+       <span style="color:#00f">with</span> open(temp_file.name, <span style="color:#a31515">&#39;rb&#39;</span>) <span style="color:#00f">as</span> handle:
+          <span style="color:#00f">yield</span> (filename, handle.read())
+    <span style="color:#00f">finally</span>:
+       os.remove(temp_file.name)
+</code></pre></div><p>do this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
+    temp_file = BytesIO()
+    sftp_client.getfo(filename, temp_file)
+    <span style="color:#00f">yield</span>(filename, temp_file.getvalue())
+</code></pre></div><p>Isn&rsquo;t that nice?</p>
+<p>Or if you have to write to an S3 bucket, instead of creating your tempfile:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
+    temp_file = BytesIO()
+    sftp_client.getfo(filename, temp_file)
+    temp_file.seek(0)  <span style="color:#008000"># You need to rewind to the beginning of the file</span>
+    s3_client.upload_fileobj(temp_file, OUR_S3_BUCKET, filename)
+</code></pre></div><p>or if the files are on the filesystem, don&rsquo;t bother <code>read</code>ing them yourself:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
+    <span style="color:#00f">with</span> open(filename) <span style="color:#00f">as</span> file_handle:
+        s3_client.upload_fileobj(file_handle, OUR_S3_BUCKET, filename)
+</code></pre></div><p>And on a semi-related note, don&rsquo;t do this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">file_handle.write(json.dumps(x))
+</code></pre></div><p>do this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">json.dump(x, file_handle)
+</code></pre></div><p>there are usually two functions exposed when an API deals with I/O: a string version and a file-like version.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/weblog/sftp-is-still-around-and-thats-ok/">SFTP is still around and that&#39;s OK</a></li>
+				
+				<li><a href="/weblog/dont-use-tempfiles/">You Don&#39;t Need to Make That Temporary File, Dude</a></li>
+				
+				<li><a href="/weblog/trying-out-rectangle/">Trying out Rectangle</a></li>
+				
+				<li><a href="/weblog/the-post-office-world/">The 2020s and the Post-Office World</a></li>
+				
+				<li><a href="/weblog/pinebook-pro-the-tinkering-laptop/">Pinebook Pro: The Tinkering Laptop</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2021 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

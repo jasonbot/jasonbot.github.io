@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Feb 2021 10:00:00 -0600</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2021 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>internet</title>
+      <link>https://www.jasonscheirer.com/tags/internet/</link>
+      <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/internet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://www.jasonscheirer.com/tags/programming/</link>
+      <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://www.jasonscheirer.com/tags/python/</link>
+      <pubDate>Fri, 12 Feb 2021 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>mac</title>
       <link>https://www.jasonscheirer.com/tags/mac/</link>
@@ -58,24 +85,6 @@
       <pubDate>Mon, 10 Feb 2020 01:11:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/chromebook/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://www.jasonscheirer.com/tags/programming/</link>
-      <pubDate>Tue, 04 Feb 2020 16:45:45 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://www.jasonscheirer.com/tags/python/</link>
-      <pubDate>Thu, 10 Oct 2019 10:18:17 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/python/</guid>
       <description></description>
     </item>
     

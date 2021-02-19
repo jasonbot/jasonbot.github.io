@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>internet on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/internet/</link>
+    <description>Recent content in internet on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Feb 2021 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/internet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SFTP is still around and that&#39;s OK</title>
+      <link>https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/</link>
+      <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/</guid>
+      <description>So it&amp;rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.
+A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.
+SFTP is format agnostic This goes for HTTP as well, but you need to correctly set headers, and there&amp;rsquo;s a constant, incessant push for change for change&amp;rsquo;s sake.</description>
+    </item>
+    
+  </channel>
+</rss>
