@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style type=text/css>body{font-family:monospace;}</style>
-	<title>ZPL-O-Rama part 5: The Theory</title>
+	<title>ZPL-O-Rama Part 5: Postscript</title>
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615234718"><link rel="stylesheet" href="/css/code.css?rnd=1615234718">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615237414"><link rel="stylesheet" href="/css/code.css?rnd=1615237414">
 	
 </head>
 <body>
@@ -54,7 +54,7 @@
 	
 	<main>
 		<article>
-			<h1>ZPL-O-Rama part 5: The Theory</h1>
+			<h1>ZPL-O-Rama Part 5: Postscript</h1>
 			
 			<b><time>2021-03-08</time></b>
 			
@@ -97,22 +97,22 @@
 <h1 id="thinking-back-it-was-all-so-simple">Thinking Back, It Was All So Simple</h1>
 <p>Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&rsquo;s a lit of small things that accrued while working on the project</p>
 <h2 id="networks-are-slow-and-the-dual-tier-service-thing-is-bad-actually">Networks are slow and the dual tier service thing is bad, actually</h2>
-<p>I initially chose to run a service on the Nginx server that then called to a service running on the RPi. Since there were Very Large PNGs being shuttled around a LOT, this was inefficient from a speed perspecitve because of the bandwidth consumed over my shitty cable connection.</p>
+<p>I initially chose to run a service on the Nginx server that then called to a service running on the RPi. Since there were Very Large PNGs being shuttled around a LOT, this was inefficient from a speed perspective because of the bandwidth consumed over my shitty cable connection.</p>
 <p>Two band-aids I&rsquo;ve applied:</p>
 <ol>
 <li>Moved both services to the RPi</li>
 <li>Started sending out a version of the image by default shrunken to 800px wide, with the original full size image as an optional download.</li>
 </ol>
-<p>I plan to refactor the service to all run in one single executable next.</p>
+<p>I could merge the two services into one, but having the backend be <code>curl</code>able without any sort of auth makes it easy to test the two ends more effectively.</p>
 <h2 id="networks-are-unreliable">Networks are unreliable</h2>
 <p>The SSH tunnel can go down and while I have taken efforts to mitigate it, I could take more. Currently:</p>
 <ol>
-<li>I&rsquo;m setting timeouts in the SSH tunnel service</li>
+<li>Setting timeouts in the SSH tunnel service</li>
 <li>Force resetting the tunnel every 6 hours</li>
 </ol>
 <p>Additionally I could:</p>
 <ol>
-<li>Run another task that tries to hit a healthcheck on the zpl service, and if it&rsquo;s dead restart the</li>
+<li>Run another task that tries to hit a healthcheck on the zpl service, and if it&rsquo;s dead restart the tunnel service unit</li>
 <li>The same idea but with my cable internet connection</li>
 </ol>
 <h2 id="life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper">Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper</h2>
@@ -129,7 +129,7 @@
 		<div>
 			<ul>
 				
-				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama part 5: The Theory</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama Part 5: Postscript</a></li>
 				
 				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
 				
@@ -137,7 +137,7 @@
 				
 				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></li>
 				
-				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama: A personal/work project (Introduction)</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama Part 1: A personal/work project (Introduction)</a></li>
 				
 			</ul>
 		</div>
