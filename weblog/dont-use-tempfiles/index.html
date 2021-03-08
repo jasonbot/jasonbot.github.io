@@ -9,7 +9,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1614534354"><link rel="stylesheet" href="/css/code.css?rnd=1614534354">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615234619"><link rel="stylesheet" href="/css/code.css?rnd=1615234619">
 	
 </head>
 <body>
@@ -70,44 +70,44 @@
 </blockquote>
 <p>A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the <a href="https://docs.python.org/3/library/tempfile.html">tempfile module</a>.</p>
 <p>You very seldom ACTUALLY need to do this. The <a href="https://docs.python.org/3/library/io.html#binary-i-o">BytesIO</a> class follows <a href="https://docs.python.org/3/glossary.html#term-file-object">the exact same protocol</a>, the file protocol, so any API that accepts a &ldquo;file-like object&rdquo; will accept an in-memory piece of information in addition to a file on disk. It&rsquo;s faster, safer, and less ugly.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">xyz = <span style="color:#a31515">&#39;/tmp/dingus&#39;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#000">xyz</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;/tmp/dingus&#39;</span>
 
-<span style="color:#00f">with</span> open(xyz, <span style="color:#a31515">&#39;w&#39;</span>) <span style="color:#00f">as</span> file_handle:
-  file_handle.write(<span style="color:#a31515">b</span><span style="color:#a31515">&#39;My brilliant string&#39;</span>)
+<span style="color:#204a87;font-weight:bold">with</span> <span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">xyz</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;w&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">file_handle</span><span style="color:#000;font-weight:bold">:</span>
+  <span style="color:#000">file_handle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">b</span><span style="color:#4e9a06">&#39;My brilliant string&#39;</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>can be replaced with</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">xyz = io.BytesIO()
-xyz.write(<span style="color:#a31515">b</span><span style="color:#a31515">&#39;My brilliant string&#39;</span>)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#000">xyz</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">io</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">BytesIO</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">xyz</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">b</span><span style="color:#4e9a06">&#39;My brilliant string&#39;</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>You don&rsquo;t even have to <code>with</code> the BytesIO &ndash; in fact, if you do, it&rsquo;ll delete the buffer.</p>
 <p><strong>TL;DR</strong></p>
 <p>Don&rsquo;t do this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
-    <span style="color:#00f">try</span>:
-       temp_file = tempfile.NamedTemporaryFile(delete=<span style="color:#00f">False</span>)
-       sftp_client.get(filename, temp_file.name)
-       <span style="color:#00f">with</span> open(temp_file.name, <span style="color:#a31515">&#39;rb&#39;</span>) <span style="color:#00f">as</span> handle:
-          <span style="color:#00f">yield</span> (filename, handle.read())
-    <span style="color:#00f">finally</span>:
-       os.remove(temp_file.name)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">filename</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">files_to_fetch</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">try</span><span style="color:#000;font-weight:bold">:</span>
+       <span style="color:#000">temp_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">tempfile</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">NamedTemporaryFile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">delete</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">False</span><span style="color:#000;font-weight:bold">)</span>
+       <span style="color:#000">sftp_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">filename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">temp_file</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
+       <span style="color:#204a87;font-weight:bold">with</span> <span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">temp_file</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;rb&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">handle</span><span style="color:#000;font-weight:bold">:</span>
+          <span style="color:#204a87;font-weight:bold">yield</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">filename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">handle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">read</span><span style="color:#000;font-weight:bold">())</span>
+    <span style="color:#204a87;font-weight:bold">finally</span><span style="color:#000;font-weight:bold">:</span>
+       <span style="color:#000">os</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">temp_file</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>do this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
-    temp_file = BytesIO()
-    sftp_client.getfo(filename, temp_file)
-    <span style="color:#00f">yield</span>(filename, temp_file.getvalue())
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">filename</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">files_to_fetch</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#000">temp_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">BytesIO</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#000">sftp_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getfo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">filename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">temp_file</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">yield</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">filename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">temp_file</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getvalue</span><span style="color:#000;font-weight:bold">())</span>
 </code></pre></div><p>Isn&rsquo;t that nice?</p>
 <p>Or if you have to write to an S3 bucket, instead of creating your tempfile:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
-    temp_file = BytesIO()
-    sftp_client.getfo(filename, temp_file)
-    temp_file.seek(0)  <span style="color:#008000"># You need to rewind to the beginning of the file</span>
-    s3_client.upload_fileobj(temp_file, OUR_S3_BUCKET, filename)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">filename</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">files_to_fetch</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#000">temp_file</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">BytesIO</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#000">sftp_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getfo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">filename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">temp_file</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">temp_file</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">seek</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># You need to rewind to the beginning of the file</span>
+    <span style="color:#000">s3_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">upload_fileobj</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">temp_file</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">OUR_S3_BUCKET</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">filename</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>or if the files are on the filesystem, don&rsquo;t bother <code>read</code>ing them yourself:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00f">for</span> filename <span style="color:#00f">in</span> files_to_fetch:
-    <span style="color:#00f">with</span> open(filename) <span style="color:#00f">as</span> file_handle:
-        s3_client.upload_fileobj(file_handle, OUR_S3_BUCKET, filename)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">filename</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">files_to_fetch</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">with</span> <span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">filename</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">file_handle</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">s3_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">upload_fileobj</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">file_handle</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">OUR_S3_BUCKET</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">filename</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>And on a semi-related note, don&rsquo;t do this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">file_handle.write(json.dumps(x))
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#000">file_handle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">))</span>
 </code></pre></div><p>do this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">json.dump(x, file_handle)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dump</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">file_handle</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>there are usually two functions exposed when an API deals with I/O: a string version and a file-like version.</p>
 
 			</div>
@@ -121,15 +121,15 @@ xyz.write(<span style="color:#a31515">b</span><span style="color:#a31515">&#39;M
 		<div>
 			<ul>
 				
-				<li><a href="/weblog/shanling-q1/">The Shanling Q1</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama part 5: The Theory</a></li>
 				
-				<li><a href="/weblog/sftp-is-still-around-and-thats-ok/">SFTP is still around and that&#39;s OK</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
 				
-				<li><a href="/weblog/dont-use-tempfiles/">You Don&#39;t Need to Make That Temporary File, Dude</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></li>
 				
-				<li><a href="/weblog/trying-out-rectangle/">Trying out Rectangle</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></li>
 				
-				<li><a href="/weblog/the-post-office-world/">The 2020s and the Post-Office World</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama: A personal/work project (Introduction)</a></li>
 				
 			</ul>
 		</div>

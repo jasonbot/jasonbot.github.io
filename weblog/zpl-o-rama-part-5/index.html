@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>ZPL-O-Rama part 5: The Theory</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615234619"><link rel="stylesheet" href="/css/code.css?rnd=1615234619">
+	
+</head>
+<body>
+	<header>
+	<h1>Jason Scheirer</h1>
+	<div class="subtitle">A personal web site for a computer person</div><br>
+	<p>
+	<nav>
+			
+				<a href="/"><b>main</b></a>
+			
+
+			
+
+			
+			
+
+			
+			
+		
+			|
+				
+					<a href="/tags/"><b>tags</b></a>
+				
+
+			
+
+			
+			
+		
+			|
+				
+					<a href="/about/"><b>about</b></a>
+				
+
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>ZPL-O-Rama part 5: The Theory</h1>
+			
+			<b><time>2021-03-08</time></b>
+			
+		       
+		           <a href="/tags/software">software</a>
+        	       
+		           <a href="/tags/hardware">hardware</a>
+        	       
+		           <a href="/tags/web">web</a>
+        	       
+		           <a href="/tags/programming">programming</a>
+        	       
+		           <a href="/tags/zpl-o-rama">zpl-o-rama</a>
+        	       
+
+			<div>
+				<h1 id="end-product">End product</h1>
+<p>Please disregard the poor camera placement, it has since been fixed.</p>
+<p>
+<figure>
+  <img src="/images/zpl-o-rama/workflow-1.png" alt="Step 1" />
+</figure>
+
+
+
+
+<figure>
+  <img src="/images/zpl-o-rama/workflow-2.png" alt="Step 2" />
+</figure>
+
+
+
+
+<figure>
+  <img src="/images/zpl-o-rama/workflow-3.png" alt="Step 3" />
+</figure>
+
+
+</p>
+<h1 id="thinking-back-it-was-all-so-simple">Thinking Back, It Was All So Simple</h1>
+<p>Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&rsquo;s a lit of small things that accrued while working on the project</p>
+<h2 id="networks-are-slow-and-the-dual-tier-service-thing-is-bad-actually">Networks are slow and the dual tier service thing is bad, actually</h2>
+<p>I initially chose to run a service on the Nginx server that then called to a service running on the RPi. Since there were Very Large PNGs being shuttled around a LOT, this was inefficient from a speed perspecitve because of the bandwidth consumed over my shitty cable connection.</p>
+<p>Two band-aids I&rsquo;ve applied:</p>
+<ol>
+<li>Moved both services to the RPi</li>
+<li>Started sending out a version of the image by default shrunken to 800px wide, with the original full size image as an optional download.</li>
+</ol>
+<p>I plan to refactor the service to all run in one single executable next.</p>
+<h2 id="networks-are-unreliable">Networks are unreliable</h2>
+<p>The SSH tunnel can go down and while I have taken efforts to mitigate it, I could take more. Currently:</p>
+<ol>
+<li>I&rsquo;m setting timeouts in the SSH tunnel service</li>
+<li>Force resetting the tunnel every 6 hours</li>
+</ol>
+<p>Additionally I could:</p>
+<ol>
+<li>Run another task that tries to hit a healthcheck on the zpl service, and if it&rsquo;s dead restart the</li>
+<li>The same idea but with my cable internet connection</li>
+</ol>
+<h2 id="life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper">Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper</h2>
+<p>Just gotta do what you can do a day at a time, man.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama part 5: The Theory</a></li>
+				
+				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
+				
+				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></li>
+				
+				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></li>
+				
+				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama: A personal/work project (Introduction)</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2021 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

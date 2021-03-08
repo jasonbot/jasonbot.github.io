@@ -10,7 +10,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1614534354"><link rel="stylesheet" href="/css/code.css?rnd=1614534354">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615234619"><link rel="stylesheet" href="/css/code.css?rnd=1615234619">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -55,6 +55,139 @@
 	
 	<main>
 		
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/">ZPL-O-Rama part 5: The Theory</a></h1>
+	
+	<b><time>2021-03-08</time></b>
+	
+	
+	<a href="/tags/software">software</a>
+	
+	<a href="/tags/hardware">hardware</a>
+	
+	<a href="/tags/web">web</a>
+	
+	<a href="/tags/programming">programming</a>
+	
+	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	
+	<div>
+		End product Please disregard the poor camera placement, it has since been fixed.
+       Thinking Back, It Was All So Simple Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&rsquo;s a lit of small things that accrued while working on the project
+Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.
+		
+			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></h1>
+	
+	<b><time>2021-03-08</time></b>
+	
+	
+	<a href="/tags/software">software</a>
+	
+	<a href="/tags/hardware">hardware</a>
+	
+	<a href="/tags/web">web</a>
+	
+	<a href="/tags/programming">programming</a>
+	
+	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	
+	<div>
+		Hardware The RPi The Raspberry Pi is a (I think) Pi 3 with Wifi I found in the garage with a cheap clear acrylic case. It might have been a RetroPie rig in a prior life? Or one I was &ldquo;gonna get around to&rdquo; doing something with and finally did?
+Then for this project I bought a Raspberry Pi camera and a small acrylic case for it, too.
+The Printer The printer is a hefty boi, a Zebra something or other.
+		
+			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></h1>
+	
+	<b><time>2021-03-08</time></b>
+	
+	
+	<a href="/tags/software">software</a>
+	
+	<a href="/tags/hardware">hardware</a>
+	
+	<a href="/tags/web">web</a>
+	
+	<a href="/tags/programming">programming</a>
+	
+	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	
+	<div>
+		Let&rsquo;s Talk Architecture The next thing I needed to do was plan out how this would work. I made a diagram to make sure I wasn&rsquo;t missing anything.
+   I&rsquo;ll use Nginx at the edge to route to a frontend application. Then I&rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.
+Then, I&rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.
+		
+			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></h1>
+	
+	<b><time>2021-03-08</time></b>
+	
+	
+	<a href="/tags/software">software</a>
+	
+	<a href="/tags/hardware">hardware</a>
+	
+	<a href="/tags/web">web</a>
+	
+	<a href="/tags/programming">programming</a>
+	
+	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	
+	<div>
+		Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
+ A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.
+		
+			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-1/">ZPL-O-Rama: A personal/work project (Introduction)</a></h1>
+	
+	<b><time>2021-03-08</time></b>
+	
+	
+	<a href="/tags/software">software</a>
+	
+	<a href="/tags/hardware">hardware</a>
+	
+	<a href="/tags/web">web</a>
+	
+	<a href="/tags/programming">programming</a>
+	
+	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	
+	<div>
+		Introduction In my spare time on weekends in between errands and mornings before everyone wakes up, I&rsquo;ve been working on a little project I&rsquo;ve been having a lot of fun with: ZPL-O-Rama.
+The Problem A large part of my employer&rsquo;s line of business is creating shipping labels, and a large number of those aren&rsquo;t simply printed images, but printed on very high volume, heavy duty, industrial grade printers using a proprietary language called ZPL.
+		
+			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-1/">Read more...</a>
+		
+	</div>
+</article>
+
 		
 			<article>
 	<h1><a href="https://www.jasonscheirer.com/weblog/shanling-q1/">The Shanling Q1</a></h1>

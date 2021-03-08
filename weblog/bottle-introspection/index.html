@@ -9,7 +9,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1614534354"><link rel="stylesheet" href="/css/code.css?rnd=1614534354">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615234619"><link rel="stylesheet" href="/css/code.css?rnd=1615234619">
 	
 </head>
 <body>
@@ -66,12 +66,12 @@
 
 			<div>
 				<p>I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@bottle.route(<span style="color:#a31515">&#39;/&#39;</span>)
-<span style="color:#00f">def</span> index():
-    bottle.response.content_type = <span style="color:#a31515">&#39;text/plain&#39;</span>
-    <span style="color:#00f">return</span> (<span style="color:#a31515">&#34;=== API REFERENCE ===</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span> +
-            <span style="color:#a31515">&#34;</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span>.join(x[<span style="color:#a31515">&#39;rule&#39;</span>] <span style="color:#00f">for</span> x <span style="color:#00f">in</span>
-                      bottle.app().routes))
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#5c35cc;font-weight:bold">@bottle.route</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">():</span>
+    <span style="color:#000">bottle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">content_type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;text/plain&#39;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;=== API REFERENCE ===</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span>
+            <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;rule&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span>
+                      <span style="color:#000">bottle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">app</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">routes</span><span style="color:#000;font-weight:bold">))</span>
 </code></pre></div>
 			</div>
 		</article>
@@ -84,15 +84,15 @@
 		<div>
 			<ul>
 				
-				<li><a href="/weblog/shanling-q1/">The Shanling Q1</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama part 5: The Theory</a></li>
 				
-				<li><a href="/weblog/sftp-is-still-around-and-thats-ok/">SFTP is still around and that&#39;s OK</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
 				
-				<li><a href="/weblog/dont-use-tempfiles/">You Don&#39;t Need to Make That Temporary File, Dude</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></li>
 				
-				<li><a href="/weblog/trying-out-rectangle/">Trying out Rectangle</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></li>
 				
-				<li><a href="/weblog/the-post-office-world/">The 2020s and the Post-Office World</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama: A personal/work project (Introduction)</a></li>
 				
 			</ul>
 		</div>

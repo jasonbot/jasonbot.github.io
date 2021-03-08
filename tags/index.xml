@@ -6,13 +6,49 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Mar 2021 05:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hardware</title>
       <link>https://www.jasonscheirer.com/tags/hardware/</link>
-      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://www.jasonscheirer.com/tags/programming/</link>
+      <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software</title>
+      <link>https://www.jasonscheirer.com/tags/software/</link>
+      <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://www.jasonscheirer.com/tags/web/</link>
+      <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zpl-o-rama</title>
+      <link>https://www.jasonscheirer.com/tags/zpl-o-rama/</link>
+      <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/zpl-o-rama/</guid>
       <description></description>
     </item>
     
@@ -31,15 +67,6 @@
       <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/internet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://www.jasonscheirer.com/tags/programming/</link>
-      <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/programming/</guid>
       <description></description>
     </item>
     
