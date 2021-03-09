@@ -9,7 +9,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615250476"><link rel="stylesheet" href="/css/code.css?rnd=1615250476">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615300280"><link rel="stylesheet" href="/css/code.css?rnd=1615300280">
 	
 </head>
 <body>
@@ -103,17 +103,19 @@
 </tbody>
 </table>
 <p>The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&rsquo;s it. That&rsquo;s the synchronization mechanism. A goroutine and a channel.</p>
-<p>Jobs are stored in a <a href="https://github.com/boltdb/bolt">bolt</a> database, which has all the ACID properties I want in a database while being stupid simple to use. Like easier than sqlite. I know, right?</p>
+<p>Jobs are stored in a <a href="https://github.com/boltdb/bolt">Bolt</a> database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?</p>
 <h2 id="login-management">Login Management</h2>
 <p>This lives entirely on the frontend. I&rsquo;m using Google&rsquo;s javascript OAuth2 library along with some backend whitelisting to only allow people with approved Google logins into the privileged endpoints. Permissions are enforced via a custom Echo middleware.</p>
+<blockquote>
 <h3 id="an-aside-making-peace-with-systemd">An aside: Making Peace with <code>systemd</code></h3>
-<p>People like to talk shit about <code>systemd</code>. It&rsquo;s weird, it&rsquo;s disruptive, it tries to do too much.</p>
-<p>First off, at leas it&rsquo;s not <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">launchd</a>, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&rsquo;m running in.</p>
+<p>People like to talk shit about <code>systemd</code>. It&rsquo;s weird, it&rsquo;s disruptive, it tries to do too much.
+First off, at least it&rsquo;s not <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">launchd</a>, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&rsquo;m running in.</p>
+</blockquote>
 <h1 id="keeping-the-software-running">Keeping the software running</h1>
 <h2 id="operating-environment-on-the-server">Operating Environment on the Server</h2>
 <p>I use <a href="https://letsencrypt.org/">letsencrypt</a> for SSL, <a href="https://cloud.google.com/compute">GCP for a VM/IP</a> (Docker would be stupid here), and Nginx as the edge. The conf look like:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#204a87;font-weight:bold">server</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">server_name</span> <span style="color:#4e9a06">my.zplhost.club</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">server_name</span> <span style="color:#4e9a06">ZPL-HOST-DOMAIN.TLD</span><span style="color:#000;font-weight:bold">;</span>
 
     <span style="color:#204a87;font-weight:bold">location</span> <span style="color:#4e9a06">/</span> <span style="color:#000;font-weight:bold">{</span>
       <span style="color:#204a87;font-weight:bold">proxy_set_header</span> <span style="color:#4e9a06">Host</span> <span style="color:#000">$host</span><span style="color:#000;font-weight:bold">;</span>
@@ -134,18 +136,19 @@
 
     <span style="color:#204a87;font-weight:bold">listen</span> <span style="color:#0000cf;font-weight:bold">443</span> <span style="color:#4e9a06">ssl</span><span style="color:#000;font-weight:bold">;</span>
 
-    <span style="color:#204a87;font-weight:bold">ssl_certificate</span> <span style="color:#4e9a06">/etc/letsencrypt/live/my.zplhost.club/fullchain.pem</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">ssl_certificate_key</span> <span style="color:#4e9a06">/etc/letsencrypt/live/my.zplhost.club/privkey.pem</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">ssl_certificate</span> <span style="color:#4e9a06">/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/fullchain.pem</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">ssl_certificate_key</span> <span style="color:#4e9a06">/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/privkey.pem</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#204a87;font-weight:bold">include</span> <span style="color:#4e9a06">/etc/letsencrypt/options-ssl-nginx.conf</span>
     <span style="color:#4e9a06">ssl_dhparam</span> <span style="color:#4e9a06">/etc/letsencrypt/ssl-dhparams.pem</span>
+<span style="color:#a40000">}</span>
 
 <span style="color:#4e9a06">server</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#4e9a06">(</span><span style="color:#000">$host</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">my.zplhost.club)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#4e9a06">(</span><span style="color:#000">$host</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">ZPL-HOST-DOMAIN.TLD)</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">301</span> <span style="color:#4e9a06">https://</span><span style="color:#000">$host$request_uri</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">}</span>
 
     <span style="color:#204a87;font-weight:bold">listen</span> <span style="color:#0000cf;font-weight:bold">80</span> <span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">server_name</span> <span style="color:#4e9a06">my.zplhost.club</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">server_name</span> <span style="color:#4e9a06">ZPL-HOST-DOMAIN.TLD</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">404</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div><p>Basically: use HTTPS, pass through to the frontend service which is bound to a port on localhost via the tunnel. Neat.</p>
@@ -153,14 +156,13 @@
 <p>I have a custom user with limited permissions called <code>zplorama</code>. I had to add it to the group <code>video</code> so it could call <code>raspistill</code>.</p>
 <p>The two service executables operate via simple systemd unit defs:</p>
 <p><strong>Backend</strong></p>
+<p>Fairly simple: run a binary as a specific user in a specific path, restart on fail.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-systemd" data-lang="systemd"><span style="color:#204a87;font-weight:bold">[Unit]</span>
 <span style="color:#c4a000">Description</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">Run the backend printer server on localhost</span>
 <span style="color:#c4a000">After</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">network.target</span>
 
 <span style="color:#204a87;font-weight:bold">[Service]</span>
 <span style="color:#c4a000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">/home/zplorama/bin/printer</span>
-
-<span style="color:#8f5902;font-style:italic"># Restart every &gt;2 seconds to avoid StartLimitInterval failure</span>
 <span style="color:#c4a000">RestartSec</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">5</span>
 <span style="color:#c4a000">Restart</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">always</span>
 <span style="color:#c4a000">User</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">zplorama</span>
@@ -176,8 +178,6 @@
 
 <span style="color:#204a87;font-weight:bold">[Service]</span>
 <span style="color:#c4a000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">/home/zplorama/bin/frontend</span>
-
-<span style="color:#8f5902;font-style:italic"># Restart every &gt;2 seconds to avoid StartLimitInterval failure</span>
 <span style="color:#c4a000">RestartSec</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">5</span>
 <span style="color:#c4a000">Restart</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">always</span>
 <span style="color:#c4a000">User</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">zplorama</span>
@@ -186,16 +186,18 @@
 
 <span style="color:#204a87;font-weight:bold">[Install]</span>
 <span style="color:#c4a000">WantedBy</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">multi-user.target</span>
-</code></pre></div><p>And the ssh connection stays alive via another systemd unit:</p>
+</code></pre></div><p>This is super simple and since I&rsquo;m embedding the config inside the binaries I don&rsquo;t even need to send any command-line flags along.</p>
+<p><strong>Tunnel</strong></p>
+<p>The ssh connection stays alive via another systemd unit:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-systemd" data-lang="systemd"><span style="color:#204a87;font-weight:bold">[Unit]</span>
 <span style="color:#c4a000">Description</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">Setup a secure tunnel to prod for ZPL service</span>
 <span style="color:#c4a000">After</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">network.target</span>
 
 <span style="color:#204a87;font-weight:bold">[Service]</span>
 <span style="color:#c4a000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">ssh -o ExitOnForwardFailure=yes -R 5489:localhost:5489 USER@HOST -N</span>
-
 <span style="color:#c4a000">RestartSec</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">5</span>
 <span style="color:#c4a000">Restart</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">always</span>
+<span style="color:#8f5902;font-style:italic"># Set a hard reset every 6 hours</span>
 <span style="color:#c4a000">RuntimeMaxSec</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">21600</span>
 <span style="color:#c4a000">User</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">zplorama</span>
 <span style="color:#c4a000">Group</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">zplorama</span>
@@ -217,6 +219,7 @@ sudo chown zplorama:zplorama ~zplorama/bin/*
 <span style="color:#204a87;font-weight:bold">done</span>
 </code></pre></div><h1 id="end">End</h1>
 <p>This is the beefiest of the psots because it includes real code. TL;DR: the configuration of the service is larger than the actual code of the service.</p>
+<p><a href="/weblog/zpl-o-rama-part-4">On to part 4 →</a></p>
 
 			</div>
 		</article>
