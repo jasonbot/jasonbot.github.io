@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style type=text/css>body{font-family:monospace;}</style>
-	<title>ZPL-O-Rama Part 2: Concepts</title>
+	<title>ZPL-O-Rama Part 2: Concepts and Architecture</title>
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615245297"><link rel="stylesheet" href="/css/code.css?rnd=1615245297">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615250476"><link rel="stylesheet" href="/css/code.css?rnd=1615250476">
 	
 </head>
 <body>
@@ -54,20 +54,20 @@
 	
 	<main>
 		<article>
-			<h1>ZPL-O-Rama Part 2: Concepts</h1>
+			<h1>ZPL-O-Rama Part 2: Concepts and Architecture</h1>
 			
 			<b><time>2021-03-08</time></b>
 			
 		       
-		           <a href="/tags/software">software</a>
+		           <a class="taglink" href="/tags/software">software</a>
         	       
-		           <a href="/tags/hardware">hardware</a>
+		           <a class="taglink" href="/tags/hardware">hardware</a>
         	       
-		           <a href="/tags/web">web</a>
+		           <a class="taglink" href="/tags/web">web</a>
         	       
-		           <a href="/tags/programming">programming</a>
+		           <a class="taglink" href="/tags/programming">programming</a>
         	       
-		           <a href="/tags/zpl-o-rama">zpl-o-rama</a>
+		           <a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
         	       
 
 			<div>
@@ -89,6 +89,17 @@
 <p>This is probably going to be the same thing as above, with the webapp. The printer prints, the camera cams, the webapp reconveys the image to the user.</p>
 <h1 id="moving-on">Moving on</h1>
 <p>Moving forward, we abstractly have all the conceptual parts we&rsquo;ll need to make this service thought out. Now for the details.</p>
+<h1 id="lets-talk-architecture">Let&rsquo;s Talk Architecture</h1>
+<p>The next thing I needed to do was plan out how this would work. I made a diagram to make sure I wasn&rsquo;t missing anything.</p>
+<p>
+<figure>
+  <img src="/images/zpl-o-rama/zpl-o-rama-architecture.svg" alt="Architecture Diagram" />
+</figure>
+
+
+</p>
+<p>I&rsquo;ll use Nginx at the edge to route to a frontend application. Then I&rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.</p>
+<p>Then, I&rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.</p>
 
 			</div>
 		</article>
@@ -105,9 +116,9 @@
 				
 				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
 				
-				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Software</a></li>
 				
-				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts and Architecture</a></li>
 				
 				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama Part 1: A personal/work project (Introduction)</a></li>
 				

@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style type=text/css>body{font-family:monospace;}</style>
-	<title>ZPL-O-Rama Part 3: Concepts, Architecture, Software</title>
+	<title>ZPL-O-Rama Part 3: Software</title>
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615245297"><link rel="stylesheet" href="/css/code.css?rnd=1615245297">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615250476"><link rel="stylesheet" href="/css/code.css?rnd=1615250476">
 	
 </head>
 <body>
@@ -54,36 +54,25 @@
 	
 	<main>
 		<article>
-			<h1>ZPL-O-Rama Part 3: Concepts, Architecture, Software</h1>
+			<h1>ZPL-O-Rama Part 3: Software</h1>
 			
 			<b><time>2021-03-08</time></b>
 			
 		       
-		           <a href="/tags/software">software</a>
+		           <a class="taglink" href="/tags/software">software</a>
         	       
-		           <a href="/tags/hardware">hardware</a>
+		           <a class="taglink" href="/tags/hardware">hardware</a>
         	       
-		           <a href="/tags/web">web</a>
+		           <a class="taglink" href="/tags/web">web</a>
         	       
-		           <a href="/tags/programming">programming</a>
+		           <a class="taglink" href="/tags/programming">programming</a>
         	       
-		           <a href="/tags/zpl-o-rama">zpl-o-rama</a>
+		           <a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
         	       
 
 			<div>
-				<h1 id="lets-talk-architecture">Let&rsquo;s Talk Architecture</h1>
-<p>The next thing I needed to do was plan out how this would work. I made a diagram to make sure I wasn&rsquo;t missing anything.</p>
-<p>
-<figure>
-  <img src="/images/zpl-o-rama/zpl-o-rama-architecture.svg" alt="Architecture Diagram" />
-</figure>
-
-
-</p>
-<p>I&rsquo;ll use Nginx at the edge to route to a frontend application. Then I&rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.</p>
-<p>Then, I&rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.</p>
-<h2 id="running-the-software">Running the software</h2>
-<h3 id="frontend-server">Frontend server</h3>
+				<h1 id="running-the-software">Running the software</h1>
+<h2 id="frontend-server">Frontend server</h2>
 <p>The frontend has three responsibilities:</p>
 <ol>
 <li>Display information</li>
@@ -93,7 +82,7 @@
 <p>I&rsquo;m using Go&rsquo;s base templates for dynamic content, the <a href="https://echo.labstack.com/">Echo framework</a> for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</p>
 <p>The page is fast and I am attempting to capitalize on the whole &ldquo;Hotwire&rdquo; trend by using <code>innerHTML</code> for some stuff on pages. Look how leader my thoughts are!</p>
 <p>Not that it&rsquo;s necessary. The pages themselves render blazingly fast since they are so resource lean.</p>
-<h3 id="backend-server">Backend server</h3>
+<h2 id="backend-server">Backend server</h2>
 <p>The backend server is a simple Go server with an even simpler API:</p>
 <table>
 <thead>
@@ -115,13 +104,13 @@
 </table>
 <p>The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&rsquo;s it. That&rsquo;s the synchronization mechanism. A goroutine and a channel.</p>
 <p>Jobs are stored in a <a href="https://github.com/boltdb/bolt">bolt</a> database, which has all the ACID properties I want in a database while being stupid simple to use. Like easier than sqlite. I know, right?</p>
-<h3 id="login-management">Login Management</h3>
+<h2 id="login-management">Login Management</h2>
 <p>This lives entirely on the frontend. I&rsquo;m using Google&rsquo;s javascript OAuth2 library along with some backend whitelisting to only allow people with approved Google logins into the privileged endpoints. Permissions are enforced via a custom Echo middleware.</p>
-<h4 id="an-aside-making-peace-with-systemd">An aside: Making Peace with <code>systemd</code></h4>
+<h3 id="an-aside-making-peace-with-systemd">An aside: Making Peace with <code>systemd</code></h3>
 <p>People like to talk shit about <code>systemd</code>. It&rsquo;s weird, it&rsquo;s disruptive, it tries to do too much.</p>
 <p>First off, at leas it&rsquo;s not <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">launchd</a>, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&rsquo;m running in.</p>
-<h2 id="keeping-the-software-running">Keeping the software running</h2>
-<h3 id="operating-environment-on-the-server">Operating Environment on the Server</h3>
+<h1 id="keeping-the-software-running">Keeping the software running</h1>
+<h2 id="operating-environment-on-the-server">Operating Environment on the Server</h2>
 <p>I use <a href="https://letsencrypt.org/">letsencrypt</a> for SSL, <a href="https://cloud.google.com/compute">GCP for a VM/IP</a> (Docker would be stupid here), and Nginx as the edge. The conf look like:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#204a87;font-weight:bold">server</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">server_name</span> <span style="color:#4e9a06">my.zplhost.club</span><span style="color:#000;font-weight:bold">;</span>
@@ -160,7 +149,7 @@
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">404</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div><p>Basically: use HTTPS, pass through to the frontend service which is bound to a port on localhost via the tunnel. Neat.</p>
-<h3 id="operating-environment-on-the-pi">Operating Environment on the Pi</h3>
+<h2 id="operating-environment-on-the-pi">Operating Environment on the Pi</h2>
 <p>I have a custom user with limited permissions called <code>zplorama</code>. I had to add it to the group <code>video</code> so it could call <code>raspistill</code>.</p>
 <p>The two service executables operate via simple systemd unit defs:</p>
 <p><strong>Backend</strong></p>
@@ -214,7 +203,7 @@
 
 <span style="color:#204a87;font-weight:bold">[Install]</span>
 <span style="color:#c4a000">WantedBy</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">multi-user.target</span>
-</code></pre></div><h3 id="deployment">Deployment</h3>
+</code></pre></div><h2 id="deployment">Deployment</h2>
 <p>Deployment involves doing a <code>git pull</code>, a <code>make clean &amp;&amp; make</code>, <code>cp ./bin/ ~zplorama/bin</code>, and then using <code>sudo service restart</code>. This could be a script, even!</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic">#! /bin/bash
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87">cd</span> zpl-o-rama
@@ -244,9 +233,9 @@ sudo chown zplorama:zplorama ~zplorama/bin/*
 				
 				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
 				
-				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Software</a></li>
 				
-				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></li>
+				<li><a href="/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts and Architecture</a></li>
 				
 				<li><a href="/weblog/zpl-o-rama-part-1/">ZPL-O-Rama Part 1: A personal/work project (Introduction)</a></li>
 				

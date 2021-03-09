@@ -10,7 +10,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615245297"><link rel="stylesheet" href="/css/code.css?rnd=1615245297">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615250476"><link rel="stylesheet" href="/css/code.css?rnd=1615250476">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -62,15 +62,15 @@
 	<b><time>2021-03-08</time></b>
 	
 	
-	<a href="/tags/software">software</a>
+	<a class="taglink" href="/tags/software">software</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/web">web</a>
+	<a class="taglink" href="/tags/web">web</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	<a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
 	
 	<div>
 		End product Please disregard the poor camera placement, it has since been fixed.
@@ -89,15 +89,15 @@ Networks are slow and the dual tier service thing is bad, actually I initially c
 	<b><time>2021-03-08</time></b>
 	
 	
-	<a href="/tags/software">software</a>
+	<a class="taglink" href="/tags/software">software</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/web">web</a>
+	<a class="taglink" href="/tags/web">web</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	<a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
 	
 	<div>
 		Hardware The RPi The Raspberry Pi is a (I think) Pi 3 with Wifi I found in the garage with a cheap clear acrylic case. It might have been a RetroPie rig in a prior life? Or one I was &ldquo;gonna get around to&rdquo; doing something with and finally did?
@@ -111,25 +111,24 @@ The Printer The printer is a hefty boi, a Zebra something or other.
 
 		
 			<article>
-	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Concepts, Architecture, Software</a></h1>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Software</a></h1>
 	
 	<b><time>2021-03-08</time></b>
 	
 	
-	<a href="/tags/software">software</a>
+	<a class="taglink" href="/tags/software">software</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/web">web</a>
+	<a class="taglink" href="/tags/web">web</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	<a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
 	
 	<div>
-		Let&rsquo;s Talk Architecture The next thing I needed to do was plan out how this would work. I made a diagram to make sure I wasn&rsquo;t missing anything.
-   I&rsquo;ll use Nginx at the edge to route to a frontend application. Then I&rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.
-Then, I&rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.
+		Running the software Frontend server The frontend has three responsibilities:
+ Display information Perform access control (don&rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&rsquo;m using Go&rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.
 		
 			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">Read more...</a>
 		
@@ -138,20 +137,20 @@ Then, I&rsquo;ll present the user a nice web service hosted on a machine on the 
 
 		
 			<article>
-	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts</a></h1>
+	<h1><a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/">ZPL-O-Rama Part 2: Concepts and Architecture</a></h1>
 	
 	<b><time>2021-03-08</time></b>
 	
 	
-	<a href="/tags/software">software</a>
+	<a class="taglink" href="/tags/software">software</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/web">web</a>
+	<a class="taglink" href="/tags/web">web</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	<a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
 	
 	<div>
 		Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
@@ -169,15 +168,15 @@ Then, I&rsquo;ll present the user a nice web service hosted on a machine on the 
 	<b><time>2021-03-08</time></b>
 	
 	
-	<a href="/tags/software">software</a>
+	<a class="taglink" href="/tags/software">software</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/web">web</a>
+	<a class="taglink" href="/tags/web">web</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/zpl-o-rama">zpl-o-rama</a>
+	<a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
 	
 	<div>
 		Introduction In my spare time on weekends in between errands and mornings before everyone wakes up, I&rsquo;ve been working on a little project I&rsquo;ve been having a lot of fun with: ZPL-O-Rama.
@@ -195,9 +194,9 @@ The Problem A large part of my employer&rsquo;s line of business is creating shi
 	<b><time>2021-02-21</time></b>
 	
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/music">music</a>
+	<a class="taglink" href="/tags/music">music</a>
 	
 	<div>
 		Introduction A while ago I was bored with the Mechanical Keyboard rabbit hole and started looking into other, equally strange rabbit holes to dive into. At the same time, I hit my iPod Classic&rsquo;s 160GB limit and I&rsquo;m not yet ready to hack it up to have bigger storage, but to keep it in working condition for posterity as it may find a better home in the future with some collector who is better at soldering than I.
@@ -214,9 +213,9 @@ The Problem A large part of my employer&rsquo;s line of business is creating shi
 	<b><time>2021-02-18</time></b>
 	
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/internet">internet</a>
+	<a class="taglink" href="/tags/internet">internet</a>
 	
 	<div>
 		So it&rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.
@@ -235,9 +234,9 @@ SFTP is format agnostic This goes for HTTP as well, but you need to correctly se
 	<b><time>2021-02-12</time></b>
 	
 	
-	<a href="/tags/python">python</a>
+	<a class="taglink" href="/tags/python">python</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
 	<div>
 		This was initially a blog post I wrote on my employer&rsquo;s internal system, but it&rsquo;s interestingly useful and it doesn&rsquo;t contain any trade secrets so I figure I&rsquo;ll share.
@@ -256,7 +255,7 @@ You very seldom ACTUALLY need to do this. The BytesIO class follows the exact sa
 	<b><time>2021-02-08</time></b>
 	
 	
-	<a href="/tags/mac">mac</a>
+	<a class="taglink" href="/tags/mac">mac</a>
 	
 	<div>
 		I&rsquo;ve been using the Rectangle window manager for mac for the last couple of weeks and it&rsquo;s been the most helpful thing since Mission Control (and setting up a hot corner to activate it).
@@ -274,9 +273,9 @@ I&rsquo;ve tried to use full tiling managers before but I&rsquo;ve found it diff
 	<b><time>2021-02-08</time></b>
 	
 	
-	<a href="/tags/work">work</a>
+	<a class="taglink" href="/tags/work">work</a>
 	
-	<a href="/tags/life">life</a>
+	<a class="taglink" href="/tags/life">life</a>
 	
 	<div>
 		I moved to the Bay Area 6 years ago after stubbornly refusing to for over a decade before because I wanted to be in the middle of the world of software. 2020 made some of that luster wear off.
@@ -294,9 +293,9 @@ Our office closed at the end of March, 2020, for what was scheduled to be 2 mont
 	<b><time>2021-01-19</time></b>
 	
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/pinebook">pinebook</a>
+	<a class="taglink" href="/tags/pinebook">pinebook</a>
 	
 	<div>
 		As the parent of an almost three year old, I don&rsquo;t get much time to myself, and I&rsquo;ve given up on video games that don&rsquo;t have playtimes under 15 minutes (that discounts anything with load times or cutscenes). In my spare time I have to find other things to do that are low impact and can be cut into small amounts of time.
@@ -314,9 +313,9 @@ I&rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has
 	<b><time>2020-02-10</time></b>
 	
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/chromebook">chromebook</a>
+	<a class="taglink" href="/tags/chromebook">chromebook</a>
 	
 	<div>
 		So I bought that dang Chromebook over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.
@@ -333,7 +332,7 @@ I&rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has
 	<b><time>2020-02-08</time></b>
 	
 	
-	<a href="/tags/life">life</a>
+	<a class="taglink" href="/tags/life">life</a>
 	
 	<div>
 		February 8th marks the fifth anniversary of me moving to the Bay Area to work for tech startups. In restrospect it&rsquo;s been a great experience despite it being the Bay Area.
@@ -351,11 +350,11 @@ Culture Living in the Inland Empire, I was an hour away from LA and all that cul
 	<b><time>2020-02-04</time></b>
 	
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/work">work</a>
+	<a class="taglink" href="/tags/work">work</a>
 	
 	<div>
 		I&rsquo;ve been sharecropping on Amazon&rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
@@ -374,7 +373,7 @@ However, when you&rsquo;re on-call, you no longer own your uptime.
 	<b><time>2020-01-04</time></b>
 	
 	
-	<a href="/tags/life">life</a>
+	<a class="taglink" href="/tags/life">life</a>
 	
 	<div>
 		I should probably start blogging again.
@@ -389,9 +388,9 @@ However, when you&rsquo;re on-call, you no longer own your uptime.
 	<b><time>2019-10-10</time></b>
 	
 	
-	<a href="/tags/python">python</a>
+	<a class="taglink" href="/tags/python">python</a>
 	
-	<a href="/tags/work">work</a>
+	<a class="taglink" href="/tags/work">work</a>
 	
 	<div>
 		I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
@@ -408,9 +407,9 @@ The main points:
 	<b><time>2018-05-21</time></b>
 	
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/games">games</a>
+	<a class="taglink" href="/tags/games">games</a>
 	
 	<div>
 		I wrote a handful of different things on my paternity leave, but one of the more interesting ones was this small TIC-80 game where you play a bear.
@@ -425,11 +424,11 @@ The main points:
 	<b><time>2016-12-26</time></b>
 	
 	
-	<a href="/tags/chromebook">chromebook</a>
+	<a class="taglink" href="/tags/chromebook">chromebook</a>
 	
-	<a href="/tags/hardware">hardware</a>
+	<a class="taglink" href="/tags/hardware">hardware</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
 	<div>
 		This is a recycled post from my tumblr weblog
@@ -448,9 +447,9 @@ Turning a Piece of Shit Chromebook into a Good Enough Development Machine Becaus
 	<b><time>2015-05-11</time></b>
 	
 	
-	<a href="/tags/work">work</a>
+	<a class="taglink" href="/tags/work">work</a>
 	
-	<a href="/tags/life">life</a>
+	<a class="taglink" href="/tags/life">life</a>
 	
 	<div>
 		This is a recycled post from my tumblr weblog. I&rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.
@@ -469,9 +468,9 @@ I&rsquo;ve gone from developer at a large software corporation in the suburbs of
 	<b><time>2012-03-25</time></b>
 	
 	
-	<a href="/tags/bottle.py">bottle.py</a>
+	<a class="taglink" href="/tags/bottle.py">bottle.py</a>
 	
-	<a href="/tags/python">python</a>
+	<a class="taglink" href="/tags/python">python</a>
 	
 	<div>
 		I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:
@@ -487,9 +486,9 @@ I&rsquo;ve gone from developer at a large software corporation in the suburbs of
 	<b><time>2010-09-20</time></b>
 	
 	
-	<a href="/tags/c&#43;&#43;">c&#43;&#43;</a>
+	<a class="taglink" href="/tags/c&#43;&#43;">c&#43;&#43;</a>
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
 	<div>
 		For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.
@@ -505,9 +504,9 @@ I read an interview with Bjarne a while back and he said C++’s most important 
 	<b><time>2010-02-09</time></b>
 	
 	
-	<a href="/tags/programming">programming</a>
+	<a class="taglink" href="/tags/programming">programming</a>
 	
-	<a href="/tags/mac">mac</a>
+	<a class="taglink" href="/tags/mac">mac</a>
 	
 	<div>
 		I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.
