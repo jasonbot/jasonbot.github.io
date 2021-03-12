@@ -65,7 +65,7 @@ The Problem A large part of my employer&amp;rsquo;s line of business is creating
       <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/shanling-q1/</guid>
-      <description>Introduction A while ago I was bored with the Mechanical Keyboard rabbit hole and started looking into other, equally strange rabbit holes to dive into. At the same time, I hit my iPod Classic&amp;rsquo;s 160GB limit and I&amp;rsquo;m not yet ready to hack it up to have bigger storage, but to keep it in working condition for posterity as it may find a better home in the future with some collector who is better at soldering than I.</description>
+      <description>Introduction A while ago I was bored with the Mechanical Keyboard rabbit hole and started looking into other, equally strange rabbit holes to dive into. At around the same time I hit my iPod Classic&amp;rsquo;s 160GB limit. I&amp;rsquo;m not yet ready to hack it up to have bigger storage: I plan to keep it in working &amp;ldquo;original&amp;rdquo; condition as it may find a better home in the future with some collector who is better at soldering than I.</description>
     </item>
     
     <item>
@@ -238,7 +238,7 @@ I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat a
       
       <guid>https://www.jasonscheirer.com/about/</guid>
       <description>I am Jason Scheirer, a completely unremarkable software developer in the Bay Area initially from the Inland Empire. A rough timeline of my life as a software engineer:
- Start programming BASIC in elementary school Get a part-time job in late high school writing &amp;ldquo;web applications&amp;rdquo; Get bored in intro CS classes and change majors to Linguistics Backpedal and get as much CS coursework done as possible before hitting the Unit Limit for graduation List about from company to company in SoCal writing software for 10 years, mostly Python/C, mostly geospatial adjacent Move to Bay Area and list about from startup to startup writing software for 6 years and counting, mostly Python  The theme for this weblog is a fork of smol, built in Hugo, and hosted on Github Pages through the magic of a CNAME.</description>
+ Start programming BASIC in elementary school, escalating to pirated QuickBasic and Turbo Pascal, as well as legal but squirrely DJGPP/RHIDE/Allegro Get a part-time job in late high school writing &amp;ldquo;web applications&amp;rdquo; Get bored in intro CS classes and change majors to Linguistics Decide that taking a full courseload is for suckers who like sleep and good grades and take on night classes for TESOL at the same time Backpedal and get as much CS coursework done as possible before hitting the unit limit for graduation, managing to squeeze in the minor just in time List about from company to company in SoCal writing software for 10 years, mostly Python/C, mostly geospatial adjacent Move to Bay Area and list about from startup to startup writing software for 6 years and counting, mostly Python  A rough timeline of my entire life, including the future:</description>
     </item>
     
   </channel>
