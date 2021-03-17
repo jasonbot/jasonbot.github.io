@@ -10,14 +10,11 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615940679"><link rel="stylesheet" href="/css/code.css?rnd=1615940679"><link rel="stylesheet" href="/css/ia-duo.css?rnd=1615940679"><link rel="stylesheet" href="/css/ia-quattro.css?rnd=1615940679">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615957272"><link rel="stylesheet" href="/css/fonts.css?rnd=1615957272">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
 	<header>
-	<h1>Jason Scheirer</h1>
-	<div class="subtitle">A personal web site for a computer person</div><br>
-	<p>
 	<nav>
 			
 				<b>main</b>
@@ -48,7 +45,6 @@
 
 			
 	</nav>
-	</p>
 	
 </header>
 
@@ -77,6 +73,7 @@
        Thinking Back, It Was All So Simple Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&rsquo;s a lit of small things that accrued while working on the project
 Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/">Read more...</a>
 		
 	</div>
@@ -104,6 +101,7 @@ Networks are slow and the dual tier service thing is bad, actually I initially c
 Then for this project I bought a Raspberry Pi camera and a small acrylic case for it, too.
 The Printer The printer is a hefty boi, a Zebra something or other.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4/">Read more...</a>
 		
 	</div>
@@ -130,6 +128,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.
 		Running the software Frontend server The frontend has three responsibilities:
  Display information Perform access control (don&rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&rsquo;m using Go&rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">Read more...</a>
 		
 	</div>
@@ -156,6 +155,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.
 		Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
  A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/">Read more...</a>
 		
 	</div>
@@ -182,6 +182,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.
 		Introduction In my spare time on weekends in between errands and mornings before everyone wakes up, I&rsquo;ve been working on a little project I&rsquo;ve been having a lot of fun with: ZPL-O-Rama.
 The Problem A large part of my employer&rsquo;s line of business is creating shipping labels, and a large number of those aren&rsquo;t simply printed images, but printed on very high volume, heavy duty, industrial grade printers using a proprietary language called ZPL.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-1/">Read more...</a>
 		
 	</div>
@@ -201,6 +202,7 @@ The Problem A large part of my employer&rsquo;s line of business is creating shi
 	<div>
 		Introduction A while ago I was bored with the Mechanical Keyboard rabbit hole and started looking into other, equally strange rabbit holes to dive into. At around the same time I hit my iPod Classic&rsquo;s 160GB limit. I&rsquo;m not yet ready to hack it up to have bigger storage: I plan to keep it in working &ldquo;original&rdquo; condition as it may find a better home in the future with some collector who is better at soldering than I.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/shanling-q1/">Read more...</a>
 		
 	</div>
@@ -222,6 +224,7 @@ The Problem A large part of my employer&rsquo;s line of business is creating shi
 A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.
 SFTP is format agnostic This goes for HTTP as well, but you need to correctly set headers, and there&rsquo;s a constant, incessant push for change for change&rsquo;s sake.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/">Read more...</a>
 		
 	</div>
@@ -243,6 +246,7 @@ SFTP is format agnostic This goes for HTTP as well, but you need to correctly se
  A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
 You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &ldquo;file-like object&rdquo; will accept an in-memory piece of information in addition to a file on disk.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/dont-use-tempfiles/">Read more...</a>
 		
 	</div>
@@ -261,6 +265,7 @@ You very seldom ACTUALLY need to do this. The BytesIO class follows the exact sa
 		I&rsquo;ve been using the Rectangle window manager for mac for the last couple of weeks and it&rsquo;s been the most helpful thing since Mission Control (and setting up a hot corner to activate it).
 I&rsquo;ve tried to use full tiling managers before but I&rsquo;ve found it difficult because 1) Irregularly sized window totally mess up the flow, 2) I am so used to the WIMP paradigm, including moving windows around so I have only been semi-functional with and 3) really weird shortcuts I have to memorize.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/trying-out-rectangle/">Read more...</a>
 		
 	</div>
@@ -281,6 +286,7 @@ I&rsquo;ve tried to use full tiling managers before but I&rsquo;ve found it diff
 		I moved to the Bay Area 6 years ago after stubbornly refusing to for over a decade before because I wanted to be in the middle of the world of software. 2020 made some of that luster wear off.
 Our office closed at the end of March, 2020, for what was scheduled to be 2 months, which eventually stretched out into over 6 months, until finally we were told to clean off our desks by Thanksgiving as we were permanently remote.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/the-post-office-world/">Read more...</a>
 		
 	</div>
@@ -301,6 +307,7 @@ Our office closed at the end of March, 2020, for what was scheduled to be 2 mont
 		As the parent of an almost three year old, I don&rsquo;t get much time to myself, and I&rsquo;ve given up on video games that don&rsquo;t have playtimes under 15 minutes (that discounts anything with load times or cutscenes). In my spare time I have to find other things to do that are low impact and can be cut into small amounts of time.
 I&rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has inspired me to tinker with old software and resource constrained devices.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/pinebook-pro-the-tinkering-laptop/">Read more...</a>
 		
 	</div>
@@ -320,6 +327,7 @@ I&rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has
 	<div>
 		So I bought that dang Chromebook over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/chromebook-still-works/">Read more...</a>
 		
 	</div>
@@ -338,6 +346,7 @@ I&rsquo;ve taken to watching a lot of retrocomputing stuff on YouTube, which has
 		February 8th marks the fifth anniversary of me moving to the Bay Area to work for tech startups. In restrospect it&rsquo;s been a great experience despite it being the Bay Area.
 Culture Living in the Inland Empire, I was an hour away from LA and all that culture, but I never bothered doing it. Living 5 miles outside of San Francisco has mean the City is a constant part of my life: restaurants, concerts, museums, lots of things I could have theoretically done more of in SoCal but never bothered to.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/five-years-in-the-bay/">Read more...</a>
 		
 	</div>
@@ -361,6 +370,7 @@ Culture Living in the Inland Empire, I was an hour away from LA and all that cul
 This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
 However, when you&rsquo;re on-call, you no longer own your uptime.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/own-your-infrastructure/">Read more...</a>
 		
 	</div>
@@ -435,6 +445,7 @@ The main points:
  Ha ha ha just lying the real title should be
 Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &ldquo;willing to pay this much&rdquo; price point: the Chromebook C100P.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/">Read more...</a>
 		
 	</div>
@@ -456,6 +467,7 @@ Turning a Piece of Shit Chromebook into a Good Enough Development Machine Becaus
  Please note I am contractually prohibited from saying what I don&rsquo;t like about most of my prior employers so don&rsquo;t expect any negative posts.
 I&rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/">Read more...</a>
 		
 	</div>
@@ -512,6 +524,7 @@ I read an interview with Bjarne a while back and he said C++’s most important 
 		I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.
 I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat and SuSE were a little hard to get going for beginners, and the packages supplied were always a weird grab bag of old and new.
 		
+			<br />
 			<a href="https://www.jasonscheirer.com/weblog/osx-less-and-less/">Read more...</a>
 		
 	</div>

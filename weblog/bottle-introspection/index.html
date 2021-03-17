@@ -9,14 +9,11 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615940679"><link rel="stylesheet" href="/css/code.css?rnd=1615940679"><link rel="stylesheet" href="/css/ia-duo.css?rnd=1615940679"><link rel="stylesheet" href="/css/ia-quattro.css?rnd=1615940679">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1615957272"><link rel="stylesheet" href="/css/fonts.css?rnd=1615957272">
 	
 </head>
 <body>
 	<header>
-	<h1>Jason Scheirer</h1>
-	<div class="subtitle">A personal web site for a computer person</div><br>
-	<p>
 	<nav>
 			
 				<a href="/"><b>main</b></a>
@@ -47,7 +44,6 @@
 
 			
 	</nav>
-	</p>
 	
 </header>
 
@@ -55,23 +51,26 @@
 	<main>
 		<article>
 			<h1>Stupid simple API reference for bottle.py web services</h1>
+
+			<p>
 			
-			<p><b><time>2012-03-25</time></b></p>
+			<time>2012-03-25</time>
 			
 		       
 		           <a class="taglink" href="/tags/bottle.py">bottle.py</a>
         	       
 		           <a class="taglink" href="/tags/python">python</a>
         	       
-
+			</p>
+			
 			<div>
 				<p>I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#5c35cc;font-weight:bold">@bottle.route</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">():</span>
-    <span style="color:#000">bottle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">content_type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;text/plain&#39;</span>
-    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;=== API REFERENCE ===</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span>
-            <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;rule&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span>
-                      <span style="color:#000">bottle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">app</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">routes</span><span style="color:#000;font-weight:bold">))</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@bottle.route(<span style="color:#b84">&#39;/&#39;</span>)
+<span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">index</span>():
+    bottle<span style="font-weight:bold">.</span>response<span style="font-weight:bold">.</span>content_type <span style="font-weight:bold">=</span> <span style="color:#b84">&#39;text/plain&#39;</span>
+    <span style="font-weight:bold">return</span> (<span style="color:#b84">&#34;=== API REFERENCE ===</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span> <span style="font-weight:bold">+</span>
+            <span style="color:#b84">&#34;</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span><span style="font-weight:bold">.</span>join(x[<span style="color:#b84">&#39;rule&#39;</span>] <span style="font-weight:bold">for</span> x <span style="font-weight:bold">in</span>
+                      bottle<span style="font-weight:bold">.</span>app()<span style="font-weight:bold">.</span>routes))
 </code></pre></div>
 			</div>
 		</article>
