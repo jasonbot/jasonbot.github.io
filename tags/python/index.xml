@@ -6,7 +6,18 @@
     <description>Recent content in python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Feb 2021 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>__all__ is a Sacred Space and you Murderous Goblins are all Profaning it</title>
+      <link>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</guid>
+      <description>Let me spell something out for you trickster-meanies:
+# HELLO I AM thingy.py __all__ = [X, Y, Z] X = True Y = True Z = True Reasonable, right?
+&amp;gt;&amp;gt;&amp;gt; from thingy import * Traceback (most recent call last): File &amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;, line 1, in &amp;lt;module&amp;gt; File &amp;#34;/Users/scheirer/thingy.py&amp;#34;, line 1, in &amp;lt;module&amp;gt; __all__ = [X, Y, Z] NameError: name &amp;#39;X&amp;#39; is not defined Python is older than my son (who is 3) and yet you abuse it.</description>
+    </item>
+    
     <item>
       <title>You Don&#39;t Need to Make That Temporary File, Dude</title>
       <link>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</link>

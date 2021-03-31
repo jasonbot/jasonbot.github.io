@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
-    <lastmod>2021-03-08T05:00:00+00:00</lastmod>
+    <loc>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</loc>
+    <lastmod>2021-03-31T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2021-03-31T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/python/</loc>
+    <lastmod>2021-03-31T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2021-03-31T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
     <lastmod>2021-03-08T05:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/programming/</loc>
     <lastmod>2021-03-08T05:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/software/</loc>
-    <lastmod>2021-03-08T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2021-03-08T05:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/web/</loc>
@@ -49,9 +55,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/</loc>
     <lastmod>2021-02-18T08:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/python/</loc>
-    <lastmod>2021-02-12T08:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</loc>
     <lastmod>2021-02-12T08:00:00-08:00</lastmod>

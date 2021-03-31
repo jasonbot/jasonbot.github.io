@@ -30,16 +30,6 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
     </item>
     
     <item>
-      <title>ZPL-O-Rama Part 3: Software</title>
-      <link>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/</link>
-      <pubDate>Mon, 08 Mar 2021 03:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/</guid>
-      <description>Running the software Frontend server The frontend has three responsibilities:
- Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
-    </item>
-    
-    <item>
       <title>ZPL-O-Rama Part 2: Concepts and Architecture</title>
       <link>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/</link>
       <pubDate>Mon, 08 Mar 2021 02:00:00 +0000</pubDate>
