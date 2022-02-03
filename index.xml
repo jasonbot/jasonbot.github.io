@@ -6,7 +6,30 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Here is me sharing what I know</title>
+      <link>https://www.jasonscheirer.com/weblog/sharing-what-i-know/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/sharing-what-i-know/</guid>
+      <description>https://twitter.com/zachleat/status/1488941901500010496
+ some of y’all are out here just knowing things without sharing what you know on a blog post—why
+ I do not know you a singular god damned thing, period, and it is not my job to provide internet strangers with summeries of my hard-earned lessons. Especially is idiots will comment about it on hacker new or whatever.</description>
+    </item>
+    
+    <item>
+      <title>Python as a Language is Uninvocably Coupled with its Implementation Part 1: LET&#39;S DO DUMB SHIT WITH THE GC</title>
+      <link>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation/</guid>
+      <description>There is a convenient but untrue fiction about Python that the language specification is somehow cleanroom and CPython is actually &amp;ldquo;just an implementation.&amp;rdquo;
+This has always been false, and harmful at best.
+Look at __dict__. Near every Python object has a dictionary that fuels and consumes it. All your dotted getters are mere passthroughs for dot __getitem__ers.
+Another fun thing is the leaking of implementation details in Bad Ways. Here&amp;rsquo;s something you can do but should not do, lest I find out where you live and poop in your mailbox:</description>
+    </item>
+    
     <item>
       <title>__all__ is a Sacred Space and you Murderous Goblins are all Profaning it</title>
       <link>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</link>

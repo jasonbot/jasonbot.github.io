@@ -6,7 +6,18 @@
     <description>Recent content in programming on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Mar 2021 05:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Here is me sharing what I know</title>
+      <link>https://www.jasonscheirer.com/weblog/sharing-what-i-know/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/sharing-what-i-know/</guid>
+      <description>https://twitter.com/zachleat/status/1488941901500010496
+ some of y’all are out here just knowing things without sharing what you know on a blog post—why
+ I do not know you a singular god damned thing, period, and it is not my job to provide internet strangers with summeries of my hard-earned lessons. Especially is idiots will comment about it on hacker new or whatever.</description>
+    </item>
+    
     <item>
       <title>ZPL-O-Rama Part 5: Postscript</title>
       <link>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/</link>
