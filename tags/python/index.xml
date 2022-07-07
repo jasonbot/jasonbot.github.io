@@ -37,7 +37,7 @@ Another fun thing is the leaking of implementation details in Bad Ways. Here&amp
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.
- A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
+A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
 You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk.</description>
     </item>
     
@@ -49,7 +49,7 @@ You very seldom ACTUALLY need to do this. The BytesIO class follows the exact sa
       <guid>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</guid>
       <description>I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
 The main points:
- We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice  </description>
+We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice </description>
     </item>
     
     <item>

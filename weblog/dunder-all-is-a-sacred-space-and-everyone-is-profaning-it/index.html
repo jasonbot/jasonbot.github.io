@@ -9,7 +9,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1648675533"><link rel="stylesheet" href="/css/fonts.css?rnd=1648675533">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1657217584"><link rel="stylesheet" href="/css/fonts.css?rnd=1657217584">
 	
 </head>
 <body>
@@ -63,20 +63,20 @@
 			
 			<div>
 				<p>Let me spell something out for you trickster-meanies:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic"># HELLO I AM thingy.py</span>
-__all__ <span style="font-weight:bold">=</span> [X, Y, Z]
-
-X <span style="font-weight:bold">=</span> <span style="font-weight:bold">True</span>
-Y <span style="font-weight:bold">=</span> <span style="font-weight:bold">True</span>
-Z <span style="font-weight:bold">=</span> <span style="font-weight:bold">True</span>
-</code></pre></div><p>Reasonable, right?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">&gt;&gt;&gt;</span> <span style="font-weight:bold">from</span> <span style="color:#555">thingy</span> <span style="font-weight:bold">import</span> <span style="font-weight:bold">*</span>
-Traceback (most recent call last):
-  File <span style="color:#b84">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#099">1</span>, <span style="font-weight:bold">in</span> <span style="font-weight:bold">&lt;</span>module<span style="font-weight:bold">&gt;</span>
-  File <span style="color:#b84">&#34;/Users/scheirer/thingy.py&#34;</span>, line <span style="color:#099">1</span>, <span style="font-weight:bold">in</span> <span style="font-weight:bold">&lt;</span>module<span style="font-weight:bold">&gt;</span>
-    __all__ <span style="font-weight:bold">=</span> [X, Y, Z]
-<span style="color:#900;font-weight:bold">NameError</span>: name <span style="color:#b84">&#39;X&#39;</span> <span style="font-weight:bold">is</span> <span style="font-weight:bold">not</span> defined
-</code></pre></div><p>Python is older than my son (who is 3) and yet you abuse it. You monsters. You goblins. You haters. You fuckerinos.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># HELLO I AM thingy.py</span>
+</span></span><span style="display:flex;"><span>__all__ <span style="font-weight:bold">=</span> [X, Y, Z]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="font-weight:bold">=</span> <span style="font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>Y <span style="font-weight:bold">=</span> <span style="font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>Z <span style="font-weight:bold">=</span> <span style="font-weight:bold">True</span>
+</span></span></code></pre></div><p>Reasonable, right?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">&gt;&gt;&gt;</span> <span style="font-weight:bold">from</span> <span style="color:#555">thingy</span> <span style="font-weight:bold">import</span> <span style="font-weight:bold">*</span>
+</span></span><span style="display:flex;"><span>Traceback (most recent call last):
+</span></span><span style="display:flex;"><span>  File <span style="color:#b84">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#099">1</span>, <span style="font-weight:bold">in</span> <span style="font-weight:bold">&lt;</span>module<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  File <span style="color:#b84">&#34;/Users/scheirer/thingy.py&#34;</span>, line <span style="color:#099">1</span>, <span style="font-weight:bold">in</span> <span style="font-weight:bold">&lt;</span>module<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    __all__ <span style="font-weight:bold">=</span> [X, Y, Z]
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">NameError</span>: name <span style="color:#b84">&#39;X&#39;</span> <span style="font-weight:bold">is</span> <span style="font-weight:bold">not</span> defined
+</span></span></code></pre></div><p>Python is older than my son (who is 3) and yet you abuse it. You monsters. You goblins. You haters. You fuckerinos.</p>
 <p>Look: <code>__all__</code> is a list of GOD DAMN STRING IDENTIFIERS, NOT ACTUAL OBJECTS, AND IT INFORMS A PATTERN YOU RIGHTFULLY DON&rsquo;T USE BECAUSE YOU NEVER SEE THAT <code>NameError</code>.</p>
 <p><code>__all__</code> is <code>['X', 'Y', 'Z']</code> and not your list of variable names, it&rsquo;s your list of export names.</p>
 <p><code>__all__</code> is, and has always been, a list of <em>STRINGS</em> to be exported from your idiot module into your idiot notebook.</p>
@@ -85,29 +85,6 @@ Traceback (most recent call last):
 			</div>
 		</article>
 	</main>
-<aside>
-	<div>
-		<div>
-			<h3>Latest Posts</h3>
-		</div>
-		<div>
-			<ul>
-				
-				<li><a href="/weblog/python-will-never-be-decoupled-from-its-implementation/">Python as a Language is Unescabably Coupled with its Implementation Part 1: LET&#39;S DO DUMB SHIT WITH THE GC</a></li>
-				
-				<li><a href="/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/">__all__ is a Sacred Space and you Murderous Goblins are all Profaning it</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama Part 5: Postscript</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Software</a></li>
-				
-			</ul>
-		</div>
-	</div>
-</aside>
-
 
 	<footer>
 	<p>&copy; 2022 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.

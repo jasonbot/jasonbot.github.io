@@ -9,7 +9,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1648675533"><link rel="stylesheet" href="/css/fonts.css?rnd=1648675533">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1657217584"><link rel="stylesheet" href="/css/fonts.css?rnd=1657217584">
 	
 </head>
 <body>
@@ -65,39 +65,16 @@
 			
 			<div>
 				<p>I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@bottle<span style="font-weight:bold">.</span>route(<span style="color:#b84">&#39;/&#39;</span>)
-<span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">index</span>():
-    bottle<span style="font-weight:bold">.</span>response<span style="font-weight:bold">.</span>content_type <span style="font-weight:bold">=</span> <span style="color:#b84">&#39;text/plain&#39;</span>
-    <span style="font-weight:bold">return</span> (<span style="color:#b84">&#34;=== API REFERENCE ===</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span> <span style="font-weight:bold">+</span>
-            <span style="color:#b84">&#34;</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span><span style="font-weight:bold">.</span>join(x[<span style="color:#b84">&#39;rule&#39;</span>] <span style="font-weight:bold">for</span> x <span style="font-weight:bold">in</span>
-                      bottle<span style="font-weight:bold">.</span>app()<span style="font-weight:bold">.</span>routes))
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>@bottle<span style="font-weight:bold">.</span>route(<span style="color:#b84">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">index</span>():
+</span></span><span style="display:flex;"><span>    bottle<span style="font-weight:bold">.</span>response<span style="font-weight:bold">.</span>content_type <span style="font-weight:bold">=</span> <span style="color:#b84">&#39;text/plain&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> (<span style="color:#b84">&#34;=== API REFERENCE ===</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span> <span style="font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#b84">&#34;</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span><span style="font-weight:bold">.</span>join(x[<span style="color:#b84">&#39;rule&#39;</span>] <span style="font-weight:bold">for</span> x <span style="font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>                      bottle<span style="font-weight:bold">.</span>app()<span style="font-weight:bold">.</span>routes))
+</span></span></code></pre></div>
 			</div>
 		</article>
 	</main>
-<aside>
-	<div>
-		<div>
-			<h3>Latest Posts</h3>
-		</div>
-		<div>
-			<ul>
-				
-				<li><a href="/weblog/python-will-never-be-decoupled-from-its-implementation/">Python as a Language is Unescabably Coupled with its Implementation Part 1: LET&#39;S DO DUMB SHIT WITH THE GC</a></li>
-				
-				<li><a href="/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/">__all__ is a Sacred Space and you Murderous Goblins are all Profaning it</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama Part 5: Postscript</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Software</a></li>
-				
-			</ul>
-		</div>
-	</div>
-</aside>
-
 
 	<footer>
 	<p>&copy; 2022 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.

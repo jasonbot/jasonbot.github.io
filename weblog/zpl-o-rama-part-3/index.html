@@ -9,7 +9,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1648675533"><link rel="stylesheet" href="/css/fonts.css?rnd=1648675533">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1657217584"><link rel="stylesheet" href="/css/fonts.css?rnd=1657217584">
 	
 </head>
 <body>
@@ -111,139 +111,116 @@ First off, at least it&rsquo;s not <a href="https://developer.apple.com/library/
 <h1 id="keeping-the-software-running">Keeping the software running</h1>
 <h2 id="operating-environment-on-the-server">Operating Environment on the Server</h2>
 <p>I use <a href="https://letsencrypt.org/">letsencrypt</a> for SSL, <a href="https://cloud.google.com/compute">GCP for a VM/IP</a> (Docker would be stupid here), and Nginx as the edge. The conf look like:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="font-weight:bold">server</span> {
-    <span style="font-weight:bold">server_name</span> <span style="color:#b84">ZPL-HOST-DOMAIN.TLD</span>;
-
-    <span style="font-weight:bold">location</span> <span style="color:#b84">/</span> {
-      <span style="font-weight:bold">proxy_set_header</span> <span style="color:#b84">Host</span> <span style="color:#008080">$host</span>;
-
-      <span style="font-weight:bold">proxy_pass</span> <span style="color:#b84">http://127.0.0.1:5489</span>;
-      <span style="font-weight:bold">proxy_buffering</span> <span style="color:#008080">on</span>;
-      <span style="font-weight:bold">proxy_redirect</span> <span style="color:#008080">off</span>;
-      <span style="font-weight:bold">proxy_http_version</span> <span style="color:#099">1</span><span style="color:#b84">.1</span>;
-      <span style="font-weight:bold">proxy_cache</span> <span style="color:#008080">off</span>;
-
-      <span style="font-weight:bold">tcp_nodelay</span> <span style="color:#008080">on</span>;
-    }
-
-    <span style="font-weight:bold">error_page</span> <span style="color:#099">502</span> <span style="color:#b84">/502.html</span>;
-    <span style="font-weight:bold">location</span> = <span style="color:#b84">/502.html</span> {
-      <span style="font-weight:bold">root</span>  <span style="color:#b84">/home/zplorama/public</span>;
-    }
-
-    <span style="font-weight:bold">listen</span> <span style="color:#099">443</span> <span style="color:#b84">ssl</span>;
-
-    <span style="font-weight:bold">ssl_certificate</span> <span style="color:#b84">/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/fullchain.pem</span>;
-    <span style="font-weight:bold">ssl_certificate_key</span> <span style="color:#b84">/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/privkey.pem</span>;
-    <span style="font-weight:bold">include</span> <span style="color:#b84">/etc/letsencrypt/options-ssl-nginx.conf</span>
-    <span style="color:#b84">ssl_dhparam</span> <span style="color:#b84">/etc/letsencrypt/ssl-dhparams.pem</span>
-<span style="color:#a61717;background-color:#e3d2d2">}</span>
-
-<span style="color:#b84">server</span> {
-    <span style="font-weight:bold">if</span> <span style="color:#b84">(</span><span style="color:#008080">$host</span> = <span style="color:#b84">ZPL-HOST-DOMAIN.TLD)</span> {
-        <span style="font-weight:bold">return</span> <span style="color:#099">301</span> <span style="color:#b84">https://</span><span style="color:#008080">$host$request_uri</span>;
-    }
-
-    <span style="font-weight:bold">listen</span> <span style="color:#099">80</span> ;
-    <span style="font-weight:bold">server_name</span> <span style="color:#b84">ZPL-HOST-DOMAIN.TLD</span>;
-    <span style="font-weight:bold">return</span> <span style="color:#099">404</span>;
-}
-</code></pre></div><p>Basically: use HTTPS, pass through to the frontend service which is bound to a port on localhost via the tunnel. Neat.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">server_name</span> <span style="color:#b84">ZPL-HOST-DOMAIN.TLD</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">location</span> <span style="color:#b84">/</span> {
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">proxy_set_header</span> <span style="color:#b84">Host</span> <span style="color:#008080">$host</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">proxy_pass</span> <span style="color:#b84">http://127.0.0.1:5489</span>;
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">proxy_buffering</span> <span style="color:#008080">on</span>;
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">proxy_redirect</span> <span style="color:#008080">off</span>;
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">proxy_http_version</span> <span style="color:#099">1</span><span style="color:#b84">.1</span>;
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">proxy_cache</span> <span style="color:#008080">off</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">tcp_nodelay</span> <span style="color:#008080">on</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">error_page</span> <span style="color:#099">502</span> <span style="color:#b84">/502.html</span>;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">location</span> = <span style="color:#b84">/502.html</span> {
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">root</span>  <span style="color:#b84">/home/zplorama/public</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">listen</span> <span style="color:#099">443</span> <span style="color:#b84">ssl</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">ssl_certificate</span> <span style="color:#b84">/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/fullchain.pem</span>;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">ssl_certificate_key</span> <span style="color:#b84">/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/privkey.pem</span>;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">include</span> <span style="color:#b84">/etc/letsencrypt/options-ssl-nginx.conf</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b84">ssl_dhparam</span> <span style="color:#b84">/etc/letsencrypt/ssl-dhparams.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b84">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">if</span> <span style="color:#b84">(</span><span style="color:#008080">$host</span> = <span style="color:#b84">ZPL-HOST-DOMAIN.TLD)</span> {
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">return</span> <span style="color:#099">301</span> <span style="color:#b84">https://</span><span style="color:#008080">$host$request_uri</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">listen</span> <span style="color:#099">80</span> ;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">server_name</span> <span style="color:#b84">ZPL-HOST-DOMAIN.TLD</span>;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> <span style="color:#099">404</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Basically: use HTTPS, pass through to the frontend service which is bound to a port on localhost via the tunnel. Neat.</p>
 <h2 id="operating-environment-on-the-pi">Operating Environment on the Pi</h2>
 <p>I have a custom user with limited permissions called <code>zplorama</code>. I had to add it to the group <code>video</code> so it could call <code>raspistill</code>.</p>
 <p>The two service executables operate via simple systemd unit defs:</p>
 <p><strong>Backend</strong></p>
 <p>Fairly simple: run a binary as a specific user in a specific path, restart on fail.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-systemd" data-lang="systemd"><span style="font-weight:bold">[Unit]</span>
-<span style="color:#008080">Description</span><span style="font-weight:bold">=</span><span style="color:#b84">Run the backend printer server on localhost</span>
-<span style="color:#008080">After</span><span style="font-weight:bold">=</span><span style="color:#b84">network.target</span>
-
-<span style="font-weight:bold">[Service]</span>
-<span style="color:#008080">ExecStart</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama/bin/printer</span>
-<span style="color:#008080">RestartSec</span><span style="font-weight:bold">=</span><span style="color:#b84">5</span>
-<span style="color:#008080">Restart</span><span style="font-weight:bold">=</span><span style="color:#b84">always</span>
-<span style="color:#008080">User</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
-<span style="color:#008080">Group</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
-<span style="color:#008080">WorkingDirectory</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama</span>
-
-<span style="font-weight:bold">[Install]</span>
-<span style="color:#008080">WantedBy</span><span style="font-weight:bold">=</span><span style="color:#b84">multi-user.target</span>
-</code></pre></div><p><strong>Frontend</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-systemd" data-lang="systemd"><span style="font-weight:bold">[Unit]</span>
-<span style="color:#008080">Description</span><span style="font-weight:bold">=</span><span style="color:#b84">Run the frontend printer server on localhost</span>
-<span style="color:#008080">After</span><span style="font-weight:bold">=</span><span style="color:#b84">network.target</span>
-
-<span style="font-weight:bold">[Service]</span>
-<span style="color:#008080">ExecStart</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama/bin/frontend</span>
-<span style="color:#008080">RestartSec</span><span style="font-weight:bold">=</span><span style="color:#b84">5</span>
-<span style="color:#008080">Restart</span><span style="font-weight:bold">=</span><span style="color:#b84">always</span>
-<span style="color:#008080">User</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
-<span style="color:#008080">Group</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
-<span style="color:#008080">WorkingDirectory</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama</span>
-
-<span style="font-weight:bold">[Install]</span>
-<span style="color:#008080">WantedBy</span><span style="font-weight:bold">=</span><span style="color:#b84">multi-user.target</span>
-</code></pre></div><p>This is super simple and since I&rsquo;m embedding the config inside the binaries I don&rsquo;t even need to send any command-line flags along.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="font-weight:bold">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Description</span><span style="font-weight:bold">=</span><span style="color:#b84">Run the backend printer server on localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">After</span><span style="font-weight:bold">=</span><span style="color:#b84">network.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ExecStart</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama/bin/printer</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">RestartSec</span><span style="font-weight:bold">=</span><span style="color:#b84">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Restart</span><span style="font-weight:bold">=</span><span style="color:#b84">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">User</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Group</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">WorkingDirectory</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">WantedBy</span><span style="font-weight:bold">=</span><span style="color:#b84">multi-user.target</span>
+</span></span></code></pre></div><p><strong>Frontend</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="font-weight:bold">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Description</span><span style="font-weight:bold">=</span><span style="color:#b84">Run the frontend printer server on localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">After</span><span style="font-weight:bold">=</span><span style="color:#b84">network.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ExecStart</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama/bin/frontend</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">RestartSec</span><span style="font-weight:bold">=</span><span style="color:#b84">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Restart</span><span style="font-weight:bold">=</span><span style="color:#b84">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">User</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Group</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">WorkingDirectory</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">WantedBy</span><span style="font-weight:bold">=</span><span style="color:#b84">multi-user.target</span>
+</span></span></code></pre></div><p>This is super simple and since I&rsquo;m embedding the config inside the binaries I don&rsquo;t even need to send any command-line flags along.</p>
 <p><strong>Tunnel</strong></p>
 <p>The ssh connection stays alive via another systemd unit:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-systemd" data-lang="systemd"><span style="font-weight:bold">[Unit]</span>
-<span style="color:#008080">Description</span><span style="font-weight:bold">=</span><span style="color:#b84">Setup a secure tunnel to prod for ZPL service</span>
-<span style="color:#008080">After</span><span style="font-weight:bold">=</span><span style="color:#b84">network.target</span>
-
-<span style="font-weight:bold">[Service]</span>
-<span style="color:#008080">ExecStart</span><span style="font-weight:bold">=</span><span style="color:#b84">ssh -o ExitOnForwardFailure=yes -R 5489:localhost:5489 USER@HOST -N</span>
-<span style="color:#008080">RestartSec</span><span style="font-weight:bold">=</span><span style="color:#b84">5</span>
-<span style="color:#008080">Restart</span><span style="font-weight:bold">=</span><span style="color:#b84">always</span>
-<span style="color:#998;font-style:italic"># Set a hard reset every 6 hours</span>
-<span style="color:#008080">RuntimeMaxSec</span><span style="font-weight:bold">=</span><span style="color:#b84">21600</span>
-<span style="color:#008080">User</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
-<span style="color:#008080">Group</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
-<span style="color:#008080">WorkingDirectory</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama</span>
-
-<span style="font-weight:bold">[Install]</span>
-<span style="color:#008080">WantedBy</span><span style="font-weight:bold">=</span><span style="color:#b84">multi-user.target</span>
-</code></pre></div><h2 id="deployment">Deployment</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-systemd" data-lang="systemd"><span style="display:flex;"><span><span style="font-weight:bold">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Description</span><span style="font-weight:bold">=</span><span style="color:#b84">Setup a secure tunnel to prod for ZPL service</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">After</span><span style="font-weight:bold">=</span><span style="color:#b84">network.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ExecStart</span><span style="font-weight:bold">=</span><span style="color:#b84">ssh -o ExitOnForwardFailure=yes -R 5489:localhost:5489 USER@HOST -N</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">RestartSec</span><span style="font-weight:bold">=</span><span style="color:#b84">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Restart</span><span style="font-weight:bold">=</span><span style="color:#b84">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Set a hard reset every 6 hours</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">RuntimeMaxSec</span><span style="font-weight:bold">=</span><span style="color:#b84">21600</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">User</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Group</span><span style="font-weight:bold">=</span><span style="color:#b84">zplorama</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">WorkingDirectory</span><span style="font-weight:bold">=</span><span style="color:#b84">/home/zplorama</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">WantedBy</span><span style="font-weight:bold">=</span><span style="color:#b84">multi-user.target</span>
+</span></span></code></pre></div><h2 id="deployment">Deployment</h2>
 <p>Deployment involves doing a <code>git pull</code>, a <code>make clean &amp;&amp; make</code>, <code>cp ./bin/ ~zplorama/bin</code>, and then using <code>sudo service restart</code>. This could be a script, even!</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold">#! /bin/bash
-</span><span style="color:#999;font-weight:bold"></span><span style="color:#999">cd</span> zpl-o-rama
-git pull
-make clean <span style="font-weight:bold">&amp;&amp;</span> make
-sudo mv bin/* ~zplorama/bin
-sudo chown zplorama:zplorama ~zplorama/bin/*
-<span style="font-weight:bold">for</span> service in zplbackend zplfrontend zpltunnel
-<span style="font-weight:bold">do</span>
-  sudo service restart <span style="color:#008080">$service</span>
-<span style="font-weight:bold">done</span>
-</code></pre></div><h1 id="end">End</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#999;font-weight:bold">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold"></span><span style="color:#999">cd</span> zpl-o-rama
+</span></span><span style="display:flex;"><span>git pull
+</span></span><span style="display:flex;"><span>make clean <span style="font-weight:bold">&amp;&amp;</span> make
+</span></span><span style="display:flex;"><span>sudo mv bin/* ~zplorama/bin
+</span></span><span style="display:flex;"><span>sudo chown zplorama:zplorama ~zplorama/bin/*
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">for</span> service in zplbackend zplfrontend zpltunnel
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  sudo service restart <span style="color:#008080">$service</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">done</span>
+</span></span></code></pre></div><h1 id="end">End</h1>
 <p>This is the beefiest of the posts because it includes real code. TL;DR: the configuration of the service is larger than the actual code of the service.</p>
 <p><a href="/weblog/zpl-o-rama-part-4">On to part 4 →</a></p>
 
 			</div>
 		</article>
 	</main>
-<aside>
-	<div>
-		<div>
-			<h3>Latest Posts</h3>
-		</div>
-		<div>
-			<ul>
-				
-				<li><a href="/weblog/python-will-never-be-decoupled-from-its-implementation/">Python as a Language is Unescabably Coupled with its Implementation Part 1: LET&#39;S DO DUMB SHIT WITH THE GC</a></li>
-				
-				<li><a href="/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/">__all__ is a Sacred Space and you Murderous Goblins are all Profaning it</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-5/">ZPL-O-Rama Part 5: Postscript</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-4/">ZPL-O-Rama Part 4: The Hardware</a></li>
-				
-				<li><a href="/weblog/zpl-o-rama-part-3/">ZPL-O-Rama Part 3: Software</a></li>
-				
-			</ul>
-		</div>
-	</div>
-</aside>
-
 
 	<footer>
 	<p>&copy; 2022 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.

@@ -14,7 +14,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/</guid>
       <description>End product Please disregard the poor camera placement, it has since been fixed.
-       Thinking Back, It Was All So Simple Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&amp;rsquo;s a lit of small things that accrued while working on the project
+Thinking Back, It Was All So Simple Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&amp;rsquo;s a lit of small things that accrued while working on the project
 Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.</description>
     </item>
     
@@ -36,7 +36,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/</guid>
       <description>Running the software Frontend server The frontend has three responsibilities:
- Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
+Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/</guid>
       <description>Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
- A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.</description>
+A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@ SFTP is format agnostic This goes for HTTP as well, but you need to correctly se
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.
- A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
+A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
 You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk.</description>
     </item>
     
@@ -108,7 +108,7 @@ However, when you&amp;rsquo;re on-call, you no longer own your uptime.</descript
       
       <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
       <description>This is a recycled post from my tumblr weblog
- Ha ha ha just lying the real title should be
+Ha ha ha just lying the real title should be
 Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
     </item>
     

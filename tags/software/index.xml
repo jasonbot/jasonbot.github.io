@@ -14,7 +14,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/</guid>
       <description>End product Please disregard the poor camera placement, it has since been fixed.
-       Thinking Back, It Was All So Simple Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&amp;rsquo;s a lit of small things that accrued while working on the project
+Thinking Back, It Was All So Simple Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&amp;rsquo;s a lit of small things that accrued while working on the project
 Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.</description>
     </item>
     
@@ -25,7 +25,7 @@ Networks are slow and the dual tier service thing is bad, actually I initially c
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/</guid>
       <description>Running the software Frontend server The frontend has three responsibilities:
- Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
+Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Networks are slow and the dual tier service thing is bad, actually I initially c
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/</guid>
       <description>Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
- A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.</description>
+A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.</description>
     </item>
     
     <item>
