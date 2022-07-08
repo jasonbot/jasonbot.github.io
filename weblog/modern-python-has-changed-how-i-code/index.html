@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Modern Python has Changed How I Code</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1657252807"><link rel="stylesheet" href="/css/fonts.css?rnd=1657252807">
+	
+</head>
+<body>
+	<header>
+	<nav>
+			
+
+			
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/"><b>main</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/"><b>tags</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/about/"><b>about</b></a>
+				
+			</span>
+
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Modern Python has Changed How I Code</h1>
+
+			<p>
+			
+			<time>2022-07-07</time>
+			
+		       
+		           <a class="taglink" href="/tags/python">python</a>
+        	       
+		           <a class="taglink" href="/tags/programming">programming</a>
+        	       
+			</p>
+			
+			<div>
+				<p>I can&rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a></li>
+<li><a href="https://github.com/psf/black">Black</a></li>
+<li><a href="https://docs.python.org/3/library/dataclasses.html">Dataclasses</a></li>
+<li><a href="http://mypy-lang.org/">Mypy</a></li>
+<li><a href="https://docs.python.org/3/library/typing.html">Type Hints</a></li>
+</ul>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<p>This isn&rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting <em>on every commit pushed to the repo tracker</em> gives confidence that the code is clean to merge into the main branch. Generally you build up stages as your org progresses:</p>
+<ul>
+<li>Run unit tests</li>
+<li>Run and enforce code coverage standards</li>
+<li>Run lint</li>
+<li>Run style checks</li>
+</ul>
+<h2 id="black">Black</h2>
+<p>About two years into writing Go I started using <a href="https://go.dev/blog/gofmt"><code>gofmt</code></a> to help me clean up a bunch of pre-Go-1.0 code that <a href="https://go.dev/doc/effective_go#semicolons">still used semicolons</a>. I turned on fomrat on save in my editor and never turned it off. A large point of contention over the course of my career is arguing with senior developers over bikesheddy, arbitrary, often cruel and capricious code style standards over the actual semantic behavior of the code.</p>
+<p>Then I found <a href="https://prettier.io/">Prettier</a> while writing some JSX/React code. While it had knobs to tweak most people didn&rsquo;t tweak them. It made the code I worked with more readable and I got the same delight out of using it as I did <code>gofmt</code>.</p>
+<p>I was sold on opinionated formatting.</p>
+<p>Now I use Black on all my code, auto format on save, and also enforce linter rules in CI to make sure that all code is Black-formatted.</p>
+<p>Agreeing on a format and enforcing it makes code diffs purely <em>semantic</em> and no longer <em>stylistic</em>. This makes code review less painful and shuts down completely unproductive conversations on where commas go.</p>
+<p>Blackening your codebase initially is admittedly ugly and somewhat destructive as you pollute your repo history with the reformat commits and it makes most tools that do line history barf. That part sucks and I don&rsquo;t know a good way around it, but it does make the path forward so much more pleasant one that band-aid comes off.</p>
+<h2 id="dataclasses">Dataclasses</h2>
+<p>Over the years there have been <em>so many</em> attempts to do data structures in Python, all equally bad and weird: <a href="https://marshmallow.readthedocs.io/en/stable/">marshmallow</a>, <a href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html">colander</a>, <a href="https://schematics.readthedocs.io/en/latest/">schematics</a>,  stdlib <a href="https://docs.python.org/3/library/struct.html">struct</a>, the list goes on.</p>
+<p>One of the &ldquo;warts&rdquo; of the language is that dictionaries were not guaranteed to be in any order, and add on that the fact that to avoid hash collision attacks every Python process seeds its hashing algorithm with a random number, even the out-of-order iteration order would change from run to run.</p>
+<p>Enter <a href="https://docs.python.org/3/whatsnew/3.7.html">Python 3.7</a> officially announcing that an implementation detail in 3.6 was now standard behavior: dict traversal would be ordered.</p>
+<p>So now built into the standard library is an easy, in-order way to define a data struct in the <a href="https://docs.python.org/3/library/dataclasses.html"><code>dataclasses</code></a> library.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">dataclasses</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">typing</span> <span style="font-weight:bold">as</span> <span style="color:#555">T</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@dataclasses<span style="font-weight:bold">.</span>dataclass
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">class</span> <span style="color:#458;font-weight:bold">MyStruct</span>:
+</span></span><span style="display:flex;"><span>    field_1: <span style="color:#999">str</span> <span style="font-weight:bold">=</span> <span style="color:#b84">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>    field_2: <span style="color:#999">int</span>
+</span></span><span style="display:flex;"><span>    field_3: T<span style="font-weight:bold">.</span>List[<span style="color:#999">str</span>]
+</span></span></code></pre></div><p>That&rsquo;s not a lot of code to get a very powerful, good enough abstraction over data structures. It even has options to make the classes immutable (<code>frozen</code>) and implements <code>__slots__</code> to make large numbers of them more memory efficient.</p>
+<p>These things are a godsend, along with typing below.</p>
+<h2 id="mypy">Mypy</h2>
+<p>Another tool I add to my CI, I run the Mypy tool over my code as I incrementally add type hints to ensure the code is correct. And since it can be done implicitly, your library code can look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">thing_with_strings</span>(a: <span style="color:#999">str</span>, b: <span style="color:#999">str</span>) <span style="font-weight:bold">-&gt;</span> <span style="color:#999">str</span>:
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> a <span style="font-weight:bold">+</span> b
+</span></span></code></pre></div><p>then your consuming app logic code can do this, unannotated:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">my_app_logic</span>():
+</span></span><span style="display:flex;"><span>    x <span style="font-weight:bold">=</span> <span style="color:#b84">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>    y <span style="font-weight:bold">=</span> <span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span>    thing_with_strings(x, y)
+</span></span></code></pre></div><p>and Mypy will deduce the types and yell at you that <code>y</code> is the wrong type. Annotating libraries, even if you don&rsquo;t touch the codebases that consume them, can help find errors right away.</p>
+<h2 id="type-hints">Type Hints</h2>
+<p>You don&rsquo;t have to go all in with typing, but when you do the <a href="https://peps.python.org/pep-0484/">type annotation system</a> is good enough (though not nearly as rich as other languages&rsquo;). In particular I find TypeVar to be clunky for doing generic coding, but it&rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.</p>
+<h2 id="thats-all">That&rsquo;s All</h2>
+<p>These relatively minor changes to my Python coding I&rsquo;ve made over the last 3-5 years have definitely made the language feel safer and quite a bit different than the unsafe, scary, let&rsquo;s-pass-opaque-dicts-around crazy party that made larger codebases unmaintainable and encourages Python library authors to do weird, abusive metaprogramming stuff in their code to make it more suitable &ldquo;for humans.&rdquo;</p>
+
+			</div>
+		</article>
+	</main>
+
+	<footer>
+	<p>&copy; 2022 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Modern Python has Changed How I Code</title>
+      <link>https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/</link>
+      <pubDate>Thu, 07 Jul 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/</guid>
+      <description>I can&amp;rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:
+Continuous Integration Black Dataclasses Mypy Type Hints Continuous Integration This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.</description>
+    </item>
+    
+    <item>
       <title>Python as a Language is Unescabably Coupled with its Implementation Part 1: LET&#39;S DO DUMB SHIT WITH THE GC</title>
       <link>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation/</link>
       <pubDate>Sun, 04 Apr 2021 00:00:00 -0800</pubDate>
