@@ -6,7 +6,17 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modern Python: Features I Haven&#39;t Used But Plan To</title>
+      <link>https://www.jasonscheirer.com/weblog/modern-python-features-that-are-still-sinking-in/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/modern-python-features-that-are-still-sinking-in/</guid>
+      <description>Python has continued to progress and introduce new features and modules. In this post I&amp;rsquo;ll cover features I haven&amp;rsquo;t used much (or at all) and how I plan on using or not using them.
+Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;ve found about 3 times where I&amp;rsquo;ve found it appropriate to use. It&amp;rsquo;s nice but not a huge change to the way I code. Generally in the pattern</description>
+    </item>
+    
     <item>
       <title>Modern Python has Changed How I Code</title>
       <link>https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/</link>
@@ -271,7 +281,7 @@ I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat a
       
       <guid>https://www.jasonscheirer.com/about/</guid>
       <description>I am Jason Scheirer, a completely unremarkable software developer in the Bay Area initially from the Inland Empire. A rough timeline of my life as a software engineer:
-Start programming BASIC in elementary school, escalating to pirated QuickBasic and Turbo Pascal, as well as legal but squirrely DJGPP/RHIDE/Allegro Get a part-time job in late high school writing &amp;ldquo;web applications&amp;rdquo; Get bored in intro CS classes and change majors to Linguistics Decide that taking a full courseload is for suckers who like sleep and good grades and take on night classes for TESOL at the same time Backpedal and get as much CS coursework done as possible before hitting the unit limit for graduation, managing to squeeze in the minor just in time List about from company to company in SoCal writing software for 10 years, mostly Python/C, mostly geospatial adjacent Move to Bay Area and list about from startup to startup writing software for 6 years and counting, mostly Python A rough timeline of my entire life, including the future:</description>
+Start programming BASIC in elementary school, escalating to pirated QuickBasic and Turbo Pascal, as well as legal but squirrely DJGPP/RHIDE/Allegro Get a part-time job in late high school writing &amp;ldquo;web applications&amp;rdquo; Get bored in intro CS classes and change majors to Linguistics Decide that taking a full courseload is for suckers who like sleep and good grades and take on night classes for TESOL at the same time Backpedal and get as much CS coursework done as possible before hitting the unit limit for graduation, managing to squeeze in the minor just in time List about from company to company in SoCal writing software for 10 years, mostly Python/C, mostly geospatial adjacent Move to Bay Area and list about from startup to startup writing software for 8 years and counting, mostly Python A rough timeline of my entire life, including the future:</description>
     </item>
     
   </channel>
