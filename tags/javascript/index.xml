@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/javascript/</link>
+    <description>Recent content in javascript on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async programming: understanding it from fundamentals</title>
+      <link>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</link>
+      <pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
+      <description>This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.
+Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function async and await it and use these magic incantations and you&amp;rsquo;re good to go!</description>
+    </item>
+    
+  </channel>
+</rss>
