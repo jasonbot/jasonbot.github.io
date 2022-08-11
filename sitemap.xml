@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2022-08-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/python/</loc>
+    <lastmod>2022-08-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/</loc>
+    <lastmod>2022-08-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2022-08-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/games/</loc>
+    <lastmod>2022-07-25T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/golang/</loc>
+    <lastmod>2022-07-25T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2022-07-25T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/trump-run/</loc>
+    <lastmod>2022-07-25T00:00:00-08:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</loc>
     <lastmod>2022-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2022-07-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/tags/javascript/</loc>
-    <lastmod>2022-07-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2022-07-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/python/</loc>
-    <lastmod>2022-07-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2022-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/modern-python-features-that-are-still-sinking-in/</loc>
@@ -115,9 +127,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</loc>
     <lastmod>2019-10-10T10:18:17-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/games/</loc>
-    <lastmod>2018-05-21T01:15:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/jumpbear/</loc>
     <lastmod>2018-05-21T01:15:00-08:00</lastmod>

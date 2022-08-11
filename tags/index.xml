@@ -6,31 +6,49 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>javascript</title>
-      <link>https://www.jasonscheirer.com/tags/javascript/</link>
-      <pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate>
+      <title>python</title>
+      <link>https://www.jasonscheirer.com/tags/python/</link>
+      <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jasonscheirer.com/tags/javascript/</guid>
+      <guid>https://www.jasonscheirer.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>games</title>
+      <link>https://www.jasonscheirer.com/tags/games/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/games/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://www.jasonscheirer.com/tags/golang/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
       <link>https://www.jasonscheirer.com/tags/programming/</link>
-      <pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://www.jasonscheirer.com/tags/python/</link>
+      <title>javascript</title>
+      <link>https://www.jasonscheirer.com/tags/javascript/</link>
       <pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jasonscheirer.com/tags/python/</guid>
+      <guid>https://www.jasonscheirer.com/tags/javascript/</guid>
       <description></description>
     </item>
     
@@ -130,15 +148,6 @@
       <pubDate>Mon, 10 Feb 2020 01:11:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/chromebook/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>games</title>
-      <link>https://www.jasonscheirer.com/tags/games/</link>
-      <pubDate>Mon, 21 May 2018 01:15:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/games/</guid>
       <description></description>
     </item>
     

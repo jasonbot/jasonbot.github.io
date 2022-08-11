@@ -6,7 +6,17 @@
     <description>Recent content in python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python as a Language is Unescabably Coupled with its Implementation Part 2: The Tracer</title>
+      <link>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/</link>
+      <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/</guid>
+      <description>I was recently discussing some dumb PYthon tricks at work with some colleagues and showed them this old Gist I wrote, which in modern times I would rewrite to look like this:
+import functools import inspect import sys @functools.lru_cache def getlines(filename): with open(filename, &amp;#34;r&amp;#34;) as file_handle: return tuple(file_handle) @functools.lru_cache def getline(filename, line_number): return getlines(filename)[line_number - 1] def tracefunction(frame, event, arg): if event == &amp;#34;line&amp;#34;: info = inspect.getframeinfo(frame) fname, lineno, fn = info.</description>
+    </item>
+    
     <item>
       <title>Async programming: understanding it from fundamentals</title>
       <link>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</link>

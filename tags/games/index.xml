@@ -6,7 +6,17 @@
     <description>Recent content in games on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 May 2018 01:15:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jul 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trump Run: A Game</title>
+      <link>https://www.jasonscheirer.com/weblog/trump-run/</link>
+      <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/trump-run/</guid>
+      <description>I wrote a game inspired by a tweet a coworker shared on a work Slack channel a few weeks back.
+It&amp;rsquo;s Webassembly using ebitengine.</description>
+    </item>
+    
     <item>
       <title>Jumpbear: the Global Warming Bear</title>
       <link>https://www.jasonscheirer.com/weblog/jumpbear/</link>

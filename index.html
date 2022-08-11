@@ -10,7 +10,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1657645232"><link rel="stylesheet" href="/css/fonts.css?rnd=1657645232">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1660227265"><link rel="stylesheet" href="/css/fonts.css?rnd=1660227265">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -60,6 +60,45 @@
 	
 	<main>
 		
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/">Python as a Language is Unescabably Coupled with its Implementation Part 2: The Tracer</a></h1>
+	
+	<b><time>2022-08-10</time></b>
+	
+	
+	<a class="taglink" href="/tags/python">python</a>
+	
+	<div>
+		I was recently discussing some dumb PYthon tricks at work with some colleagues and showed them this old Gist I wrote, which in modern times I would rewrite to look like this:
+import functools import inspect import sys @functools.lru_cache def getlines(filename): with open(filename, &#34;r&#34;) as file_handle: return tuple(file_handle) @functools.lru_cache def getline(filename, line_number): return getlines(filename)[line_number - 1] def tracefunction(frame, event, arg): if event == &#34;line&#34;: info = inspect.getframeinfo(frame) fname, lineno, fn = info.
+		
+			<br />
+			<a href="https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/trump-run/">Trump Run: A Game</a></h1>
+	
+	<b><time>2022-07-25</time></b>
+	
+	
+	<a class="taglink" href="/tags/golang">golang</a>
+	
+	<a class="taglink" href="/tags/programming">programming</a>
+	
+	<a class="taglink" href="/tags/games">games</a>
+	
+	<div>
+		I wrote a game inspired by a tweet a coworker shared on a work Slack channel a few weeks back.
+It&rsquo;s Webassembly using ebitengine.
+		
+	</div>
+</article>
+
 		
 			<article>
 	<h1><a href="https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/">Async programming: understanding it from fundamentals</a></h1>
@@ -184,8 +223,8 @@ Another fun thing is the leaking of implementation details in Bad Ways. Here&rsq
 	<a class="taglink" href="/tags/zpl-o-rama">zpl-o-rama</a>
 	
 	<div>
-		End product Please disregard the poor camera placement, it has since been fixed.
-Thinking Back, It Was All So Simple Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This sis something of an epilogue to the saga, as it&rsquo;s a lit of small things that accrued while working on the project
+		End product Please disregard the poor camera placement or the labels, it has since been fixed.
+Thinking Back, It Was All So Simple Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&rsquo;s a list of small things that accrued while working on the project.
 Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.
 		
 			<br />
@@ -465,7 +504,7 @@ Culture Living in the Inland Empire, I was an hour away from LA and all that cul
 
 		
 			<article>
-	<h1><a href="https://www.jasonscheirer.com/weblog/own-your-infrastructure/">Own your infrastructure</a></h1>
+	<h1><a href="https://www.jasonscheirer.com/weblog/own-your-infrastructure/">Own Your Infrastructure</a></h1>
 	
 	<b><time>2020-02-04</time></b>
 	
