@@ -10,7 +10,7 @@
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1660227265"><link rel="stylesheet" href="/css/fonts.css?rnd=1660227265">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1660227344"><link rel="stylesheet" href="/css/fonts.css?rnd=1660227344">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -70,7 +70,7 @@
 	<a class="taglink" href="/tags/python">python</a>
 	
 	<div>
-		I was recently discussing some dumb PYthon tricks at work with some colleagues and showed them this old Gist I wrote, which in modern times I would rewrite to look like this:
+		I was recently discussing some dumb Python tricks at work with some colleagues and showed them this old Gist I wrote, which in modern times I would rewrite to look like this:
 import functools import inspect import sys @functools.lru_cache def getlines(filename): with open(filename, &#34;r&#34;) as file_handle: return tuple(file_handle) @functools.lru_cache def getline(filename, line_number): return getlines(filename)[line_number - 1] def tracefunction(frame, event, arg): if event == &#34;line&#34;: info = inspect.getframeinfo(frame) fname, lineno, fn = info.
 		
 			<br />
