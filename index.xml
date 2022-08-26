@@ -6,7 +6,18 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Case for Match</title>
+      <link>https://www.jasonscheirer.com/weblog/a-case-for-match/</link>
+      <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/a-case-for-match/</guid>
+      <description>The Python 3.10 release includes the new match statement, which superficially looks like the case/switch statements in other languages but semantically is closer to pattern matching in Haskell or Rust.
+Like the walrus operator*, I struggled to find a use case for this and it seemed like a feature that was added just because the language is 30+ years old and all the good new functionality is taken.
+However, I found a pretty good case for it that used to be a lot more work: duck-typey arguments that make default case rules easy but enable more complex functionality as needed.</description>
+    </item>
+    
     <item>
       <title>Python as a Language is Inescabably Coupled with its Implementation Part 2: The Tracer</title>
       <link>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/</link>

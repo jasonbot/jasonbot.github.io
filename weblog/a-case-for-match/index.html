@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>A Case for Match</title>
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="A Case for Match" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661534938"><link rel="stylesheet" href="/css/fonts.css?rnd=1661534938">
+	
+</head>
+<body>
+	<header>
+	<nav>
+			
+
+			
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/"><b>main</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/"><b>tags</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/about/"><b>about</b></a>
+				
+			</span>
+
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>A Case for Match</h1>
+
+			<p>
+			
+			<time>2022-08-26</time>
+			
+		       
+		           <a class="taglink" href="/tags/python">python</a>
+        	       
+			</p>
+			
+			<div>
+				<p>The Python 3.10 release includes the <a href="https://docs.python.org/3/reference/compound_stmts.html#the-match-statement">new <code>match</code> statement</a>, which superficially looks like the <code>case</code>/<code>switch</code> statements in other languages but semantically is closer to pattern matching in <a href="http://learnyouahaskell.com/syntax-in-functions">Haskell</a> or <a href="https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html">Rust</a>.</p>
+<p>Like the <a href="https://docs.python.org/3/reference/expressions.html#assignment-expressions">walrus operator</a>*, I struggled to find a use case for this and it seemed like a feature that was added just because the language is 30+ years old and all the <em>good</em> new functionality is taken.</p>
+<p>However, I found a pretty good case for it that used to be a lot more work: duck-typey arguments that make default case rules easy but enable more complex functionality as needed.</p>
+<p>Namely, I&rsquo;m writing a REST API at work that is <em>mostly</em> CRUD, but for historical reasons certain field names in JSON payloads do not match up with their ORM equivalents (which in turn may not match up with their DB column equivalents).</p>
+<p>First off, we get a dict and want to just specify the keys we care about:</p>
+<pre tabindex="0"><code>import typing
+
+def copy_keys(input: dict, keep_keys: typing.Iterable[typing.Hashable]):
+   keep_set = set(keep_keys)
+
+   return {k: v for k, v in input.items() if k in keep_set}
+
+x = {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}
+
+print(copy_keys(x, [&#39;a&#39;, &#39;c&#39;]))
+# {&#39;a&#39;: 1, &#39;c&#39;: 3}
+</code></pre><p>Simple enough. Now what if we need to <em>remap</em> our keys?</p>
+<pre tabindex="0"><code>print(copy_keys(x, [&#39;a&#39;, (&#39;c&#39;, &#39;b&#39;)]))  # We want:{&#39;a&#39;: 1, &#39;b&#39;: 3}
+</code></pre><p>Well, we can use pattern matching:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">typing</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">copy_keys</span>(<span style="color:#999">input</span>: <span style="color:#999">dict</span>, keep_keys: typing<span style="font-weight:bold">.</span>Iterable[typing<span style="font-weight:bold">.</span>Hashable <span style="font-weight:bold">|</span> typing<span style="font-weight:bold">.</span>Tuple[typing<span style="font-weight:bold">.</span>Hashable, typing<span style="font-weight:bold">.</span>Hashable]]):
+</span></span><span style="display:flex;"><span>    keep_map <span style="font-weight:bold">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> item <span style="font-weight:bold">in</span> keep_keys:
+</span></span><span style="display:flex;"><span>        match item:
+</span></span><span style="display:flex;"><span>            case (from_key, to_key):
+</span></span><span style="display:flex;"><span>                keep_map[from_key] <span style="font-weight:bold">=</span> to_key
+</span></span><span style="display:flex;"><span>            case key:
+</span></span><span style="display:flex;"><span>                keep_map[key] <span style="font-weight:bold">=</span> key
+</span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(keep_map)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> {keep_map[k]: v <span style="font-weight:bold">for</span> k, v <span style="font-weight:bold">in</span> <span style="color:#999">input</span><span style="font-weight:bold">.</span>items() <span style="font-weight:bold">if</span> k <span style="font-weight:bold">in</span> keep_map}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="font-weight:bold">=</span> {<span style="color:#b84">&#39;a&#39;</span>: <span style="color:#099">1</span>, <span style="color:#b84">&#39;b&#39;</span>: <span style="color:#099">2</span>, <span style="color:#b84">&#39;c&#39;</span>: <span style="color:#099">3</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(copy_keys(x, [<span style="color:#b84">&#39;a&#39;</span>, (<span style="color:#b84">&#39;c&#39;</span>, <span style="color:#b84">&#39;b&#39;</span>)]))  <span style="color:#998;font-style:italic"># {&#39;a&#39;: 1, &#39;b&#39;: 3}</span>
+</span></span></code></pre></div><p>Simpler than the <code>isinstance(x, tuple) and len(x) == 2</code> dance we&rsquo;d have to do in prior Pythons. The <code>match</code> statement can help write library code that is clean and easy to use while at the same time being clear and less magical than it would have been in previous Pythons.</p>
+<p>* The one case I have come up with for Walrus that makes sense:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">if</span> (x <span style="font-weight:bold">:=</span> do_something()) <span style="font-weight:bold">is</span> <span style="font-weight:bold">not</span> <span style="font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    x<span style="font-weight:bold">.</span>do_something_else()
+</span></span></code></pre></div>
+			</div>
+		</article>
+	</main>
+
+	<footer>
+	<p>&copy; 2022 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>
