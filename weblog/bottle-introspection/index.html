@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661534938"><link rel="stylesheet" href="/css/fonts.css?rnd=1661534938">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661831429"><link rel="stylesheet" href="/css/fonts.css?rnd=1661831429">
 	
 </head>
 <body>
@@ -77,12 +77,12 @@
 			
 			<div>
 				<p>I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>@bottle<span style="font-weight:bold">.</span>route(<span style="color:#b84">&#39;/&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">index</span>():
-</span></span><span style="display:flex;"><span>    bottle<span style="font-weight:bold">.</span>response<span style="font-weight:bold">.</span>content_type <span style="font-weight:bold">=</span> <span style="color:#b84">&#39;text/plain&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> (<span style="color:#b84">&#34;=== API REFERENCE ===</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span> <span style="font-weight:bold">+</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#b84">&#34;</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span><span style="font-weight:bold">.</span>join(x[<span style="color:#b84">&#39;rule&#39;</span>] <span style="font-weight:bold">for</span> x <span style="font-weight:bold">in</span>
-</span></span><span style="display:flex;"><span>                      bottle<span style="font-weight:bold">.</span>app()<span style="font-weight:bold">.</span>routes))
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a2f">@bottle</span><span style="color:#666">.</span>route(<span style="color:#ba2121">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">index</span>():
+</span></span><span style="display:flex;"><span>    bottle<span style="color:#666">.</span>response<span style="color:#666">.</span>content_type <span style="color:#666">=</span> <span style="color:#ba2121">&#39;text/plain&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> (<span style="color:#ba2121">&#34;=== API REFERENCE ===</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span> <span style="color:#666">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ba2121">&#34;</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">&#34;</span><span style="color:#666">.</span>join(x[<span style="color:#ba2121">&#39;rule&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span>
+</span></span><span style="display:flex;"><span>                      bottle<span style="color:#666">.</span>app()<span style="color:#666">.</span>routes))
 </span></span></code></pre></div>
 			</div>
 		</article>

@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661534938"><link rel="stylesheet" href="/css/fonts.css?rnd=1661534938">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661831429"><link rel="stylesheet" href="/css/fonts.css?rnd=1661831429">
 	
 </head>
 <body>
@@ -79,12 +79,12 @@
 				<p>Python has continued to progress and introduce new features and modules. In this post I&rsquo;ll cover features I haven&rsquo;t used much (or at all) and how I plan on using or not using them.</p>
 <h2 id="walrus-operator">Walrus Operator</h2>
 <p>I&rsquo;ve been aware of this for a few years. I&rsquo;ve found about 3 times where I&rsquo;ve found it appropriate to use. It&rsquo;s nice but not a huge change to the way I code. Generally in the pattern</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">if</span> (thing <span style="font-weight:bold">:=</span> function_call()) <span style="font-weight:bold">!=</span> <span style="font-weight:bold">None</span>:
-</span></span><span style="display:flex;"><span>    thing<span style="font-weight:bold">.</span>do_stuff()
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> (thing <span style="color:#666">:=</span> function_call()) <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    thing<span style="color:#666">.</span>do_stuff()
 </span></span></code></pre></div><h2 id="name-only-parameters">Name-only parameters</h2>
 <p>I actually use this a <em>lot</em>, especially with any function that has more than 2 arguments. Forcing the consumer of your library code to explicity name the parameters makes their code more readable. When you do</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">do_my_task</span>(<span style="font-weight:bold">*</span>, client, schema_dataclass, callback):
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">pass</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">do_my_task</span>(<span style="color:#666">*</span>, client, schema_dataclass, callback):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">pass</span>
 </span></span></code></pre></div><p>and <em>force</em> users to call it like <code>do_my_task(client=self.client, schema_dataclass=DataSchema, callback=self.done)</code>, it overall makes code more easy to skim through.</p>
 <h2 id="async">Async</h2>
 <p>Long ago I spent entirely too long fighting with <a href="https://twisted.org/">Twisted</a> (and writing more boilerplate than substance) and became convinced that asynchronous programming, though its improved performance on I/O bound tasks (that is, every task you&rsquo;d realistically expect to see in a professional setting) outweigh the pain caused by writing them (allegedly).</p>

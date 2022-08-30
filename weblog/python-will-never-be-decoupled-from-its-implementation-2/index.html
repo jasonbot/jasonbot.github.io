@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661534938"><link rel="stylesheet" href="/css/fonts.css?rnd=1661534938">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1661831429"><link rel="stylesheet" href="/css/fonts.css?rnd=1661831429">
 	
 </head>
 <body>
@@ -75,52 +75,52 @@
 			
 			<div>
 				<p>I was recently discussing some dumb Python tricks at work with some colleagues and showed them <a href="https://gist.github.com/jasonbot/8679558">this old Gist I wrote</a>, which in modern times I would rewrite to look like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">functools</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">inspect</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">sys</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">functools</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">inspect</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">sys</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>@functools<span style="font-weight:bold">.</span>lru_cache
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">getlines</span>(filename):
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">with</span> <span style="color:#999">open</span>(filename, <span style="color:#b84">&#34;r&#34;</span>) <span style="font-weight:bold">as</span> file_handle:
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">return</span> <span style="color:#999">tuple</span>(file_handle)
+</span></span><span style="display:flex;"><span><span style="color:#a2f">@functools</span><span style="color:#666">.</span>lru_cache
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">getlines</span>(filename):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(filename, <span style="color:#ba2121">&#34;r&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> file_handle:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">tuple</span>(file_handle)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>@functools<span style="font-weight:bold">.</span>lru_cache
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">getline</span>(filename, line_number):
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> getlines(filename)[line_number <span style="font-weight:bold">-</span> <span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a2f">@functools</span><span style="color:#666">.</span>lru_cache
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">getline</span>(filename, line_number):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> getlines(filename)[line_number <span style="color:#666">-</span> <span style="color:#666">1</span>]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">tracefunction</span>(frame, event, arg):
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">if</span> event <span style="font-weight:bold">==</span> <span style="color:#b84">&#34;line&#34;</span>:
-</span></span><span style="display:flex;"><span>        info <span style="font-weight:bold">=</span> inspect<span style="font-weight:bold">.</span>getframeinfo(frame)
-</span></span><span style="display:flex;"><span>        fname, lineno, fn <span style="font-weight:bold">=</span> info<span style="font-weight:bold">.</span>filename, info<span style="font-weight:bold">.</span>lineno, info<span style="font-weight:bold">.</span>function
-</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(
-</span></span><span style="display:flex;"><span>            <span style="color:#b84">f</span><span style="color:#b84">&#34;&gt; Function: </span><span style="color:#b84">{</span>fn<span style="color:#b84">}</span><span style="color:#b84"> (in file </span><span style="color:#b84">{</span>fname<span style="color:#b84">}</span><span style="color:#b84">:</span><span style="color:#b84">{</span>lineno<span style="color:#b84">}</span><span style="color:#b84">) &#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#b84">f</span><span style="color:#b84">&#34;| </span><span style="color:#b84">{</span>getline(fname, lineno)<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">tracefunction</span>(frame, event, arg):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> event <span style="color:#666">==</span> <span style="color:#ba2121">&#34;line&#34;</span>:
+</span></span><span style="display:flex;"><span>        info <span style="color:#666">=</span> inspect<span style="color:#666">.</span>getframeinfo(frame)
+</span></span><span style="display:flex;"><span>        fname, lineno, fn <span style="color:#666">=</span> info<span style="color:#666">.</span>filename, info<span style="color:#666">.</span>lineno, info<span style="color:#666">.</span>function
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;&gt; Function: </span><span style="color:#b68;font-weight:bold">{</span>fn<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121"> (in file </span><span style="color:#b68;font-weight:bold">{</span>fname<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">:</span><span style="color:#b68;font-weight:bold">{</span>lineno<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">) &#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;| </span><span style="color:#b68;font-weight:bold">{</span>getline(fname, lineno)<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">&#34;</span>
 </span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> tracefunction
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> tracefunction
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">registertracefunction</span>():
-</span></span><span style="display:flex;"><span>    sys<span style="font-weight:bold">.</span>settrace(tracefunction)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">registertracefunction</span>():
+</span></span><span style="display:flex;"><span>    sys<span style="color:#666">.</span>settrace(tracefunction)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>registertracefunction()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">mainfunction</span>():
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> x <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#099">10</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(x <span style="font-weight:bold">*</span> <span style="color:#099">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">mainfunction</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">range</span>(<span style="color:#666">10</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(x <span style="color:#666">*</span> <span style="color:#666">5</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">if</span> __name__ <span style="font-weight:bold">==</span> <span style="color:#b84">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#ba2121">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    mainfunction()
 </span></span></code></pre></div><p>Run the code for a treat!</p>
 <p>while not as elegantly self-bootstrapping as other languages like a Lisp, Python does have lots of idiomatic, strange ways of doing Python in Python. In this case, you can set a trace function (normally reserved for writing debuggers) and do something very meta and <em>print the dang line</em> as it executes.</p>
 <p>Now, this is neat and clever but it&rsquo;s also largely a CPython-specific set of internal details: how would one expect to implement this API in another &ldquo;flavor&rdquo; of Python like IronPython or Jython which have their own runtimes that look nothing like the CPython bytecode interpreter?</p>
 <p>Note <em>this is in the standard library</em>. Those poor developers would have to either 1) write this API off and get derogatorily accused of stunting their Python or do insane things to make what is trivial in CPython with byzantine .Net or JVM internals* to achieve parity.</p>
-<p>* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the ocmpiled Python VM bytecode to make the Python runtime in that system aware that it&rsquo;s reentered Python? It fills me with fear.</p>
+<p>* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the compiled Python VM bytecode to make the Python runtime in that system aware that it&rsquo;s reentered Python? It fills me with fear.</p>
 
 			</div>
 		</article>
