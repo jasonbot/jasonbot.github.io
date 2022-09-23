@@ -8,12 +8,23 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Mixed Syn in Async in Python: Disappointingly Simple</title>
+      <link>https://www.jasonscheirer.com/weblog/mixed-async-disappointingly-simple/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/mixed-async-disappointingly-simple/</guid>
+      <description>One thing I love about Python&amp;rsquo;s practical approach to type annotations and enforcement is that it&amp;rsquo;s gradual: you can rapidly code a large ball of mud and get it working, then refine it to make it safer with typing later on.
+Chalk this up as another cood idea (possibly by accident) for Python: you can do the same with async.
+At work, someone lamented that threads aren&amp;rsquo;t quite safe but they needed to do multiple http requests in parallel.</description>
+    </item>
+    
+    <item>
       <title>Modern Python: New Features, Better Code</title>
       <link>https://www.jasonscheirer.com/weblog/new-features-better-code/</link>
       <pubDate>Thu, 15 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/new-features-better-code/</guid>
-      <description>I wrote a log post that is now on my employer&amp;rsquo;s engineering blog. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history it&amp;rsquo;s right here.</description>
+      <description>I wrote a blog post that is now on my employer&amp;rsquo;s engineering blog. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history it&amp;rsquo;s right here.</description>
     </item>
     
     <item>
