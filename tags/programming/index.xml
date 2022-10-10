@@ -28,13 +28,37 @@ At work, someone lamented that threads aren&amp;rsquo;t quite safe but they need
     </item>
     
     <item>
+      <title>The Anime Watcher: Another Game</title>
+      <link>https://www.jasonscheirer.com/weblog/the-anime-watcher/</link>
+      <pubDate>Wed, 07 Sep 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/the-anime-watcher/</guid>
+      <description>I wrote another game game for a Weekend Game Jam with an Anime theme.
+A short bit of interactive fiction.
+It&amp;rsquo;s Webassembly using ebitengine.
+Play The Anime Watcher on itch.io </description>
+    </item>
+    
+    <item>
       <title>Trump Run: A Game</title>
       <link>https://www.jasonscheirer.com/weblog/trump-run/</link>
       <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/trump-run/</guid>
       <description>I wrote a game inspired by a tweet a coworker shared on a work Slack channel a few weeks back.
-It&amp;rsquo;s Webassembly using ebitengine.</description>
+It&amp;rsquo;s Webassembly using ebitengine.
+Play Trump Run on itch.io </description>
+    </item>
+    
+    <item>
+      <title>Little Guys! A Puzzle Game Without Enough Levels</title>
+      <link>https://www.jasonscheirer.com/weblog/little-guys/</link>
+      <pubDate>Sun, 24 Jul 2022 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/little-guys/</guid>
+      <description>I wrote another game game for a Weekend Game Jam with the theme Colors.
+It&amp;rsquo;s Webassembly using ebitengine.
+Play Little Guys (A Puzzle Game) on itch.io </description>
     </item>
     
     <item>
@@ -158,7 +182,8 @@ However, when you&amp;rsquo;re on-call, you no longer own your uptime.</descript
       <pubDate>Mon, 21 May 2018 01:15:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/jumpbear/</guid>
-      <description>I wrote a handful of different things on my paternity leave, but one of the more interesting ones was this small TIC-80 game where you play a bear.</description>
+      <description>I wrote a handful of different things on my paternity leave, but one of the more interesting ones was this small TIC-80 game where you play a bear.
+Play Jumpbear: The Global Warming Bear on itch.io </description>
     </item>
     
     <item>
