@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1665429278"><link rel="stylesheet" href="/css/fonts.css?rnd=1665429278">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1666037630"><link rel="stylesheet" href="/css/fonts.css?rnd=1666037630">
 	
 </head>
 <body>
@@ -88,11 +88,10 @@
 			
 			<div>
 				<p>One thing I love about Python&rsquo;s practical approach to type annotations and enforcement is that it&rsquo;s gradual: you can rapidly code a large ball of mud and get it working, then refine it to make it safer with typing later on.</p>
-<p>Chalk this up as another cood idea (possibly by accident) for Python: you can do the same with async.</p>
+<p>Chalk this up as another good idea (possibly by accident) for Python: you can do the same with async.</p>
 <p>At work, someone lamented that threads aren&rsquo;t quite safe but they needed to do multiple http requests in parallel.</p>
-<p>After being <em>that asshole</em> and suggesting they rewrite the entire app as an async app , I went in an experimented for a few hours. I experimented and coded and came up with a simple, almost disappointingly so, solution:</p>
+<p>After being <em>that asshole</em> and suggesting they rewrite the entire app as an async app, I went in and poked around for a few hours. I experimented and coded and came up with a simple, almost disappointingly so, solution:</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">asyncio</span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">unittest</span> <span style="color:#008000;font-weight:bold">import</span> FunctionTestCase
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">aiohttp</span>
 </span></span><span style="display:flex;"><span>
