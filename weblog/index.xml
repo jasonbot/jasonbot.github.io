@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Hardware review: iPhone 13 Mini</title>
+      <link>https://www.jasonscheirer.com/weblog/iphone-13-mini/</link>
+      <pubDate>Thu, 29 Dec 2022 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/iphone-13-mini/</guid>
+      <description>I&amp;rsquo;m not going into specs or specific details on this device. I was on an iPhone XS, which has slowly been degratding over time. Battery was slowly dying, replaced it at the Apple Store, the ribbon cable for the display was not adequately clipped back into place. It was easier to just order a new phone than to take the bus up to Emeryville again in the middle of the day for an appointment.</description>
+    </item>
+    
+    <item>
       <title>Mixed Async code in Sync Python: Disappointingly Simple</title>
       <link>https://www.jasonscheirer.com/weblog/mixed-async-disappointingly-simple/</link>
       <pubDate>Fri, 23 Sep 2022 00:00:00 -0800</pubDate>
