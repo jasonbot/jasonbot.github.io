@@ -2,7 +2,7 @@
 @font-face {
   font-family: "Fira Code";
   font-style: normal;
-  font-weight: 200;
+  font-weight: 400;
   src: url("/fonts/fira-code-v9-latin-regular.eot"); /* IE9 Compat Modes */
   src: local(""),
     url("/fonts/fira-code-v9-latin-regular.eot?#iefix")
@@ -20,6 +20,7 @@
 @font-face {
   font-family: "Berkeley Mono";
   font-style: normal;
+  font-weight: 400;
   src: local(""),
     url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2"),
     url("/fonts/BerkeleyMonoVariable-Regular.woff")
