@@ -55,13 +55,14 @@ pre {
   color: darkslategray !important;
   font-family: var(--mono-font);
   background: var(--bg-grn) !important;
-  padding: 1.5em;
-  font-weight: 300 !important;
+  margin: 1em;
+  padding: 1em;
 }
 
 code {
   color: darkslategray !important;
   font-family: var(--mono-font);
+  background: white !important;
 }
 
 nav {
@@ -121,11 +122,11 @@ a.taglink::before {
 }
 
 table {
-  border: 1px solid var(--bg-grn);
+  border: 1px solid rgba(0, 0, 0, 0.048);
 }
 
 thead {
-  background-color: var(--bg-grn);
+  background-color: rgba(0, 0, 0, 0.048);
 }
 
 th {
@@ -133,7 +134,7 @@ th {
 }
 
 td {
-  border-top: 1px solid var(--bg-grn);
+  border-top: 1px solid rgba(0, 0, 0, 0.048);
 }
 
 blockquote {
