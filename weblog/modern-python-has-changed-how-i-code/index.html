@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1676408507"><link rel="stylesheet" href="/css/fonts.css?rnd=1676408507">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685373718"><link rel="stylesheet" href="/css/fonts.css?rnd=1685373718">
 	
 </head>
 <body>
@@ -126,28 +126,28 @@
 <p>One of the &ldquo;warts&rdquo; of the language is that dictionaries were not guaranteed to be in any order, and add on that the fact that to avoid hash collision attacks every Python process seeds its hashing algorithm with a random number, even the out-of-order iteration order would change from run to run.</p>
 <p>Enter <a href="https://docs.python.org/3/whatsnew/3.7.html">Python 3.7</a> officially announcing that an implementation detail in 3.6 was now standard behavior: dict traversal would be ordered.</p>
 <p>So now built into the standard library is an easy, in-order way to define a data struct in the <a href="https://docs.python.org/3/library/dataclasses.html"><code>dataclasses</code></a> library.</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">dataclasses</span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">typing</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">T</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f">@dataclasses.dataclass</span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MyStruct</span>:
-</span></span><span style="display:flex;"><span>    field_1: <span style="color:#008000">str</span> <span style="color:#666">=</span> <span style="color:#ba2121">&#34;default&#34;</span>
-</span></span><span style="display:flex;"><span>    field_2: <span style="color:#008000">int</span>
-</span></span><span style="display:flex;"><span>    field_3: T<span style="color:#666">.</span>List[<span style="color:#008000">str</span>]
-</span></span></code></pre></div><p>That&rsquo;s not a lot of code to get a very powerful, good enough abstraction over data structures. It even has options to make the classes immutable (<code>frozen</code>) and implements <code>__slots__</code> to make large numbers of them more memory efficient.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">dataclasses</span>
+<span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">typing</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">T</span>
+
+<span style="color:#a2f">@dataclasses</span><span style="color:#666">.</span>dataclass
+<span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MyStruct</span>:
+    field_1: <span style="color:#008000">str</span> <span style="color:#666">=</span> <span style="color:#ba2121">&#34;default&#34;</span>
+    field_2: <span style="color:#008000">int</span>
+    field_3: T<span style="color:#666">.</span>List[<span style="color:#008000">str</span>]
+</code></pre></div><p>That&rsquo;s not a lot of code to get a very powerful, good enough abstraction over data structures. It even has options to make the classes immutable (<code>frozen</code>) and implements <code>__slots__</code> to make large numbers of them more memory efficient.</p>
 <p>These things are a godsend, along with typing below.</p>
 <h2 id="mypy">Mypy</h2>
 <p>Another tool I add to my CI, I run the Mypy tool over my code as I incrementally add type hints to ensure the code is correct. And since it can be done implicitly, your library code can look like this:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">thing_with_strings</span>(a: <span style="color:#008000">str</span>, b: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">str</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> a <span style="color:#666">+</span> b
-</span></span></code></pre></div><p>then your consuming app logic code can do this, unannotated:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">my_app_logic</span>():
-</span></span><span style="display:flex;"><span>    x <span style="color:#666">=</span> <span style="color:#ba2121">&#34;hello&#34;</span>
-</span></span><span style="display:flex;"><span>    y <span style="color:#666">=</span> <span style="color:#666">5</span>
-</span></span><span style="display:flex;"><span>    thing_with_strings(x, y)
-</span></span></code></pre></div><p>and Mypy will deduce the types and yell at you that <code>y</code> is the wrong type. Annotating libraries, even if you don&rsquo;t touch the codebases that consume them, can help find errors right away.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">thing_with_strings</span>(a: <span style="color:#008000">str</span>, b: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">str</span>:
+    <span style="color:#008000;font-weight:bold">return</span> a <span style="color:#666">+</span> b
+</code></pre></div><p>then your consuming app logic code can do this, unannotated:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">my_app_logic</span>():
+    x <span style="color:#666">=</span> <span style="color:#ba2121">&#34;hello&#34;</span>
+    y <span style="color:#666">=</span> <span style="color:#666">5</span>
+    thing_with_strings(x, y)
+</code></pre></div><p>and Mypy will deduce the types and yell at you that <code>y</code> is the wrong type. Annotating libraries, even if you don&rsquo;t touch the codebases that consume them, can help find errors right away.</p>
 <h2 id="type-hints">Type Hints</h2>
-<p>You don&rsquo;t have to go all in with typing, but when you do the <a href="https://peps.python.org/pep-0484/">type annotation system</a> is good enough (though not nearly as rich as other languages&rsquo;). In particular I find TypeVar to be clunky for doing generic coding, but it&rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.</p>
+<p>You don&rsquo;t have to go all in with typing, but when you do the <a href="https://peps.python.org/pep-0484/">type annotation system</a> is good enough (though not nearly as rich as other languages'). In particular I find TypeVar to be clunky for doing generic coding, but it&rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.</p>
 <h2 id="thats-all">That&rsquo;s All</h2>
 <p>These relatively minor changes to my Python coding I&rsquo;ve made over the last 3-5 years have definitely made the language feel safer and quite a bit different than the unsafe, scary, let&rsquo;s-pass-opaque-dicts-around crazy party that made larger codebases unmaintainable and encourages Python library authors to do weird, abusive metaprogramming stuff in their code to make it more suitable &ldquo;for humans.&rdquo;</p>
 
