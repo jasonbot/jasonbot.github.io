@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.111.3">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685407397"><link rel="stylesheet" href="/css/fonts.css?rnd=1685407397">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685804498"><link rel="stylesheet" href="/css/fonts.css?rnd=1685804498">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -118,7 +118,7 @@ So here&rsquo;s what I added to my settings.json to get the best of both worlds 
 	
 	<div>
 		I bought a Devterm a couple of years ago and it&rsquo;s mostly been sitting in a drawer.
-The good  The thermal printer is novel The form factor makes it super portable  The bad  OS support is not great, at one point I built my own Raspbian image because the official one had drifted so far out of date that the apt repos stopped working The keyboard and trackball (even with flashed firmware) are painful to use  
+The good The thermal printer is novel The form factor makes it super portable The bad OS support is not great, at one point I built my own Raspbian image because the official one had drifted so far out of date that the apt repos stopped working The keyboard and trackball (even with flashed firmware) are painful to use 
 		
 	</div>
 </article>
@@ -352,7 +352,7 @@ Play Little Guys (A Puzzle Game) on itch.io
 	
 	<div>
 		This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.
- Async programming in modern &ldquo;industrial&rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &ldquo;just mark your function async and await it and use these magic incantations and you&rsquo;re good to go!
+Async programming in modern &ldquo;industrial&rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &ldquo;just mark your function async and await it and use these magic incantations and you&rsquo;re good to go!
 		
 		<div class="read-more">
 			<a  href="https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/">Read more...</a>
@@ -396,7 +396,7 @@ Walrus Operator I&rsquo;ve been aware of this for a few years. I&rsquo;ve found 
 	
 	<div>
 		I can&rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:
- Continuous Integration Black Dataclasses Mypy Type Hints  Continuous Integration This isn&rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.
+Continuous Integration Black Dataclasses Mypy Type Hints Continuous Integration This isn&rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.
 		
 		<div class="read-more">
 			<a  href="https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/">Read more...</a>
@@ -467,7 +467,7 @@ Another fun thing is the leaking of implementation details in Bad Ways. Here&rsq
 	
 	<div>
 		End product Please disregard the poor camera placement or the labels, it has since been fixed.
-       Thinking Back, It Was All So Simple Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&rsquo;s a list of small things that accrued while working on the project.
+Thinking Back, It Was All So Simple Now we have the system up and running, let&rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&rsquo;s a list of small things that accrued while working on the project.
 Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.
 		
 		<div class="read-more">
@@ -521,7 +521,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.
 	
 	<div>
 		Running the software Frontend server The frontend has three responsibilities:
- Display information Perform access control (don&rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&rsquo;m using Go&rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.
+Display information Perform access control (don&rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend I&rsquo;m using Go&rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.
 		
 		<div class="read-more">
 			<a  href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/">Read more...</a>
@@ -549,7 +549,7 @@ The Printer The printer is a hefty boi, a Zebra something or other.
 	
 	<div>
 		Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
- A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.
+A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.
 		
 		<div class="read-more">
 			<a  href="https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/">Read more...</a>
@@ -643,7 +643,7 @@ SFTP is format agnostic This goes for HTTP as well, but you need to correctly se
 	
 	<div>
 		This was initially a blog post I wrote on my employer&rsquo;s internal system, but it&rsquo;s interestingly useful and it doesn&rsquo;t contain any trade secrets so I figure I&rsquo;ll share.
- A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
+A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
 You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &ldquo;file-like object&rdquo; will accept an in-memory piece of information in addition to a file on disk.
 		
 		<div class="read-more">
@@ -814,7 +814,7 @@ However, when you&rsquo;re on-call, you no longer own your uptime.
 	<div>
 		I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
 The main points:
- We all start out with a monolith The monolith never fully goes away That&rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice  
+We all start out with a monolith The monolith never fully goes away That&rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice 
 		
 	</div>
 </article>
@@ -854,7 +854,7 @@ Play Jumpbear: The Global Warming Bear on itch.io
 	
 	<div>
 		This is a recycled post from my tumblr weblog
- Ha ha ha just lying the real title should be
+Ha ha ha just lying the real title should be
 Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &ldquo;willing to pay this much&rdquo; price point: the Chromebook C100P.
 		
 		<div class="read-more">
@@ -877,7 +877,7 @@ Turning a Piece of Shit Chromebook into a Good Enough Development Machine Becaus
 	
 	<div>
 		This is a recycled post from my tumblr weblog. I&rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.
- Please note I am contractually prohibited from saying what I don&rsquo;t like about most of my prior employers so don&rsquo;t expect any negative posts.
+Please note I am contractually prohibited from saying what I don&rsquo;t like about most of my prior employers so don&rsquo;t expect any negative posts.
 I&rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco.
 		
 		<div class="read-more">

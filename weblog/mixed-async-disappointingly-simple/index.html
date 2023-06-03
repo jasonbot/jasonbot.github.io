@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685407397"><link rel="stylesheet" href="/css/fonts.css?rnd=1685407397">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685804498"><link rel="stylesheet" href="/css/fonts.css?rnd=1685804498">
 	
 </head>
 <body>
@@ -102,37 +102,37 @@
 <p>Chalk this up as another good idea (possibly by accident) for Python: you can do the same with async.</p>
 <p>At work, someone lamented that threads aren&rsquo;t quite safe but they needed to do multiple http requests in parallel.</p>
 <p>After being <em>that asshole</em> and suggesting they rewrite the entire app as an async app, I went in and poked around for a few hours. I experimented and coded and came up with a simple, almost disappointingly so, solution:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">asyncio</span>
-
-<span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">aiohttp</span>
-
-
-<span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">fetch_url</span>(session, url) <span style="color:#666">-&gt;</span> <span style="color:#008000">tuple</span>[<span style="color:#008000">str</span>, <span style="color:#008000">str</span> <span style="color:#666">|</span> <span style="color:#d2413a;font-weight:bold">Exception</span>]:
-    <span style="color:#008000;font-weight:bold">try</span>:
-        <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> session<span style="color:#666">.</span>get(url) <span style="color:#008000;font-weight:bold">as</span> result:
-            <span style="color:#008000;font-weight:bold">return</span> (url, <span style="color:#008000;font-weight:bold">await</span> result<span style="color:#666">.</span>text())
-    <span style="color:#008000;font-weight:bold">except</span> <span style="color:#d2413a;font-weight:bold">Exception</span> <span style="color:#008000;font-weight:bold">as</span> e:
-        <span style="color:#008000;font-weight:bold">return</span> (url, e)
-
-
-<span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">fetch_urls_async</span>(<span style="color:#666">*</span>urls) <span style="color:#666">-&gt;</span> <span style="color:#008000">dict</span>[<span style="color:#008000">str</span>, <span style="color:#008000">str</span>]:
-    <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> aiohttp<span style="color:#666">.</span>Session() <span style="color:#008000;font-weight:bold">as</span> session:
-        <span style="color:#008000;font-weight:bold">return</span> {
-            url: <span style="color:#008000">str</span>(status)
-            <span style="color:#008000;font-weight:bold">for</span> url, status <span style="color:#a2f;font-weight:bold">in</span> asyncio<span style="color:#666">.</span>gather(fetch_url(session, url) <span style="color:#008000;font-weight:bold">for</span> url <span style="color:#a2f;font-weight:bold">in</span> urls)
-        }
-
-
-<span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_multiple_urls</span>() <span style="color:#666">-&gt;</span> <span style="color:#008000">dict</span>[<span style="color:#008000">str</span>, <span style="color:#008000">str</span>]:
-    <span style="color:#008000;font-weight:bold">return</span> asyncio<span style="color:#666">.</span>run(
-        fetch_urls_async(<span style="color:#ba2121">&#34;http://www.google.com&#34;</span>, <span style="color:#ba2121">&#34;http://www.zombo.com&#34;</span>)
-    )
-
-
-<span style="color:#a2f">@flaskapp</span><span style="color:#666">.</span>route(<span style="color:#ba2121">&#34;/&#34;</span>)
-<span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">main_sync_route</span>():
-    <span style="color:#008000;font-weight:bold">return</span> get_multiple_urls()
-</code></pre></div><p>The three parts to make this work:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">asyncio</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">aiohttp</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">fetch_url</span>(session, url) <span style="color:#666">-&gt;</span> <span style="color:#008000">tuple</span>[<span style="color:#008000">str</span>, <span style="color:#008000">str</span> <span style="color:#666">|</span> <span style="color:#d2413a;font-weight:bold">Exception</span>]:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> session<span style="color:#666">.</span>get(url) <span style="color:#008000;font-weight:bold">as</span> result:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">return</span> (url, <span style="color:#008000;font-weight:bold">await</span> result<span style="color:#666">.</span>text())
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">except</span> <span style="color:#d2413a;font-weight:bold">Exception</span> <span style="color:#008000;font-weight:bold">as</span> e:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> (url, e)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">fetch_urls_async</span>(<span style="color:#666">*</span>urls) <span style="color:#666">-&gt;</span> <span style="color:#008000">dict</span>[<span style="color:#008000">str</span>, <span style="color:#008000">str</span>]:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> aiohttp<span style="color:#666">.</span>Session() <span style="color:#008000;font-weight:bold">as</span> session:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {
+</span></span><span style="display:flex;"><span>            url: <span style="color:#008000">str</span>(status)
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> url, status <span style="color:#a2f;font-weight:bold">in</span> asyncio<span style="color:#666">.</span>gather(fetch_url(session, url) <span style="color:#008000;font-weight:bold">for</span> url <span style="color:#a2f;font-weight:bold">in</span> urls)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_multiple_urls</span>() <span style="color:#666">-&gt;</span> <span style="color:#008000">dict</span>[<span style="color:#008000">str</span>, <span style="color:#008000">str</span>]:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> asyncio<span style="color:#666">.</span>run(
+</span></span><span style="display:flex;"><span>        fetch_urls_async(<span style="color:#ba2121">&#34;http://www.google.com&#34;</span>, <span style="color:#ba2121">&#34;http://www.zombo.com&#34;</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">@flaskapp.route</span>(<span style="color:#ba2121">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">main_sync_route</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> get_multiple_urls()
+</span></span></code></pre></div><p>The three parts to make this work:</p>
 <ul>
 <li><code>async</code>-colored functions</li>
 <li><a href="https://docs.python.org/3/library/asyncio-task.html#asyncio.gather"><code>asyncio.gather</code></a> to run a pool of jobs</li>

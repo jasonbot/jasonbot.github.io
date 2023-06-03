@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685407397"><link rel="stylesheet" href="/css/fonts.css?rnd=1685407397">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685804498"><link rel="stylesheet" href="/css/fonts.css?rnd=1685804498">
 	
 </head>
 <body>
@@ -101,42 +101,42 @@
 <p>However, I found a pretty good case for it that used to be a lot more work: duck-typey arguments that make default case rules easy but enable more complex functionality as needed.</p>
 <p>Namely, I&rsquo;m writing a REST API at work that is <em>mostly</em> CRUD, but for historical reasons certain field names in JSON payloads do not match up with their ORM equivalents (which in turn may not match up with their DB column equivalents).</p>
 <p>First off, we get a dict and want to just specify the keys we care about:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">typing</span>
-
-<span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">copy_keys</span>(<span style="color:#008000">input</span>: <span style="color:#008000">dict</span>, keep_keys: typing<span style="color:#666">.</span>Iterable[typing<span style="color:#666">.</span>Hashable]):
-   keep_set <span style="color:#666">=</span> <span style="color:#008000">set</span>(keep_keys)
-
-   <span style="color:#008000;font-weight:bold">return</span> {k: v <span style="color:#008000;font-weight:bold">for</span> k, v <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">input</span><span style="color:#666">.</span>items() <span style="color:#008000;font-weight:bold">if</span> k <span style="color:#a2f;font-weight:bold">in</span> keep_set}
-
-x <span style="color:#666">=</span> {<span style="color:#ba2121">&#39;a&#39;</span>: <span style="color:#666">1</span>, <span style="color:#ba2121">&#39;b&#39;</span>: <span style="color:#666">2</span>, <span style="color:#ba2121">&#39;c&#39;</span>: <span style="color:#666">3</span>}
-
-<span style="color:#008000">print</span>(copy_keys(x, [<span style="color:#ba2121">&#39;a&#39;</span>, <span style="color:#ba2121">&#39;c&#39;</span>]))
-<span style="color:#408080;font-style:italic"># {&#39;a&#39;: 1, &#39;c&#39;: 3}</span>
-</code></pre></div><p>Simple enough. Now what if we need to <em>remap</em> our keys?</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000">print</span>(copy_keys(x, [<span style="color:#ba2121">&#39;a&#39;</span>, (<span style="color:#ba2121">&#39;c&#39;</span>, <span style="color:#ba2121">&#39;b&#39;</span>)]))  <span style="color:#408080;font-style:italic"># We want:{&#39;a&#39;: 1, &#39;b&#39;: 3}</span>
-</code></pre></div><p>Well, we can use pattern matching:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">typing</span>
-
-<span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">copy_keys</span>(<span style="color:#008000">input</span>: <span style="color:#008000">dict</span>, keep_keys: typing<span style="color:#666">.</span>Iterable[typing<span style="color:#666">.</span>Hashable <span style="color:#666">|</span> typing<span style="color:#666">.</span>Tuple[typing<span style="color:#666">.</span>Hashable, typing<span style="color:#666">.</span>Hashable]]):
-    keep_map <span style="color:#666">=</span> {}
-    <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> keep_keys:
-        match item:
-            case (from_key, to_key):
-                keep_map[from_key] <span style="color:#666">=</span> to_key
-            case key:
-                keep_map[key] <span style="color:#666">=</span> key
-    <span style="color:#008000">print</span>(keep_map)
-
-    <span style="color:#008000;font-weight:bold">return</span> {keep_map[k]: v <span style="color:#008000;font-weight:bold">for</span> k, v <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">input</span><span style="color:#666">.</span>items() <span style="color:#008000;font-weight:bold">if</span> k <span style="color:#a2f;font-weight:bold">in</span> keep_map}
-
-x <span style="color:#666">=</span> {<span style="color:#ba2121">&#39;a&#39;</span>: <span style="color:#666">1</span>, <span style="color:#ba2121">&#39;b&#39;</span>: <span style="color:#666">2</span>, <span style="color:#ba2121">&#39;c&#39;</span>: <span style="color:#666">3</span>}
-
-<span style="color:#008000">print</span>(copy_keys(x, [<span style="color:#ba2121">&#39;a&#39;</span>, (<span style="color:#ba2121">&#39;c&#39;</span>, <span style="color:#ba2121">&#39;b&#39;</span>)]))  <span style="color:#408080;font-style:italic"># {&#39;a&#39;: 1, &#39;b&#39;: 3}</span>
-</code></pre></div><p>Simpler than the <code>isinstance(x, tuple) and len(x) == 2</code> dance we&rsquo;d have to do in prior Pythons. The <code>match</code> statement can help write library code that is clean and easy to use while at the same time being clear and less magical than it would have been in previous Pythons.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">typing</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">copy_keys</span>(<span style="color:#008000">input</span>: <span style="color:#008000">dict</span>, keep_keys: typing<span style="color:#666">.</span>Iterable[typing<span style="color:#666">.</span>Hashable]):
+</span></span><span style="display:flex;"><span>   keep_set <span style="color:#666">=</span> <span style="color:#008000">set</span>(keep_keys)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">return</span> {k: v <span style="color:#008000;font-weight:bold">for</span> k, v <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">input</span><span style="color:#666">.</span>items() <span style="color:#008000;font-weight:bold">if</span> k <span style="color:#a2f;font-weight:bold">in</span> keep_set}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> {<span style="color:#ba2121">&#39;a&#39;</span>: <span style="color:#666">1</span>, <span style="color:#ba2121">&#39;b&#39;</span>: <span style="color:#666">2</span>, <span style="color:#ba2121">&#39;c&#39;</span>: <span style="color:#666">3</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(copy_keys(x, [<span style="color:#ba2121">&#39;a&#39;</span>, <span style="color:#ba2121">&#39;c&#39;</span>]))
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># {&#39;a&#39;: 1, &#39;c&#39;: 3}</span>
+</span></span></code></pre></div><p>Simple enough. Now what if we need to <em>remap</em> our keys?</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000">print</span>(copy_keys(x, [<span style="color:#ba2121">&#39;a&#39;</span>, (<span style="color:#ba2121">&#39;c&#39;</span>, <span style="color:#ba2121">&#39;b&#39;</span>)]))  <span style="color:#408080;font-style:italic"># We want:{&#39;a&#39;: 1, &#39;b&#39;: 3}</span>
+</span></span></code></pre></div><p>Well, we can use pattern matching:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">typing</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">copy_keys</span>(<span style="color:#008000">input</span>: <span style="color:#008000">dict</span>, keep_keys: typing<span style="color:#666">.</span>Iterable[typing<span style="color:#666">.</span>Hashable <span style="color:#666">|</span> typing<span style="color:#666">.</span>Tuple[typing<span style="color:#666">.</span>Hashable, typing<span style="color:#666">.</span>Hashable]]):
+</span></span><span style="display:flex;"><span>    keep_map <span style="color:#666">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> keep_keys:
+</span></span><span style="display:flex;"><span>        match item:
+</span></span><span style="display:flex;"><span>            case (from_key, to_key):
+</span></span><span style="display:flex;"><span>                keep_map[from_key] <span style="color:#666">=</span> to_key
+</span></span><span style="display:flex;"><span>            case key:
+</span></span><span style="display:flex;"><span>                keep_map[key] <span style="color:#666">=</span> key
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(keep_map)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> {keep_map[k]: v <span style="color:#008000;font-weight:bold">for</span> k, v <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">input</span><span style="color:#666">.</span>items() <span style="color:#008000;font-weight:bold">if</span> k <span style="color:#a2f;font-weight:bold">in</span> keep_map}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> {<span style="color:#ba2121">&#39;a&#39;</span>: <span style="color:#666">1</span>, <span style="color:#ba2121">&#39;b&#39;</span>: <span style="color:#666">2</span>, <span style="color:#ba2121">&#39;c&#39;</span>: <span style="color:#666">3</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(copy_keys(x, [<span style="color:#ba2121">&#39;a&#39;</span>, (<span style="color:#ba2121">&#39;c&#39;</span>, <span style="color:#ba2121">&#39;b&#39;</span>)]))  <span style="color:#408080;font-style:italic"># {&#39;a&#39;: 1, &#39;b&#39;: 3}</span>
+</span></span></code></pre></div><p>Simpler than the <code>isinstance(x, tuple) and len(x) == 2</code> dance we&rsquo;d have to do in prior Pythons. The <code>match</code> statement can help write library code that is clean and easy to use while at the same time being clear and less magical than it would have been in previous Pythons.</p>
 <p>* The one case I have come up with for Walrus that makes sense:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#008000;font-weight:bold">if</span> (x <span style="color:#666">:=</span> do_something()) <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#008000;font-weight:bold">None</span>:
-    x<span style="color:#666">.</span>do_something_else()
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">if</span> (x <span style="color:#666">:=</span> do_something()) <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    x<span style="color:#666">.</span>do_something_else()
+</span></span></code></pre></div>
 			</div>
 		</article>
 	</main>

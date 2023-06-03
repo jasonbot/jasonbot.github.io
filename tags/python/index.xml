@@ -55,7 +55,7 @@ import functools import inspect import sys @functools.lru_cache def getlines(fil
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
       <description>This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.
- Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function async and await it and use these magic incantations and you&amp;rsquo;re good to go!</description>
+Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function async and await it and use these magic incantations and you&amp;rsquo;re good to go!</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@ Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;v
       
       <guid>https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/</guid>
       <description>I can&amp;rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:
- Continuous Integration Black Dataclasses Mypy Type Hints  Continuous Integration This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.</description>
+Continuous Integration Black Dataclasses Mypy Type Hints Continuous Integration This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.</description>
     </item>
     
     <item>
@@ -108,7 +108,7 @@ Another fun thing is the leaking of implementation details in Bad Ways. Here&amp
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.
- A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
+A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
 You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk.</description>
     </item>
     
@@ -120,7 +120,7 @@ You very seldom ACTUALLY need to do this. The BytesIO class follows the exact sa
       <guid>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</guid>
       <description>I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
 The main points:
- We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice  </description>
+We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice </description>
     </item>
     
     <item>

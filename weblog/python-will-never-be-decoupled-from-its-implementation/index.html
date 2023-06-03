@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685407397"><link rel="stylesheet" href="/css/fonts.css?rnd=1685407397">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1685804498"><link rel="stylesheet" href="/css/fonts.css?rnd=1685804498">
 	
 </head>
 <body>
@@ -100,12 +100,12 @@
 <p>This has always been false, and harmful at best.</p>
 <p>Look at <code>__dict__</code>. Near every Python object has a dictionary that fuels and consumes it. All your dotted getters are mere passthroughs for dot <code>__getitem__</code>ers.</p>
 <p>Another fun thing is the leaking of implementation details in Bad Ways. Here&rsquo;s something you <em>can</em> do but <em>should not</em> do, lest I find out where you live and poop in your mailbox:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">gc</span>
-
-x <span style="color:#666">=</span> <span style="color:#ba2121">&#34;HELLO&#34;</span>
-<span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;My names are:&#34;</span>, [[key <span style="color:#008000;font-weight:bold">for</span> key, value <span style="color:#a2f;font-weight:bold">in</span> var<span style="color:#666">.</span>items() <span style="color:#008000;font-weight:bold">if</span> value <span style="color:#a2f;font-weight:bold">is</span> x] <span style="color:#008000;font-weight:bold">for</span> var <span style="color:#a2f;font-weight:bold">in</span> gc<span style="color:#666">.</span>get_referrers(x)])
-</code></pre></div><p>And it outputs:</p>
-<pre tabindex="0"><code>My names are: [['x']]
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">gc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> <span style="color:#ba2121">&#34;HELLO&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;My names are:&#34;</span>, [[key <span style="color:#008000;font-weight:bold">for</span> key, value <span style="color:#a2f;font-weight:bold">in</span> var<span style="color:#666">.</span>items() <span style="color:#008000;font-weight:bold">if</span> value <span style="color:#a2f;font-weight:bold">is</span> x] <span style="color:#008000;font-weight:bold">for</span> var <span style="color:#a2f;font-weight:bold">in</span> gc<span style="color:#666">.</span>get_referrers(x)])
+</span></span></code></pre></div><p>And it outputs:</p>
+<pre tabindex="0"><code>My names are: [[&#39;x&#39;]]
 </code></pre><p>You <em>could</em> create a class where all its instances know their names. All their names. Do not do this. I will leave you poop.</p>
 
 			</div>
