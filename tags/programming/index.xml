@@ -6,7 +6,17 @@
     <description>Recent content in programming on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 May 2023 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Aug 2023 01:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023: Linux on the Desktop This Year</title>
+      <link>https://www.jasonscheirer.com/weblog/linux-on-the-desktop-2023/</link>
+      <pubDate>Tue, 08 Aug 2023 01:11:45 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/linux-on-the-desktop-2023/</guid>
+      <description>I have a Gaming PC I bought from Costco when my wife told me &amp;ldquo;I should maybe get back into my old hobbies&amp;rdquo; in the summer of 2020. It came with Win10, which is fine and it&amp;rsquo;s probably good to have at least one Windows machine in the house at any given time.
+The thing is: Windows is annoying. Every time Windows ran an update I had to run a third-party uninstall tool to undo the changes Windows updates made to the graphics drivers, which started hanging and crashing if they weren&amp;rsquo;t the exact specific ones the machine shipped with.</description>
+    </item>
+    
     <item>
       <title>VS Code: Dark Terminal on a Light Theme</title>
       <link>https://www.jasonscheirer.com/weblog/dark-terminal-on-a-light-theme/</link>
