@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/programming/</link>
     <description>Recent content in programming on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Mon, 07 Aug 2023 01:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023: Linux on the Desktop This Year</title>
@@ -13,8 +13,17 @@
       <pubDate>Mon, 07 Aug 2023 01:11:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/linux-on-the-desktop-2023/</guid>
-      <description>I have a Gaming PC I bought from Costco when my wife told me &amp;ldquo;I should maybe get back into my old hobbies&amp;rdquo; in the summer of 2020. It came with Win10, which is fine and it&amp;rsquo;s probably good to have at least one Windows machine in the house at any given time.
-The thing is: Windows is annoying. Every time Windows ran an update I had to run a third-party uninstall tool to undo the changes Windows updates made to the graphics drivers, which started hanging and crashing if they weren&amp;rsquo;t the exact specific ones the machine shipped with.</description>
+      <description>&lt;p&gt;I have a Gaming PC I bought from Costco when my wife told me &amp;ldquo;I should maybe get back into my old hobbies&amp;rdquo; in the summer of 2020. It came with Win10, which is fine and it&amp;rsquo;s probably good to have at least one Windows machine in the house at any given time.&lt;/p&gt;
+&lt;p&gt;The thing is: Windows is &lt;em&gt;annoying&lt;/em&gt;. Every time Windows ran an update I had to run &lt;a href=&#34;https://www.wagnardsoft.com/display-driver-uninstaller-DDU-&#34;&gt;a third-party uninstall tool&lt;/a&gt; to undo the changes Windows updates made to the graphics drivers, which started hanging and crashing if they weren&amp;rsquo;t the exact specific ones the machine shipped with.&lt;/p&gt;
+&lt;p&gt;We had a flood in the winter of 2022. Our new home office was under half an inch of water and many of my electronics were unsalvageably water damaged. I placed this gaming machine (which hardly got any usage anyway) outside to dry.&lt;/p&gt;
+&lt;p&gt;The case then accrued condensation inside, which cvonvinved me this thing was now, if it had not been previously, fully water damaged e-waste.&lt;/p&gt;
+&lt;p&gt;In April I was bored and wanted to see if I could at least save the hard drives before taking the machine to recycling. On a lark I tried to turn in on and surprise surprise, it booted no problem!&lt;/p&gt;
+&lt;p&gt;Since I had already written it off as &amp;ldquo;dead,&amp;rdquo; I figured it was fine to put Linux on it. I had read about &lt;a href=&#34;https://nobaraproject.org/&#34;&gt;Nobara Linux&lt;/a&gt; as it was done by the same guy who does a bunch of Proton and SteamOS hacking, and it had a bunch of quality of life improvements to make it gaming friendly: it even had the Steam client installed out of the box. Once I got over my distaste of using a non-.deb based distro I was off to the races.&lt;/p&gt;
+&lt;p&gt;I like the Gnome desktop. This ships with a newer version of it.&lt;/p&gt;
+&lt;p&gt;For the whole &amp;ldquo;I need at least one Windows machine in the house&amp;rdquo; thing: Proton plays all my games. Steam on here does 95% of what I need. TYhe only Windows app I &lt;em&gt;really&lt;/em&gt; need is &lt;a href=&#34;https://www.xara.com/photo-graphic-plus/&#34;&gt;Xara&lt;/a&gt;, because I&amp;rsquo;ve been using it or its lineage since 1999 and I have muscle memory. Every attempt I&amp;rsquo;ve made in every flavor of Wine has failed, and even &lt;a href=&#34;http://www.xaraxtreme.org/&#34;&gt;the Linux versions they briefly released&lt;/a&gt; are now too bit-rotted to be usable on a modern installation on an x64 machine.&lt;/p&gt;
+&lt;p&gt;So Wine mostly has me covered, but for that single app I&amp;rsquo;m now using &lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; to handle a single &lt;a href=&#34;https://archive.org/details/tiny-10-NTDEV&#34;&gt;Tiny10&lt;/a&gt; install, which is a custom &amp;ldquo;remix&amp;rdquo; of Windows that is so bare bones that it&amp;rsquo;s not even possible to install the &lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;new Windows terminal&lt;/a&gt; on. But it&amp;rsquo;s got a very small footprint and it runs my programs and is &lt;em&gt;probably&lt;/em&gt; a better idea than an XP VM.&lt;/p&gt;
+&lt;p&gt;So Nobara has been fine for the past several months. I have &lt;a href=&#34;https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions&#34;&gt;VS Code as an RPM source&lt;/a&gt;, I just download Go as &lt;code&gt;.tar.gz&lt;/code&gt; and plop it into &lt;code&gt;~&lt;/code&gt;, Python via &lt;code&gt;https://github.com/pyenv/pyenv&lt;/code&gt;, google cloud command line apps, and &lt;a href=&#34;https://flathub.org/en&#34;&gt;Flatpak&lt;/a&gt; has turned out to be this amazing dark horse over the past 3 years to find decent software in a distro-independent fashion, the only annoyance remaining is that there&amp;rsquo;s the occasional double-buffering-flicker thing that pops up on 3d accelerated UI apps.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -23,8 +32,15 @@ The thing is: Windows is annoying. Every time Windows ran an update I had to run
       <pubDate>Sun, 28 May 2023 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/dark-terminal-on-a-light-theme/</guid>
-      <description>I&amp;rsquo;m a weirdo: on my IDEs I prefer a light theme, having used light themed IDEs since time immemorial (still miss using Visual Studio regularly). But I prefer white on black for my terminal emulators, as I have used that since time immemorial and a black on white terminal window doesn&amp;rsquo;t feel like a serious thing.
-So here&amp;rsquo;s what I added to my settings.json to get the best of both worlds (light theme turned on):</description>
+      <description>&lt;p&gt;I&amp;rsquo;m a weirdo: on my IDEs I prefer a light theme, having used light themed IDEs since time immemorial (still miss using Visual Studio regularly). But I prefer white on black for my terminal emulators, as I have used that since time immemorial and a black on white terminal window doesn&amp;rsquo;t feel like a serious thing.&lt;/p&gt;
+&lt;p&gt;So here&amp;rsquo;s what I added to my &lt;code&gt;settings.json&lt;/code&gt; to get the best of both worlds (light theme turned on):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;workbench.colorCustomizations&amp;#34;&lt;/span&gt;&lt;span style=&#34;&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;terminal.foreground&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;#ffffff&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;terminal.background&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;#303030&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Simple enough!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; &lt;a href=&#34;https://glitchbone.github.io/vscode-base16-term/&#34;&gt;This site&lt;/a&gt; has a panoply of copy-pastable terminal themes.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -33,9 +49,48 @@ So here&amp;rsquo;s what I added to my settings.json to get the best of both wor
       <pubDate>Fri, 23 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/mixed-async-disappointingly-simple/</guid>
-      <description>One thing I love about Python&amp;rsquo;s practical approach to type annotations and enforcement is that it&amp;rsquo;s gradual: you can rapidly code a large ball of mud and get it working, then refine it to make it safer with typing later on.
-Chalk this up as another good idea (possibly by accident) for Python: you can do the same with async.
-At work, someone lamented that threads aren&amp;rsquo;t quite safe but they needed to do multiple http requests in parallel.</description>
+      <description>&lt;p&gt;One thing I love about Python&amp;rsquo;s practical approach to type annotations and enforcement is that it&amp;rsquo;s gradual: you can rapidly code a large ball of mud and get it working, then refine it to make it safer with typing later on.&lt;/p&gt;
+&lt;p&gt;Chalk this up as another good idea (possibly by accident) for Python: you can do the same with async.&lt;/p&gt;
+&lt;p&gt;At work, someone lamented that threads aren&amp;rsquo;t quite safe but they needed to do multiple http requests in parallel.&lt;/p&gt;
+&lt;p&gt;After being &lt;em&gt;that asshole&lt;/em&gt; and suggesting they rewrite the entire app as an async app, I went in and poked around for a few hours. I experimented and coded and came up with a simple, almost disappointingly so, solution:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;asyncio&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;aiohttp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;fetch_url&lt;/span&gt;(session, url) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;tuple&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;Exception&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; session&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(url) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; result:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (url, &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; result&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;text())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (url, e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;fetch_urls_async&lt;/span&gt;(&lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;urls) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; aiohttp&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Session() &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; session:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            url: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;(status)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; url, status &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;gather(fetch_url(session, url) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; url &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; urls)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;get_multiple_urls&lt;/span&gt;() &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fetch_urls_async(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;http://www.google.com&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;http://www.zombo.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@flaskapp&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;main_sync_route&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; get_multiple_urls()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The three parts to make this work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;async&lt;/code&gt;-colored functions&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/asyncio-task.html#asyncio.gather&#34;&gt;&lt;code&gt;asyncio.gather&lt;/code&gt;&lt;/a&gt; to run a pool of jobs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/asyncio-task.html#asyncio.run&#34;&gt;&lt;code&gt;asyncio.run&lt;/code&gt;&lt;/a&gt; to run a block of async code in a sync context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Long story short: &lt;code&gt;asyncio.run&lt;/code&gt; does exactly what it says on the tin with minimal fuss. If you&amp;rsquo;re not in an async event loop in the current thread, it starts one for you, runs the async function as its main, then blocks until it&amp;rsquo;s done.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -44,7 +99,8 @@ At work, someone lamented that threads aren&amp;rsquo;t quite safe but they need
       <pubDate>Thu, 15 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/new-features-better-code/</guid>
-      <description>I wrote a blog post that is now on my employer&amp;rsquo;s engineering blog. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history it&amp;rsquo;s right here.</description>
+      <description>&lt;p&gt;I wrote a blog post &lt;a href=&#34;https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code&#34;&gt;that is now on my employer&amp;rsquo;s engineering blog&lt;/a&gt;. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history &lt;a href=&#34;https://github.com/jasonbot/weblog/commits/master/content/weblog/new-features-better-code.md&#34;&gt;it&amp;rsquo;s right here&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -53,10 +109,13 @@ At work, someone lamented that threads aren&amp;rsquo;t quite safe but they need
       <pubDate>Wed, 07 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/the-anime-watcher/</guid>
-      <description>I wrote another game game for a Weekend Game Jam with an Anime theme.
-A short bit of interactive fiction.
-It&amp;rsquo;s Webassembly using ebitengine.
-Play The Anime Watcher on itch.io </description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jasonbot.itch.io/anime-watcher&#34;&gt;I wrote another game game&lt;/a&gt; for a &lt;a href=&#34;https://itch.io/jam/mini-jam-114-anime&#34;&gt;Weekend Game Jam with an Anime theme&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A short bit of interactive fiction.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s Webassembly using &lt;a href=&#34;https://ebiten.org/&#34;&gt;ebitengine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/6466103?color=161616&#34; allowfullscreen=&#34;&#34; width=&#34;600&#34; height=&#34;420&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/anime-watcher&#34;&gt;Play The Anime Watcher on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
     <item>
@@ -65,9 +124,12 @@ Play The Anime Watcher on itch.io </description>
       <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/trump-run/</guid>
-      <description>I wrote a game inspired by a tweet a coworker shared on a work Slack channel a few weeks back.
-It&amp;rsquo;s Webassembly using ebitengine.
-Play Trump Run on itch.io </description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jasonbot.itch.io/trump-run&#34;&gt;I wrote a game&lt;/a&gt; inspired by &lt;a href=&#34;https://twitter.com/joolsd/status/1541929360441081857&#34;&gt;a tweet&lt;/a&gt; a coworker shared on a work Slack channel a few weeks back.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s Webassembly using &lt;a href=&#34;https://ebiten.org/&#34;&gt;ebitengine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/6208200?color=262b44&#34; allowfullscreen=&#34;&#34; width=&#34;640&#34; height=&#34;500&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/trump-run&#34;&gt;Play Trump Run on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
     <item>
@@ -76,9 +138,12 @@ Play Trump Run on itch.io </description>
       <pubDate>Sun, 24 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/little-guys/</guid>
-      <description>I wrote another small puzzle game for a Weekend Game Jam with the theme Colors.
-It&amp;rsquo;s Webassembly using ebitengine.
-Play Little Guys (A Puzzle Game) on itch.io </description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jasonbot.itch.io/little-guys&#34;&gt;I wrote another small puzzle game&lt;/a&gt; for a &lt;a href=&#34;https://itch.io/jam/mini-jam-111-colors&#34;&gt;Weekend Game Jam with the theme &lt;em&gt;Colors&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s Webassembly using &lt;a href=&#34;https://ebiten.org/&#34;&gt;ebitengine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/6226779?color=63c64d&#34; allowfullscreen=&#34;&#34; width=&#34;360&#34; height=&#34;380&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/little-guys&#34;&gt;Play Little Guys (A Puzzle Game) on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
     <item>
@@ -87,8 +152,134 @@ Play Little Guys (A Puzzle Game) on itch.io </description>
       <pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
-      <description>This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.
- Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function async and await it and use these magic incantations and you&amp;rsquo;re good to go!</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
+&lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
+&lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
+&lt;p&gt;Based on this, threading on its own isn&amp;rsquo;t &lt;em&gt;necessarily&lt;/em&gt; the best way to approach this, or at least, not polling by spawning one thread per open connection. With a single-threaded approach, at least for the I/O part, how would we go about it? IT probably makes sense to have a blocking call on not just one socket, but &lt;em&gt;many&lt;/em&gt;.
+That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;code&gt;[socket1, socket2, ...].wait()&lt;/code&gt;. Note we could already discount something with a &lt;code&gt;.ready()&lt;/code&gt; poll instead of a &lt;code&gt;.wait()&lt;/code&gt; because&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [socket &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; socket &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; sockets &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;ready_to_read()]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;would thrash the CPU and turn the server into a space heater. A block would be better.&lt;/p&gt;
+&lt;h2 id=&#34;select-the-great-granddaddy-of-async-programming&#34;&gt;&lt;code&gt;select&lt;/code&gt;: The great granddaddy of async programming&lt;/h2&gt;
+&lt;p&gt;In general, with I/O bound programs, you&amp;rsquo;d probably want to avoid spawning a thread for every request because that&amp;rsquo;s pretty hard on the OS kernel and not particularly scalable. If you could &lt;em&gt;move&lt;/em&gt; all those waiting-on-input blocks to the kernel, where it should live, that would help.&lt;/p&gt;
+&lt;p&gt;So in theory, if you listen to a list of open network sockets, you want to just block and get a list of handles with data ready to go. In Python pseudocode:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; socket &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; magic_handler(list_of_sockets)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        handle_data_ready(socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id, socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or to expand more closely to &amp;ldquo;working&amp;rdquo; code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# The open TCP socket accepting connections&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;listener &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;listen()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sockets &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [listener]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;handlers &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Loop until loop is broken&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Handles to close this iteration&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    closed_handle_ids &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;set&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    handles &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; magic_listener(sockets)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Go over currently ready-to-read connections&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; handle &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; handles:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Is this the listening socket?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; listener&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Get the actual connection we just established from the listener&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            new_handle &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; handles&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;accept())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            sockets&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;add(new_handle)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handlers &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; ConnectionHandler(handle)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Is this a request handler?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Feed the handler the data ready&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handlers[handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id]&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;handle_data(handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Is this handle done with its request?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;done:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            closed_handle_ids&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handlers[handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id]&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;del&lt;/span&gt; handlers[handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Done listening (this is the special listener socket)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; listener&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Delete active handles&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sockets &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [s &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; s &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; sockets &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; s&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; closed_handle_ids]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can see this is already getting scary just looking at basic cases without error handling. You probably don&amp;rsquo;t want to roll this code on your own.&lt;/p&gt;
+&lt;p&gt;So there&amp;rsquo;s the original Posix function &lt;code&gt;select&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b00040&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#b00040&#34;&gt;int&lt;/span&gt; nfds, fd_set &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;readfds, fd_set &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;writefds, fd_set &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;errorfds, &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;struct&lt;/span&gt; timeval &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;timeout);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It&amp;rsquo;s even more complex than the code above in that it handles read/write/error states, but the main concept is still clearly there: a blocking call that returns list of handles for read/write when they are ready.&lt;/p&gt;
+&lt;h3 id=&#34;moving-on&#34;&gt;Moving on&lt;/h3&gt;
+&lt;p&gt;From this basic understanding, you can intuit that 1) there are probably a lot of corner cases to debug and 2) there is probably a better way to do it.&lt;/p&gt;
+&lt;p&gt;And from here you now understand 1) the need for the amorphous &amp;ldquo;event loop&amp;rdquo; provided by a third-party library that has gone through the long process of fishing out edge cases and bugs so you don&amp;rsquo;t have to and 2) the evolution of new APIs like &lt;code&gt;epoll&lt;/code&gt; and &lt;code&gt;kqueue&lt;/code&gt; that do the same thing, but better. And, as a bonus, a combination of both in abstraction libraries like &lt;code&gt;libevent&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;cooperative-multitasking-and-event-loops&#34;&gt;&amp;ldquo;Cooperative&amp;rdquo; multitasking and event loops&lt;/h2&gt;
+&lt;p&gt;This is a problem as old as time. Even on older desktop frameworks like Classic Mac OS and Windows the default for applications was by design to run in a single-threaded event loop and the program is expected yield to the operating system periodically so it could do housekeeping tasks and let other running apps run for a slice of time too.&lt;/p&gt;
+&lt;p&gt;Lots of software are bad citizens. Doing CPU intensive work in this type of framework will inevitably not yield to the loop at a reasonable clip and cause the entire system to become unresponsive. This can still hit you with asynchronous apps today.&lt;/p&gt;
+&lt;h2 id=&#34;we-need-a-scheduler&#34;&gt;We need a scheduler&lt;/h2&gt;
+&lt;p&gt;On a higher level, especially in interpreted languages, it&amp;rsquo;s possible during code execution to say &amp;ldquo;this item has used &lt;em&gt;N&lt;/em&gt; opcodes, let&amp;rsquo;s pump the brakes a second.&amp;rdquo; This has the potential in the event loop to make long running code that does not yield not hang the whole system and also lets you transparently spin off subtasks (&amp;ldquo;green threads&amp;rdquo;) with impunity from your function and be able to trust they will run.&lt;/p&gt;
+&lt;h2 id=&#34;the-iterator-protocol-in-python-and-cooperative-multitasking&#34;&gt;The iterator protocol in Python and &amp;ldquo;cooperative&amp;rdquo; multitasking&lt;/h2&gt;
+&lt;p&gt;In Python, you can make a function a &lt;em&gt;generator&lt;/em&gt; by using the &lt;code&gt;yield&lt;/code&gt; keyword at least once. You then run the function by calling it with arguments, which in turn returns a generator, which you can use the &lt;code&gt;next()&lt;/code&gt; builtin on or use in a &lt;code&gt;for&lt;/code&gt; loop.&lt;/p&gt;
+&lt;p&gt;This gives us a framework for &amp;ldquo;cooperative&amp;rdquo; multitasking. Consider this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;generators &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;add_task&lt;/span&gt;(generator):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;task&lt;/span&gt;(generation&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Hello from generation &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;generation&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; generation &lt;span style=&#34;color:#666&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;100&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Adding task from generation &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;generation&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        add_task(generation&lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;((&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Generation &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;generation&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt; is done&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; generation
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;event_loop&lt;/span&gt;(start_generator):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(start_generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; generators:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        generator &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;pop(&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000&#34;&gt;next&lt;/span&gt;(generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Push &amp;#34;coroutine&amp;#34; to end of task list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;StopIteration&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Generator finished and returned &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;e&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;value&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Start the &amp;#34;event loop&amp;#34; with a single root task.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;event_loop(task())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This code takes a generator, iterates over it until it&amp;rsquo;s done, and also allows it to add new subtasks to the cooperative job runner. Now you&amp;rsquo;ve got an interpreter-level event loop; the event loop could be smarter and look at each &lt;code&gt;yield&lt;/code&gt;s yield value, and if it&amp;rsquo;s a filehandle etc the even loop could take that, squirrel it away into a list of handles being waited on, and not add the generator back into the queue until a &lt;code&gt;select&lt;/code&gt; call says that handle is ready for reading again. I.E. &lt;code&gt;yield handle.read()&lt;/code&gt; where &lt;code&gt;handle.read()&lt;/code&gt; sends off some sort of object with a file handle ID to the scheduler and then the event loop does a &lt;code&gt;.send()&lt;/code&gt; with the data ready to be read so you could do &lt;code&gt;data = yield handle.read()&lt;/code&gt; and have the event loop be able to push your coroutine aside in an efficient way until it&amp;rsquo;s ready to go again. This also lets you do other blocking calls like &lt;code&gt;time.sleep()&lt;/code&gt; in a cooperative manner, too.&lt;/p&gt;
+&lt;p&gt;That is, making our own &amp;ldquo;cooperative&amp;rdquo; event loop based on iterators makes it possible to make otherwise blocking calls non-blocking to cooperating green threads, delegating the long wait to the event loop and also making it possible to spawn new green threads within that event loop.&lt;/p&gt;
+&lt;h2 id=&#34;promises&#34;&gt;Promises&lt;/h2&gt;
+&lt;p&gt;One concept of industrial async applications is the concept of a &lt;em&gt;Promise&lt;/em&gt;: a function will return a &lt;em&gt;Promise&lt;/em&gt; rather than an actual return value, and shove off its workload using something approximating the above iterator to the event loop.&lt;/p&gt;
+&lt;p&gt;A promise is an cooperatively async way of doing this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;promise&lt;/span&gt;(fn, then, error):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        val &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; fn()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        then(val)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        error(e)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, it&amp;rsquo;s fairly ugly in practice in Javascript and is a lot more jarring to write a pyramid of &lt;code&gt;.then()&lt;/code&gt; calls to do sequential code. This is what most Javascript in the wild does; but it&amp;rsquo;s jarring and it would be nicer to get a syntax closer to the above with &lt;code&gt;yield&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;async-and-await-syntactic-and-semantic-sugar-on-promises&#34;&gt;&lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt;: Syntactic and semantic sugar on Promises&lt;/h2&gt;
+&lt;p&gt;As we discussed above, with an interpreted language we can easily implement in our runtime an implicit event loop and a forced &amp;ldquo;cooperative&amp;rdquo; mode that can pause code after a certain number of opcodes.&lt;/p&gt;
+&lt;p&gt;Many languages (Python/Javascript/C#/etc) have introduced the &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; keywords, all semantically similar. Marking a function as &lt;code&gt;async&lt;/code&gt; informs the interpreter/runtime that this function will span cooperative &amp;ldquo;subtasks&amp;rdquo; and need to be put into consideration for the event loop&amp;rsquo;s scheduler.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;await&lt;/code&gt; keyword says &amp;ldquo;push this async function onto the list of green threads and call me back when it finishes/errors with the result.&amp;rdquo; It pauses the function that &lt;code&gt;await&lt;/code&gt;s and doesn&amp;rsquo;t put it back into the stack until the dependent green thread returns or fails, and then pushes the paused coroutine into the list of active green threads and sends it the return value.&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+&lt;p&gt;Async code &lt;em&gt;can still block&lt;/em&gt; if it calls synchronous functions, and you have to keep track of what code &lt;em&gt;is&lt;/em&gt; and &lt;em&gt;isn&amp;rsquo;t&lt;/em&gt; async, avoiding mixing the two. Python, by nature of having an event loop at the interpreter level, is more susceptible to this than Javascript, but you still need to take care not to call long-running non-async functions from async code.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this helps build up from fundamentals the basics of how async programming works in modern systems.&lt;/p&gt;
+&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/&#34;&gt;What color is your function?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/reference/expressions.html#yieldexpr&#34;&gt;Python &lt;code&gt;yield&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://peps.python.org/pep-0342/&#34;&gt;Coroutines via enhanced iterators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://peps.python.org/pep-0492/&#34;&gt;Python Coroutines with &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; Syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;Javascript Promises&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await&#34;&gt;Javascript &lt;code&gt;await&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -97,8 +288,41 @@ Play Little Guys (A Puzzle Game) on itch.io </description>
       <pubDate>Mon, 11 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/modern-python-features-that-are-still-sinking-in/</guid>
-      <description>Python has continued to progress and introduce new features and modules. In this post I&amp;rsquo;ll cover features I haven&amp;rsquo;t used much (or at all) and how I plan on using or not using them.
-Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;ve found about 3 times where I&amp;rsquo;ve found it appropriate to use. It&amp;rsquo;s nice but not a huge change to the way I code. Generally in the pattern</description>
+      <description>&lt;p&gt;Python has continued to progress and introduce new features and modules. In this post I&amp;rsquo;ll cover features I haven&amp;rsquo;t used much (or at all) and how I plan on using or not using them.&lt;/p&gt;
+&lt;h2 id=&#34;walrus-operator&#34;&gt;Walrus Operator&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;ve found about 3 times where I&amp;rsquo;ve found it appropriate to use. It&amp;rsquo;s nice but not a huge change to the way I code. Generally in the pattern&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; (thing &lt;span style=&#34;color:#666&#34;&gt;:=&lt;/span&gt; function_call()) &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    thing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;do_stuff()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;name-only-parameters&#34;&gt;Name-only parameters&lt;/h2&gt;
+&lt;p&gt;I actually use this a &lt;em&gt;lot&lt;/em&gt;, especially with any function that has more than 2 arguments. Forcing the consumer of your library code to explicitly name the parameters makes their code more readable. When you do&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;do_my_task&lt;/span&gt;(&lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;, client, schema_dataclass, callback):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and &lt;em&gt;force&lt;/em&gt; users to call it like &lt;code&gt;do_my_task(client=self.client, schema_dataclass=DataSchema, callback=self.done)&lt;/code&gt;, it overall makes code more easy to skim through.&lt;/p&gt;
+&lt;h2 id=&#34;async&#34;&gt;Async&lt;/h2&gt;
+&lt;p&gt;Long ago I spent entirely too long fighting with &lt;a href=&#34;https://twisted.org/&#34;&gt;Twisted&lt;/a&gt; (and writing more boilerplate than substance) and became convinced that asynchronous programming, though its improved performance on I/O bound tasks (that is, every task you&amp;rsquo;d realistically expect to see in a professional setting) outweigh the pain caused by writing them (allegedly).&lt;/p&gt;
+&lt;p&gt;I was always a big fan of the &lt;a href=&#34;http://www.gevent.org/&#34;&gt;gevent&lt;/a&gt; library because it let you write async code that looked like syncronous code. Like a decent language like Go or Java let you do.&lt;/p&gt;
+&lt;p&gt;Instead, Python has fallen prey to the nasty &lt;a href=&#34;https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/&#34;&gt;colored functions&lt;/a&gt; bug and added, almost identically, Javascript&amp;rsquo;s approach to async. Booo. It even &lt;a href=&#34;https://peps.python.org/pep-0492/&#34;&gt;abuses the iterator protocol&lt;/a&gt; to achieve its dark ends.&lt;/p&gt;
+&lt;p&gt;However, this &lt;em&gt;is&lt;/em&gt; built into the standard library and I am reluctantly starting to accept it and write code for it. &lt;a href=&#34;https://www.tornadoweb.org/en/stable/&#34;&gt;Tornado&lt;/a&gt; is fine, I guess.&lt;/p&gt;
+&lt;h2 id=&#34;structural-pattern-matching&#34;&gt;Structural Pattern Matching&lt;/h2&gt;
+&lt;p&gt;This one seems like another way to abuse metaprogamming. It looks on its face like a &lt;code&gt;switch&lt;/code&gt; statement, so will likely be misunderstood in the same semantic ways the &lt;code&gt;is&lt;/code&gt; operator is misunderstood.&lt;/p&gt;
+&lt;p&gt;I think I may try experimenting with this and type hints to write something approximating other languages&amp;rsquo; generic coding going forward.&lt;/p&gt;
+&lt;h2 id=&#34;dictionary-merge--update-operators&#34;&gt;Dictionary Merge &amp;amp; Update Operators&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve begun to shy away from using dicts in general in favor of dataclasses, so I don&amp;rsquo;t really need the shenanigans of abusing operator overloading to do things with dictionaries.&lt;/p&gt;
+&lt;h2 id=&#34;typeddict&#34;&gt;TypedDict&lt;/h2&gt;
+&lt;p&gt;Helps with validation and obviates the need for a third-party dependency like &lt;code&gt;colander&lt;/code&gt;. Also, a typed dict is one step closer in a refactor to being replaced with a &lt;code&gt;dataclass&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;zoneinfo&#34;&gt;&lt;code&gt;zoneinfo&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;I generally consider it a Bad Idea to bundle a static copy of the &lt;code&gt;tzinfo&lt;/code&gt; db into the standard library, but it&amp;rsquo;s nice that it does try to use the OS database first as the OS gets regular updates. It&amp;rsquo;s one less dependency to have to &lt;code&gt;pip install&lt;/code&gt; into your venv I guess.&lt;/p&gt;
+&lt;h2 id=&#34;operator-overloading-madness&#34;&gt;Operator Overloading Madness&lt;/h2&gt;
+&lt;p&gt;This covers the general trend to use operator overloading in libraries and language features like the Dict improvements above and the use of &lt;code&gt;|&lt;/code&gt; and &lt;code&gt;[type]&lt;/code&gt; as operators for union types and container/call spec specialization in type hints. When used sparingly it makes code simpler, when overused it makes code opaque. I still have the psychic scars from what C++ developers used to do with operators back in the day so I look upon doing &lt;code&gt;x: Y | Z&lt;/code&gt; over &lt;code&gt;x: T.Union(Y, Z)&lt;/code&gt; with a little bit of reluctance.&lt;/p&gt;
+&lt;h2 id=&#34;enhanced-error-locations-in-tracebacks&#34;&gt;Enhanced error locations in Tracebacks&lt;/h2&gt;
+&lt;p&gt;This is a Python 3.11 feature, but exceptions will actually &lt;em&gt;highlight&lt;/em&gt; offending code in the TB. Nice.&lt;/p&gt;
+&lt;h2 id=&#34;self-type&#34;&gt;&lt;code&gt;Self&lt;/code&gt; type&lt;/h2&gt;
+&lt;p&gt;A nice addition to &lt;code&gt;typing&lt;/code&gt; that makes generics a little more convenient.&lt;/p&gt;
+&lt;h2 id=&#34;variadic-generics&#34;&gt;Variadic generics&lt;/h2&gt;
+&lt;p&gt;YES. I need these too.&lt;/p&gt;
+&lt;h2 id=&#34;faster-cpython&#34;&gt;Faster CPython&lt;/h2&gt;
+&lt;p&gt;Python 3.11. Sure, I&amp;rsquo;ll take it.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -107,8 +331,59 @@ Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;v
       <pubDate>Thu, 07 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/</guid>
-      <description>I can&amp;rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:
- Continuous Integration Black Dataclasses Mypy Type Hints  Continuous Integration This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.</description>
+      <description>&lt;p&gt;I can&amp;rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_integration&#34;&gt;Continuous Integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/psf/black&#34;&gt;Black&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/dataclasses.html&#34;&gt;Dataclasses&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mypy-lang.org/&#34;&gt;Mypy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/typing.html&#34;&gt;Type Hints&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h2&gt;
+&lt;p&gt;This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting &lt;em&gt;on every commit pushed to the repo tracker&lt;/em&gt; gives confidence that the code is clean to merge into the main branch. Generally you build up stages as your org progresses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Run unit tests&lt;/li&gt;
+&lt;li&gt;Run and enforce code coverage standards&lt;/li&gt;
+&lt;li&gt;Run lint&lt;/li&gt;
+&lt;li&gt;Run style checks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;black&#34;&gt;Black&lt;/h2&gt;
+&lt;p&gt;About two years into writing Go I started using &lt;a href=&#34;https://go.dev/blog/gofmt&#34;&gt;&lt;code&gt;gofmt&lt;/code&gt;&lt;/a&gt; to help me clean up a bunch of pre-Go-1.0 code that &lt;a href=&#34;https://go.dev/doc/effective_go#semicolons&#34;&gt;still used semicolons&lt;/a&gt;. I turned on fomrat on save in my editor and never turned it off. A large point of contention over the course of my career is arguing with senior developers over bikesheddy, arbitrary, often cruel and capricious code style standards over the actual semantic behavior of the code.&lt;/p&gt;
+&lt;p&gt;Then I found &lt;a href=&#34;https://prettier.io/&#34;&gt;Prettier&lt;/a&gt; while writing some JSX/React code. While it had knobs to tweak most people didn&amp;rsquo;t tweak them. It made the code I worked with more readable and I got the same delight out of using it as I did &lt;code&gt;gofmt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I was sold on opinionated formatting.&lt;/p&gt;
+&lt;p&gt;Now I use Black on all my code, auto format on save, and also enforce linter rules in CI to make sure that all code is Black-formatted.&lt;/p&gt;
+&lt;p&gt;Agreeing on a format and enforcing it makes code diffs purely &lt;em&gt;semantic&lt;/em&gt; and no longer &lt;em&gt;stylistic&lt;/em&gt;. This makes code review less painful and shuts down completely unproductive conversations on where commas go.&lt;/p&gt;
+&lt;p&gt;Blackening your codebase initially is admittedly ugly and somewhat destructive as you pollute your repo history with the reformat commits and it makes most tools that do line history barf. That part sucks and I don&amp;rsquo;t know a good way around it, but it does make the path forward so much more pleasant one that band-aid comes off.&lt;/p&gt;
+&lt;h2 id=&#34;dataclasses&#34;&gt;Dataclasses&lt;/h2&gt;
+&lt;p&gt;Over the years there have been &lt;em&gt;so many&lt;/em&gt; attempts to do data structures in Python, all equally bad and weird: &lt;a href=&#34;https://marshmallow.readthedocs.io/en/stable/&#34;&gt;marshmallow&lt;/a&gt;, &lt;a href=&#34;https://docs.pylonsproject.org/projects/colander/en/latest/index.html&#34;&gt;colander&lt;/a&gt;, &lt;a href=&#34;https://schematics.readthedocs.io/en/latest/&#34;&gt;schematics&lt;/a&gt;,  stdlib &lt;a href=&#34;https://docs.python.org/3/library/struct.html&#34;&gt;struct&lt;/a&gt;, the list goes on.&lt;/p&gt;
+&lt;p&gt;One of the &amp;ldquo;warts&amp;rdquo; of the language is that dictionaries were not guaranteed to be in any order, and add on that the fact that to avoid hash collision attacks every Python process seeds its hashing algorithm with a random number, even the out-of-order iteration order would change from run to run.&lt;/p&gt;
+&lt;p&gt;Enter &lt;a href=&#34;https://docs.python.org/3/whatsnew/3.7.html&#34;&gt;Python 3.7&lt;/a&gt; officially announcing that an implementation detail in 3.6 was now standard behavior: dict traversal would be ordered.&lt;/p&gt;
+&lt;p&gt;So now built into the standard library is an easy, in-order way to define a data struct in the &lt;a href=&#34;https://docs.python.org/3/library/dataclasses.html&#34;&gt;&lt;code&gt;dataclasses&lt;/code&gt;&lt;/a&gt; library.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;dataclasses&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;typing&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;T&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@dataclasses&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dataclass
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;MyStruct&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_1: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_2: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_3: T&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;List[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s not a lot of code to get a very powerful, good enough abstraction over data structures. It even has options to make the classes immutable (&lt;code&gt;frozen&lt;/code&gt;) and implements &lt;code&gt;__slots__&lt;/code&gt; to make large numbers of them more memory efficient.&lt;/p&gt;
+&lt;p&gt;These things are a godsend, along with typing below.&lt;/p&gt;
+&lt;h2 id=&#34;mypy&#34;&gt;Mypy&lt;/h2&gt;
+&lt;p&gt;Another tool I add to my CI, I run the Mypy tool over my code as I incrementally add type hints to ensure the code is correct. And since it can be done implicitly, your library code can look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;thing_with_strings&lt;/span&gt;(a: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, b: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; a &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; b
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;then your consuming app logic code can do this, unannotated:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;my_app_logic&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    x &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    y &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    thing_with_strings(x, y)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and Mypy will deduce the types and yell at you that &lt;code&gt;y&lt;/code&gt; is the wrong type. Annotating libraries, even if you don&amp;rsquo;t touch the codebases that consume them, can help find errors right away.&lt;/p&gt;
+&lt;h2 id=&#34;type-hints&#34;&gt;Type Hints&lt;/h2&gt;
+&lt;p&gt;You don&amp;rsquo;t have to go all in with typing, but when you do the &lt;a href=&#34;https://peps.python.org/pep-0484/&#34;&gt;type annotation system&lt;/a&gt; is good enough (though not nearly as rich as other languages&amp;rsquo;). In particular I find TypeVar to be clunky for doing generic coding, but it&amp;rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.&lt;/p&gt;
+&lt;h2 id=&#34;thats-all&#34;&gt;That&amp;rsquo;s All&lt;/h2&gt;
+&lt;p&gt;These relatively minor changes to my Python coding I&amp;rsquo;ve made over the last 3-5 years have definitely made the language feel safer and quite a bit different than the unsafe, scary, let&amp;rsquo;s-pass-opaque-dicts-around crazy party that made larger codebases unmaintainable and encourages Python library authors to do weird, abusive metaprogramming stuff in their code to make it more suitable &amp;ldquo;for humans.&amp;rdquo;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -117,9 +392,53 @@ Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;v
       <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/</guid>
-      <description>End product Please disregard the poor camera placement or the labels, it has since been fixed.
-       Thinking Back, It Was All So Simple Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&amp;rsquo;s a list of small things that accrued while working on the project.
-Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.</description>
+      <description>&lt;h1 id=&#34;end-product&#34;&gt;End product&lt;/h1&gt;
+&lt;p&gt;Please disregard the poor camera placement or the labels, it has since been fixed.&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/workflow-1.png&#34; alt=&#34;Step 1&#34; /&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/workflow-2.png&#34; alt=&#34;Step 2&#34; /&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/workflow-3.png&#34; alt=&#34;Step 3&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;h1 id=&#34;thinking-back-it-was-all-so-simple&#34;&gt;Thinking Back, It Was All So Simple&lt;/h1&gt;
+&lt;p&gt;Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&amp;rsquo;s a list of small things that accrued while working on the project.&lt;/p&gt;
+&lt;h2 id=&#34;networks-are-slow-and-the-dual-tier-service-thing-is-bad-actually&#34;&gt;Networks are slow and the dual tier service thing is bad, actually&lt;/h2&gt;
+&lt;p&gt;I initially chose to run a service on the Nginx server that then called to a service running on the RPi. Since there were Very Large PNGs being shuttled around a LOT, this was inefficient from a speed perspective because of the bandwidth consumed over my shitty cable connection.&lt;/p&gt;
+&lt;p&gt;Two band-aids I&amp;rsquo;ve applied:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Moved both services to the RPi&lt;/li&gt;
+&lt;li&gt;Started sending out a version of the image by default shrunken to 800px wide, with the original full size image as an optional download.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I could merge the two services into one, but having the backend be &lt;code&gt;curl&lt;/code&gt;able without any sort of auth makes it easy to test the two ends more effectively.&lt;/p&gt;
+&lt;h2 id=&#34;networks-are-unreliable&#34;&gt;Networks are unreliable&lt;/h2&gt;
+&lt;p&gt;The SSH tunnel can go down and while I have taken efforts to mitigate it, I could take more. Currently:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Setting timeouts in the SSH tunnel service&lt;/li&gt;
+&lt;li&gt;Force resetting the tunnel every 6 hours&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Additionally I could:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run another task that tries to hit a healthcheck on the zpl service, and if it&amp;rsquo;s dead restart the tunnel service unit&lt;/li&gt;
+&lt;li&gt;The same idea but with my cable internet connection&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper&#34;&gt;Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper&lt;/h2&gt;
+&lt;p&gt;Just gotta do what you can do a day at a time, man.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -128,9 +447,34 @@ Networks are slow and the dual tier service thing is bad, actually I initially c
       <pubDate>Mon, 08 Mar 2021 04:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4/</guid>
-      <description>Hardware The RPi The Raspberry Pi is a (I think) Pi 3 with Wifi I found in the garage with a cheap clear acrylic case. It might have been a RetroPie rig in a prior life? Or one I was &amp;ldquo;gonna get around to&amp;rdquo; doing something with and finally did?
-Then for this project I bought a Raspberry Pi camera and a small acrylic case for it, too.
-The Printer The printer is a hefty boi, a Zebra something or other.</description>
+      <description>&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;h2 id=&#34;the-rpi&#34;&gt;The RPi&lt;/h2&gt;
+&lt;p&gt;The Raspberry Pi is a (I think) Pi 3 with Wifi I found in the garage with a cheap clear acrylic case. It might have been a RetroPie rig in a prior life? Or one I was &amp;ldquo;gonna get around to&amp;rdquo; doing something with and finally did?&lt;/p&gt;
+&lt;p&gt;Then for this project I bought a Raspberry Pi camera and a small acrylic case for it, too.&lt;/p&gt;
+&lt;h2 id=&#34;the-printer&#34;&gt;The Printer&lt;/h2&gt;
+&lt;p&gt;The printer is a hefty boi, a Zebra something or other. It belongs to work. It has an ethernet port, a lot of lights, an air of proprietary grandeur, and a hunger for paper and electricity.&lt;/p&gt;
+&lt;h2 id=&#34;the-assembled-rig&#34;&gt;THE ASSEMBLED RIG&lt;/h2&gt;
+&lt;p&gt;I wanted all the components to be as easy to transport as possible, so I used adhesive velcro tape to affix the components to each other and some adhesive cable maangement clips to hold the cables in place, carefult to leave enough slack so that the side dfoor can still open.&lt;/p&gt;
+&lt;p&gt;The Pi is running stock Raspian, I have the Pi connected to the printer via a short span of Cat 6 I found, and I&amp;rsquo;m using dnsmasq&amp;rsquo;s dhcp bound to &lt;code&gt;eth0&lt;/code&gt; so that the printer always gets the same IP that the Pi can address it through. The Pi joins my network via WiFi. The intent is for the whole mess to be easy to pick up and move around the house.&lt;/p&gt;
+&lt;p&gt;The last piece is a humble power strip.&lt;/p&gt;
+&lt;p&gt;A picture of the front (you can see some of the cable management):
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/rig-picture.png&#34; alt=&#34;Hardware Rig Picture&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;How it&amp;rsquo;s set up:
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/rig-diagram.svg&#34; alt=&#34;Hardware Rig Diagram&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5&#34;&gt;On to part 5 →&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -139,8 +483,156 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       <pubDate>Mon, 08 Mar 2021 03:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/</guid>
-      <description>Running the software Frontend server The frontend has three responsibilities:
- Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
+      <description>&lt;h1 id=&#34;running-the-software&#34;&gt;Running the software&lt;/h1&gt;
+&lt;h2 id=&#34;frontend-server&#34;&gt;Frontend server&lt;/h2&gt;
+&lt;p&gt;The frontend has three responsibilities:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Display information&lt;/li&gt;
+&lt;li&gt;Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs)&lt;/li&gt;
+&lt;li&gt;Forward appropriate calls to the backend&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo framework&lt;/a&gt; for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.&lt;/p&gt;
+&lt;p&gt;The page is fast and I am attempting to capitalize on the whole &amp;ldquo;Hotwire&amp;rdquo; trend by using &lt;code&gt;innerHTML&lt;/code&gt; for some stuff on pages. Look how leader my thoughts are!&lt;/p&gt;
+&lt;p&gt;Not that it&amp;rsquo;s necessary. The pages themselves render blazingly fast since they are so resource lean.&lt;/p&gt;
+&lt;h2 id=&#34;backend-server&#34;&gt;Backend server&lt;/h2&gt;
+&lt;p&gt;The backend server is a simple Go server with an even simpler API:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Endpoint&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&amp;rsquo;s it. That&amp;rsquo;s the synchronization mechanism. A goroutine and a channel.&lt;/p&gt;
+&lt;p&gt;Jobs are stored in a &lt;a href=&#34;https://github.com/boltdb/bolt&#34;&gt;Bolt&lt;/a&gt; database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?&lt;/p&gt;
+&lt;h2 id=&#34;login-management&#34;&gt;Login Management&lt;/h2&gt;
+&lt;p&gt;This lives entirely on the frontend. I&amp;rsquo;m using Google&amp;rsquo;s javascript OAuth2 library along with some backend whitelisting to only allow people with approved Google logins into the privileged endpoints. Permissions are enforced via a custom Echo middleware.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;an-aside-making-peace-with-systemd&#34;&gt;An aside: Making Peace with &lt;code&gt;systemd&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;People like to talk shit about &lt;code&gt;systemd&lt;/code&gt;. It&amp;rsquo;s weird, it&amp;rsquo;s disruptive, it tries to do too much.
+First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;keeping-the-software-running&#34;&gt;Keeping the software running&lt;/h1&gt;
+&lt;h2 id=&#34;operating-environment-on-the-server&#34;&gt;Operating Environment on the Server&lt;/h2&gt;
+&lt;p&gt;I use &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;letsencrypt&lt;/a&gt; for SSL, &lt;a href=&#34;https://cloud.google.com/compute&#34;&gt;GCP for a VM/IP&lt;/a&gt; (Docker would be stupid here), and Nginx as the edge. The conf look like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-nginx&#34; data-lang=&#34;nginx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;ZPL-HOST-DOMAIN.TLD&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_set_header&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;Host&lt;/span&gt; &lt;span style=&#34;color:#19177c&#34;&gt;$host&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_pass&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;http://127.0.0.1:5489&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_buffering&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;on&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_redirect&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;off&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_http_version&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;.1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_cache&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;off&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;tcp_nodelay&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;on&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;error_page&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;502&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/502.html&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;location&lt;/span&gt; = &lt;span style=&#34;color:#ba2121&#34;&gt;/502.html&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;root&lt;/span&gt;  &lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama/public&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;443&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;ssl&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;ssl_certificate&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/fullchain.pem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;ssl_certificate_key&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/privkey.pem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/options-ssl-nginx.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ba2121&#34;&gt;ssl_dhparam&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/ssl-dhparams.pem&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#19177c&#34;&gt;$host&lt;/span&gt; = &lt;span style=&#34;color:#ba2121&#34;&gt;ZPL-HOST-DOMAIN.TLD)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;https://&lt;/span&gt;&lt;span style=&#34;color:#19177c&#34;&gt;$host$request_uri&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;80&lt;/span&gt; ;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;ZPL-HOST-DOMAIN.TLD&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;404&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Basically: use HTTPS, pass through to the frontend service which is bound to a port on localhost via the tunnel. Neat.&lt;/p&gt;
+&lt;h2 id=&#34;operating-environment-on-the-pi&#34;&gt;Operating Environment on the Pi&lt;/h2&gt;
+&lt;p&gt;I have a custom user with limited permissions called &lt;code&gt;zplorama&lt;/code&gt;. I had to add it to the group &lt;code&gt;video&lt;/code&gt; so it could call &lt;code&gt;raspistill&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The two service executables operate via simple systemd unit defs:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Backend&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Fairly simple: run a binary as a specific user in a specific path, restart on fail.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Run the backend printer server on localhost&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama/bin/printer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Frontend&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Run the frontend printer server on localhost&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama/bin/frontend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is super simple and since I&amp;rsquo;m embedding the config inside the binaries I don&amp;rsquo;t even need to send any command-line flags along.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tunnel&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The ssh connection stays alive via another systemd unit:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Setup a secure tunnel to prod for ZPL service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;ssh -o ExitOnForwardFailure=yes -R 5489:localhost:5489 USER@HOST -N&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Set a hard reset every 6 hours&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RuntimeMaxSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;21600&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;Deployment involves doing a &lt;code&gt;git pull&lt;/code&gt;, a &lt;code&gt;make clean &amp;amp;&amp;amp; make&lt;/code&gt;, &lt;code&gt;cp ./bin/ ~zplorama/bin&lt;/code&gt;, and then using &lt;code&gt;sudo service restart&lt;/code&gt;. This could be a script, even!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bc7a00&#34;&gt;#! /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bc7a00&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#008000&#34;&gt;cd&lt;/span&gt; zpl-o-rama
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make clean &lt;span style=&#34;color:#666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv bin/* ~zplorama/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chown zplorama:zplorama ~zplorama/bin/*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; service in zplbackend zplfrontend zpltunnel
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sudo service restart &lt;span style=&#34;color:#19177c&#34;&gt;$service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;end&#34;&gt;End&lt;/h1&gt;
+&lt;p&gt;This is the beefiest of the posts because it includes real code. TL;DR: the configuration of the service is larger than the actual code of the service.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4&#34;&gt;On to part 4 →&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -149,8 +641,37 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       <pubDate>Mon, 08 Mar 2021 02:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/</guid>
-      <description>Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
- A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.</description>
+      <description>&lt;h1 id=&#34;problem-space&#34;&gt;Problem Space&lt;/h1&gt;
+&lt;p&gt;To automate the process of printing and reporting back a ZPL payload, we need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A way to get the ZPL from the user&lt;/li&gt;
+&lt;li&gt;A way to send the ZPL to a printer&lt;/li&gt;
+&lt;li&gt;A way to take a picture&lt;/li&gt;
+&lt;li&gt;A way to send it back to the user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;a-way-to-get-the-zpl-from-the-user&#34;&gt;A way to get the ZPL from the user&lt;/h2&gt;
+&lt;p&gt;A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.&lt;/p&gt;
+&lt;h2 id=&#34;a-way-to-send-the-zpl-to-a-printer&#34;&gt;A way to send the ZPL to a printer&lt;/h2&gt;
+&lt;p&gt;A ZPL printer has an ethernet port and can simply be &lt;code&gt;netcat&lt;/code&gt;ted to. We just need a program that shuttles ZPL from user to printer. This can easily be done with a web API and maybe something like a Raspberry pi in between.&lt;/p&gt;
+&lt;h2 id=&#34;a-way-to-take-a-picture&#34;&gt;A way to take a picture&lt;/h2&gt;
+&lt;p&gt;Raspberry Pis have &lt;a href=&#34;https://www.raspberrypi.org/products/camera-module-v2/&#34;&gt;cheap camra modules&lt;/a&gt; with dedicated ports to accept them on the board. There is &lt;a href=&#34;https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md&#34;&gt;a simple command-line app&lt;/a&gt; to capture stills. This is easy.&lt;/p&gt;
+&lt;h2 id=&#34;a-way-to-send-it-back-to-the-user&#34;&gt;A way to send it back to the user&lt;/h2&gt;
+&lt;p&gt;This is probably going to be the same thing as above, with the webapp. The printer prints, the camera cams, the webapp reconveys the image to the user.&lt;/p&gt;
+&lt;h1 id=&#34;moving-on&#34;&gt;Moving on&lt;/h1&gt;
+&lt;p&gt;Moving forward, we abstractly have all the conceptual parts we&amp;rsquo;ll need to make this service thought out. Now for the details.&lt;/p&gt;
+&lt;h1 id=&#34;lets-talk-architecture&#34;&gt;Let&amp;rsquo;s Talk Architecture&lt;/h1&gt;
+&lt;p&gt;The next thing I needed to do was plan out how this would work. I made a diagram to make sure I wasn&amp;rsquo;t missing anything.&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/zpl-o-rama-architecture.svg&#34; alt=&#34;Architecture Diagram&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll use Nginx at the edge to route to a frontend application. Then I&amp;rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.&lt;/p&gt;
+&lt;p&gt;Then, I&amp;rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3&#34;&gt;On to part 3 →&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -159,8 +680,18 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-1/</guid>
-      <description>Introduction In my spare time on weekends in between errands and mornings before everyone wakes up, I&amp;rsquo;ve been working on a little project I&amp;rsquo;ve been having a lot of fun with: ZPL-O-Rama.
-The Problem A large part of my employer&amp;rsquo;s line of business is creating shipping labels, and a large number of those aren&amp;rsquo;t simply printed images, but printed on very high volume, heavy duty, industrial grade printers using a proprietary language called ZPL.</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In my spare time on weekends in between errands and mornings before everyone wakes up, I&amp;rsquo;ve been working on a little project I&amp;rsquo;ve been having a lot of fun with: ZPL-O-Rama.&lt;/p&gt;
+&lt;h1 id=&#34;the-problem&#34;&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;A large part of my employer&amp;rsquo;s line of business is creating shipping labels, and a large number of those aren&amp;rsquo;t simply printed images, but printed on very high volume, heavy duty, industrial grade printers using &lt;a href=&#34;https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf&#34;&gt;a proprietary language called ZPL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In an aggressive and justified act of Intellectual Property enforcement, there are no legal software ZPL renderers available&lt;sup&gt;(footnote 1)&lt;/sup&gt;. This means that to test the output of a ZPL stanza we have to physically print a label and inspect it. In the Before Times of 2019, our office was full of all kinds of ZPL printer we could freely and cavalierly print to.&lt;/p&gt;
+&lt;p&gt;Now that workplaces are in a &lt;a href=&#34;https://www.jasonscheirer.com/weblog/thepost-office-world&#34;&gt;post-office diaspora&lt;/a&gt;, we no longer have access to ZPL printers. The fleet of printers were  dispatched to a number of people in the org who opted in and had a vested need to test ZPL. I was one of those people.&lt;/p&gt;
+&lt;p&gt;Now, for those without a printer, if they need to test something they will go into a Slack channel and hope someone sees it in a timely manner, prints the ZPL, takes a picture, and reports back.&lt;/p&gt;
+&lt;p&gt;We can do better than that. We can automate this.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2&#34;&gt;On to part 2 →&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; (Yes, I am aware of &lt;a href=&#34;http://labelary.com/viewer.html&#34;&gt;Labelary&lt;/a&gt;, but that&amp;rsquo;s also proprietary and probably in violation of all kinds of agreements)&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -169,9 +700,47 @@ The Problem A large part of my employer&amp;rsquo;s line of business is creating
       <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/</guid>
-      <description>So it&amp;rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.
-A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.
-SFTP is format agnostic This goes for HTTP as well, but you need to correctly set headers, and there&amp;rsquo;s a constant, incessant push for change for change&amp;rsquo;s sake.</description>
+      <description>&lt;p&gt;So it&amp;rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.&lt;/p&gt;
+&lt;p&gt;A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.&lt;/p&gt;
+&lt;h1 id=&#34;sftp-is-format-agnostic&#34;&gt;SFTP is format agnostic&lt;/h1&gt;
+&lt;p&gt;This goes for HTTP as well, but you need to &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding&#34;&gt;correctly&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type&#34;&gt;set&lt;/a&gt; headers, and there&amp;rsquo;s a constant, incessant push for change for change&amp;rsquo;s sake.&lt;/p&gt;
+&lt;h1 id=&#34;sftp-works-for-cold-storage&#34;&gt;SFTP works for cold storage&lt;/h1&gt;
+&lt;p&gt;SFTP servers are a known entity, and can be used to point at an old directory full of files somewhere, an enterprise-grade SAN, or whatever. It&amp;rsquo;s file-focused where modern HTTP is more interaction/endpoint focused.&lt;/p&gt;
+&lt;h1 id=&#34;the-s-in-sftp-is-already-secure&#34;&gt;The S in SFTP is already &amp;ldquo;secure&amp;rdquo;&lt;/h1&gt;
+&lt;p&gt;HTTP is insecure by default, though in recent years yes, HTTPS is now almost a default (but not behind the edge, which is a story for another day).&lt;/p&gt;
+&lt;p&gt;SFTP starts via an SSH session with proper key negotiation. This means every workflow you do with SSH (like exchanging keys that are not necessarily signed by a root authority) is supported with SFTP. Having just written a downtime postmortem about a party not presenting a correctly configured certificate chain on their HTTP service, the fact that less can go wrong in SFTP is comforting.&lt;/p&gt;
+&lt;h1 id=&#34;its-hard-to-get-sftp-wrong&#34;&gt;It&amp;rsquo;s hard to get SFTP wrong&lt;/h1&gt;
+&lt;p&gt;HTTP changes. To do something simple like send a file in chunks you have to set up an HTTP server correctly and support all kinds of &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests&#34;&gt;operating modes&lt;/a&gt; and implement &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding&#34;&gt;a bunch&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length&#34;&gt;of headers&lt;/a&gt; and make sure both the server and client and any proxy handles it correctly. SFTP has significantly less cruft, significantly fewer implementations, and therefore significantly fewer configurations to thing about.&lt;/p&gt;
+&lt;h1 id=&#34;sftp-semantically-matches-some-workflows-better&#34;&gt;SFTP semantically matches some workflows better&lt;/h1&gt;
+&lt;p&gt;When you think about what you are doing, to download a batch file you:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect to a machine*&lt;/li&gt;
+&lt;li&gt;Go to the expected location&lt;/li&gt;
+&lt;li&gt;Download the file in a stream&lt;/li&gt;
+&lt;li&gt;Verify the file&lt;/li&gt;
+&lt;li&gt;Remove the remote file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;* Yes, this includes opening socket connection, doing TLS negotiation, and then authenticating, which are 3 additional steps to be brought into consideration&lt;/p&gt;
+&lt;p&gt;In HTTP, it&amp;rsquo;s:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;HTTP GET&lt;/code&gt; the location (steps 1, 2, 3)&lt;/li&gt;
+&lt;li&gt;Verify that locally (your application code)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HTTP DELETE&lt;/code&gt; the resource (provided the proxy/framework/application properly supports &lt;code&gt;DELETE&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Since steps 1-3 are all enmeshed, you have to introspect on where the failure mode happened to figure out what went wrong. With SFTP it&amp;rsquo;s&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect to SFTP server (step 1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CD path&lt;/code&gt; (step 2)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GET file&lt;/code&gt; (step 3)&lt;/li&gt;
+&lt;li&gt;Verify file locally (application code) (step 4)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RM path&lt;/code&gt; (step 5)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Semantically the steps to accomplish the workflow make it easier to wrap each step in a single try-except rather than have to dig into what went wrong in the HTTP transaction. The code, while simple, is simple. This makes it more readable and easier to both write and reason about.&lt;/p&gt;
+&lt;h1 id=&#34;its-easy-to-consume&#34;&gt;It&amp;rsquo;s easy to consume&lt;/h1&gt;
+&lt;p&gt;Consuming files via an SFTP client is as easy to do as consuming via an HTTP client, with significantly fewer failure modes.&lt;/p&gt;
+&lt;h1 id=&#34;it-works-to-keep-the-world-working&#34;&gt;It works to keep the world working&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.treasurysoftware.com/ACH/ssh-sftp.aspx&#34;&gt;SFTP powers the financial world&lt;/a&gt;. Every day millions (billions? I honestly have no idea) of financial transactions are compelted via the ACH system, which is text files over SFTP. Similar batch jobs are completed for all kinds of similar systems which may be mainframes running COBOL or &amp;ldquo;cutting-edge&amp;rdquo; Enterprise Java rats&amp;rsquo; nests of code copying files over to a Linux machine somewhere to expose them to the world.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -180,9 +749,51 @@ SFTP is format agnostic This goes for HTTP as well, but you need to correctly se
       <pubDate>Fri, 12 Feb 2021 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
-      <description>This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.
- A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
-You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xyz &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(xyz, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  file_handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(&lt;span style=&#34;color:#ba2121&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;My brilliant string&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;can be replaced with&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xyz &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; io&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;BytesIO()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xyz&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(&lt;span style=&#34;color:#ba2121&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;My brilliant string&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You don&amp;rsquo;t even have to &lt;code&gt;with&lt;/code&gt; the BytesIO &amp;ndash; in fact, if you do, it&amp;rsquo;ll delete the buffer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       temp_file &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; tempfile&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;NamedTemporaryFile(delete&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;False&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       sftp_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(filename, temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; (filename, handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;finally&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       os&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;remove(temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp_file &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; BytesIO()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sftp_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getfo(filename, temp_file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;(filename, temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getvalue())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Isn&amp;rsquo;t that nice?&lt;/p&gt;
+&lt;p&gt;Or if you have to write to an S3 bucket, instead of creating your tempfile:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp_file &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; BytesIO()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sftp_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getfo(filename, temp_file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;seek(&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;)  &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# You need to rewind to the beginning of the file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s3_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;upload_fileobj(temp_file, OUR_S3_BUCKET, filename)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or if the files are on the filesystem, don&amp;rsquo;t bother &lt;code&gt;read&lt;/code&gt;ing them yourself:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(filename) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        s3_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;upload_fileobj(file_handle, OUR_S3_BUCKET, filename)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And on a semi-related note, don&amp;rsquo;t do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;file_handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(x))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dump(x, file_handle)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;there are usually two functions exposed when an API deals with I/O: a string version and a file-like version.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -191,9 +802,11 @@ You very seldom ACTUALLY need to do this. The BytesIO class follows the exact sa
       <pubDate>Tue, 04 Feb 2020 16:45:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/own-your-infrastructure/</guid>
-      <description>I&amp;rsquo;ve been sharecropping on Amazon&amp;rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&amp;rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).
-This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.
-However, when you&amp;rsquo;re on-call, you no longer own your uptime.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been sharecropping on Amazon&amp;rsquo;s server farms since I moved to the Bay Area 5 years ago. That is, every startup I&amp;rsquo;ve worked for has utilized AWS (and sometimes GCP or Azure in addition).&lt;/p&gt;
+&lt;p&gt;This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.&lt;/p&gt;
+&lt;p&gt;However, when you&amp;rsquo;re on-call, you no longer own your uptime. Amazon will randomly flip bits. Its hosted services will go down without warning and leave you helpless but to wait &amp;ndash; you&amp;rsquo;re down until Amazon Hosted Whatever Thing decides to go back up (and the status page will lie about it being up).&lt;/p&gt;
+&lt;p&gt;Now I&amp;rsquo;m at a new place where the systems team (I am back in plain old Software Engineering, hopefully out of DevOps forever) actually runs data centers. Everything is done in VMs and not containers. And it&amp;rsquo;s so refreshing. Not only can we be 100% responsible for fixing downtime, but it provides a much stabler and less abstract system to build software on top of. When the solution to a problem is &amp;ldquo;this Bash script&amp;rdquo; and not &amp;ldquo;this Byzantine pipeline only one guy understands&amp;rdquo; it makes the infrastructure easier to reason about and less prone to failure.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -202,8 +815,11 @@ However, when you&amp;rsquo;re on-call, you no longer own your uptime.</descript
       <pubDate>Mon, 21 May 2018 01:15:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/jumpbear/</guid>
-      <description>I wrote a handful of different things on my paternity leave, but one of the more interesting ones was this small TIC-80 game where you play a bear.
-Play Jumpbear: The Global Warming Bear on itch.io </description>
+      <description>&lt;p&gt;I wrote a handful of different things on my paternity leave, but one of the more interesting ones was &lt;a href=&#34;https://jasonbot.itch.io/jumpbear&#34;&gt;this small TIC-80 game&lt;/a&gt; where you play a bear.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/893486?color=333333&#34; allowfullscreen=&#34;&#34; width=&#34;800&#34; height=&#34;600&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/jumpbear&#34;&gt;Play Jumpbear: The Global Warming Bear on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
     <item>
@@ -212,9 +828,38 @@ Play Jumpbear: The Global Warming Bear on itch.io </description>
       <pubDate>Mon, 26 Dec 2016 01:11:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
-      <description>This is a recycled post from my tumblr weblog
- Ha ha ha just lying the real title should be
-Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ha ha ha just lying the real title should be&lt;/p&gt;
+&lt;h1 id=&#34;turning-a-piece-of-shit-chromebook-into-a-good-enough-development-machine-because-youre-unemployed-and-feel-like-an-ass-trying-to-justify-spending-2000-on-a-god-damned-macbook-so-you-wound-up-buying-a-chromebook-instead&#34;&gt;Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead&lt;/h1&gt;
+&lt;p&gt;Anyway, I&amp;rsquo;m &lt;a href=&#34;http://www.theverge.com/2016/12/8/13887622/yik-yak-layoffs-growth-collapse&#34;&gt;unemployed because of reasons&lt;/a&gt; and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: &lt;a href=&#34;https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/&#34;&gt;the Chromebook C100P&lt;/a&gt;. The stats are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Processor: Piece of shit system-on-chip ARM thing&lt;/li&gt;
+&lt;li&gt;RAM: Yes&lt;/li&gt;
+&lt;li&gt;Screen: Acceptable but you can see the pixels&lt;/li&gt;
+&lt;li&gt;Keyboard: Ugh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Considering it&amp;rsquo;s still an order of magnitude better than &lt;a href=&#34;http://www.macworld.com/article/2901437/macbook/ode-to-the-12-inch-powerbook-g4-apples-first-desktop-quality-laptop.html&#34;&gt;the first good laptop I owned&lt;/a&gt;, it&amp;rsquo;s a pretty good buy at $200 and some change.&lt;/p&gt;
+&lt;p&gt;So Chrome OS is nice but I want to introduce security holes to the device, so &lt;em&gt;LET&amp;rsquo;S INSTALL PLAIN OLD LINUX&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The first thing to do is follow the instructions to install &lt;a href=&#34;https://github.com/dnschneid/crouton/blob/master/README.md&#34;&gt;crouton via the instructions&lt;/a&gt;. You get the option of what flavor of Linux to install, after 8 hours of experimenting with Debians and Ubuntus I found the one with the best support is Trusty. So do this after downloading crouton in Developer Mode:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh crouton -r trusty -t xfce,touch,xiwi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;ldquo;But I like Unity,&amp;rdquo; you say. I respond with &amp;ldquo;NO YOU DON&amp;rsquo;T IMAGINARY IDIOT NO YOU DON&amp;rsquo;T NOBODY LIKES UNITY UNLESS THEY WORK FOR CANONICAL.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;But that is a very old Ubuntu,&amp;rdquo; you say. Welp, the only big thing that will really matter is you&amp;rsquo;ll have to load up an older &lt;code&gt;.tmux.conf&lt;/code&gt; with the older mouse mode switches because that&amp;rsquo;s all I found was missing. Everything else we will download from third parties.&lt;/p&gt;
+&lt;p&gt;Also follow the directions to install the Chrome extension in the host ChromeOS browser, it&amp;rsquo;s helpful.&lt;/p&gt;
+&lt;h2 id=&#34;golang&#34;&gt;Golang&lt;/h2&gt;
+&lt;p&gt;Luckily the dudes at the Go project are charitable and offer an ARM version of the Golang toolchain. Go get a &lt;code&gt;-armv6l&lt;/code&gt; version of Go &lt;a href=&#34;https://golang.org/dl/&#34;&gt;from the downloads page&lt;/a&gt; and decompress it in your home dir. If you use &lt;code&gt;~/workspace&lt;/code&gt; as your Go home like I do, add this junk to your &lt;code&gt;.bashrc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#19177c&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;~/go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#19177c&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;~/workspace
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Okay cool Go is ready to go. That last sentence&amp;rsquo;s wording was not intentional nor was it a joke, get over yourself.&lt;/p&gt;
+&lt;h2 id=&#34;python&#34;&gt;Python&lt;/h2&gt;
+&lt;p&gt;Trusty uses an older version of Python. Continuum&amp;rsquo;s got it. &lt;a href=&#34;https://repo.continuum.io/miniconda/&#34;&gt;Get an &lt;code&gt;armv6l&lt;/code&gt; installer of Miniconda&lt;/a&gt; and install it in your home dir. It&amp;rsquo;ll even add itself to your &lt;code&gt;$PATH&lt;/code&gt;. Python&amp;rsquo;s covered.&lt;/p&gt;
+&lt;h2 id=&#34;vs-code-the-unlikeliest-ide&#34;&gt;VS Code, the unlikeliest IDE&lt;/h2&gt;
+&lt;p&gt;For some inexplicable reason &lt;a href=&#34;http://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt; is the best IDE for writing Go. It&amp;rsquo;s an indisputable fact and goes to further prove that we live in a cruel, arbitrary universe that often makes no sense. &lt;a href=&#34;https://code.headmelted.com/&#34;&gt;This headmelted dude has you covered&lt;/a&gt; for builds of VS Code for piece of shit ARM processors. Ignore his instructions, open a terminal in your xfce session and do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://code.headmelted.com/installers/apt.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh ./apt.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;now VS Code is installed. You can code in these two arbitrary languages I have chosen as my favorites on this awful hardware, and to be honest it&amp;rsquo;s minimally painful (minus building huge Golang projects).&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -223,8 +868,9 @@ Turning a Piece of Shit Chromebook into a Good Enough Development Machine Becaus
       <pubDate>Mon, 20 Sep 2010 16:45:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/cpp-is-ok/</guid>
-      <description>For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.
-I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the with statement for the same tightly scoped data lifetime in Python.</description>
+      <description>&lt;p&gt;For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.&lt;/p&gt;
+&lt;p&gt;I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the &lt;code&gt;with&lt;/code&gt; statement for the same tightly scoped data lifetime in Python.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -233,8 +879,15 @@ I read an interview with Bjarne a while back and he said C++’s most important 
       <pubDate>Tue, 09 Feb 2010 01:15:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/osx-less-and-less/</guid>
-      <description>I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&amp;quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.
-I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat and SuSE were a little hard to get going for beginners, and the packages supplied were always a weird grab bag of old and new.</description>
+      <description>&lt;p&gt;I have two desktop systems, side-by-side: an Intel Mac Mini and an Intel 21&amp;quot; iMac. The Mini runs Leopard and the iMac runs Ubuntu Karmic Koala, and I find myself completely satisfied with the Linux desktop, and switch back to OSX as an auxiliary rather than as my primary.&lt;/p&gt;
+&lt;p&gt;I started on Debian back in 1999. I wanted to get into Linux, but both Red Hat and SuSE were a little hard to get going for beginners, and the packages supplied were always a weird grab bag of old and new. I remember KDE 2 was awesome, but I don’t remember much past that. A friend and coworker introduced me to Debian and I was amazed at how much more intuitive it was to use. It didn’t leave me out in the cold to fend for myself, but it automated enough of the low-levels of Linux that it made the rest seem approachable. And its default configuration was super lightweight and not memory hungry at all. I was sold.&lt;/p&gt;
+&lt;p&gt;I started using Apple hardware again six years ago, on my 21st birthday. Right at the “Apple Renaissance” for developers I bought myself a 12&amp;quot; Aluminum Powerbook and it got me through my last two years of college and the year and a half after it of doing research and my first full-time job. It was probably the most innovative computer I’d ever owned to that point – it had a Mini-DVI port that I could use to have a dual headed system (which was the coolest thing ever) and Bluetooth, which meant I could sync my contacts and calendars with my Sony Ericsson cell phone. I can’t tell you how many times I made it to class only because my phone beeped at me 5 minutes before lecture started. It was self contained: I could do all my C++/Python/Java work for CS courses and contract work without installing anything, it had word processors and diagramming software that handled international text for my linguistics courses, it was a perfect computing device for me at the time.&lt;/p&gt;
+&lt;p&gt;My love affair continued because of OSX desktop software – it was a pretty face with usable apps on a standard UNIX system: cron and friends were all there for the using. It even had some new technologies that were really exciting: I still consider MDNS-SD one of the greatest consumer networking advancements ever. I could install software in an apt-like way with fink or ports. It always felt like there was a little friction there with a near-parallel UNIX system on a UNIX system when I ran these utilities, but it was good enough.&lt;/p&gt;
+&lt;p&gt;As OSX aged, it began to diverge from the standard (notably, launchd made me take notice) and felt less open. What was once a pretty face on a standard UNIX became a slightly prettier face on an increasingly non-standard operating system. I had to re-learn the same things over and over from release to release as they began to deprecate the old tools and methods for doing things. Again, the notable example here is launchd, which replaced &lt;code&gt;init.d&lt;/code&gt; and &lt;code&gt;cron&lt;/code&gt;. While the Quartz window manager and rendering seemed great in 2001, the advancements in X like Cairo and Compiz have caught up feature-and-performance-wise and are open and cross-platform. Apple’s slowly adding not-so-open utilities to scrape up edge cases like GrandCentral, which is kind of an indicator that the desktop environment itself is pretty much stagnant and Apple’s innovation is going to go into other semi-proprietary technologies on top of their existing stack.&lt;/p&gt;
+&lt;p&gt;Installing software is obviously much easier in OSX (discounting apt): I drag an icon to /Applications. If a title isn’t in apt, or is outdated in the Ubuntu repositories, it’s a pain to get going. But more and more apps are providing .debs (with daily builds!), or better yet, are showing up in the Ubuntu PPAs and this is becoming less of an issue. I’m also learning to live with 6 month old software: it’ll get in when it gets in, I’ll live with the features it has now. Usually the bleeding edge has APIs that are so in flux that it makes absolutely no sense to develop against them.&lt;/p&gt;
+&lt;p&gt;So I find myself on Ubuntu. The UI is familiar and at this point it’s easier to test and deploy apps onto a Debian server using the system that is more Debian-like than the one that is not. It’s fast, it’s responsive, and while it can be idiomatic in its own right for a developer who mostly uses vi, Python and C, it’s great. I can’t really heap too much praise or criticism on it, it just is there and gets out of the way. Ubuntu sucked for stability in 2006, but it works well now. It lets me get stuff done. The new “features” like Ubuntu One that are being constantly tacked on stay out of the way and can even be uninstalled. I had to install a third-party hack to get rid of the Mobile Me account thing in the Finder.&lt;/p&gt;
+&lt;p&gt;This isn’t to say I’ve had a falling out with the Mac: just having used it for 6 years now, it seems a lot less exciting and a lot more of a hassle to use than it used to. I’m slowly using it less and less and while I will likely always have OSX and Windows as a desktop install somewhere, it won’t necessarily be my go-to platform to get things done. So from a highly subjective point of view, I seem to be unconsciously preferring Linux to OSX to do my daily computing chores, and the trend seems to be strengthening every day.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

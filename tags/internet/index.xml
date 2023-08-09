@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/internet/</link>
     <description>Recent content in internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Thu, 18 Feb 2021 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/internet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SFTP is still around and that&#39;s OK</title>
@@ -13,9 +13,47 @@
       <pubDate>Thu, 18 Feb 2021 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/sftp-is-still-around-and-thats-ok/</guid>
-      <description>So it&amp;rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.
-A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.
-SFTP is format agnostic This goes for HTTP as well, but you need to correctly set headers, and there&amp;rsquo;s a constant, incessant push for change for change&amp;rsquo;s sake.</description>
+      <description>&lt;p&gt;So it&amp;rsquo;s 2021 and about the entirety of my job is integrating third party systems with internal ones, which then reach out to other third-party services.&lt;/p&gt;
+&lt;p&gt;A lot of stuff uses SFTP still. In this day and age anything not on HTTP seems barbaric, but SFTP does have its advantages.&lt;/p&gt;
+&lt;h1 id=&#34;sftp-is-format-agnostic&#34;&gt;SFTP is format agnostic&lt;/h1&gt;
+&lt;p&gt;This goes for HTTP as well, but you need to &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding&#34;&gt;correctly&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type&#34;&gt;set&lt;/a&gt; headers, and there&amp;rsquo;s a constant, incessant push for change for change&amp;rsquo;s sake.&lt;/p&gt;
+&lt;h1 id=&#34;sftp-works-for-cold-storage&#34;&gt;SFTP works for cold storage&lt;/h1&gt;
+&lt;p&gt;SFTP servers are a known entity, and can be used to point at an old directory full of files somewhere, an enterprise-grade SAN, or whatever. It&amp;rsquo;s file-focused where modern HTTP is more interaction/endpoint focused.&lt;/p&gt;
+&lt;h1 id=&#34;the-s-in-sftp-is-already-secure&#34;&gt;The S in SFTP is already &amp;ldquo;secure&amp;rdquo;&lt;/h1&gt;
+&lt;p&gt;HTTP is insecure by default, though in recent years yes, HTTPS is now almost a default (but not behind the edge, which is a story for another day).&lt;/p&gt;
+&lt;p&gt;SFTP starts via an SSH session with proper key negotiation. This means every workflow you do with SSH (like exchanging keys that are not necessarily signed by a root authority) is supported with SFTP. Having just written a downtime postmortem about a party not presenting a correctly configured certificate chain on their HTTP service, the fact that less can go wrong in SFTP is comforting.&lt;/p&gt;
+&lt;h1 id=&#34;its-hard-to-get-sftp-wrong&#34;&gt;It&amp;rsquo;s hard to get SFTP wrong&lt;/h1&gt;
+&lt;p&gt;HTTP changes. To do something simple like send a file in chunks you have to set up an HTTP server correctly and support all kinds of &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests&#34;&gt;operating modes&lt;/a&gt; and implement &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding&#34;&gt;a bunch&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length&#34;&gt;of headers&lt;/a&gt; and make sure both the server and client and any proxy handles it correctly. SFTP has significantly less cruft, significantly fewer implementations, and therefore significantly fewer configurations to thing about.&lt;/p&gt;
+&lt;h1 id=&#34;sftp-semantically-matches-some-workflows-better&#34;&gt;SFTP semantically matches some workflows better&lt;/h1&gt;
+&lt;p&gt;When you think about what you are doing, to download a batch file you:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect to a machine*&lt;/li&gt;
+&lt;li&gt;Go to the expected location&lt;/li&gt;
+&lt;li&gt;Download the file in a stream&lt;/li&gt;
+&lt;li&gt;Verify the file&lt;/li&gt;
+&lt;li&gt;Remove the remote file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;* Yes, this includes opening socket connection, doing TLS negotiation, and then authenticating, which are 3 additional steps to be brought into consideration&lt;/p&gt;
+&lt;p&gt;In HTTP, it&amp;rsquo;s:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;HTTP GET&lt;/code&gt; the location (steps 1, 2, 3)&lt;/li&gt;
+&lt;li&gt;Verify that locally (your application code)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HTTP DELETE&lt;/code&gt; the resource (provided the proxy/framework/application properly supports &lt;code&gt;DELETE&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Since steps 1-3 are all enmeshed, you have to introspect on where the failure mode happened to figure out what went wrong. With SFTP it&amp;rsquo;s&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect to SFTP server (step 1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CD path&lt;/code&gt; (step 2)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GET file&lt;/code&gt; (step 3)&lt;/li&gt;
+&lt;li&gt;Verify file locally (application code) (step 4)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RM path&lt;/code&gt; (step 5)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Semantically the steps to accomplish the workflow make it easier to wrap each step in a single try-except rather than have to dig into what went wrong in the HTTP transaction. The code, while simple, is simple. This makes it more readable and easier to both write and reason about.&lt;/p&gt;
+&lt;h1 id=&#34;its-easy-to-consume&#34;&gt;It&amp;rsquo;s easy to consume&lt;/h1&gt;
+&lt;p&gt;Consuming files via an SFTP client is as easy to do as consuming via an HTTP client, with significantly fewer failure modes.&lt;/p&gt;
+&lt;h1 id=&#34;it-works-to-keep-the-world-working&#34;&gt;It works to keep the world working&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.treasurysoftware.com/ACH/ssh-sftp.aspx&#34;&gt;SFTP powers the financial world&lt;/a&gt;. Every day millions (billions? I honestly have no idea) of financial transactions are compelted via the ACH system, which is text files over SFTP. Similar batch jobs are completed for all kinds of similar systems which may be mainframes running COBOL or &amp;ldquo;cutting-edge&amp;rdquo; Enterprise Java rats&amp;rsquo; nests of code copying files over to a Linux machine somewhere to expose them to the world.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

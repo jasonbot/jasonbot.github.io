@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/bottle.py/</link>
     <description>Recent content in bottle.py on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 25 Mar 2012 22:11:11 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/bottle.py/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stupid simple API reference for bottle.py web services</title>
@@ -13,8 +13,14 @@
       <pubDate>Sun, 25 Mar 2012 22:11:11 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/bottle-introspection/</guid>
-      <description>I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:
-@bottle.route(&amp;#39;/&amp;#39;) def index():  bottle.response.content_type = &amp;#39;text/plain&amp;#39;  return (&amp;#34;=== API REFERENCE ===\n&amp;#34; +  &amp;#34;\n&amp;#34;.join(x[&amp;#39;rule&amp;#39;] for x in  bottle.app().routes)) </description>
+      <description>&lt;p&gt;I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@bottle&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;index&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;response&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;content_type &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(x[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;app()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;routes))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

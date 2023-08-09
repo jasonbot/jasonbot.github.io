@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/python/</link>
     <description>Recent content in python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Fri, 23 Sep 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mixed Async code in Sync Python: Disappointingly Simple</title>
@@ -13,9 +13,48 @@
       <pubDate>Fri, 23 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/mixed-async-disappointingly-simple/</guid>
-      <description>One thing I love about Python&amp;rsquo;s practical approach to type annotations and enforcement is that it&amp;rsquo;s gradual: you can rapidly code a large ball of mud and get it working, then refine it to make it safer with typing later on.
-Chalk this up as another good idea (possibly by accident) for Python: you can do the same with async.
-At work, someone lamented that threads aren&amp;rsquo;t quite safe but they needed to do multiple http requests in parallel.</description>
+      <description>&lt;p&gt;One thing I love about Python&amp;rsquo;s practical approach to type annotations and enforcement is that it&amp;rsquo;s gradual: you can rapidly code a large ball of mud and get it working, then refine it to make it safer with typing later on.&lt;/p&gt;
+&lt;p&gt;Chalk this up as another good idea (possibly by accident) for Python: you can do the same with async.&lt;/p&gt;
+&lt;p&gt;At work, someone lamented that threads aren&amp;rsquo;t quite safe but they needed to do multiple http requests in parallel.&lt;/p&gt;
+&lt;p&gt;After being &lt;em&gt;that asshole&lt;/em&gt; and suggesting they rewrite the entire app as an async app, I went in and poked around for a few hours. I experimented and coded and came up with a simple, almost disappointingly so, solution:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;asyncio&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;aiohttp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;fetch_url&lt;/span&gt;(session, url) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;tuple&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;Exception&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; session&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(url) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; result:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (url, &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; result&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;text())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (url, e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;fetch_urls_async&lt;/span&gt;(&lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;urls) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; aiohttp&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Session() &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; session:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            url: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;(status)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; url, status &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;gather(fetch_url(session, url) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; url &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; urls)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;get_multiple_urls&lt;/span&gt;() &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fetch_urls_async(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;http://www.google.com&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;http://www.zombo.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@flaskapp&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;main_sync_route&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; get_multiple_urls()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The three parts to make this work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;async&lt;/code&gt;-colored functions&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/asyncio-task.html#asyncio.gather&#34;&gt;&lt;code&gt;asyncio.gather&lt;/code&gt;&lt;/a&gt; to run a pool of jobs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/asyncio-task.html#asyncio.run&#34;&gt;&lt;code&gt;asyncio.run&lt;/code&gt;&lt;/a&gt; to run a block of async code in a sync context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Long story short: &lt;code&gt;asyncio.run&lt;/code&gt; does exactly what it says on the tin with minimal fuss. If you&amp;rsquo;re not in an async event loop in the current thread, it starts one for you, runs the async function as its main, then blocks until it&amp;rsquo;s done.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -24,7 +63,8 @@ At work, someone lamented that threads aren&amp;rsquo;t quite safe but they need
       <pubDate>Thu, 15 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/new-features-better-code/</guid>
-      <description>I wrote a blog post that is now on my employer&amp;rsquo;s engineering blog. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history it&amp;rsquo;s right here.</description>
+      <description>&lt;p&gt;I wrote a blog post &lt;a href=&#34;https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code&#34;&gt;that is now on my employer&amp;rsquo;s engineering blog&lt;/a&gt;. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history &lt;a href=&#34;https://github.com/jasonbot/weblog/commits/master/content/weblog/new-features-better-code.md&#34;&gt;it&amp;rsquo;s right here&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -33,9 +73,47 @@ At work, someone lamented that threads aren&amp;rsquo;t quite safe but they need
       <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/a-case-for-match/</guid>
-      <description>The Python 3.10 release includes the new match statement, which superficially looks like the case/switch statements in other languages but semantically is closer to pattern matching in Haskell or Rust.
-Like the walrus operator*, I struggled to find a use case for this and it seemed like a feature that was added just because the language is 30+ years old and all the good new functionality is taken.
-However, I found a pretty good case for it that used to be a lot more work: duck-typey arguments that make default case rules easy but enable more complex functionality as needed.</description>
+      <description>&lt;p&gt;The Python 3.10 release includes the &lt;a href=&#34;https://docs.python.org/3/reference/compound_stmts.html#the-match-statement&#34;&gt;new &lt;code&gt;match&lt;/code&gt; statement&lt;/a&gt;, which superficially looks like the &lt;code&gt;case&lt;/code&gt;/&lt;code&gt;switch&lt;/code&gt; statements in other languages but semantically is closer to pattern matching in &lt;a href=&#34;http://learnyouahaskell.com/syntax-in-functions&#34;&gt;Haskell&lt;/a&gt; or &lt;a href=&#34;https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html&#34;&gt;Rust&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Like the &lt;a href=&#34;https://docs.python.org/3/reference/expressions.html#assignment-expressions&#34;&gt;walrus operator&lt;/a&gt;*, I struggled to find a use case for this and it seemed like a feature that was added just because the language is 30+ years old and all the &lt;em&gt;good&lt;/em&gt; new functionality is taken.&lt;/p&gt;
+&lt;p&gt;However, I found a pretty good case for it that used to be a lot more work: duck-typey arguments that make default case rules easy but enable more complex functionality as needed.&lt;/p&gt;
+&lt;p&gt;Namely, I&amp;rsquo;m writing a REST API at work that is &lt;em&gt;mostly&lt;/em&gt; CRUD, but for historical reasons certain field names in JSON payloads do not match up with their ORM equivalents (which in turn may not match up with their DB column equivalents).&lt;/p&gt;
+&lt;p&gt;First off, we get a dict and want to just specify the keys we care about:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;typing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;copy_keys&lt;/span&gt;(&lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;: &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;, keep_keys: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Iterable[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable]):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   keep_set &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;set&lt;/span&gt;(keep_keys)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; {k: v &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; k, v &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;items() &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; k &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; keep_set}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;3&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(copy_keys(x, [&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# {&amp;#39;a&amp;#39;: 1, &amp;#39;c&amp;#39;: 3}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Simple enough. Now what if we need to &lt;em&gt;remap&lt;/em&gt; our keys?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(copy_keys(x, [&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;, (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;)]))  &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# We want:{&amp;#39;a&amp;#39;: 1, &amp;#39;b&amp;#39;: 3}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Well, we can use pattern matching:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;typing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;copy_keys&lt;/span&gt;(&lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;: &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;, keep_keys: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Iterable[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable &lt;span style=&#34;color:#666&#34;&gt;|&lt;/span&gt; typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Tuple[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable, typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable]]):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keep_map &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; keep_keys:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        match item:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            case (from_key, to_key):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keep_map[from_key] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; to_key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            case key:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keep_map[key] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(keep_map)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; {keep_map[k]: v &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; k, v &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;items() &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; k &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; keep_map}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;3&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(copy_keys(x, [&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;, (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;)]))  &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# {&amp;#39;a&amp;#39;: 1, &amp;#39;b&amp;#39;: 3}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Simpler than the &lt;code&gt;isinstance(x, tuple) and len(x) == 2&lt;/code&gt; dance we&amp;rsquo;d have to do in prior Pythons. The &lt;code&gt;match&lt;/code&gt; statement can help write library code that is clean and easy to use while at the same time being clear and less magical than it would have been in previous Pythons.&lt;/p&gt;
+&lt;p&gt;* The one case I have come up with for Walrus that makes sense:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; (x &lt;span style=&#34;color:#666&#34;&gt;:=&lt;/span&gt; do_something()) &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    x&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;do_something_else()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -44,8 +122,54 @@ However, I found a pretty good case for it that used to be a lot more work: duck
       <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation-2/</guid>
-      <description>I was recently discussing some dumb Python tricks at work with some colleagues and showed them this old Gist I wrote, which in modern times I would rewrite to look like this:
-import functools import inspect import sys   @functools.lru_cache def getlines(filename):  with open(filename, &amp;#34;r&amp;#34;) as file_handle:  return tuple(file_handle)   @functools.lru_cache def getline(filename, line_number):  return getlines(filename)[line_number - 1]   def tracefunction(frame, event, arg):  if event == &amp;#34;line&amp;#34;:  info = inspect.</description>
+      <description>&lt;p&gt;I was recently discussing some dumb Python tricks at work with some colleagues and showed them &lt;a href=&#34;https://gist.github.com/jasonbot/8679558&#34;&gt;this old Gist I wrote&lt;/a&gt;, which in modern times I would rewrite to look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;functools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;inspect&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;sys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lru_cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;getlines&lt;/span&gt;(filename):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(filename, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;tuple&lt;/span&gt;(file_handle)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lru_cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;getline&lt;/span&gt;(filename, line_number):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; getlines(filename)[line_number &lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;tracefunction&lt;/span&gt;(frame, event, arg):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; event &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;line&amp;#34;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        info &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; inspect&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getframeinfo(frame)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fname, lineno, fn &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; info&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;filename, info&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lineno, info&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;function
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&amp;gt; Function: &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;fn&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt; (in file &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;fname&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;lineno&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;) &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;| &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;getline(fname, lineno)&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; tracefunction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;registertracefunction&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sys&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;settrace(tracefunction)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;registertracefunction()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;mainfunction&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#666&#34;&gt;10&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(x &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mainfunction()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run the code for a treat!&lt;/p&gt;
+&lt;p&gt;while not as elegantly self-bootstrapping as other languages like a Lisp, Python does have lots of idiomatic, strange ways of doing Python in Python. In this case, you can set a trace function (normally reserved for writing debuggers) and do something very meta and &lt;em&gt;print the dang line&lt;/em&gt; as it executes.&lt;/p&gt;
+&lt;p&gt;Now, this is neat and clever but it&amp;rsquo;s also largely a CPython-specific set of internal details: how would one expect to implement this API in another &amp;ldquo;flavor&amp;rdquo; of Python like IronPython or Jython which have their own runtimes that look nothing like the CPython bytecode interpreter?&lt;/p&gt;
+&lt;p&gt;Note &lt;em&gt;this is in the standard library&lt;/em&gt;. Those poor developers would have to either 1) write this API off and get derogatorily accused of stunting their Python or do insane things to make what is trivial in CPython with byzantine .Net or JVM internals* to achieve parity.&lt;/p&gt;
+&lt;p&gt;* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the compiled Python VM bytecode to make the Python runtime in that system aware that it&amp;rsquo;s reentered Python? It fills me with fear.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -54,8 +178,134 @@ import functools import inspect import sys   @functools.lru_cache def getlines(f
       <pubDate>Tue, 12 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
-      <description>This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.
- Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function async and await it and use these magic incantations and you&amp;rsquo;re good to go!</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
+&lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
+&lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
+&lt;p&gt;Based on this, threading on its own isn&amp;rsquo;t &lt;em&gt;necessarily&lt;/em&gt; the best way to approach this, or at least, not polling by spawning one thread per open connection. With a single-threaded approach, at least for the I/O part, how would we go about it? IT probably makes sense to have a blocking call on not just one socket, but &lt;em&gt;many&lt;/em&gt;.
+That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;code&gt;[socket1, socket2, ...].wait()&lt;/code&gt;. Note we could already discount something with a &lt;code&gt;.ready()&lt;/code&gt; poll instead of a &lt;code&gt;.wait()&lt;/code&gt; because&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [socket &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; socket &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; sockets &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;ready_to_read()]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;would thrash the CPU and turn the server into a space heater. A block would be better.&lt;/p&gt;
+&lt;h2 id=&#34;select-the-great-granddaddy-of-async-programming&#34;&gt;&lt;code&gt;select&lt;/code&gt;: The great granddaddy of async programming&lt;/h2&gt;
+&lt;p&gt;In general, with I/O bound programs, you&amp;rsquo;d probably want to avoid spawning a thread for every request because that&amp;rsquo;s pretty hard on the OS kernel and not particularly scalable. If you could &lt;em&gt;move&lt;/em&gt; all those waiting-on-input blocks to the kernel, where it should live, that would help.&lt;/p&gt;
+&lt;p&gt;So in theory, if you listen to a list of open network sockets, you want to just block and get a list of handles with data ready to go. In Python pseudocode:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; socket &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; magic_handler(list_of_sockets)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        handle_data_ready(socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id, socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or to expand more closely to &amp;ldquo;working&amp;rdquo; code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# The open TCP socket accepting connections&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;listener &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; socket&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;listen()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sockets &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [listener]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;handlers &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Loop until loop is broken&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Handles to close this iteration&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    closed_handle_ids &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;set&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    handles &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; magic_listener(sockets)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Go over currently ready-to-read connections&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; handle &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; handles:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Is this the listening socket?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; listener&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Get the actual connection we just established from the listener&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            new_handle &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; handles&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;accept())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            sockets&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;add(new_handle)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handlers &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; ConnectionHandler(handle)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Is this a request handler?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Feed the handler the data ready&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handlers[handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id]&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;handle_data(handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Is this handle done with its request?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;done:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            closed_handle_ids&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handlers[handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id]&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;del&lt;/span&gt; handlers[handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Done listening (this is the special listener socket)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; listener&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Delete active handles&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sockets &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [s &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; s &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; sockets &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; s&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;id &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; closed_handle_ids]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can see this is already getting scary just looking at basic cases without error handling. You probably don&amp;rsquo;t want to roll this code on your own.&lt;/p&gt;
+&lt;p&gt;So there&amp;rsquo;s the original Posix function &lt;code&gt;select&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b00040&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#b00040&#34;&gt;int&lt;/span&gt; nfds, fd_set &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;readfds, fd_set &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;writefds, fd_set &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;errorfds, &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;struct&lt;/span&gt; timeval &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;timeout);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It&amp;rsquo;s even more complex than the code above in that it handles read/write/error states, but the main concept is still clearly there: a blocking call that returns list of handles for read/write when they are ready.&lt;/p&gt;
+&lt;h3 id=&#34;moving-on&#34;&gt;Moving on&lt;/h3&gt;
+&lt;p&gt;From this basic understanding, you can intuit that 1) there are probably a lot of corner cases to debug and 2) there is probably a better way to do it.&lt;/p&gt;
+&lt;p&gt;And from here you now understand 1) the need for the amorphous &amp;ldquo;event loop&amp;rdquo; provided by a third-party library that has gone through the long process of fishing out edge cases and bugs so you don&amp;rsquo;t have to and 2) the evolution of new APIs like &lt;code&gt;epoll&lt;/code&gt; and &lt;code&gt;kqueue&lt;/code&gt; that do the same thing, but better. And, as a bonus, a combination of both in abstraction libraries like &lt;code&gt;libevent&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;cooperative-multitasking-and-event-loops&#34;&gt;&amp;ldquo;Cooperative&amp;rdquo; multitasking and event loops&lt;/h2&gt;
+&lt;p&gt;This is a problem as old as time. Even on older desktop frameworks like Classic Mac OS and Windows the default for applications was by design to run in a single-threaded event loop and the program is expected yield to the operating system periodically so it could do housekeeping tasks and let other running apps run for a slice of time too.&lt;/p&gt;
+&lt;p&gt;Lots of software are bad citizens. Doing CPU intensive work in this type of framework will inevitably not yield to the loop at a reasonable clip and cause the entire system to become unresponsive. This can still hit you with asynchronous apps today.&lt;/p&gt;
+&lt;h2 id=&#34;we-need-a-scheduler&#34;&gt;We need a scheduler&lt;/h2&gt;
+&lt;p&gt;On a higher level, especially in interpreted languages, it&amp;rsquo;s possible during code execution to say &amp;ldquo;this item has used &lt;em&gt;N&lt;/em&gt; opcodes, let&amp;rsquo;s pump the brakes a second.&amp;rdquo; This has the potential in the event loop to make long running code that does not yield not hang the whole system and also lets you transparently spin off subtasks (&amp;ldquo;green threads&amp;rdquo;) with impunity from your function and be able to trust they will run.&lt;/p&gt;
+&lt;h2 id=&#34;the-iterator-protocol-in-python-and-cooperative-multitasking&#34;&gt;The iterator protocol in Python and &amp;ldquo;cooperative&amp;rdquo; multitasking&lt;/h2&gt;
+&lt;p&gt;In Python, you can make a function a &lt;em&gt;generator&lt;/em&gt; by using the &lt;code&gt;yield&lt;/code&gt; keyword at least once. You then run the function by calling it with arguments, which in turn returns a generator, which you can use the &lt;code&gt;next()&lt;/code&gt; builtin on or use in a &lt;code&gt;for&lt;/code&gt; loop.&lt;/p&gt;
+&lt;p&gt;This gives us a framework for &amp;ldquo;cooperative&amp;rdquo; multitasking. Consider this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;generators &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;add_task&lt;/span&gt;(generator):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;task&lt;/span&gt;(generation&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Hello from generation &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;generation&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; generation &lt;span style=&#34;color:#666&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;100&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Adding task from generation &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;generation&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        add_task(generation&lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;((&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Generation &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;generation&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt; is done&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; generation
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;event_loop&lt;/span&gt;(start_generator):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(start_generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; generators:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        generator &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;pop(&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000&#34;&gt;next&lt;/span&gt;(generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Push &amp;#34;coroutine&amp;#34; to end of task list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            generators&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(generator)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;StopIteration&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Generator finished and returned &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;e&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;value&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Start the &amp;#34;event loop&amp;#34; with a single root task.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;event_loop(task())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This code takes a generator, iterates over it until it&amp;rsquo;s done, and also allows it to add new subtasks to the cooperative job runner. Now you&amp;rsquo;ve got an interpreter-level event loop; the event loop could be smarter and look at each &lt;code&gt;yield&lt;/code&gt;s yield value, and if it&amp;rsquo;s a filehandle etc the even loop could take that, squirrel it away into a list of handles being waited on, and not add the generator back into the queue until a &lt;code&gt;select&lt;/code&gt; call says that handle is ready for reading again. I.E. &lt;code&gt;yield handle.read()&lt;/code&gt; where &lt;code&gt;handle.read()&lt;/code&gt; sends off some sort of object with a file handle ID to the scheduler and then the event loop does a &lt;code&gt;.send()&lt;/code&gt; with the data ready to be read so you could do &lt;code&gt;data = yield handle.read()&lt;/code&gt; and have the event loop be able to push your coroutine aside in an efficient way until it&amp;rsquo;s ready to go again. This also lets you do other blocking calls like &lt;code&gt;time.sleep()&lt;/code&gt; in a cooperative manner, too.&lt;/p&gt;
+&lt;p&gt;That is, making our own &amp;ldquo;cooperative&amp;rdquo; event loop based on iterators makes it possible to make otherwise blocking calls non-blocking to cooperating green threads, delegating the long wait to the event loop and also making it possible to spawn new green threads within that event loop.&lt;/p&gt;
+&lt;h2 id=&#34;promises&#34;&gt;Promises&lt;/h2&gt;
+&lt;p&gt;One concept of industrial async applications is the concept of a &lt;em&gt;Promise&lt;/em&gt;: a function will return a &lt;em&gt;Promise&lt;/em&gt; rather than an actual return value, and shove off its workload using something approximating the above iterator to the event loop.&lt;/p&gt;
+&lt;p&gt;A promise is an cooperatively async way of doing this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;promise&lt;/span&gt;(fn, then, error):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        val &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; fn()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        then(val)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        error(e)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, it&amp;rsquo;s fairly ugly in practice in Javascript and is a lot more jarring to write a pyramid of &lt;code&gt;.then()&lt;/code&gt; calls to do sequential code. This is what most Javascript in the wild does; but it&amp;rsquo;s jarring and it would be nicer to get a syntax closer to the above with &lt;code&gt;yield&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;async-and-await-syntactic-and-semantic-sugar-on-promises&#34;&gt;&lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt;: Syntactic and semantic sugar on Promises&lt;/h2&gt;
+&lt;p&gt;As we discussed above, with an interpreted language we can easily implement in our runtime an implicit event loop and a forced &amp;ldquo;cooperative&amp;rdquo; mode that can pause code after a certain number of opcodes.&lt;/p&gt;
+&lt;p&gt;Many languages (Python/Javascript/C#/etc) have introduced the &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; keywords, all semantically similar. Marking a function as &lt;code&gt;async&lt;/code&gt; informs the interpreter/runtime that this function will span cooperative &amp;ldquo;subtasks&amp;rdquo; and need to be put into consideration for the event loop&amp;rsquo;s scheduler.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;await&lt;/code&gt; keyword says &amp;ldquo;push this async function onto the list of green threads and call me back when it finishes/errors with the result.&amp;rdquo; It pauses the function that &lt;code&gt;await&lt;/code&gt;s and doesn&amp;rsquo;t put it back into the stack until the dependent green thread returns or fails, and then pushes the paused coroutine into the list of active green threads and sends it the return value.&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+&lt;p&gt;Async code &lt;em&gt;can still block&lt;/em&gt; if it calls synchronous functions, and you have to keep track of what code &lt;em&gt;is&lt;/em&gt; and &lt;em&gt;isn&amp;rsquo;t&lt;/em&gt; async, avoiding mixing the two. Python, by nature of having an event loop at the interpreter level, is more susceptible to this than Javascript, but you still need to take care not to call long-running non-async functions from async code.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this helps build up from fundamentals the basics of how async programming works in modern systems.&lt;/p&gt;
+&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/&#34;&gt;What color is your function?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/reference/expressions.html#yieldexpr&#34;&gt;Python &lt;code&gt;yield&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://peps.python.org/pep-0342/&#34;&gt;Coroutines via enhanced iterators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://peps.python.org/pep-0492/&#34;&gt;Python Coroutines with &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; Syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;Javascript Promises&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await&#34;&gt;Javascript &lt;code&gt;await&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -64,8 +314,41 @@ import functools import inspect import sys   @functools.lru_cache def getlines(f
       <pubDate>Mon, 11 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/modern-python-features-that-are-still-sinking-in/</guid>
-      <description>Python has continued to progress and introduce new features and modules. In this post I&amp;rsquo;ll cover features I haven&amp;rsquo;t used much (or at all) and how I plan on using or not using them.
-Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;ve found about 3 times where I&amp;rsquo;ve found it appropriate to use. It&amp;rsquo;s nice but not a huge change to the way I code. Generally in the pattern</description>
+      <description>&lt;p&gt;Python has continued to progress and introduce new features and modules. In this post I&amp;rsquo;ll cover features I haven&amp;rsquo;t used much (or at all) and how I plan on using or not using them.&lt;/p&gt;
+&lt;h2 id=&#34;walrus-operator&#34;&gt;Walrus Operator&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;ve found about 3 times where I&amp;rsquo;ve found it appropriate to use. It&amp;rsquo;s nice but not a huge change to the way I code. Generally in the pattern&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; (thing &lt;span style=&#34;color:#666&#34;&gt;:=&lt;/span&gt; function_call()) &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    thing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;do_stuff()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;name-only-parameters&#34;&gt;Name-only parameters&lt;/h2&gt;
+&lt;p&gt;I actually use this a &lt;em&gt;lot&lt;/em&gt;, especially with any function that has more than 2 arguments. Forcing the consumer of your library code to explicitly name the parameters makes their code more readable. When you do&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;do_my_task&lt;/span&gt;(&lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;, client, schema_dataclass, callback):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and &lt;em&gt;force&lt;/em&gt; users to call it like &lt;code&gt;do_my_task(client=self.client, schema_dataclass=DataSchema, callback=self.done)&lt;/code&gt;, it overall makes code more easy to skim through.&lt;/p&gt;
+&lt;h2 id=&#34;async&#34;&gt;Async&lt;/h2&gt;
+&lt;p&gt;Long ago I spent entirely too long fighting with &lt;a href=&#34;https://twisted.org/&#34;&gt;Twisted&lt;/a&gt; (and writing more boilerplate than substance) and became convinced that asynchronous programming, though its improved performance on I/O bound tasks (that is, every task you&amp;rsquo;d realistically expect to see in a professional setting) outweigh the pain caused by writing them (allegedly).&lt;/p&gt;
+&lt;p&gt;I was always a big fan of the &lt;a href=&#34;http://www.gevent.org/&#34;&gt;gevent&lt;/a&gt; library because it let you write async code that looked like syncronous code. Like a decent language like Go or Java let you do.&lt;/p&gt;
+&lt;p&gt;Instead, Python has fallen prey to the nasty &lt;a href=&#34;https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/&#34;&gt;colored functions&lt;/a&gt; bug and added, almost identically, Javascript&amp;rsquo;s approach to async. Booo. It even &lt;a href=&#34;https://peps.python.org/pep-0492/&#34;&gt;abuses the iterator protocol&lt;/a&gt; to achieve its dark ends.&lt;/p&gt;
+&lt;p&gt;However, this &lt;em&gt;is&lt;/em&gt; built into the standard library and I am reluctantly starting to accept it and write code for it. &lt;a href=&#34;https://www.tornadoweb.org/en/stable/&#34;&gt;Tornado&lt;/a&gt; is fine, I guess.&lt;/p&gt;
+&lt;h2 id=&#34;structural-pattern-matching&#34;&gt;Structural Pattern Matching&lt;/h2&gt;
+&lt;p&gt;This one seems like another way to abuse metaprogamming. It looks on its face like a &lt;code&gt;switch&lt;/code&gt; statement, so will likely be misunderstood in the same semantic ways the &lt;code&gt;is&lt;/code&gt; operator is misunderstood.&lt;/p&gt;
+&lt;p&gt;I think I may try experimenting with this and type hints to write something approximating other languages&amp;rsquo; generic coding going forward.&lt;/p&gt;
+&lt;h2 id=&#34;dictionary-merge--update-operators&#34;&gt;Dictionary Merge &amp;amp; Update Operators&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve begun to shy away from using dicts in general in favor of dataclasses, so I don&amp;rsquo;t really need the shenanigans of abusing operator overloading to do things with dictionaries.&lt;/p&gt;
+&lt;h2 id=&#34;typeddict&#34;&gt;TypedDict&lt;/h2&gt;
+&lt;p&gt;Helps with validation and obviates the need for a third-party dependency like &lt;code&gt;colander&lt;/code&gt;. Also, a typed dict is one step closer in a refactor to being replaced with a &lt;code&gt;dataclass&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;zoneinfo&#34;&gt;&lt;code&gt;zoneinfo&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;I generally consider it a Bad Idea to bundle a static copy of the &lt;code&gt;tzinfo&lt;/code&gt; db into the standard library, but it&amp;rsquo;s nice that it does try to use the OS database first as the OS gets regular updates. It&amp;rsquo;s one less dependency to have to &lt;code&gt;pip install&lt;/code&gt; into your venv I guess.&lt;/p&gt;
+&lt;h2 id=&#34;operator-overloading-madness&#34;&gt;Operator Overloading Madness&lt;/h2&gt;
+&lt;p&gt;This covers the general trend to use operator overloading in libraries and language features like the Dict improvements above and the use of &lt;code&gt;|&lt;/code&gt; and &lt;code&gt;[type]&lt;/code&gt; as operators for union types and container/call spec specialization in type hints. When used sparingly it makes code simpler, when overused it makes code opaque. I still have the psychic scars from what C++ developers used to do with operators back in the day so I look upon doing &lt;code&gt;x: Y | Z&lt;/code&gt; over &lt;code&gt;x: T.Union(Y, Z)&lt;/code&gt; with a little bit of reluctance.&lt;/p&gt;
+&lt;h2 id=&#34;enhanced-error-locations-in-tracebacks&#34;&gt;Enhanced error locations in Tracebacks&lt;/h2&gt;
+&lt;p&gt;This is a Python 3.11 feature, but exceptions will actually &lt;em&gt;highlight&lt;/em&gt; offending code in the TB. Nice.&lt;/p&gt;
+&lt;h2 id=&#34;self-type&#34;&gt;&lt;code&gt;Self&lt;/code&gt; type&lt;/h2&gt;
+&lt;p&gt;A nice addition to &lt;code&gt;typing&lt;/code&gt; that makes generics a little more convenient.&lt;/p&gt;
+&lt;h2 id=&#34;variadic-generics&#34;&gt;Variadic generics&lt;/h2&gt;
+&lt;p&gt;YES. I need these too.&lt;/p&gt;
+&lt;h2 id=&#34;faster-cpython&#34;&gt;Faster CPython&lt;/h2&gt;
+&lt;p&gt;Python 3.11. Sure, I&amp;rsquo;ll take it.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -74,8 +357,59 @@ Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;v
       <pubDate>Thu, 07 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/modern-python-has-changed-how-i-code/</guid>
-      <description>I can&amp;rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:
- Continuous Integration Black Dataclasses Mypy Type Hints  Continuous Integration This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting on every commit pushed to the repo tracker gives confidence that the code is clean to merge into the main branch.</description>
+      <description>&lt;p&gt;I can&amp;rsquo;t understate the importance of how much the following have changed and improved the way I write Python and have confidence in its correctness:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_integration&#34;&gt;Continuous Integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/psf/black&#34;&gt;Black&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/dataclasses.html&#34;&gt;Dataclasses&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mypy-lang.org/&#34;&gt;Mypy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/typing.html&#34;&gt;Type Hints&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h2&gt;
+&lt;p&gt;This isn&amp;rsquo;t particularly new to me (or the industry), but a good CI workflow that runs tests and linting &lt;em&gt;on every commit pushed to the repo tracker&lt;/em&gt; gives confidence that the code is clean to merge into the main branch. Generally you build up stages as your org progresses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Run unit tests&lt;/li&gt;
+&lt;li&gt;Run and enforce code coverage standards&lt;/li&gt;
+&lt;li&gt;Run lint&lt;/li&gt;
+&lt;li&gt;Run style checks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;black&#34;&gt;Black&lt;/h2&gt;
+&lt;p&gt;About two years into writing Go I started using &lt;a href=&#34;https://go.dev/blog/gofmt&#34;&gt;&lt;code&gt;gofmt&lt;/code&gt;&lt;/a&gt; to help me clean up a bunch of pre-Go-1.0 code that &lt;a href=&#34;https://go.dev/doc/effective_go#semicolons&#34;&gt;still used semicolons&lt;/a&gt;. I turned on fomrat on save in my editor and never turned it off. A large point of contention over the course of my career is arguing with senior developers over bikesheddy, arbitrary, often cruel and capricious code style standards over the actual semantic behavior of the code.&lt;/p&gt;
+&lt;p&gt;Then I found &lt;a href=&#34;https://prettier.io/&#34;&gt;Prettier&lt;/a&gt; while writing some JSX/React code. While it had knobs to tweak most people didn&amp;rsquo;t tweak them. It made the code I worked with more readable and I got the same delight out of using it as I did &lt;code&gt;gofmt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I was sold on opinionated formatting.&lt;/p&gt;
+&lt;p&gt;Now I use Black on all my code, auto format on save, and also enforce linter rules in CI to make sure that all code is Black-formatted.&lt;/p&gt;
+&lt;p&gt;Agreeing on a format and enforcing it makes code diffs purely &lt;em&gt;semantic&lt;/em&gt; and no longer &lt;em&gt;stylistic&lt;/em&gt;. This makes code review less painful and shuts down completely unproductive conversations on where commas go.&lt;/p&gt;
+&lt;p&gt;Blackening your codebase initially is admittedly ugly and somewhat destructive as you pollute your repo history with the reformat commits and it makes most tools that do line history barf. That part sucks and I don&amp;rsquo;t know a good way around it, but it does make the path forward so much more pleasant one that band-aid comes off.&lt;/p&gt;
+&lt;h2 id=&#34;dataclasses&#34;&gt;Dataclasses&lt;/h2&gt;
+&lt;p&gt;Over the years there have been &lt;em&gt;so many&lt;/em&gt; attempts to do data structures in Python, all equally bad and weird: &lt;a href=&#34;https://marshmallow.readthedocs.io/en/stable/&#34;&gt;marshmallow&lt;/a&gt;, &lt;a href=&#34;https://docs.pylonsproject.org/projects/colander/en/latest/index.html&#34;&gt;colander&lt;/a&gt;, &lt;a href=&#34;https://schematics.readthedocs.io/en/latest/&#34;&gt;schematics&lt;/a&gt;,  stdlib &lt;a href=&#34;https://docs.python.org/3/library/struct.html&#34;&gt;struct&lt;/a&gt;, the list goes on.&lt;/p&gt;
+&lt;p&gt;One of the &amp;ldquo;warts&amp;rdquo; of the language is that dictionaries were not guaranteed to be in any order, and add on that the fact that to avoid hash collision attacks every Python process seeds its hashing algorithm with a random number, even the out-of-order iteration order would change from run to run.&lt;/p&gt;
+&lt;p&gt;Enter &lt;a href=&#34;https://docs.python.org/3/whatsnew/3.7.html&#34;&gt;Python 3.7&lt;/a&gt; officially announcing that an implementation detail in 3.6 was now standard behavior: dict traversal would be ordered.&lt;/p&gt;
+&lt;p&gt;So now built into the standard library is an easy, in-order way to define a data struct in the &lt;a href=&#34;https://docs.python.org/3/library/dataclasses.html&#34;&gt;&lt;code&gt;dataclasses&lt;/code&gt;&lt;/a&gt; library.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;dataclasses&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;typing&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;T&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@dataclasses&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dataclass
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;MyStruct&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_1: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_2: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_3: T&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;List[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s not a lot of code to get a very powerful, good enough abstraction over data structures. It even has options to make the classes immutable (&lt;code&gt;frozen&lt;/code&gt;) and implements &lt;code&gt;__slots__&lt;/code&gt; to make large numbers of them more memory efficient.&lt;/p&gt;
+&lt;p&gt;These things are a godsend, along with typing below.&lt;/p&gt;
+&lt;h2 id=&#34;mypy&#34;&gt;Mypy&lt;/h2&gt;
+&lt;p&gt;Another tool I add to my CI, I run the Mypy tool over my code as I incrementally add type hints to ensure the code is correct. And since it can be done implicitly, your library code can look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;thing_with_strings&lt;/span&gt;(a: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, b: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; a &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; b
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;then your consuming app logic code can do this, unannotated:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;my_app_logic&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    x &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    y &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    thing_with_strings(x, y)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and Mypy will deduce the types and yell at you that &lt;code&gt;y&lt;/code&gt; is the wrong type. Annotating libraries, even if you don&amp;rsquo;t touch the codebases that consume them, can help find errors right away.&lt;/p&gt;
+&lt;h2 id=&#34;type-hints&#34;&gt;Type Hints&lt;/h2&gt;
+&lt;p&gt;You don&amp;rsquo;t have to go all in with typing, but when you do the &lt;a href=&#34;https://peps.python.org/pep-0484/&#34;&gt;type annotation system&lt;/a&gt; is good enough (though not nearly as rich as other languages&amp;rsquo;). In particular I find TypeVar to be clunky for doing generic coding, but it&amp;rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.&lt;/p&gt;
+&lt;h2 id=&#34;thats-all&#34;&gt;That&amp;rsquo;s All&lt;/h2&gt;
+&lt;p&gt;These relatively minor changes to my Python coding I&amp;rsquo;ve made over the last 3-5 years have definitely made the language feel safer and quite a bit different than the unsafe, scary, let&amp;rsquo;s-pass-opaque-dicts-around crazy party that made larger codebases unmaintainable and encourages Python library authors to do weird, abusive metaprogramming stuff in their code to make it more suitable &amp;ldquo;for humans.&amp;rdquo;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -84,10 +418,18 @@ Walrus Operator I&amp;rsquo;ve been aware of this for a few years. I&amp;rsquo;v
       <pubDate>Sun, 04 Apr 2021 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/python-will-never-be-decoupled-from-its-implementation/</guid>
-      <description>There is a convenient but untrue fiction about Python that the language specification is somehow cleanroom and CPython is actually &amp;ldquo;just an implementation.&amp;rdquo;
-This has always been false, and harmful at best.
-Look at __dict__. Near every Python object has a dictionary that fuels and consumes it. All your dotted getters are mere passthroughs for dot __getitem__ers.
-Another fun thing is the leaking of implementation details in Bad Ways. Here&amp;rsquo;s something you can do but should not do, lest I find out where you live and poop in your mailbox:</description>
+      <description>&lt;p&gt;There is a convenient but untrue fiction about Python that the language specification is somehow cleanroom and CPython is actually &amp;ldquo;just an implementation.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;This has always been false, and harmful at best.&lt;/p&gt;
+&lt;p&gt;Look at &lt;code&gt;__dict__&lt;/code&gt;. Near every Python object has a dictionary that fuels and consumes it. All your dotted getters are mere passthroughs for dot &lt;code&gt;__getitem__&lt;/code&gt;ers.&lt;/p&gt;
+&lt;p&gt;Another fun thing is the leaking of implementation details in Bad Ways. Here&amp;rsquo;s something you &lt;em&gt;can&lt;/em&gt; do but &lt;em&gt;should not&lt;/em&gt; do, lest I find out where you live and poop in your mailbox:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;gc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;HELLO&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;My names are:&amp;#34;&lt;/span&gt;, [[key &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; key, value &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; var&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;items() &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; value &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; x] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; var &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; gc&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_referrers(x)])
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And it outputs:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;My names are: [[&amp;#39;x&amp;#39;]]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You &lt;em&gt;could&lt;/em&gt; create a class where all its instances know their names. All their names. Do not do this. I will leave you poop.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -96,9 +438,26 @@ Another fun thing is the leaking of implementation details in Bad Ways. Here&amp
       <pubDate>Wed, 31 Mar 2021 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</guid>
-      <description>Let me spell something out for you trickster-meanies:
-# HELLO I AM thingy.py __all__ = [X, Y, Z]  X = True Y = True Z = True Reasonable, right?
-&amp;gt;&amp;gt;&amp;gt; from thingy import * Traceback (most recent call last):  File &amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;, line 1, in &amp;lt;module&amp;gt;  File &amp;#34;/Users/scheirer/thingy.py&amp;#34;, line 1, in &amp;lt;module&amp;gt;  __all__ = [X, Y, Z] NameError: name &amp;#39;X&amp;#39; is not defined Python is older than my son (who is 3) and yet you abuse it.</description>
+      <description>&lt;p&gt;Let me spell something out for you trickster-meanies:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# HELLO I AM thingy.py&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;__all__ &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [X, Y, Z]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Y &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Z &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Reasonable, right?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;thingy&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Traceback (most recent call last):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;&lt;/span&gt;, line &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;&amp;lt;&lt;/span&gt;module&lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  File &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/Users/scheirer/thingy.py&amp;#34;&lt;/span&gt;, line &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;&amp;lt;&lt;/span&gt;module&lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    __all__ &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; [X, Y, Z]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;NameError&lt;/span&gt;: name &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;X&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; defined
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Python is older than my son (who is 3) and yet you abuse it. You monsters. You goblins. You haters. You fuckerinos.&lt;/p&gt;
+&lt;p&gt;Look: &lt;code&gt;__all__&lt;/code&gt; is a list of GOD DAMN STRING IDENTIFIERS, NOT ACTUAL OBJECTS, AND IT INFORMS A PATTERN YOU RIGHTFULLY DON&amp;rsquo;T USE BECAUSE YOU NEVER SEE THAT &lt;code&gt;NameError&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; is &lt;code&gt;[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;]&lt;/code&gt; and not your list of variable names, it&amp;rsquo;s your list of export names.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; is, and has always been, &lt;a href=&#34;https://docs.python.org/3/tutorial/modules.html#importing-from-a-package&#34;&gt;a list of &lt;em&gt;STRINGS&lt;/em&gt; to be exported from your idiot module&lt;/a&gt; into your idiot notebook.&lt;/p&gt;
+&lt;p&gt;Oh my god my irrational hate has fueled in me a series of topics I care to &amp;ldquo;engage&amp;rdquo; about (COMMENTS DISABLED).&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -107,9 +466,51 @@ Another fun thing is the leaking of implementation details in Bad Ways. Here&amp
       <pubDate>Fri, 12 Feb 2021 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
-      <description>This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.
- A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the tempfile module.
-You very seldom ACTUALLY need to do this. The BytesIO class follows the exact same protocol, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xyz &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(xyz, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  file_handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(&lt;span style=&#34;color:#ba2121&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;My brilliant string&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;can be replaced with&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xyz &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; io&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;BytesIO()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xyz&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(&lt;span style=&#34;color:#ba2121&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;My brilliant string&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You don&amp;rsquo;t even have to &lt;code&gt;with&lt;/code&gt; the BytesIO &amp;ndash; in fact, if you do, it&amp;rsquo;ll delete the buffer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       temp_file &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; tempfile&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;NamedTemporaryFile(delete&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;False&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       sftp_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(filename, temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; (filename, handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;finally&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       os&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;remove(temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp_file &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; BytesIO()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sftp_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getfo(filename, temp_file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;(filename, temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getvalue())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Isn&amp;rsquo;t that nice?&lt;/p&gt;
+&lt;p&gt;Or if you have to write to an S3 bucket, instead of creating your tempfile:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp_file &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; BytesIO()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sftp_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;getfo(filename, temp_file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp_file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;seek(&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;)  &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# You need to rewind to the beginning of the file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s3_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;upload_fileobj(temp_file, OUR_S3_BUCKET, filename)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or if the files are on the filesystem, don&amp;rsquo;t bother &lt;code&gt;read&lt;/code&gt;ing them yourself:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; filename &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; files_to_fetch:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(filename) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        s3_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;upload_fileobj(file_handle, OUR_S3_BUCKET, filename)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And on a semi-related note, don&amp;rsquo;t do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;file_handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(x))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dump(x, file_handle)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;there are usually two functions exposed when an API deals with I/O: a string version and a file-like version.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -118,9 +519,16 @@ You very seldom ACTUALLY need to do this. The BytesIO class follows the exact sa
       <pubDate>Thu, 10 Oct 2019 10:18:17 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/python-meetup-sf-2019/</guid>
-      <description>I gave a short (~10) minute talk on preparing to move to microservices at the Python meetup in San Francisco.
-The main points:
- We all start out with a monolith The monolith never fully goes away That&amp;rsquo;s fine Scope out a new project to make your first microservice Pull out a relatively isolated piece of code in the monolith to make your next microservice  </description>
+      <description>&lt;p&gt;I gave a short (~10) minute talk on &lt;a href=&#34;https://github.com/jasonbot/python-meetup-2019-10-09&#34;&gt;preparing to move to microservices&lt;/a&gt; at the Python meetup in San Francisco.&lt;/p&gt;
+&lt;p&gt;The main points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We all start out with a monolith&lt;/li&gt;
+&lt;li&gt;The monolith never fully goes away&lt;/li&gt;
+&lt;li&gt;That&amp;rsquo;s fine&lt;/li&gt;
+&lt;li&gt;Scope out a new project to make your first microservice&lt;/li&gt;
+&lt;li&gt;Pull out a relatively isolated piece of code in the monolith to make your next microservice&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -129,8 +537,14 @@ The main points:
       <pubDate>Sun, 25 Mar 2012 22:11:11 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/bottle-introspection/</guid>
-      <description>I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:
-@bottle.route(&amp;#39;/&amp;#39;) def index():  bottle.response.content_type = &amp;#39;text/plain&amp;#39;  return (&amp;#34;=== API REFERENCE ===\n&amp;#34; +  &amp;#34;\n&amp;#34;.join(x[&amp;#39;rule&amp;#39;] for x in  bottle.app().routes)) </description>
+      <description>&lt;p&gt;I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@bottle&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;index&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;response&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;content_type &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(x[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;app()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;routes))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

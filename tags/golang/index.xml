@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/golang/</link>
     <description>Recent content in golang on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 07 Sep 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Anime Watcher: Another Game</title>
@@ -13,10 +13,13 @@
       <pubDate>Wed, 07 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/the-anime-watcher/</guid>
-      <description>I wrote another game game for a Weekend Game Jam with an Anime theme.
-A short bit of interactive fiction.
-It&amp;rsquo;s Webassembly using ebitengine.
-Play The Anime Watcher on itch.io </description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jasonbot.itch.io/anime-watcher&#34;&gt;I wrote another game game&lt;/a&gt; for a &lt;a href=&#34;https://itch.io/jam/mini-jam-114-anime&#34;&gt;Weekend Game Jam with an Anime theme&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A short bit of interactive fiction.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s Webassembly using &lt;a href=&#34;https://ebiten.org/&#34;&gt;ebitengine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/6466103?color=161616&#34; allowfullscreen=&#34;&#34; width=&#34;600&#34; height=&#34;420&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/anime-watcher&#34;&gt;Play The Anime Watcher on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
     <item>
@@ -25,9 +28,12 @@ Play The Anime Watcher on itch.io </description>
       <pubDate>Mon, 25 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/trump-run/</guid>
-      <description>I wrote a game inspired by a tweet a coworker shared on a work Slack channel a few weeks back.
-It&amp;rsquo;s Webassembly using ebitengine.
-Play Trump Run on itch.io </description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jasonbot.itch.io/trump-run&#34;&gt;I wrote a game&lt;/a&gt; inspired by &lt;a href=&#34;https://twitter.com/joolsd/status/1541929360441081857&#34;&gt;a tweet&lt;/a&gt; a coworker shared on a work Slack channel a few weeks back.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s Webassembly using &lt;a href=&#34;https://ebiten.org/&#34;&gt;ebitengine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/6208200?color=262b44&#34; allowfullscreen=&#34;&#34; width=&#34;640&#34; height=&#34;500&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/trump-run&#34;&gt;Play Trump Run on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
     <item>
@@ -36,9 +42,12 @@ Play Trump Run on itch.io </description>
       <pubDate>Sun, 24 Jul 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/little-guys/</guid>
-      <description>I wrote another small puzzle game for a Weekend Game Jam with the theme Colors.
-It&amp;rsquo;s Webassembly using ebitengine.
-Play Little Guys (A Puzzle Game) on itch.io </description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jasonbot.itch.io/little-guys&#34;&gt;I wrote another small puzzle game&lt;/a&gt; for a &lt;a href=&#34;https://itch.io/jam/mini-jam-111-colors&#34;&gt;Weekend Game Jam with the theme &lt;em&gt;Colors&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s Webassembly using &lt;a href=&#34;https://ebiten.org/&#34;&gt;ebitengine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://itch.io/embed-upload/6226779?color=63c64d&#34; allowfullscreen=&#34;&#34; width=&#34;360&#34; height=&#34;380&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/little-guys&#34;&gt;Play Little Guys (A Puzzle Game) on itch.io&lt;/a&gt;&lt;/iframe&gt;
+
+</description>
     </item>
     
   </channel>

@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/zpl-o-rama/</link>
     <description>Recent content in zpl-o-rama on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Mon, 08 Mar 2021 05:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/zpl-o-rama/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ZPL-O-Rama Part 5: Postscript</title>
@@ -13,9 +13,53 @@
       <pubDate>Mon, 08 Mar 2021 05:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5/</guid>
-      <description>End product Please disregard the poor camera placement or the labels, it has since been fixed.
-       Thinking Back, It Was All So Simple Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&amp;rsquo;s a list of small things that accrued while working on the project.
-Networks are slow and the dual tier service thing is bad, actually I initially chose to run a service on the Nginx server that then called to a service running on the RPi.</description>
+      <description>&lt;h1 id=&#34;end-product&#34;&gt;End product&lt;/h1&gt;
+&lt;p&gt;Please disregard the poor camera placement or the labels, it has since been fixed.&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/workflow-1.png&#34; alt=&#34;Step 1&#34; /&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/workflow-2.png&#34; alt=&#34;Step 2&#34; /&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/workflow-3.png&#34; alt=&#34;Step 3&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;h1 id=&#34;thinking-back-it-was-all-so-simple&#34;&gt;Thinking Back, It Was All So Simple&lt;/h1&gt;
+&lt;p&gt;Now we have the system up and running, let&amp;rsquo;s talk random obstacles and next steps. This is something of an epilogue to the saga, as it&amp;rsquo;s a list of small things that accrued while working on the project.&lt;/p&gt;
+&lt;h2 id=&#34;networks-are-slow-and-the-dual-tier-service-thing-is-bad-actually&#34;&gt;Networks are slow and the dual tier service thing is bad, actually&lt;/h2&gt;
+&lt;p&gt;I initially chose to run a service on the Nginx server that then called to a service running on the RPi. Since there were Very Large PNGs being shuttled around a LOT, this was inefficient from a speed perspective because of the bandwidth consumed over my shitty cable connection.&lt;/p&gt;
+&lt;p&gt;Two band-aids I&amp;rsquo;ve applied:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Moved both services to the RPi&lt;/li&gt;
+&lt;li&gt;Started sending out a version of the image by default shrunken to 800px wide, with the original full size image as an optional download.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I could merge the two services into one, but having the backend be &lt;code&gt;curl&lt;/code&gt;able without any sort of auth makes it easy to test the two ends more effectively.&lt;/p&gt;
+&lt;h2 id=&#34;networks-are-unreliable&#34;&gt;Networks are unreliable&lt;/h2&gt;
+&lt;p&gt;The SSH tunnel can go down and while I have taken efforts to mitigate it, I could take more. Currently:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Setting timeouts in the SSH tunnel service&lt;/li&gt;
+&lt;li&gt;Force resetting the tunnel every 6 hours&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Additionally I could:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run another task that tries to hit a healthcheck on the zpl service, and if it&amp;rsquo;s dead restart the tunnel service unit&lt;/li&gt;
+&lt;li&gt;The same idea but with my cable internet connection&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper&#34;&gt;Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper&lt;/h2&gt;
+&lt;p&gt;Just gotta do what you can do a day at a time, man.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -24,9 +68,34 @@ Networks are slow and the dual tier service thing is bad, actually I initially c
       <pubDate>Mon, 08 Mar 2021 04:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4/</guid>
-      <description>Hardware The RPi The Raspberry Pi is a (I think) Pi 3 with Wifi I found in the garage with a cheap clear acrylic case. It might have been a RetroPie rig in a prior life? Or one I was &amp;ldquo;gonna get around to&amp;rdquo; doing something with and finally did?
-Then for this project I bought a Raspberry Pi camera and a small acrylic case for it, too.
-The Printer The printer is a hefty boi, a Zebra something or other.</description>
+      <description>&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;h2 id=&#34;the-rpi&#34;&gt;The RPi&lt;/h2&gt;
+&lt;p&gt;The Raspberry Pi is a (I think) Pi 3 with Wifi I found in the garage with a cheap clear acrylic case. It might have been a RetroPie rig in a prior life? Or one I was &amp;ldquo;gonna get around to&amp;rdquo; doing something with and finally did?&lt;/p&gt;
+&lt;p&gt;Then for this project I bought a Raspberry Pi camera and a small acrylic case for it, too.&lt;/p&gt;
+&lt;h2 id=&#34;the-printer&#34;&gt;The Printer&lt;/h2&gt;
+&lt;p&gt;The printer is a hefty boi, a Zebra something or other. It belongs to work. It has an ethernet port, a lot of lights, an air of proprietary grandeur, and a hunger for paper and electricity.&lt;/p&gt;
+&lt;h2 id=&#34;the-assembled-rig&#34;&gt;THE ASSEMBLED RIG&lt;/h2&gt;
+&lt;p&gt;I wanted all the components to be as easy to transport as possible, so I used adhesive velcro tape to affix the components to each other and some adhesive cable maangement clips to hold the cables in place, carefult to leave enough slack so that the side dfoor can still open.&lt;/p&gt;
+&lt;p&gt;The Pi is running stock Raspian, I have the Pi connected to the printer via a short span of Cat 6 I found, and I&amp;rsquo;m using dnsmasq&amp;rsquo;s dhcp bound to &lt;code&gt;eth0&lt;/code&gt; so that the printer always gets the same IP that the Pi can address it through. The Pi joins my network via WiFi. The intent is for the whole mess to be easy to pick up and move around the house.&lt;/p&gt;
+&lt;p&gt;The last piece is a humble power strip.&lt;/p&gt;
+&lt;p&gt;A picture of the front (you can see some of the cable management):
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/rig-picture.png&#34; alt=&#34;Hardware Rig Picture&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;How it&amp;rsquo;s set up:
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/rig-diagram.svg&#34; alt=&#34;Hardware Rig Diagram&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5&#34;&gt;On to part 5 →&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -35,8 +104,156 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       <pubDate>Mon, 08 Mar 2021 03:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3/</guid>
-      <description>Running the software Frontend server The frontend has three responsibilities:
- Display information Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs) Forward appropriate calls to the backend  I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the Echo framework for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.</description>
+      <description>&lt;h1 id=&#34;running-the-software&#34;&gt;Running the software&lt;/h1&gt;
+&lt;h2 id=&#34;frontend-server&#34;&gt;Frontend server&lt;/h2&gt;
+&lt;p&gt;The frontend has three responsibilities:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Display information&lt;/li&gt;
+&lt;li&gt;Perform access control (don&amp;rsquo;t let strangers on the internet print out jobs)&lt;/li&gt;
+&lt;li&gt;Forward appropriate calls to the backend&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I&amp;rsquo;m using Go&amp;rsquo;s base templates for dynamic content, the &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo framework&lt;/a&gt; for the webapp endpoints, and plain old bare bones modern javascripto for the scripting stuff with no polyfills, no build environments, no minifiers, and boy does it feel good.&lt;/p&gt;
+&lt;p&gt;The page is fast and I am attempting to capitalize on the whole &amp;ldquo;Hotwire&amp;rdquo; trend by using &lt;code&gt;innerHTML&lt;/code&gt; for some stuff on pages. Look how leader my thoughts are!&lt;/p&gt;
+&lt;p&gt;Not that it&amp;rsquo;s necessary. The pages themselves render blazingly fast since they are so resource lean.&lt;/p&gt;
+&lt;h2 id=&#34;backend-server&#34;&gt;Backend server&lt;/h2&gt;
+&lt;p&gt;The backend server is a simple Go server with an even simpler API:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Endpoint&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&amp;rsquo;s it. That&amp;rsquo;s the synchronization mechanism. A goroutine and a channel.&lt;/p&gt;
+&lt;p&gt;Jobs are stored in a &lt;a href=&#34;https://github.com/boltdb/bolt&#34;&gt;Bolt&lt;/a&gt; database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?&lt;/p&gt;
+&lt;h2 id=&#34;login-management&#34;&gt;Login Management&lt;/h2&gt;
+&lt;p&gt;This lives entirely on the frontend. I&amp;rsquo;m using Google&amp;rsquo;s javascript OAuth2 library along with some backend whitelisting to only allow people with approved Google logins into the privileged endpoints. Permissions are enforced via a custom Echo middleware.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;an-aside-making-peace-with-systemd&#34;&gt;An aside: Making Peace with &lt;code&gt;systemd&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;People like to talk shit about &lt;code&gt;systemd&lt;/code&gt;. It&amp;rsquo;s weird, it&amp;rsquo;s disruptive, it tries to do too much.
+First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;keeping-the-software-running&#34;&gt;Keeping the software running&lt;/h1&gt;
+&lt;h2 id=&#34;operating-environment-on-the-server&#34;&gt;Operating Environment on the Server&lt;/h2&gt;
+&lt;p&gt;I use &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;letsencrypt&lt;/a&gt; for SSL, &lt;a href=&#34;https://cloud.google.com/compute&#34;&gt;GCP for a VM/IP&lt;/a&gt; (Docker would be stupid here), and Nginx as the edge. The conf look like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-nginx&#34; data-lang=&#34;nginx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;ZPL-HOST-DOMAIN.TLD&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_set_header&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;Host&lt;/span&gt; &lt;span style=&#34;color:#19177c&#34;&gt;$host&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_pass&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;http://127.0.0.1:5489&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_buffering&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;on&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_redirect&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;off&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_http_version&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;.1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;proxy_cache&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;off&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;tcp_nodelay&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;on&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;error_page&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;502&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/502.html&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;location&lt;/span&gt; = &lt;span style=&#34;color:#ba2121&#34;&gt;/502.html&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;root&lt;/span&gt;  &lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama/public&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;443&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;ssl&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;ssl_certificate&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/fullchain.pem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;ssl_certificate_key&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/live/ZPL-HOST-DOMAIN.TLD/privkey.pem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/options-ssl-nginx.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ba2121&#34;&gt;ssl_dhparam&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;/etc/letsencrypt/ssl-dhparams.pem&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#19177c&#34;&gt;$host&lt;/span&gt; = &lt;span style=&#34;color:#ba2121&#34;&gt;ZPL-HOST-DOMAIN.TLD)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;https://&lt;/span&gt;&lt;span style=&#34;color:#19177c&#34;&gt;$host$request_uri&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;80&lt;/span&gt; ;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;ZPL-HOST-DOMAIN.TLD&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;404&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Basically: use HTTPS, pass through to the frontend service which is bound to a port on localhost via the tunnel. Neat.&lt;/p&gt;
+&lt;h2 id=&#34;operating-environment-on-the-pi&#34;&gt;Operating Environment on the Pi&lt;/h2&gt;
+&lt;p&gt;I have a custom user with limited permissions called &lt;code&gt;zplorama&lt;/code&gt;. I had to add it to the group &lt;code&gt;video&lt;/code&gt; so it could call &lt;code&gt;raspistill&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The two service executables operate via simple systemd unit defs:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Backend&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Fairly simple: run a binary as a specific user in a specific path, restart on fail.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Run the backend printer server on localhost&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama/bin/printer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Frontend&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Run the frontend printer server on localhost&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama/bin/frontend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is super simple and since I&amp;rsquo;m embedding the config inside the binaries I don&amp;rsquo;t even need to send any command-line flags along.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tunnel&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The ssh connection stays alive via another systemd unit:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-systemd&#34; data-lang=&#34;systemd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Setup a secure tunnel to prod for ZPL service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;network.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;ssh -o ExitOnForwardFailure=yes -R 5489:localhost:5489 USER@HOST -N&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Set a hard reset every 6 hours&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;RuntimeMaxSec&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;21600&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;Group&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;/home/zplorama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7d9029&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;Deployment involves doing a &lt;code&gt;git pull&lt;/code&gt;, a &lt;code&gt;make clean &amp;amp;&amp;amp; make&lt;/code&gt;, &lt;code&gt;cp ./bin/ ~zplorama/bin&lt;/code&gt;, and then using &lt;code&gt;sudo service restart&lt;/code&gt;. This could be a script, even!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bc7a00&#34;&gt;#! /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bc7a00&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#008000&#34;&gt;cd&lt;/span&gt; zpl-o-rama
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make clean &lt;span style=&#34;color:#666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv bin/* ~zplorama/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chown zplorama:zplorama ~zplorama/bin/*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; service in zplbackend zplfrontend zpltunnel
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sudo service restart &lt;span style=&#34;color:#19177c&#34;&gt;$service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;end&#34;&gt;End&lt;/h1&gt;
+&lt;p&gt;This is the beefiest of the posts because it includes real code. TL;DR: the configuration of the service is larger than the actual code of the service.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4&#34;&gt;On to part 4 →&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -45,8 +262,37 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       <pubDate>Mon, 08 Mar 2021 02:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2/</guid>
-      <description>Problem Space To automate the process of printing and reporting back a ZPL payload, we need:
- A way to get the ZPL from the user A way to send the ZPL to a printer A way to take a picture A way to send it back to the user  A way to get the ZPL from the user A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.</description>
+      <description>&lt;h1 id=&#34;problem-space&#34;&gt;Problem Space&lt;/h1&gt;
+&lt;p&gt;To automate the process of printing and reporting back a ZPL payload, we need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A way to get the ZPL from the user&lt;/li&gt;
+&lt;li&gt;A way to send the ZPL to a printer&lt;/li&gt;
+&lt;li&gt;A way to take a picture&lt;/li&gt;
+&lt;li&gt;A way to send it back to the user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;a-way-to-get-the-zpl-from-the-user&#34;&gt;A way to get the ZPL from the user&lt;/h2&gt;
+&lt;p&gt;A web service makes sense here. We want an API or a frontend (or both) to send the ZPL along and check its printing status.&lt;/p&gt;
+&lt;h2 id=&#34;a-way-to-send-the-zpl-to-a-printer&#34;&gt;A way to send the ZPL to a printer&lt;/h2&gt;
+&lt;p&gt;A ZPL printer has an ethernet port and can simply be &lt;code&gt;netcat&lt;/code&gt;ted to. We just need a program that shuttles ZPL from user to printer. This can easily be done with a web API and maybe something like a Raspberry pi in between.&lt;/p&gt;
+&lt;h2 id=&#34;a-way-to-take-a-picture&#34;&gt;A way to take a picture&lt;/h2&gt;
+&lt;p&gt;Raspberry Pis have &lt;a href=&#34;https://www.raspberrypi.org/products/camera-module-v2/&#34;&gt;cheap camra modules&lt;/a&gt; with dedicated ports to accept them on the board. There is &lt;a href=&#34;https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md&#34;&gt;a simple command-line app&lt;/a&gt; to capture stills. This is easy.&lt;/p&gt;
+&lt;h2 id=&#34;a-way-to-send-it-back-to-the-user&#34;&gt;A way to send it back to the user&lt;/h2&gt;
+&lt;p&gt;This is probably going to be the same thing as above, with the webapp. The printer prints, the camera cams, the webapp reconveys the image to the user.&lt;/p&gt;
+&lt;h1 id=&#34;moving-on&#34;&gt;Moving on&lt;/h1&gt;
+&lt;p&gt;Moving forward, we abstractly have all the conceptual parts we&amp;rsquo;ll need to make this service thought out. Now for the details.&lt;/p&gt;
+&lt;h1 id=&#34;lets-talk-architecture&#34;&gt;Let&amp;rsquo;s Talk Architecture&lt;/h1&gt;
+&lt;p&gt;The next thing I needed to do was plan out how this would work. I made a diagram to make sure I wasn&amp;rsquo;t missing anything.&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/zpl-o-rama/zpl-o-rama-architecture.svg&#34; alt=&#34;Architecture Diagram&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll use Nginx at the edge to route to a frontend application. Then I&amp;rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.&lt;/p&gt;
+&lt;p&gt;Then, I&amp;rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3&#34;&gt;On to part 3 →&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -55,8 +301,18 @@ The Printer The printer is a hefty boi, a Zebra something or other.</description
       <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/zpl-o-rama-part-1/</guid>
-      <description>Introduction In my spare time on weekends in between errands and mornings before everyone wakes up, I&amp;rsquo;ve been working on a little project I&amp;rsquo;ve been having a lot of fun with: ZPL-O-Rama.
-The Problem A large part of my employer&amp;rsquo;s line of business is creating shipping labels, and a large number of those aren&amp;rsquo;t simply printed images, but printed on very high volume, heavy duty, industrial grade printers using a proprietary language called ZPL.</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In my spare time on weekends in between errands and mornings before everyone wakes up, I&amp;rsquo;ve been working on a little project I&amp;rsquo;ve been having a lot of fun with: ZPL-O-Rama.&lt;/p&gt;
+&lt;h1 id=&#34;the-problem&#34;&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;A large part of my employer&amp;rsquo;s line of business is creating shipping labels, and a large number of those aren&amp;rsquo;t simply printed images, but printed on very high volume, heavy duty, industrial grade printers using &lt;a href=&#34;https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf&#34;&gt;a proprietary language called ZPL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In an aggressive and justified act of Intellectual Property enforcement, there are no legal software ZPL renderers available&lt;sup&gt;(footnote 1)&lt;/sup&gt;. This means that to test the output of a ZPL stanza we have to physically print a label and inspect it. In the Before Times of 2019, our office was full of all kinds of ZPL printer we could freely and cavalierly print to.&lt;/p&gt;
+&lt;p&gt;Now that workplaces are in a &lt;a href=&#34;https://www.jasonscheirer.com/weblog/thepost-office-world&#34;&gt;post-office diaspora&lt;/a&gt;, we no longer have access to ZPL printers. The fleet of printers were  dispatched to a number of people in the org who opted in and had a vested need to test ZPL. I was one of those people.&lt;/p&gt;
+&lt;p&gt;Now, for those without a printer, if they need to test something they will go into a Slack channel and hope someone sees it in a timely manner, prints the ZPL, takes a picture, and reports back.&lt;/p&gt;
+&lt;p&gt;We can do better than that. We can automate this.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2&#34;&gt;On to part 2 →&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; (Yes, I am aware of &lt;a href=&#34;http://labelary.com/viewer.html&#34;&gt;Labelary&lt;/a&gt;, but that&amp;rsquo;s also proprietary and probably in violation of all kinds of agreements)&lt;/p&gt;
+</description>
     </item>
     
   </channel>

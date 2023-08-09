@@ -5,7 +5,7 @@
     <link>https://www.jasonscheirer.com/tags/chromebook/</link>
     <description>Recent content in chromebook on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Mon, 10 Feb 2020 01:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/chromebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Dingus Chromebook still works</title>
@@ -13,7 +13,10 @@
       <pubDate>Mon, 10 Feb 2020 01:11:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/chromebook-still-works/</guid>
-      <description>So I bought that dang Chromebook over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.</description>
+      <description>&lt;p&gt;So I &lt;a href=&#34;https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/&#34;&gt;bought that dang Chromebook&lt;/a&gt; over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.&lt;/p&gt;
+&lt;p&gt;All in all, the Chromebook was a good purchase, it has served many purposes, and it&amp;rsquo;s lasted a lot longer than a lot of other laptops I&amp;rsquo;ve owned (Surface Pro, looking at you).&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve got a Pinebook Pro on the way, here&amp;rsquo;s hoping that lasts as long (and is as useful).&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -22,9 +25,38 @@
       <pubDate>Mon, 26 Dec 2016 01:11:45 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
-      <description>This is a recycled post from my tumblr weblog
- Ha ha ha just lying the real title should be
-Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead Anyway, I&amp;rsquo;m unemployed because of reasons and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: the Chromebook C100P.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ha ha ha just lying the real title should be&lt;/p&gt;
+&lt;h1 id=&#34;turning-a-piece-of-shit-chromebook-into-a-good-enough-development-machine-because-youre-unemployed-and-feel-like-an-ass-trying-to-justify-spending-2000-on-a-god-damned-macbook-so-you-wound-up-buying-a-chromebook-instead&#34;&gt;Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead&lt;/h1&gt;
+&lt;p&gt;Anyway, I&amp;rsquo;m &lt;a href=&#34;http://www.theverge.com/2016/12/8/13887622/yik-yak-layoffs-growth-collapse&#34;&gt;unemployed because of reasons&lt;/a&gt; and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: &lt;a href=&#34;https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/&#34;&gt;the Chromebook C100P&lt;/a&gt;. The stats are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Processor: Piece of shit system-on-chip ARM thing&lt;/li&gt;
+&lt;li&gt;RAM: Yes&lt;/li&gt;
+&lt;li&gt;Screen: Acceptable but you can see the pixels&lt;/li&gt;
+&lt;li&gt;Keyboard: Ugh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Considering it&amp;rsquo;s still an order of magnitude better than &lt;a href=&#34;http://www.macworld.com/article/2901437/macbook/ode-to-the-12-inch-powerbook-g4-apples-first-desktop-quality-laptop.html&#34;&gt;the first good laptop I owned&lt;/a&gt;, it&amp;rsquo;s a pretty good buy at $200 and some change.&lt;/p&gt;
+&lt;p&gt;So Chrome OS is nice but I want to introduce security holes to the device, so &lt;em&gt;LET&amp;rsquo;S INSTALL PLAIN OLD LINUX&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The first thing to do is follow the instructions to install &lt;a href=&#34;https://github.com/dnschneid/crouton/blob/master/README.md&#34;&gt;crouton via the instructions&lt;/a&gt;. You get the option of what flavor of Linux to install, after 8 hours of experimenting with Debians and Ubuntus I found the one with the best support is Trusty. So do this after downloading crouton in Developer Mode:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh crouton -r trusty -t xfce,touch,xiwi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;ldquo;But I like Unity,&amp;rdquo; you say. I respond with &amp;ldquo;NO YOU DON&amp;rsquo;T IMAGINARY IDIOT NO YOU DON&amp;rsquo;T NOBODY LIKES UNITY UNLESS THEY WORK FOR CANONICAL.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;But that is a very old Ubuntu,&amp;rdquo; you say. Welp, the only big thing that will really matter is you&amp;rsquo;ll have to load up an older &lt;code&gt;.tmux.conf&lt;/code&gt; with the older mouse mode switches because that&amp;rsquo;s all I found was missing. Everything else we will download from third parties.&lt;/p&gt;
+&lt;p&gt;Also follow the directions to install the Chrome extension in the host ChromeOS browser, it&amp;rsquo;s helpful.&lt;/p&gt;
+&lt;h2 id=&#34;golang&#34;&gt;Golang&lt;/h2&gt;
+&lt;p&gt;Luckily the dudes at the Go project are charitable and offer an ARM version of the Golang toolchain. Go get a &lt;code&gt;-armv6l&lt;/code&gt; version of Go &lt;a href=&#34;https://golang.org/dl/&#34;&gt;from the downloads page&lt;/a&gt; and decompress it in your home dir. If you use &lt;code&gt;~/workspace&lt;/code&gt; as your Go home like I do, add this junk to your &lt;code&gt;.bashrc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#19177c&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;~/go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#19177c&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;~/workspace
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Okay cool Go is ready to go. That last sentence&amp;rsquo;s wording was not intentional nor was it a joke, get over yourself.&lt;/p&gt;
+&lt;h2 id=&#34;python&#34;&gt;Python&lt;/h2&gt;
+&lt;p&gt;Trusty uses an older version of Python. Continuum&amp;rsquo;s got it. &lt;a href=&#34;https://repo.continuum.io/miniconda/&#34;&gt;Get an &lt;code&gt;armv6l&lt;/code&gt; installer of Miniconda&lt;/a&gt; and install it in your home dir. It&amp;rsquo;ll even add itself to your &lt;code&gt;$PATH&lt;/code&gt;. Python&amp;rsquo;s covered.&lt;/p&gt;
+&lt;h2 id=&#34;vs-code-the-unlikeliest-ide&#34;&gt;VS Code, the unlikeliest IDE&lt;/h2&gt;
+&lt;p&gt;For some inexplicable reason &lt;a href=&#34;http://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt; is the best IDE for writing Go. It&amp;rsquo;s an indisputable fact and goes to further prove that we live in a cruel, arbitrary universe that often makes no sense. &lt;a href=&#34;https://code.headmelted.com/&#34;&gt;This headmelted dude has you covered&lt;/a&gt; for builds of VS Code for piece of shit ARM processors. Ignore his instructions, open a terminal in your xfce session and do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://code.headmelted.com/installers/apt.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh ./apt.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;now VS Code is installed. You can code in these two arbitrary languages I have chosen as my favorites on this awful hardware, and to be honest it&amp;rsquo;s minimally painful (minus building huge Golang projects).&lt;/p&gt;
+</description>
     </item>
     
   </channel>
