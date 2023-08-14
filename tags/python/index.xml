@@ -6,7 +6,43 @@
     <description>Recent content in python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Aug 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Registering signs of life</title>
+      <link>https://www.jasonscheirer.com/weblog/signs-of-life-in-async/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/signs-of-life-in-async/</guid>
+      <description>&lt;p&gt;At work I&amp;rsquo;m currently working on a fairly large system in which we have a pool of greedy workers, of unknown size, which can opt it at any time to the flow of work.&lt;/p&gt;
+&lt;p&gt;A job is considered abandoned if it is marked as &lt;code&gt;IN_PROGRESS&lt;/code&gt; but the worker who has claimed it hasn&amp;rsquo;t phoned home in sone amount of time.&lt;/p&gt;
+&lt;p&gt;The project is async, which makes things bot more and less interesting. It looks something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@contextlib&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;contextmanager
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;run_keepalive_function_while_awaiting&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    call: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Callable[[&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;], typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Awaitable[&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;]], interval: &lt;span style=&#34;color:#008000&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    alive &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;_keepalive&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; alive:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; call()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;sleep(interval)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;create_task(_keepalive(), name&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Keepalive task utilizing &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;call&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    alive &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And thjen basic usage is like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;do_the_work&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    job_id &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; uuid&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;uuid4()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;announce_signs_of_life&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        responses&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;post(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;http://job-scheduler/i-am-alive/&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{job_id}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; run_keepalive_function_while_awaiting(announce_signs_of_life, &lt;span style=&#34;color:#666&#34;&gt;0.25&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; do_long_running_task()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As long as the code block in the &lt;code&gt;run_keepalive_function_while_awaiting&lt;/code&gt; context manager is running, the system will run a background coroutine that periodically runs the keepalive function.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Mixed Async code in Sync Python: Disappointingly Simple</title>
       <link>https://www.jasonscheirer.com/weblog/mixed-async-disappointingly-simple/</link>
