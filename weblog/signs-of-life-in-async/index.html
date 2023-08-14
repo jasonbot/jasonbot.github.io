@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Registering signs of life</title>
+	<title>Registering Signs of Life in Long-Running Async Jobs in Python</title>
 	
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Registering signs of life" />
+	<meta property="og:title" content="Registering Signs of Life in Long-Running Async Jobs in Python" />
 	
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1692044819"><link rel="stylesheet" href="/css/fonts.css?rnd=1692044819">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1692051141"><link rel="stylesheet" href="/css/fonts.css?rnd=1692051141">
 	
 </head>
 <body>
@@ -84,7 +84,7 @@
 	
 	<main>
 		<article>
-			<h1>Registering signs of life</h1>
+			<h1>Registering Signs of Life in Long-Running Async Jobs in Python</h1>
 
 			<p>
 			
@@ -120,8 +120,10 @@
 </span></span></code></pre></div><p>And thjen basic usage is like this:</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">do_the_work</span>():
 </span></span><span style="display:flex;"><span>    job_id <span style="color:#666">=</span> uuid<span style="color:#666">.</span>uuid4()
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">announce_signs_of_life</span>():
 </span></span><span style="display:flex;"><span>        responses<span style="color:#666">.</span>post(<span style="color:#ba2121">&#34;http://job-scheduler/i-am-alive/</span><span style="color:#b68;font-weight:bold">{job_id}</span><span style="color:#ba2121">&#34;</span>)
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> run_keepalive_function_while_awaiting(announce_signs_of_life, <span style="color:#666">0.25</span>):
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">await</span> do_long_running_task()
 </span></span></code></pre></div><p>As long as the code block in the <code>run_keepalive_function_while_awaiting</code> context manager is running, the system will run a background coroutine that periodically runs the keepalive function.</p>
