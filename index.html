@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1692051141"><link rel="stylesheet" href="/css/fonts.css?rnd=1692051141">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693425523"><link rel="stylesheet" href="/css/fonts.css?rnd=1693425523">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -85,6 +85,29 @@
 	
 	<main>
 		
+		
+			<article>
+	<h1><a href="https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/">Keeping Alive With Long-Running Sync Work in Python</a></h1>
+	
+	<b><time>2023-08-29</time></b>
+	
+	
+	<a class="taglink" href="/tags/python">python</a>
+	
+	<a class="taglink" href="/tags/programming">programming</a>
+	
+	<div>
+		In my previous post I wanted
+Now, I have a long-running block of synchronous code.
+Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&rsquo;t take breaks to &ldquo;breathe.&rdquo; It doesn&rsquo;t yield control to a scheduler. It just runs and runs. This can be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to
+		
+		<div class="read-more">
+			<a  href="https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/">Read more...</a>
+		</div>
+		
+	</div>
+</article>
+
 		
 			<article>
 	<h1><a href="https://www.jasonscheirer.com/weblog/signs-of-life-in-async/">Registering Signs of Life in Long-Running Async Jobs in Python</a></h1>

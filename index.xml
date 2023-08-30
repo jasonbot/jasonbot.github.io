@@ -6,7 +6,35 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Aug 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keeping Alive With Long-Running Sync Work in Python</title>
+      <link>https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://www.jasonscheirer.com/weblog/signs-of-life-in-async/&#34;&gt;my previous post&lt;/a&gt; I wanted&lt;/p&gt;
+&lt;p&gt;Now, I have a long-running block of synchronous code.&lt;/p&gt;
+&lt;p&gt;Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&amp;rsquo;t take breaks to &amp;ldquo;breathe.&amp;rdquo; It doesn&amp;rsquo;t yield control to a scheduler. It just runs and runs. This &lt;em&gt;can&lt;/em&gt; be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to&lt;/p&gt;
+&lt;h1 id=&#34;i-hate-writing-code&#34;&gt;I hate writing code&lt;/h1&gt;
+&lt;p&gt;I have looked into the internals of the async event loops and don&amp;rsquo;t want to hack into that.&lt;/p&gt;
+&lt;p&gt;I thought about spinning up a new thread to run the sync worker, using asyncio &lt;a href=&#34;https://docs.python.org/3/library/asyncio-sync.html#asyncio.Lock&#34;&gt;&lt;code&gt;Lock&lt;/code&gt;s&lt;/a&gt; to lock before running and the event loop&amp;rsquo;s &lt;a href=&#34;https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.call_soon_threadsafe&#34;&gt;call_soon_threadsafe&lt;/a&gt; to unlock it from the worker thread when the woprk was done, but there&amp;rsquo;s got to be a way to do this that&amp;rsquo;s already done for me.&lt;/p&gt;
+&lt;p&gt;What can I see to do with the code that already exists in the standard library?&lt;/p&gt;
+&lt;h1 id=&#34;what-i-wound-up-with&#34;&gt;What I wound up with&lt;/h1&gt;
+&lt;p&gt;Very simply, I create a new &lt;a href=&#34;https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor&#34;&gt;&lt;code&gt;ThreadPoolExecutor&lt;/code&gt;&lt;/a&gt; resource constrained to a specific number of threads (wherein it will block if more than that many requests are currently outstanding), then tell the async framework to run it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tp &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; concurrent&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;futures&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;ThreadPoolExecutor(max_threads&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;multiprocessing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;cpu_count() &lt;span style=&#34;color:#666&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;long_running_process&lt;/span&gt;() &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    time&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;sleep(&lt;span style=&#34;color:#666&#34;&gt;10.0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;run_long_running_process&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    val: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_running_loop()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run_in_executior(tp, long_running_process)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the main async code will contnue to run in an async fashion, but will use a parallel executor to run the sync code.&lt;/p&gt;
+&lt;p&gt;This code is very simple to reason about, but did take me a few hours to piece together myself.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Registering Signs of Life in Long-Running Async Jobs in Python</title>
       <link>https://www.jasonscheirer.com/weblog/signs-of-life-in-async/</link>
@@ -32,7 +60,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    alive &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;False&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And thjen basic usage is like this:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then basic usage is like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;do_the_work&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    job_id &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; uuid&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;uuid4()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
