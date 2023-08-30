@@ -13,7 +13,7 @@
       <pubDate>Tue, 29 Aug 2023 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;https://www.jasonscheirer.com/weblog/signs-of-life-in-async/&#34;&gt;my previous post&lt;/a&gt; I wanted&lt;/p&gt;
+      <description>&lt;p&gt;In &lt;a href=&#34;https://www.jasonscheirer.com/weblog/signs-of-life-in-async/&#34;&gt;my previous post&lt;/a&gt; I wanted to run a keepalive green thread on the wide while doing work to let the coordination framework (in this case just a plain old Postgres database) which workers were around and still processing work.&lt;/p&gt;
 &lt;p&gt;Now, I have a long-running block of synchronous code.&lt;/p&gt;
 &lt;p&gt;Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&amp;rsquo;t take breaks to &amp;ldquo;breathe.&amp;rdquo; It doesn&amp;rsquo;t yield control to a scheduler. It just runs and runs. This &lt;em&gt;can&lt;/em&gt; be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to&lt;/p&gt;
 &lt;h1 id=&#34;i-hate-writing-code&#34;&gt;I hate writing code&lt;/h1&gt;

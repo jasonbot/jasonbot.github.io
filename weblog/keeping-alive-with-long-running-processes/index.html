@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693425523"><link rel="stylesheet" href="/css/fonts.css?rnd=1693425523">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693425746"><link rel="stylesheet" href="/css/fonts.css?rnd=1693425746">
 	
 </head>
 <body>
@@ -98,7 +98,7 @@
 			</p>
 			
 			<div>
-				<p>In <a href="/weblog/signs-of-life-in-async/">my previous post</a> I wanted</p>
+				<p>In <a href="/weblog/signs-of-life-in-async/">my previous post</a> I wanted to run a keepalive green thread on the wide while doing work to let the coordination framework (in this case just a plain old Postgres database) which workers were around and still processing work.</p>
 <p>Now, I have a long-running block of synchronous code.</p>
 <p>Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&rsquo;t take breaks to &ldquo;breathe.&rdquo; It doesn&rsquo;t yield control to a scheduler. It just runs and runs. This <em>can</em> be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to</p>
 <h1 id="i-hate-writing-code">I hate writing code</h1>

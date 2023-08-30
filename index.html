@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693425523"><link rel="stylesheet" href="/css/fonts.css?rnd=1693425523">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693425746"><link rel="stylesheet" href="/css/fonts.css?rnd=1693425746">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jason Scheirer">
 </head>
 <body>
@@ -97,9 +97,9 @@
 	<a class="taglink" href="/tags/programming">programming</a>
 	
 	<div>
-		In my previous post I wanted
+		In my previous post I wanted to run a keepalive green thread on the wide while doing work to let the coordination framework (in this case just a plain old Postgres database) which workers were around and still processing work.
 Now, I have a long-running block of synchronous code.
-Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&rsquo;t take breaks to &ldquo;breathe.&rdquo; It doesn&rsquo;t yield control to a scheduler. It just runs and runs. This can be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to
+Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&rsquo;t take breaks to &ldquo;breathe.&rdquo; It doesn&rsquo;t yield control to a scheduler.
 		
 		<div class="read-more">
 			<a  href="https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/">Read more...</a>
