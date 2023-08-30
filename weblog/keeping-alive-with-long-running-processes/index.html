@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693425746"><link rel="stylesheet" href="/css/fonts.css?rnd=1693425746">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1693431061"><link rel="stylesheet" href="/css/fonts.css?rnd=1693431061">
 	
 </head>
 <body>
@@ -100,7 +100,7 @@
 			<div>
 				<p>In <a href="/weblog/signs-of-life-in-async/">my previous post</a> I wanted to run a keepalive green thread on the wide while doing work to let the coordination framework (in this case just a plain old Postgres database) which workers were around and still processing work.</p>
 <p>Now, I have a long-running block of synchronous code.</p>
-<p>Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&rsquo;t take breaks to &ldquo;breathe.&rdquo; It doesn&rsquo;t yield control to a scheduler. It just runs and runs. This <em>can</em> be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to</p>
+<p>Herein lies the problem: synchronous code does not play nicely in the async event loop. It doesn&rsquo;t take breaks to &ldquo;breathe.&rdquo; It doesn&rsquo;t yield control to a scheduler. It just runs and runs. This <em>can</em> be fine in some cases where e.g. network activity stops or becomes infrequent while work is done but in this case we want the secondary green thread to continue to phone back home while the process runs to let it know that, hey, this process is still alive and doing work but the work it&rsquo;s currently doing is taking a while.</p>
 <h1 id="i-hate-writing-code">I hate writing code</h1>
 <p>I have looked into the internals of the async event loops and don&rsquo;t want to hack into that.</p>
 <p>I thought about spinning up a new thread to run the sync worker, using asyncio <a href="https://docs.python.org/3/library/asyncio-sync.html#asyncio.Lock"><code>Lock</code>s</a> to lock before running and the event loop&rsquo;s <a href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.call_soon_threadsafe">call_soon_threadsafe</a> to unlock it from the worker thread when the woprk was done, but there&rsquo;s got to be a way to do this that&rsquo;s already done for me.</p>
