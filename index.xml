@@ -6,7 +6,27 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Aug 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keeping Alive With Long-Running Sync Work in Python</title>
+      <link>https://www.jasonscheirer.com/weblog/not-participating-in-advent-of-code/</link>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/not-participating-in-advent-of-code/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m not participating in his year&amp;rsquo;s Advent of Code.&lt;/p&gt;
+&lt;h1 id=&#34;it-emphasizes-fast-solutions-over-good-ones&#34;&gt;It Emphasizes Fast Solutions over Good Ones&lt;/h1&gt;
+&lt;p&gt;The entire gamification of the problems is about solving them as quickly as possible. Not about maintainable solutions, not rewarding cleverness, the scoreboard is entirely fueled by finishing quickly.&lt;/p&gt;
+&lt;p&gt;A professional software engineer does not hammer out code as quickly as possible. There are optimization and organizational and maintainability issues to consider.&lt;/p&gt;
+&lt;h1 id=&#34;its-not-realistic&#34;&gt;It&amp;rsquo;s not realistic&lt;/h1&gt;
+&lt;p&gt;I don&amp;rsquo;t write parser/combinators in my day-to-day. While they may be fun, most of my day is reading standard library documentation and wrestling with Tailwind. These problems are fun, but flexing muscles I do not use regularly and can work out when I do need them.&lt;/p&gt;
+&lt;h1 id=&#34;it-represents-a-dark-third-place&#34;&gt;It represents a dark &amp;ldquo;Third Place&amp;rdquo;&lt;/h1&gt;
+&lt;p&gt;In general, a &amp;ldquo;third place&amp;rdquo; is a place outside of work and home like a coffee shop where one might recharge and socialize. Advent of Code is the same thing &amp;ndash; it&amp;rsquo;s not a work project, it&amp;rsquo;s not a personal project, it&amp;rsquo;s some third thing.&lt;/p&gt;
+&lt;p&gt;In this way it&amp;rsquo;s not constructive: it&amp;rsquo;s hard to justify doing &amp;rsquo;empty&amp;rsquo; coding where you&amp;rsquo;re nod advancing a side project or your employer&amp;rsquo;s goals.&lt;/p&gt;
+&lt;h1 id=&#34;its-timing-is-in-the-worst-part-of-the-year&#34;&gt;Its timing is in the worst part of the year&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m flying in December. I&amp;rsquo;m driving. I&amp;rsquo;m spending time going to my kid&amp;rsquo;s Christmas concerts. I&amp;rsquo;m not around at 9:00 PM every night to rush through a problem and it consistently gives me anxiety when I try to participate.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Keeping Alive With Long-Running Sync Work in Python</title>
       <link>https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/</link>
@@ -29,7 +49,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;run_long_running_process&lt;/span&gt;():
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    val: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_running_loop()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run_in_executior(tp, long_running_process)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    val: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_running_loop()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run_in_executor(tp, long_running_process)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the main async code will contnue to run in an async fashion, but will use a parallel executor to run the sync code.&lt;/p&gt;
 &lt;p&gt;This code is very simple to reason about, but did take me a few hours to piece together myself.&lt;/p&gt;
 </description>

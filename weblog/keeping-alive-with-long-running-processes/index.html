@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1697574058"><link rel="stylesheet" href="/css/fonts.css?rnd=1697574058">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1701711911"><link rel="stylesheet" href="/css/fonts.css?rnd=1701711911">
 	
 </head>
 <body>
@@ -114,7 +114,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">5</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">run_long_running_process</span>():
-</span></span><span style="display:flex;"><span>    val: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> asyncio<span style="color:#666">.</span>get_running_loop()<span style="color:#666">.</span>run_in_executior(tp, long_running_process)
+</span></span><span style="display:flex;"><span>    val: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> asyncio<span style="color:#666">.</span>get_running_loop()<span style="color:#666">.</span>run_in_executor(tp, long_running_process)
 </span></span></code></pre></div><p>Now the main async code will contnue to run in an async fashion, but will use a parallel executor to run the sync code.</p>
 <p>This code is very simple to reason about, but did take me a few hours to piece together myself.</p>
 
