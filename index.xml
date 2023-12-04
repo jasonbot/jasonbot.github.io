@@ -13,7 +13,8 @@
       <pubDate>Sun, 03 Dec 2023 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/not-participating-in-advent-of-code/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m not participating in his year&amp;rsquo;s Advent of Code. Every year I try and get stymied by day 14 of so because of practical considerations.&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;rsquo;m exhausted. I&amp;rsquo;ve been guilted/peer pressured into participating in the AoC for at least 5 years. I&amp;rsquo;m tired, I&amp;rsquo;m defeated, I&amp;rsquo;m unable to meet its weird expectations consistently and still I remain a competent software engineer.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not participating in his year&amp;rsquo;s Advent of Code. Every year I try and get stymied by day 14 of so because of practical considerations.&lt;/p&gt;
 &lt;h1 id=&#34;it-emphasizes-fast-solutions-over-good-ones&#34;&gt;It Emphasizes Fast Solutions Over Good Ones&lt;/h1&gt;
 &lt;p&gt;The entire gamification of the problems is about solving them as quickly as possible. Not about maintainable solutions, not rewarding cleverness, the scoreboard is entirely fueled by finishing quickly.&lt;/p&gt;
 &lt;p&gt;A professional software engineer does not hammer out code as quickly as possible. There are optimization and organizational and maintainability issues to consider. This only fuels the worst parts of the junior programmer ego.&lt;/p&gt;
