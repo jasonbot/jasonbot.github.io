@@ -13,12 +13,14 @@
       <pubDate>Sun, 03 Dec 2023 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/not-participating-in-advent-of-code/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m not participating in his year&amp;rsquo;s Advent of Code.&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;rsquo;m not participating in his year&amp;rsquo;s Advent of Code. Every year I try and get stymied by day 14 of so because of practical considerations.&lt;/p&gt;
 &lt;h1 id=&#34;it-emphasizes-fast-solutions-over-good-ones&#34;&gt;It Emphasizes Fast Solutions over Good Ones&lt;/h1&gt;
 &lt;p&gt;The entire gamification of the problems is about solving them as quickly as possible. Not about maintainable solutions, not rewarding cleverness, the scoreboard is entirely fueled by finishing quickly.&lt;/p&gt;
-&lt;p&gt;A professional software engineer does not hammer out code as quickly as possible. There are optimization and organizational and maintainability issues to consider.&lt;/p&gt;
+&lt;p&gt;A professional software engineer does not hammer out code as quickly as possible. There are optimization and organizational and maintainability issues to consider. This only fuels the worst parts of the junior programmer ego.&lt;/p&gt;
 &lt;h1 id=&#34;its-not-realistic&#34;&gt;It&amp;rsquo;s not realistic&lt;/h1&gt;
 &lt;p&gt;I don&amp;rsquo;t write parser/combinators in my day-to-day. While they may be fun, most of my day is reading standard library documentation and wrestling with Tailwind. These problems are fun, but flexing muscles I do not use regularly and can work out when I do need them.&lt;/p&gt;
+&lt;h1 id=&#34;its-pointless&#34;&gt;It&amp;rsquo;s pointless&lt;/h1&gt;
+&lt;p&gt;The only people you have to celebrate with are other AoC participants. And come next December, your accomplishments evaporate in favor the the next arbitrary set of problems. I get enough of this at work.&lt;/p&gt;
 &lt;h1 id=&#34;it-represents-a-dark-third-place&#34;&gt;It represents a dark &amp;ldquo;Third Place&amp;rdquo;&lt;/h1&gt;
 &lt;p&gt;In general, a &amp;ldquo;third place&amp;rdquo; is a place outside of work and home like a coffee shop where one might recharge and socialize. Advent of Code is the same thing &amp;ndash; it&amp;rsquo;s not a work project, it&amp;rsquo;s not a personal project, it&amp;rsquo;s some third thing.&lt;/p&gt;
 &lt;p&gt;In this way it&amp;rsquo;s not constructive: it&amp;rsquo;s hard to justify doing &amp;rsquo;empty&amp;rsquo; coding where you&amp;rsquo;re not advancing a side project or your employer&amp;rsquo;s goals.&lt;/p&gt;
