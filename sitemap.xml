@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2024-05-02T00:55:10-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/onboardable-codebases/</loc>
+    <lastmod>2024-05-02T00:55:10-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/software/</loc>
+    <lastmod>2024-05-02T00:55:10-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2024-05-02T00:55:10-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/work/</loc>
+    <lastmod>2024-05-02T00:55:10-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/framework-syndrome/</loc>
+    <lastmod>2024-05-01T19:55:10-08:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/weblog/not-participating-in-advent-of-code/</loc>
     <lastmod>2023-12-03T00:00:00-08:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2023-12-03T00:00:00-08:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2023-12-03T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2023-12-03T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/keeping-alive-with-long-running-processes/</loc>
@@ -104,9 +116,6 @@
     <loc>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</loc>
     <lastmod>2021-03-31T00:00:00-08:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/tags/software/</loc>
-    <lastmod>2021-03-08T05:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/tags/web/</loc>
     <lastmod>2021-03-08T05:00:00+00:00</lastmod>
   </url><url>
@@ -153,9 +162,6 @@
     <lastmod>2021-02-08T07:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/the-post-office-world/</loc>
-    <lastmod>2021-02-08T07:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/work/</loc>
     <lastmod>2021-02-08T07:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/pinebook/</loc>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Framework Syndrome: Solvinmg Software Problems by Not Solving Them</title>
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Framework Syndrome: Solvinmg Software Problems by Not Solving Them" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1714673542"><link rel="stylesheet" href="/css/fonts.css?rnd=1714673542">
+	
+</head>
+<body>
+	<header>
+	<nav>
+			
+
+			
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/"><b>Main</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/about/"><b>About</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/games-by-jason/"><b>Games by Jason</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/hardware/"><b>Hardware</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/"><b>Tags</b></a>
+				
+			</span>
+
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Framework Syndrome: Solvinmg Software Problems by Not Solving Them</h1>
+
+			<p>
+			
+			<time>2024-05-01</time>
+			
+		       
+		           <a class="taglink" href="/tags/work">work</a>
+        	       
+		           <a class="taglink" href="/tags/software">software</a>
+        	       
+			</p>
+			
+			<div>
+				<p>A common antipattern I&rsquo;ve been both perpetrator of and victim to is what I describe as <em>Framework Syndrome</em>. This is the act of writing software that does not solve the inherent problem at hand, but provides a poorly designed scaffold in which one is expected to eventually &ldquo;fill in the blanks.&rdquo; That is, in the absensee of the ability or desire to make the code do what it needs to do, kick the can down the road while at the same time writing mountains of not particularly useful code that will never be fully excised from th codebase.</p>
+<h1 id="you-dont-understand-the-problem-so-you-code-around-it">You Don&rsquo;t Understand the Problem, So You Code Around It</h1>
+<p>It was 2005. I was working on an early SaaS product for automating Intro to Statistical Methods courses for Psychology classes. We had a few functional requirements that I could do easily (user generation, logins, survey generators) and others I simply did not have the ability to do well (namely, actually do the statistical analysis that the grant required). So I worked around it. I added support to slice and dice data and export to Excel. I added natural language date parsing for forms. I polished the hell out of the admin interface. &ldquo;This system is perfect,&rdquo; I declared, &ldquo;we just need someone to plug in the code to do that one thing it was designed to do: statistical methods. You just need to drop it in&hellip;here. See how elegant it is?&rdquo;</p>
+<h1 id="it-can-do-anything-you-just-have-to-provide-the-code">&ldquo;It Can Do Anything, You Just Have to Provide the Code&rdquo;</h1>
+<p>Code that does not solve the problem, but provides an environment to add code that solves the problem, is ridiculous on its face. It&rsquo;s just another level of abstration that was added for the sake of engasging in the act of coding and not taking into mind any practical or business concerns.</p>
+<h1 id="youve-done-the-fun-part-and-gotten-the-credit-someone-else-does-the-actual-work">You&rsquo;ve Done the &ldquo;Fun&rdquo; Part and Gotten The Credit, Someone Else Does the Actual Work</h1>
+<p>This is the unfair part of Framework Syndrome, and something that makes me deeply resentful when I run into it. A developer who arrives at the project first &ldquo;designs&rdquo; a solution, runs it past management, declares it Mission Complete, and moves on. The person who has to work within the constraints established by that long-gone person does the actual work that adds the business value, and is ignored by management.</p>
+<h1 id="let-the-implementors-do-the-framework-clean-up-later">Let The Implementors do the Framework, Clean Up Later</h1>
+<p>From the resentment part of the section above, I propose that software be written in the following way:</p>
+<ol>
+<li>Prototype written by domain expert as messy code</li>
+<li>Professional engineers clean it up, finding common patterns across codebases and standardizing</li>
+</ol>
+<p>By inverting the process from framework to solution to solution to framework, the frameworks themselves will be far more appropriate to the solutions they encompass.</p>
+
+			</div>
+		</article>
+	</main>
+
+	<footer>
+	<p>&copy; 2024 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>
