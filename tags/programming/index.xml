@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Thu, 02 May 2024 00:55:10 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Job #1 Of Codebases is Onboardability</title>
+      <title>Job #1 of Codebases is Onboardability</title>
       <link>https://www.jasonscheirer.com/weblog/onboardable-codebases/</link>
       <pubDate>Thu, 02 May 2024 00:55:10 -0800</pubDate>
       
@@ -18,7 +18,7 @@
 &lt;h1 id=&#34;good-getting-started-resources&#34;&gt;Good Getting Started Resources&lt;/h1&gt;
 &lt;p&gt;Your codebase &lt;em&gt;must&lt;/em&gt; have a base readme file with a getting started guide. It must be simple but comprehensive and step-by-step. This must also be kept up-to-date. It should be opinionated. &amp;ldquo;You can do it this way or this other way&amp;rdquo; is only going to spawn a &amp;ldquo;well which way should I do it?????&amp;rdquo; conversation in Slack. If you spend an hour a month grooming this document it will save you person-weeks a month in pairing sessions getting a new developer up and running. It is disrespectful to yourself and others&amp;rsquo; time to be proud enough to think your code is &amp;ldquo;special&amp;rdquo; or you can&amp;rsquo;t be bothered to engage in some form of service to your peers.&lt;/p&gt;
 &lt;h1 id=&#34;good-documentation-on-the-deep-stuff&#34;&gt;Good Documentation on the &amp;ldquo;Deep&amp;rdquo; Stuff&lt;/h1&gt;
-&lt;p&gt;Code gains complexity, complexity is the demon that makes code unmaintainable. By forcing developers to explain (in documentation) their decisions you 1) make them concrete and force them to be justified (code complete is not complete) 2) throttle developer who code for the sake of coding and make them explain why they did what they did (aside from the wrong reason &amp;ldquo;I like coding&amp;rdquo;).&lt;/p&gt;
+&lt;p&gt;Code gains complexity, complexity is the demon that makes code unmaintainable. By forcing developers to explain (in documentation) their decisions you 1) make them concrete and force them to be justified (code complete is not complete) 2) throttle developers who code for the sake of coding and make them explain why they did what they did (aside from the wrong reason &amp;ldquo;I like coding&amp;rdquo;).&lt;/p&gt;
 &lt;h1 id=&#34;organizational-conventions&#34;&gt;Organizational Conventions&lt;/h1&gt;
 &lt;p&gt;Every codebase in the organization should follow conventions so that a new developer is able to get rudimentarily started without any prior knowledge.&lt;/p&gt;
 &lt;p&gt;Convention means that skills learned in one place can continue to be used elsewhere, and reduce cognitive load on remembering project-specific quirks when one is in e.g. a firefighting situation.&lt;/p&gt;
