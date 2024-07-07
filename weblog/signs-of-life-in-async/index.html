@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1714760286"><link rel="stylesheet" href="/css/fonts.css?rnd=1714760286">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1720396738"><link rel="stylesheet" href="/css/fonts.css?rnd=1720396738">
 	
 </head>
 <body>
@@ -101,7 +101,7 @@
 				<p>At work I&rsquo;m currently working on a fairly large system in which we have a pool of greedy workers, of unknown size, which can opt it at any time to the flow of work.</p>
 <p>A job is considered abandoned if it is marked as <code>IN_PROGRESS</code> but the worker who has claimed it hasn&rsquo;t phoned home in sone amount of time.</p>
 <p>The project is async, which makes things bot more and less interesting. It looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a2f">@contextlib</span><span style="color:#666">.</span>contextmanager
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a2f">@contextlib.contextmanager</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">run_keepalive_function_while_awaiting</span>(
 </span></span><span style="display:flex;"><span>    call: typing<span style="color:#666">.</span>Callable[[<span style="color:#008000;font-weight:bold">None</span>], typing<span style="color:#666">.</span>Awaitable[<span style="color:#008000;font-weight:bold">None</span>]], interval: <span style="color:#008000">float</span> <span style="color:#666">=</span> <span style="color:#666">1.0</span>
 </span></span><span style="display:flex;"><span>):
@@ -132,9 +132,16 @@
 		</article>
 	</main>
 
-	<footer>
-	<p>&copy; 2024 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
-	</p>
+	
+<footer>
+  <p>
+    &copy; 2024
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
 </footer>
 
 </body>

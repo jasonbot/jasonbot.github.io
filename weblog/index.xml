@@ -8,6 +8,422 @@
     <language>en</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>A Practical Guide to Self-Hosting a RAG</title>
+      <link>https://www.jasonscheirer.com/weblog/babys-first-rag/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/babys-first-rag/</guid>
+      <description>&lt;div id=&#34;toc&#34;&gt;
+  &lt;h1&gt;Post Contents&lt;/h1&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#goals&#34;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#anti-goals&#34;&gt;Anti-Goals&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#first-things-first&#34;&gt;First Things First&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#retrieval-augmented-generation&#34;&gt;Retrieval-Augmented Generation&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#what-the-hell-is-a-rag&#34;&gt;What The Hell is a RAG?&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#what-does-this-mean&#34;&gt;What does this mean?&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#getting-the-data&#34;&gt;Getting the Data&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#a-eulogy-for-wget&#34;&gt;A Eulogy for &lt;code&gt;wget&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#enter-playwright&#34;&gt;Enter Playwright&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#our-playwright-script&#34;&gt;Our Playwright Script&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#cleaning-up-the-data&#34;&gt;Cleaning Up the Data&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#install-unstructured&#34;&gt;Install Unstructured&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#processing-the-html-into-something-more-usable&#34;&gt;Processing the HTML into Something More Usable&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#getting-a-locally-runnable-llm&#34;&gt;Getting a Locally-Runnable LLM&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#finding-the-right-stuff-to-add-to-prompts-to-get-the-thing&#34;&gt;Finding the Right Stuff to Add to Prompts to Get The Thing&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#doing-semantic-search&#34;&gt;Doing Semantic Search&lt;/a&gt;
+          &lt;ol&gt;
+            &lt;li&gt;&lt;a href=&#34;#getting-an-embedding-from-text&#34;&gt;Getting an Embedding from Text&lt;/a&gt;&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#indexing-our-transcripts-with-embeddings&#34;&gt;Indexing our Transcripts with Embeddings&lt;/a&gt;
+          &lt;ol&gt;
+            &lt;li&gt;&lt;a href=&#34;#inserting-text-into-db&#34;&gt;Inserting text into DB&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;#premature-optimization-use-a-sliding-window&#34;&gt;Premature Optimization: Use a Sliding Window&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;#adding-embeddings&#34;&gt;Adding Embeddings&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;#kicking-the-tires-on-semantic-search&#34;&gt;Kicking the Tires on Semantic Search&lt;/a&gt;&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#trying-it-out&#34;&gt;Trying it Out&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#you-have-to-post-the-entire-transcript-over-and-over&#34;&gt;You Have to Post The entire Transcript Over and Over&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#not-very-good-end-results&#34;&gt;Not Very Good End Results&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#making-it-harder&#34;&gt;Making it harder&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;As an exercise in self-improvement and understanding what the hell it is I actually do at work, I had promised myself (and, unfortunately, my manager) I&amp;rsquo;d implement a RAG from conception to finish by Valentine&amp;rsquo;s Day, 2024. It is now Independence Day weekend 2024. Missed the mark by a bit.&lt;/p&gt;
+&lt;p&gt;This post is meant to go from conception to reality in implementing a RAG on a local computer.&lt;/p&gt;
+&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
+&lt;p&gt;What I intend for this post to be:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Practical&lt;/strong&gt;: Actually do something useful.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Educational&lt;/strong&gt;: I didn&amp;rsquo;t know any of this stuff. If you don&amp;rsquo;t know this stuff and you have a mildly overlapping skillset/world view with me, I want you, too, to hold this knowledge.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lucid and Concrete&lt;/strong&gt;: Minimize abstractions, give code that works and explanations that are not so generic that they hold no meaning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-Hosted&lt;/strong&gt;: This is the &lt;em&gt;absolute most important thing here&lt;/em&gt;: I don&amp;rsquo;t want my software doing random-ass network hops when it doesn&amp;rsquo;t need to. I don&amp;rsquo;t want my workflow to suddenly stop working because my trial period on service X ended. I don&amp;rsquo;t want surprises on my credit card bill if I open an account with some service and do too many requests. I don&amp;rsquo;t want my information leaking. I have a middling-quality gaming desktop from Costco and I want to take advantage of that sweet sweet middlest-level hardware that August 2020 had to offer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;anti-goals&#34;&gt;Anti-Goals&lt;/h2&gt;
+&lt;p&gt;And what I plan for it &lt;em&gt;not&lt;/em&gt; to be:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Commercially viable&lt;/strong&gt;: See the choice of corpus to build this on. I don&amp;rsquo;t want this to provide an immediate, bundled up piece of productizable code that someone can build a business on without my knowledge. This is the same reason I don&amp;rsquo;t share the source for my video games: someone will take them, plop some ads on them, and resell them on mobile devices. Or do something even worse.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Turnkey&lt;/strong&gt;: See the above point. I don&amp;rsquo;t want this to be without speed bumps and be just a single command to get up and running locally. See the above point for my reasoning. If this could be &amp;ldquo;just for fun&amp;rdquo; I&amp;rsquo;d make it easier to do, but it has too much dangerous potential for evil.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;first-things-first&#34;&gt;First Things First&lt;/h2&gt;
+&lt;p&gt;We need a pyenv:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#19177c&#34;&gt;PYTHON_CONFIGURE_OPTS&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;--enable-loadable-sqlite-extensions&amp;#34;&lt;/span&gt; pyenv install 3.12.4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv virtualenv 3.12.4 babys-first-rag
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv activate babys-first-rag
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;retrieval-augmented-generation&#34;&gt;Retrieval-Augmented Generation&lt;/h1&gt;
+&lt;h2 id=&#34;what-the-hell-is-a-rag&#34;&gt;What The Hell is a RAG?&lt;/h2&gt;
+&lt;p&gt;This was the hardest thing to get a simple answer for.&lt;/p&gt;
+&lt;p&gt;A typical &lt;a href=&#34;https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation&#34;&gt;vague-as-hell explanation&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I understand all those words, but in practical terms, what exactly does that mean? Like, specifically?&lt;/p&gt;
+&lt;h2 id=&#34;what-does-this-mean&#34;&gt;What does this mean?&lt;/h2&gt;
+&lt;p&gt;Turns out, &lt;strong&gt;a RAG is just a dirty trick decorated with academic language to seem less dirty to outsiders&lt;/strong&gt;. The long and short of it is the RAG injects extra contextual information into the chatbot to give it more domain-specificity.&lt;/p&gt;
+&lt;p&gt;For example, if you were to ask your LLM&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;What is X?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A RAG just does some injection tricks so the answer has some extra smarts regarding some extra information at hand. What it provides the LLM is not a raw version of your question &lt;code&gt;What is X?&lt;/code&gt;, but instead:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Given the following information:
+&amp;lt;Some information retrieved from another system&amp;gt;
+
+How would you answer the following question:
+What is X?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it. It&amp;rsquo;s prompt injection with a pretty name. The injection technique may vary in sophistication, but this is what it ultimately boils down to.&lt;/p&gt;
+&lt;h1 id=&#34;case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;On the subject of the goal of &lt;em&gt;non-commercial viability&lt;/em&gt; and my love of making the world worse, not better, I present what I wish to do with a RAG here: take the transcripts of the &lt;a href=&#34;https://spoti.fi/JoeRoganExperience&#34;&gt;Joe Rogan show&lt;/a&gt; and turn a chatbot into a poorly-informed, blubbering idiot.&lt;/p&gt;
+&lt;p&gt;And so is born &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;: a conspiracy theory addled, misinformed LLM chat that will serve to both enrage you and make you dumber at the same time.&lt;/p&gt;
+&lt;h1 id=&#34;getting-the-data&#34;&gt;Getting the Data&lt;/h1&gt;
+&lt;p&gt;The first step to doing the RAG is to collect the actual data. I found &lt;a href=&#34;https://www.happyscribe.com/public/the-joe-rogan-experience&#34;&gt;this sketch-ass website with transcripts of previous Joe Rogan episodes&lt;/a&gt;, so what I want to do is take that information, extract just the stuff I care about, and index it in a form I can pull from in later steps.&lt;/p&gt;
+&lt;h2 id=&#34;a-eulogy-for-wget&#34;&gt;A Eulogy for &lt;code&gt;wget&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.gnu.org/software/wget/&#34;&gt;wget project&lt;/a&gt; has been my constant companion since the early 2000s. &lt;code&gt;wget -r -l 2 http://somesite/&lt;/code&gt; would quickly and reliably spider a web site two links deep onto disk. However, with modern sites (and abominations like &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Glossary/SPA&#34;&gt;SPAs&lt;/a&gt;) the HTML the client fetches is not the document tree that is ultimately established in the browser. So many pages are partially or fully rendered in Javscript now, requiring an entire bulky browser engine to derive the full DOM.&lt;/p&gt;
+&lt;h2 id=&#34;enter-playwright&#34;&gt;Enter Playwright&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.selenium.dev/&#34;&gt;Selenium&lt;/a&gt; came out many years ago for doing browser testing and I never really liked it &amp;ndash; it seemed unstable and finicky. A few generations later, we get a beautiful tool in the form of &lt;a href=&#34;https://playwright.dev/&#34;&gt;Playwright&lt;/a&gt;, which gives us so much: Javascript and Python APIs, and simulation of multiple browsers, including the Chromium family and Firefox. It&amp;rsquo;s really slick.&lt;/p&gt;
+&lt;h2 id=&#34;our-playwright-script&#34;&gt;Our Playwright Script&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m going to start out by scoping out what I want to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Start at the first index page,&lt;/li&gt;
+&lt;li&gt;Find all the links to transcript pages on the index page,&lt;/li&gt;
+&lt;li&gt;Download the transcript pages,&lt;/li&gt;
+&lt;li&gt;Process the transcript data and place it in a database,&lt;/li&gt;
+&lt;li&gt;If there is a next button, click it and &lt;code&gt;GOTO 2&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So to get a base script going, I&amp;rsquo;m going to ask Playwright to do a recording for me:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;playwright codegen --browser chromium --target python-async --output spider.py https://www.happyscribe.com/public/the-joe-rogan-experience
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I&amp;rsquo;m just going to click the &amp;ldquo;Next&amp;rdquo; button at the bottom of the page and stop recording. This gives me:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;asyncio&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;playwright.async_api&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; Playwright, async_playwright, expect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;run&lt;/span&gt;(playwright: Playwright) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    browser &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; playwright&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;chromium&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;launch(headless&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;False&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    context &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; browser&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;new_context()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    page &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; context&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;new_page()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;goto(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;https://www.happyscribe.com/public/the-joe-rogan-experience&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_by_role(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;link&amp;#34;&lt;/span&gt;, name&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Next ›&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;click()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# ---------------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; context&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; browser&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;main&lt;/span&gt;() &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; async_playwright() &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; playwright:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; run(playwright)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run(main())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I&amp;rsquo;ve got some boilerplate I can work with rather than starting from scratch, which is nice. Now I want to keep clicking &lt;em&gt;Next &amp;gt;&lt;/em&gt; until I run out of Next pages (and I checked, the next button is missing on the last page), so I modify part of the script as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# All the pages to look for transcript links on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;page_urls &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        page_urls&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;url)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Try to click next, but give up if there is no button on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# the DOM within a few seconds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;timeout(&lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_by_role(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;link&amp;#34;&lt;/span&gt;, name&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Next ›&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;click()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;TimeoutError&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Ran out of pages to click&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;finally&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now I&amp;rsquo;m going to look into the DOM tree to figure out the links to the transcripts:&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/babys-first-rag/dom-inspector.png&#34; alt=&#34;DOM inspector screenshot&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;With this we see that the links to transcript pages all have the class &lt;code&gt;hsp-card-episode&lt;/code&gt;, so we can use Javascript to find them all on the page and pull out the link URLs:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;urls &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;evaluate(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;Array.from(document.getElementsByClassName(&amp;#34;hsp-card-episode&amp;#34;)).map(a =&amp;gt; a.href)&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can then use this list of links to download individual pages:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;get_transcript_files&lt;/span&gt;(playwright: Playwright, urls: &lt;span style=&#34;color:#008000&#34;&gt;list&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    download_path &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pathlib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Path(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;./transcript_pages&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    download_path&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;mkdir(exist_ok&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    browser &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; playwright&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;chromium&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;launch(headless&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    context &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; browser&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;new_context()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    page &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; context&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;new_page()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; transcript_page_url &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; urls:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(transcript_page_url)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;goto(transcript_page_url)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        filename &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;transcript_page_url&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;.html&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Downloading &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;filename&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(download_path &lt;span style=&#34;color:#666&#34;&gt;/&lt;/span&gt; filename, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; out_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            out_handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; page&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;content())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;cleaning-up-the-data&#34;&gt;Cleaning Up the Data&lt;/h1&gt;
+&lt;p&gt;At this point I have the page&amp;rsquo;s computed HTML, and I want to extract just the parts that are interesting. Let&amp;rsquo;s put them into a JSON file I use for later manipulation and maybe insert into SQLite.&lt;/p&gt;
+&lt;h2 id=&#34;install-unstructured&#34;&gt;Install Unstructured&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m going to use a hosted instance of &lt;a href=&#34;https://github.com/Unstructured-IO/unstructured-api&#34;&gt;the Unstructured API&lt;/a&gt; in Docker. Unstructured is probably the best and most widely used tool for the job.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Grab image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Run on port 5435 just because it&amp;#39;s not commonly used and 8000 is&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -p 5435:8000 -d --rm --name unstructured-api downloads.unstructured.io/unstructured-io/unstructured-api:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Should return {&amp;#34;healthcheck&amp;#34;:&amp;#34;HEALTHCHECK STATUS: EVERYTHING OK!&amp;#34;}%&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl http://localhost:5435/healthcheck
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Unstructured is also my employer, so obviously they have an incredible team of attractive geniuses working for them and it&amp;rsquo;s a good idea to buy as many commercial licenses as your employer can afford when you get back to work next.&lt;/p&gt;
+&lt;h2 id=&#34;processing-the-html-into-something-more-usable&#34;&gt;Processing the HTML into Something More Usable&lt;/h2&gt;
+&lt;p&gt;We can iterate through the downloaded HTML using &lt;a href=&#34;https://github.com/Unstructured-IO/unstructured-python-client&#34;&gt;the Unstructured Python API client&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;in_path &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pathlib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Path(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;./transcript_pages&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;out_path &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; pathlib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Path(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;./processed_pages&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;out_path&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;mkdir(exist_ok&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; unstructured_client&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;UnstructuredClient(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    api_key_auth&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;, server_url&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;http://localhost:5435/general/v0/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; file &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; in_path&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;glob(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;*.html&amp;#34;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Handling &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;file&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(file, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;rb&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; in_handle:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        res &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; s&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;general&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;partition(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            request&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;operations&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;PartitionRequest(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                partition_parameters&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;shared&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;PartitionParameters(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    files&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;shared&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Files(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        file_name&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        content&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;in_handle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    ),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    strategy&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;shared&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Strategy&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;AUTO,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; res&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;elements &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# handle response&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(out_path &lt;span style=&#34;color:#666&#34;&gt;/&lt;/span&gt; (file&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;name &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;.json&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; out_file:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dump(res&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;elements, out_file, indent&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;4&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;getting-a-locally-runnable-llm&#34;&gt;Getting a Locally-Runnable LLM&lt;/h1&gt;
+&lt;p&gt;This part is really easy, easier than it should be &amp;ndash; the &lt;a href=&#34;https://github.com/Mozilla-Ocho/llamafile&#34;&gt;llamafile project&lt;/a&gt; has executable files that already come with baked-in, pre-downloaded LLM models. In my case I&amp;rsquo;m going to get the example llamafile &lt;a href=&#34;https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile/tree/main&#34;&gt;hosted on huggingface&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I can &lt;code&gt;chmod +x llava-v1.5-7b-q4.llamafile &amp;amp;&amp;amp; ./llava-v1.5-7b-q4.llamafile&lt;/code&gt; and a browser will open, ready to teach me the mysteries of the universe.&lt;/p&gt;
+&lt;h1 id=&#34;finding-the-right-stuff-to-add-to-prompts-to-get-the-thing&#34;&gt;Finding the Right Stuff to Add to Prompts to Get The Thing&lt;/h1&gt;
+&lt;p&gt;There are two general ways of finding text to inject into the prompts: Embeddings, which converts your text into vector space to represent it semantically and finding semantically similar items, and full text search, which does something easier to reason about and more traditional. Think a google search for a phrase.&lt;/p&gt;
+&lt;h2 id=&#34;doing-semantic-search&#34;&gt;Doing Semantic Search&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re going to deal with &lt;em&gt;embeddings&lt;/em&gt;, which is going from a pile of text into an n-dimensional list of numbers that somehow, mysteriously, represents that text&amp;rsquo;s place in the world in the model. These embeddings vary from model to model and nobody knows what any of the numbers mean.&lt;/p&gt;
+&lt;h3 id=&#34;getting-an-embedding-from-text&#34;&gt;Getting an Embedding from Text&lt;/h3&gt;
+&lt;p&gt;Llamafile offers an easy way to extract an embedding from a string of text: the &lt;code&gt;--embedding&lt;/code&gt; flag. So we can do &lt;code&gt;./llamafile --embedding -p &amp;quot;&amp;lt;Text goes here&amp;gt;&amp;quot;&lt;/code&gt; and get back the embedding vector on standard out.&lt;/p&gt;
+&lt;p&gt;We can write a python function that shells out to this program and returns an embedding vector:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;embedding_for_text&lt;/span&gt;(text: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;list&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;float&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000&#34;&gt;float&lt;/span&gt;(x)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            args&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;llama_executable&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt; --embedding -p &lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;shlex&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;quote(text)&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            stdout&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;PIPE,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            stdin&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;DEVNULL,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            stderr&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;DEVNULL,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            shell&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;stdout&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;ascii&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;indexing-our-transcripts-with-embeddings&#34;&gt;Indexing our Transcripts with Embeddings&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re gonna want a table with each line item from the transcripts:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;table&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;text_lines(&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;    &lt;/span&gt;filename&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#008000&#34;&gt;text&lt;/span&gt;,&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;    &lt;/span&gt;text_line&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#008000&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;&lt;/span&gt;);&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then a virtual vec0 table:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;virtual&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;table&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;vec_chat&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;using&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;vec0(&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;    &lt;/span&gt;embedding&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#008000&#34;&gt;float&lt;/span&gt;[&lt;span style=&#34;color:#666&#34;&gt;2048&lt;/span&gt;]&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;&lt;/span&gt;);&lt;span style=&#34;color:#bbb&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;inserting-text-into-db&#34;&gt;Inserting text into DB&lt;/h3&gt;
+&lt;p&gt;Then we want to insert the text into the &lt;code&gt;text_lines&lt;/code&gt; table:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; file &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; folder&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;glob(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;*.json&amp;#34;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; connection &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; transaction, &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(file, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; in_json:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        json_object &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;load(in_json)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; json_object:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; item[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;] &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;NarrativeText&amp;#34;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                text &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; item[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                transaction&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;execute(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;insert into text_lines(filename, text_line) values(?, ?)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    (&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;(file), text),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                )
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;premature-optimization-use-a-sliding-window&#34;&gt;Premature Optimization: Use a Sliding Window&lt;/h3&gt;
+&lt;p&gt;After a little bit of hacking, I decided to use an overlapping window of text items. Then, I noticed that longer bits of conversation could overwhelm the embedding processor later down the line. Here&amp;rsquo;s what I wound up with as a heuristic sliding window generator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;_sliding_window&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    row_factory, window_size&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;4&lt;/span&gt;, overlap&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;, min_length&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;20&lt;/span&gt;, max_length&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    window &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; row &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; row_factory:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;len&lt;/span&gt;(row) &lt;span style=&#34;color:#666&#34;&gt;&amp;lt;&lt;/span&gt; min_length:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;elif&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;len&lt;/span&gt;(row) &lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt; max_length:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#408080;font-style:italic&#34;&gt;# Use long lines as implicit breaks&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; window:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; window
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; [row]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            window &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;elif&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;len&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(window)) &lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt; max_length:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; window
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            window &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;len&lt;/span&gt;(window) &lt;span style=&#34;color:#666&#34;&gt;&amp;gt;=&lt;/span&gt; window_size:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; window
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            window &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; window[&lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt;overlap:]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        window&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;append(row)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; window:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;yield&lt;/span&gt; window
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then I replace&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; json_object:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; item[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;] &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;NarrativeText&amp;#34;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;with&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; text &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; _sliding_window(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    item[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt;] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; json_object &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; item[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;] &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;NarrativeText&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;adding-embeddings&#34;&gt;Adding Embeddings&lt;/h3&gt;
+&lt;p&gt;Then we want to use &lt;code&gt;embedding_for_text&lt;/code&gt; to add an embedding value to correspond with each:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; connection &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; transaction:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; row &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; transaction&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;execute(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;select rowid, text_line from text_lines&amp;#34;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        rowid, text &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; row
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        embedding &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; embedding_for_text(text)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        transaction&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;execute(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;insert into vec_chat(rowid, embedding) values (?, ?)&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            (rowid, json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(embedding)),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kicking-the-tires-on-semantic-search&#34;&gt;Kicking the Tires on Semantic Search&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s try out a noat particularly controversial prompt (&lt;em&gt;Anthony Fauci, as head of the CDC, helped accelerate the COVID vaccine&amp;rsquo;s release&lt;/em&gt;) and see what the most semantically similar things our system is calibrated to inject:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;nearest_n_neighbors&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    text: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, connection: sqlite3&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Connection, limit: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;list&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    limit &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;(limit)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; connection &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; transaction:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; transaction&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;execute(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                    select rowid, distance
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                    from vec_chat
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                    where embedding match ?
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                    order by distance
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                    limit ?;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                (json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(embedding_for_text(text))), limit),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;nearest_n_text_lines&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    text: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;, connection: sqlite3&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Connection, limit: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;list&lt;/span&gt;[&lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; connection &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; transaction:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            row[&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; row &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; connection&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;execute(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                    select text_line from text_lines where rowid in ?
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;                &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        c[&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; nearest_n_neighbors(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                            text, connection&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;connection, limit&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;limit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;connection &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; llm_functions&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;fresh_db_connection()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    nearest_n_text_lines(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Anthony Fauci helped release the COVID vaccine&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        connection
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That gives us:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Right. Covid was a rerun of the AIDS chapter with AZT.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;But the AIDS chapter seems even more terrifying because if the initial treatment was AZT, and we know AZT kills people, you&amp;#39;re taking someone who has a compromised immune system and your response to that was give them something that&amp;#39;s going to kill them quicker and then say there&amp;#39;s a giant crisis and this is what Deusberg was demonized for.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Yeah, I agree. And for many years I resisted the interpretation. I was more familiar with Kerry Mullis&amp;#39;s objections. Kerry Mullis was the inventor of PCR technology who died tragically, and some would say, strangely, at the very beginning of the COVID cris.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Have you ever seen this piece of video where he talks about Anthony Fauci? Yeah, let&amp;#39;s put it this way. Kerry Mullis was a outspoken, vigorous, highly intelligent person who was not corralled by fashion. And in fact, his objection to the idea that HIV was causing AIDS was an early testament to his maverick nature.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#666&#34;&gt;...&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;Chris Christie&amp;#39;s a healthy guy and he wants to keep people healthy. He be covered. That should be the end of lockdown right there.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;He did be covered so that whatever drugs they got.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;Well, I have a friend who is 80 and he just beat the shit, took some I.V. vitamins, said he was sick for four days.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;New Jersey Governor Phil Murphy&amp;#39;s highly confident marijuana will be legal. I look at him clapping.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#666&#34;&gt;...&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;So here&amp;#39;s the thing. The controversial experiments and one lab suspected of starting the coronavirus pandemic and says the case against a human lab. And so it says why the human lab remains a suspect in the coronavirus investigation.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;I mean, it&amp;#39;s really likely that we never really will know. But they most certainly were working on viruses similar to this one right there.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;At the end of this article says there&amp;#39;s another one called Rat RTG 13, which is very, very similar to the sars-cov-2 one that we&amp;#39;re experiencing now. Oh, terrific.&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;It&amp;#39;s thought to be the most similar to the sars-cov-2 of any known virus to share 96 percent of the genetic material, that four percent gap, but still be a formidable gap for animal passage research, says Ralph Burek, Virologist University, North Carolina, probably in bed with the Russians who collaborated with like when you found out that a Harvard guy got arrested, that because he was taking money from Russia or excuse me, taking money from China because he was doing something with them.&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;All right, not terrible. It makes me want to punch my monitor which is a good sign.&lt;/p&gt;
+&lt;h1 id=&#34;trying-it-out&#34;&gt;Trying it Out&lt;/h1&gt;
+&lt;h2 id=&#34;you-have-to-post-the-entire-transcript-over-and-over&#34;&gt;You Have to Post The entire Transcript Over and Over&lt;/h2&gt;
+&lt;p&gt;One of the shortcomings of LLMs (with no escape that I know of) is the conversation has to &lt;em&gt;fully be injected into the LLM to maintain state&lt;/em&gt;. So what I&amp;rsquo;ll do is pipe an initial state with a question into the model, get the response from Llama, append a question, and do another round trip.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;output_from_llama&lt;/span&gt;(text: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;) &lt;span style=&#34;color:#666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        args&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#ba2121&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;shlex&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;quote(llama_executable)&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt; -f -&amp;#34;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        stdout&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;PIPE,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        stderr&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;DEVNULL,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        shell&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;True&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;text&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;encode(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;stdout&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#008000&#34;&gt;len&lt;/span&gt;(text) &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt; :]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From here we can cobble together a conversation.&lt;/p&gt;
+&lt;h2 id=&#34;not-very-good-end-results&#34;&gt;Not Very Good End Results&lt;/h2&gt;
+&lt;p&gt;Well this was signficiantly dumber than I had feared:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Me:&amp;gt; What do you think about peer pressure?
+Response:  As a language model, I do not have personal opinions or thoughts, but I can provide you with some information about peer pressure.
+
+Peer pressure is the influence that peers have on an individual to adopt or act according to their values, attitudes, behaviors, and beliefs. It can be both positive and negative, as peers can encourage individuals to engage in healthy behaviors, such as exercising or studying, or discourage them from participating in risky behaviors, such as drug use or underage drinking.
+
+In the context of the conversation, it seems that the participants are discussing aspartame, a sugar substitute used in many low-calorie and sugar-free products, such as diet soda, yogurt, and desserts. They appear to be debating whether or not it&amp;#39;s poisonous, which could be an example of the influence of peers on each other&amp;#39;s opinions about a certain topic.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In retrospect, the Joe Rogan transcripts are too information sparse and conversational to provide useful context for a conversation. But thinking peer pressure and aspartame are related is sure a silly one.&lt;/p&gt;
+&lt;h2 id=&#34;making-it-harder&#34;&gt;Making it harder&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://techcommunity.microsoft.com/t5/microsoft-developer-community/doing-rag-vector-search-is-not-enough/ba-p/4161073&#34;&gt;This blog post&lt;/a&gt; says we can&amp;rsquo;t just do one. We have to do both. Maybe that&amp;rsquo;s a task for another time.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I put together the parts. I used a horrible source corpus. I learned a valuable lesson.&lt;/p&gt;
+&lt;p&gt;The important part is I was able to understand the pieces individually, I was able to host it on my own hardware, which I think is a very critical part of the LLM world nobody really thinks about since so much of it depends on cobbling together third-party services on the internet.&lt;/p&gt;
+&lt;p&gt;The code is all &lt;a href=&#34;https://github.com/jasonbot/babys-first-rag&#34;&gt;on Github in an appropriately named repository&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Job #1 of Codebases is Onboardability</title>
       <link>https://www.jasonscheirer.com/weblog/onboardable-codebases/</link>
       <pubDate>Thu, 02 May 2024 00:55:10 -0800</pubDate>
@@ -128,7 +544,7 @@
       <description>&lt;p&gt;At work I&amp;rsquo;m currently working on a fairly large system in which we have a pool of greedy workers, of unknown size, which can opt it at any time to the flow of work.&lt;/p&gt;
 &lt;p&gt;A job is considered abandoned if it is marked as &lt;code&gt;IN_PROGRESS&lt;/code&gt; but the worker who has claimed it hasn&amp;rsquo;t phoned home in sone amount of time.&lt;/p&gt;
 &lt;p&gt;The project is async, which makes things bot more and less interesting. It looks something like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@contextlib&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;contextmanager
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@contextlib.contextmanager&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;run_keepalive_function_while_awaiting&lt;/span&gt;(
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    call: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Callable[[&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;], typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Awaitable[&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;]], interval: &lt;span style=&#34;color:#008000&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1.0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;):
@@ -308,7 +724,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@flaskapp&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@flaskapp.route&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;main_sync_route&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; get_multiple_urls()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The three parts to make this work:&lt;/p&gt;
@@ -376,10 +792,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;copy_keys&lt;/span&gt;(&lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;: &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;, keep_keys: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Iterable[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable &lt;span style=&#34;color:#666&#34;&gt;|&lt;/span&gt; typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Tuple[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable, typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable]]):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keep_map &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; keep_keys:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        match item:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            case (from_key, to_key):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;match&lt;/span&gt; item:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;case&lt;/span&gt; (from_key, to_key):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keep_map[from_key] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; to_key
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            case key:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;case&lt;/span&gt; key:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keep_map[key] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; key
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(keep_map)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -407,13 +823,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;sys&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lru_cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools.lru_cache&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;getlines&lt;/span&gt;(filename):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(filename, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;tuple&lt;/span&gt;(file_handle)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lru_cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools.lru_cache&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;getline&lt;/span&gt;(filename, line_number):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; getlines(filename)[line_number &lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -447,6 +863,7 @@
 &lt;p&gt;while not as elegantly self-bootstrapping as other languages like a Lisp, Python does have lots of idiomatic, strange ways of doing Python in Python. In this case, you can set a trace function (normally reserved for writing debuggers) and do something very meta and &lt;em&gt;print the dang line&lt;/em&gt; as it executes.&lt;/p&gt;
 &lt;p&gt;Now, this is neat and clever but it&amp;rsquo;s also largely a CPython-specific set of internal details: how would one expect to implement this API in another &amp;ldquo;flavor&amp;rdquo; of Python like IronPython or Jython which have their own runtimes that look nothing like the CPython bytecode interpreter?&lt;/p&gt;
 &lt;p&gt;Note &lt;em&gt;this is in the standard library&lt;/em&gt;. Those poor developers would have to either 1) write this API off and get derogatorily accused of stunting their Python or do insane things to make what is trivial in CPython with byzantine .Net or JVM internals* to achieve parity.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://tratt.net/laurie/blog/2023/compiled_and_interpreted_languages_two_ways_of_saying_tomato.html&#34;&gt;This blog post&lt;/a&gt; touches on a lot of what I discuss here.&lt;/p&gt;
 &lt;p&gt;* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the compiled Python VM bytecode to make the Python runtime in that system aware that it&amp;rsquo;s reentered Python? It fills me with fear.&lt;/p&gt;
 </description>
     </item>
@@ -695,7 +1112,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;dataclasses&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;typing&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;T&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@dataclasses&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dataclass
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@dataclasses.dataclass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;MyStruct&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_1: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_2: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;
@@ -1453,7 +1870,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/bottle-introspection/</guid>
       <description>&lt;p&gt;I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@bottle&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@bottle.route&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;index&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;response&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;content_type &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;

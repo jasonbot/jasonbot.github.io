@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1714760286"><link rel="stylesheet" href="/css/fonts.css?rnd=1714760286">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1720396738"><link rel="stylesheet" href="/css/fonts.css?rnd=1720396738">
 	
 </head>
 <body>
@@ -120,10 +120,10 @@
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">copy_keys</span>(<span style="color:#008000">input</span>: <span style="color:#008000">dict</span>, keep_keys: typing<span style="color:#666">.</span>Iterable[typing<span style="color:#666">.</span>Hashable <span style="color:#666">|</span> typing<span style="color:#666">.</span>Tuple[typing<span style="color:#666">.</span>Hashable, typing<span style="color:#666">.</span>Hashable]]):
 </span></span><span style="display:flex;"><span>    keep_map <span style="color:#666">=</span> {}
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> keep_keys:
-</span></span><span style="display:flex;"><span>        match item:
-</span></span><span style="display:flex;"><span>            case (from_key, to_key):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">match</span> item:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">case</span> (from_key, to_key):
 </span></span><span style="display:flex;"><span>                keep_map[from_key] <span style="color:#666">=</span> to_key
-</span></span><span style="display:flex;"><span>            case key:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">case</span> key:
 </span></span><span style="display:flex;"><span>                keep_map[key] <span style="color:#666">=</span> key
 </span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(keep_map)
 </span></span><span style="display:flex;"><span>
@@ -141,9 +141,16 @@
 		</article>
 	</main>
 
-	<footer>
-	<p>&copy; 2024 <a href="https://www.jasonscheirer.com/"><b>Jason Scheirer</b></a>.
-	</p>
+	
+<footer>
+  <p>
+    &copy; 2024
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
 </footer>
 
 </body>

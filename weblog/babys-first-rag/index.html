@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>A Practical Guide to Self-Hosting a RAG</title>
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="A Practical Guide to Self-Hosting a RAG" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1720396738"><link rel="stylesheet" href="/css/fonts.css?rnd=1720396738">
+	
+</head>
+<body>
+	<header>
+	<nav>
+			
+
+			
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/"><b>Main</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/about/"><b>About</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/games-by-jason/"><b>Games by Jason</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/hardware/"><b>Hardware</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/"><b>Tags</b></a>
+				
+			</span>
+
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>A Practical Guide to Self-Hosting a RAG</h1>
+
+			<p>
+			
+			<time>2024-07-07</time>
+			
+		       
+		           <a class="taglink" href="/tags/programming">programming</a>
+        	       
+		           <a class="taglink" href="/tags/llm">llm</a>
+        	       
+			</p>
+			
+			<div>
+				<div id="toc">
+  <h1>Post Contents</h1>
+  <nav id="TableOfContents">
+  <ol>
+    <li><a href="#introduction">Introduction</a>
+      <ol>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#anti-goals">Anti-Goals</a></li>
+        <li><a href="#first-things-first">First Things First</a></li>
+      </ol>
+    </li>
+    <li><a href="#retrieval-augmented-generation">Retrieval-Augmented Generation</a>
+      <ol>
+        <li><a href="#what-the-hell-is-a-rag">What The Hell is a RAG?</a></li>
+        <li><a href="#what-does-this-mean">What does this mean?</a></li>
+      </ol>
+    </li>
+    <li><a href="#case-study-_the-dumbest-possible-person-in-the-room_">Case Study: <em>The Dumbest Possible Person in the Room</em></a></li>
+    <li><a href="#getting-the-data">Getting the Data</a>
+      <ol>
+        <li><a href="#a-eulogy-for-wget">A Eulogy for <code>wget</code></a></li>
+        <li><a href="#enter-playwright">Enter Playwright</a></li>
+        <li><a href="#our-playwright-script">Our Playwright Script</a></li>
+      </ol>
+    </li>
+    <li><a href="#cleaning-up-the-data">Cleaning Up the Data</a>
+      <ol>
+        <li><a href="#install-unstructured">Install Unstructured</a></li>
+        <li><a href="#processing-the-html-into-something-more-usable">Processing the HTML into Something More Usable</a></li>
+      </ol>
+    </li>
+    <li><a href="#getting-a-locally-runnable-llm">Getting a Locally-Runnable LLM</a></li>
+    <li><a href="#finding-the-right-stuff-to-add-to-prompts-to-get-the-thing">Finding the Right Stuff to Add to Prompts to Get The Thing</a>
+      <ol>
+        <li><a href="#doing-semantic-search">Doing Semantic Search</a>
+          <ol>
+            <li><a href="#getting-an-embedding-from-text">Getting an Embedding from Text</a></li>
+          </ol>
+        </li>
+        <li><a href="#indexing-our-transcripts-with-embeddings">Indexing our Transcripts with Embeddings</a>
+          <ol>
+            <li><a href="#inserting-text-into-db">Inserting text into DB</a></li>
+            <li><a href="#premature-optimization-use-a-sliding-window">Premature Optimization: Use a Sliding Window</a></li>
+            <li><a href="#adding-embeddings">Adding Embeddings</a></li>
+            <li><a href="#kicking-the-tires-on-semantic-search">Kicking the Tires on Semantic Search</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#trying-it-out">Trying it Out</a>
+      <ol>
+        <li><a href="#you-have-to-post-the-entire-transcript-over-and-over">You Have to Post The entire Transcript Over and Over</a></li>
+        <li><a href="#not-very-good-end-results">Not Very Good End Results</a></li>
+        <li><a href="#making-it-harder">Making it harder</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+</div>
+
+<h1 id="introduction">Introduction</h1>
+<p>As an exercise in self-improvement and understanding what the hell it is I actually do at work, I had promised myself (and, unfortunately, my manager) I&rsquo;d implement a RAG from conception to finish by Valentine&rsquo;s Day, 2024. It is now Independence Day weekend 2024. Missed the mark by a bit.</p>
+<p>This post is meant to go from conception to reality in implementing a RAG on a local computer.</p>
+<h2 id="goals">Goals</h2>
+<p>What I intend for this post to be:</p>
+<ol>
+<li><strong>Practical</strong>: Actually do something useful.</li>
+<li><strong>Educational</strong>: I didn&rsquo;t know any of this stuff. If you don&rsquo;t know this stuff and you have a mildly overlapping skillset/world view with me, I want you, too, to hold this knowledge.</li>
+<li><strong>Lucid and Concrete</strong>: Minimize abstractions, give code that works and explanations that are not so generic that they hold no meaning.</li>
+<li><strong>Self-Hosted</strong>: This is the <em>absolute most important thing here</em>: I don&rsquo;t want my software doing random-ass network hops when it doesn&rsquo;t need to. I don&rsquo;t want my workflow to suddenly stop working because my trial period on service X ended. I don&rsquo;t want surprises on my credit card bill if I open an account with some service and do too many requests. I don&rsquo;t want my information leaking. I have a middling-quality gaming desktop from Costco and I want to take advantage of that sweet sweet middlest-level hardware that August 2020 had to offer.</li>
+</ol>
+<h2 id="anti-goals">Anti-Goals</h2>
+<p>And what I plan for it <em>not</em> to be:</p>
+<ol>
+<li><strong>Commercially viable</strong>: See the choice of corpus to build this on. I don&rsquo;t want this to provide an immediate, bundled up piece of productizable code that someone can build a business on without my knowledge. This is the same reason I don&rsquo;t share the source for my video games: someone will take them, plop some ads on them, and resell them on mobile devices. Or do something even worse.</li>
+<li><strong>Turnkey</strong>: See the above point. I don&rsquo;t want this to be without speed bumps and be just a single command to get up and running locally. See the above point for my reasoning. If this could be &ldquo;just for fun&rdquo; I&rsquo;d make it easier to do, but it has too much dangerous potential for evil.</li>
+</ol>
+<h2 id="first-things-first">First Things First</h2>
+<p>We need a pyenv:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#19177c">PYTHON_CONFIGURE_OPTS</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;--enable-loadable-sqlite-extensions&#34;</span> pyenv install 3.12.4
+</span></span><span style="display:flex;"><span>pyenv virtualenv 3.12.4 babys-first-rag
+</span></span><span style="display:flex;"><span>pyenv activate babys-first-rag
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span></code></pre></div><h1 id="retrieval-augmented-generation">Retrieval-Augmented Generation</h1>
+<h2 id="what-the-hell-is-a-rag">What The Hell is a RAG?</h2>
+<p>This was the hardest thing to get a simple answer for.</p>
+<p>A typical <a href="https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation">vague-as-hell explanation</a>:</p>
+<blockquote>
+<p>Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.</p>
+</blockquote>
+<p>I understand all those words, but in practical terms, what exactly does that mean? Like, specifically?</p>
+<h2 id="what-does-this-mean">What does this mean?</h2>
+<p>Turns out, <strong>a RAG is just a dirty trick decorated with academic language to seem less dirty to outsiders</strong>. The long and short of it is the RAG injects extra contextual information into the chatbot to give it more domain-specificity.</p>
+<p>For example, if you were to ask your LLM</p>
+<pre tabindex="0"><code>What is X?
+</code></pre><p>A RAG just does some injection tricks so the answer has some extra smarts regarding some extra information at hand. What it provides the LLM is not a raw version of your question <code>What is X?</code>, but instead:</p>
+<pre tabindex="0"><code>Given the following information:
+&lt;Some information retrieved from another system&gt;
+
+How would you answer the following question:
+What is X?
+</code></pre><p>That&rsquo;s it. It&rsquo;s prompt injection with a pretty name. The injection technique may vary in sophistication, but this is what it ultimately boils down to.</p>
+<h1 id="case-study-_the-dumbest-possible-person-in-the-room_">Case Study: <em>The Dumbest Possible Person in the Room</em></h1>
+<p>On the subject of the goal of <em>non-commercial viability</em> and my love of making the world worse, not better, I present what I wish to do with a RAG here: take the transcripts of the <a href="https://spoti.fi/JoeRoganExperience">Joe Rogan show</a> and turn a chatbot into a poorly-informed, blubbering idiot.</p>
+<p>And so is born <em>The Dumbest Possible Person in the Room</em>: a conspiracy theory addled, misinformed LLM chat that will serve to both enrage you and make you dumber at the same time.</p>
+<h1 id="getting-the-data">Getting the Data</h1>
+<p>The first step to doing the RAG is to collect the actual data. I found <a href="https://www.happyscribe.com/public/the-joe-rogan-experience">this sketch-ass website with transcripts of previous Joe Rogan episodes</a>, so what I want to do is take that information, extract just the stuff I care about, and index it in a form I can pull from in later steps.</p>
+<h2 id="a-eulogy-for-wget">A Eulogy for <code>wget</code></h2>
+<p>The <a href="https://www.gnu.org/software/wget/">wget project</a> has been my constant companion since the early 2000s. <code>wget -r -l 2 http://somesite/</code> would quickly and reliably spider a web site two links deep onto disk. However, with modern sites (and abominations like <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA">SPAs</a>) the HTML the client fetches is not the document tree that is ultimately established in the browser. So many pages are partially or fully rendered in Javscript now, requiring an entire bulky browser engine to derive the full DOM.</p>
+<h2 id="enter-playwright">Enter Playwright</h2>
+<p><a href="https://www.selenium.dev/">Selenium</a> came out many years ago for doing browser testing and I never really liked it &ndash; it seemed unstable and finicky. A few generations later, we get a beautiful tool in the form of <a href="https://playwright.dev/">Playwright</a>, which gives us so much: Javascript and Python APIs, and simulation of multiple browsers, including the Chromium family and Firefox. It&rsquo;s really slick.</p>
+<h2 id="our-playwright-script">Our Playwright Script</h2>
+<p>I&rsquo;m going to start out by scoping out what I want to do:</p>
+<ol>
+<li>Start at the first index page,</li>
+<li>Find all the links to transcript pages on the index page,</li>
+<li>Download the transcript pages,</li>
+<li>Process the transcript data and place it in a database,</li>
+<li>If there is a next button, click it and <code>GOTO 2</code></li>
+</ol>
+<p>So to get a base script going, I&rsquo;m going to ask Playwright to do a recording for me:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>playwright codegen --browser chromium --target python-async --output spider.py https://www.happyscribe.com/public/the-joe-rogan-experience
+</span></span></code></pre></div><p>I&rsquo;m just going to click the &ldquo;Next&rdquo; button at the bottom of the page and stop recording. This gives me:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">asyncio</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">playwright.async_api</span> <span style="color:#008000;font-weight:bold">import</span> Playwright, async_playwright, expect
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">run</span>(playwright: Playwright) <span style="color:#666">-&gt;</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    browser <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> playwright<span style="color:#666">.</span>chromium<span style="color:#666">.</span>launch(headless<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">False</span>)
+</span></span><span style="display:flex;"><span>    context <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> browser<span style="color:#666">.</span>new_context()
+</span></span><span style="display:flex;"><span>    page <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> context<span style="color:#666">.</span>new_page()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>goto(<span style="color:#ba2121">&#34;https://www.happyscribe.com/public/the-joe-rogan-experience&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>get_by_role(<span style="color:#ba2121">&#34;link&#34;</span>, name<span style="color:#666">=</span><span style="color:#ba2121">&#34;Next ›&#34;</span>)<span style="color:#666">.</span>click()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># ---------------------</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> context<span style="color:#666">.</span>close()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> browser<span style="color:#666">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">main</span>() <span style="color:#666">-&gt;</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> async_playwright() <span style="color:#008000;font-weight:bold">as</span> playwright:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">await</span> run(playwright)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>asyncio<span style="color:#666">.</span>run(main())
+</span></span></code></pre></div><p>I&rsquo;ve got some boilerplate I can work with rather than starting from scratch, which is nice. Now I want to keep clicking <em>Next &gt;</em> until I run out of Next pages (and I checked, the next button is missing on the last page), so I modify part of the script as follows:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># All the pages to look for transcript links on</span>
+</span></span><span style="display:flex;"><span>page_urls <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">try</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">while</span> <span style="color:#008000;font-weight:bold">True</span>:
+</span></span><span style="display:flex;"><span>        page_urls<span style="color:#666">.</span>append(page<span style="color:#666">.</span>url)
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Try to click next, but give up if there is no button on</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># the DOM within a few seconds</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> asyncio<span style="color:#666">.</span>timeout(<span style="color:#666">2</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>get_by_role(<span style="color:#ba2121">&#34;link&#34;</span>, name<span style="color:#666">=</span><span style="color:#ba2121">&#34;Next ›&#34;</span>)<span style="color:#666">.</span>click()
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">except</span> <span style="color:#d2413a;font-weight:bold">TimeoutError</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Ran out of pages to click&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">finally</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>close()
+</span></span></code></pre></div><p>Now I&rsquo;m going to look into the DOM tree to figure out the links to the transcripts:</p>
+<p>
+<figure>
+  <img src="/images/babys-first-rag/dom-inspector.png" alt="DOM inspector screenshot" />
+</figure>
+
+
+</p>
+<p>With this we see that the links to transcript pages all have the class <code>hsp-card-episode</code>, so we can use Javascript to find them all on the page and pull out the link URLs:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>urls <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>evaluate(
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#39;Array.from(document.getElementsByClassName(&#34;hsp-card-episode&#34;)).map(a =&gt; a.href)&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>We can then use this list of links to download individual pages:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_transcript_files</span>(playwright: Playwright, urls: <span style="color:#008000">list</span>[<span style="color:#008000">str</span>]):
+</span></span><span style="display:flex;"><span>    download_path <span style="color:#666">=</span> pathlib<span style="color:#666">.</span>Path(<span style="color:#ba2121">&#34;./transcript_pages&#34;</span>)
+</span></span><span style="display:flex;"><span>    download_path<span style="color:#666">.</span>mkdir(exist_ok<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    browser <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> playwright<span style="color:#666">.</span>chromium<span style="color:#666">.</span>launch(headless<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>    context <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> browser<span style="color:#666">.</span>new_context()
+</span></span><span style="display:flex;"><span>    page <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> context<span style="color:#666">.</span>new_page()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> transcript_page_url <span style="color:#a2f;font-weight:bold">in</span> urls:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(transcript_page_url)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>goto(transcript_page_url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        filename <span style="color:#666">=</span> <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">{</span>transcript_page_url<span style="color:#666">.</span>split(<span style="color:#ba2121">&#34;/&#34;</span>)[<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">.html&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;Downloading </span><span style="color:#b68;font-weight:bold">{</span>filename<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(download_path <span style="color:#666">/</span> filename, <span style="color:#ba2121">&#34;w&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> out_handle:
+</span></span><span style="display:flex;"><span>            out_handle<span style="color:#666">.</span>write(<span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>content())
+</span></span></code></pre></div><h1 id="cleaning-up-the-data">Cleaning Up the Data</h1>
+<p>At this point I have the page&rsquo;s computed HTML, and I want to extract just the parts that are interesting. Let&rsquo;s put them into a JSON file I use for later manipulation and maybe insert into SQLite.</p>
+<h2 id="install-unstructured">Install Unstructured</h2>
+<p>I&rsquo;m going to use a hosted instance of <a href="https://github.com/Unstructured-IO/unstructured-api">the Unstructured API</a> in Docker. Unstructured is probably the best and most widely used tool for the job.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Grab image</span>
+</span></span><span style="display:flex;"><span>docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Run on port 5435 just because it&#39;s not commonly used and 8000 is</span>
+</span></span><span style="display:flex;"><span>docker run -p 5435:8000 -d --rm --name unstructured-api downloads.unstructured.io/unstructured-io/unstructured-api:latest
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Should return {&#34;healthcheck&#34;:&#34;HEALTHCHECK STATUS: EVERYTHING OK!&#34;}%</span>
+</span></span><span style="display:flex;"><span>curl http://localhost:5435/healthcheck
+</span></span></code></pre></div><p>Unstructured is also my employer, so obviously they have an incredible team of attractive geniuses working for them and it&rsquo;s a good idea to buy as many commercial licenses as your employer can afford when you get back to work next.</p>
+<h2 id="processing-the-html-into-something-more-usable">Processing the HTML into Something More Usable</h2>
+<p>We can iterate through the downloaded HTML using <a href="https://github.com/Unstructured-IO/unstructured-python-client">the Unstructured Python API client</a>:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>in_path <span style="color:#666">=</span> pathlib<span style="color:#666">.</span>Path(<span style="color:#ba2121">&#34;./transcript_pages&#34;</span>)
+</span></span><span style="display:flex;"><span>out_path <span style="color:#666">=</span> pathlib<span style="color:#666">.</span>Path(<span style="color:#ba2121">&#34;./processed_pages&#34;</span>)
+</span></span><span style="display:flex;"><span>out_path<span style="color:#666">.</span>mkdir(exist_ok<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#666">=</span> unstructured_client<span style="color:#666">.</span>UnstructuredClient(
+</span></span><span style="display:flex;"><span>    api_key_auth<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">None</span>, server_url<span style="color:#666">=</span><span style="color:#ba2121">&#34;http://localhost:5435/general/v0/&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> file <span style="color:#a2f;font-weight:bold">in</span> in_path<span style="color:#666">.</span>glob(<span style="color:#ba2121">&#34;*.html&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;Handling </span><span style="color:#b68;font-weight:bold">{</span>file<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">...&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(file, <span style="color:#ba2121">&#34;rb&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> in_handle:
+</span></span><span style="display:flex;"><span>        res <span style="color:#666">=</span> s<span style="color:#666">.</span>general<span style="color:#666">.</span>partition(
+</span></span><span style="display:flex;"><span>            request<span style="color:#666">=</span>operations<span style="color:#666">.</span>PartitionRequest(
+</span></span><span style="display:flex;"><span>                partition_parameters<span style="color:#666">=</span>shared<span style="color:#666">.</span>PartitionParameters(
+</span></span><span style="display:flex;"><span>                    files<span style="color:#666">=</span>shared<span style="color:#666">.</span>Files(
+</span></span><span style="display:flex;"><span>                        file_name<span style="color:#666">=</span>file<span style="color:#666">.</span>name,
+</span></span><span style="display:flex;"><span>                        content<span style="color:#666">=</span>in_handle<span style="color:#666">.</span>read(),
+</span></span><span style="display:flex;"><span>                    ),
+</span></span><span style="display:flex;"><span>                    strategy<span style="color:#666">=</span>shared<span style="color:#666">.</span>Strategy<span style="color:#666">.</span>AUTO,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> res<span style="color:#666">.</span>elements <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#008000;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#408080;font-style:italic"># handle response</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(out_path <span style="color:#666">/</span> (file<span style="color:#666">.</span>name <span style="color:#666">+</span> <span style="color:#ba2121">&#34;.json&#34;</span>), <span style="color:#ba2121">&#34;w&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> out_file:
+</span></span><span style="display:flex;"><span>            json<span style="color:#666">.</span>dump(res<span style="color:#666">.</span>elements, out_file, indent<span style="color:#666">=</span><span style="color:#666">4</span>)
+</span></span></code></pre></div><h1 id="getting-a-locally-runnable-llm">Getting a Locally-Runnable LLM</h1>
+<p>This part is really easy, easier than it should be &ndash; the <a href="https://github.com/Mozilla-Ocho/llamafile">llamafile project</a> has executable files that already come with baked-in, pre-downloaded LLM models. In my case I&rsquo;m going to get the example llamafile <a href="https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile/tree/main">hosted on huggingface</a>.</p>
+<p>I can <code>chmod +x llava-v1.5-7b-q4.llamafile &amp;&amp; ./llava-v1.5-7b-q4.llamafile</code> and a browser will open, ready to teach me the mysteries of the universe.</p>
+<h1 id="finding-the-right-stuff-to-add-to-prompts-to-get-the-thing">Finding the Right Stuff to Add to Prompts to Get The Thing</h1>
+<p>There are two general ways of finding text to inject into the prompts: Embeddings, which converts your text into vector space to represent it semantically and finding semantically similar items, and full text search, which does something easier to reason about and more traditional. Think a google search for a phrase.</p>
+<h2 id="doing-semantic-search">Doing Semantic Search</h2>
+<p>We&rsquo;re going to deal with <em>embeddings</em>, which is going from a pile of text into an n-dimensional list of numbers that somehow, mysteriously, represents that text&rsquo;s place in the world in the model. These embeddings vary from model to model and nobody knows what any of the numbers mean.</p>
+<h3 id="getting-an-embedding-from-text">Getting an Embedding from Text</h3>
+<p>Llamafile offers an easy way to extract an embedding from a string of text: the <code>--embedding</code> flag. So we can do <code>./llamafile --embedding -p &quot;&lt;Text goes here&gt;&quot;</code> and get back the embedding vector on standard out.</p>
+<p>We can write a python function that shells out to this program and returns an embedding vector:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">embedding_for_text</span>(text: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">float</span>]:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">float</span>(x)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> subprocess<span style="color:#666">.</span>run(
+</span></span><span style="display:flex;"><span>            args<span style="color:#666">=</span>[<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">{</span>llama_executable<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121"> --embedding -p </span><span style="color:#b68;font-weight:bold">{</span>shlex<span style="color:#666">.</span>quote(text)<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">&#34;</span>],
+</span></span><span style="display:flex;"><span>            stdout<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>PIPE,
+</span></span><span style="display:flex;"><span>            stdin<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>DEVNULL,
+</span></span><span style="display:flex;"><span>            stderr<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>DEVNULL,
+</span></span><span style="display:flex;"><span>            shell<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>,
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#666">.</span>stdout<span style="color:#666">.</span>decode(<span style="color:#ba2121">&#34;ascii&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#666">.</span>split(<span style="color:#ba2121">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>    ]
+</span></span></code></pre></div><h2 id="indexing-our-transcripts-with-embeddings">Indexing our Transcripts with Embeddings</h2>
+<p>We&rsquo;re gonna want a table with each line item from the transcripts:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">table</span><span style="color:#bbb"> </span>text_lines(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>filename<span style="color:#bbb"> </span><span style="color:#008000">text</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>text_line<span style="color:#bbb"> </span><span style="color:#008000">text</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>And then a virtual vec0 table:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">create</span><span style="color:#bbb"> </span>virtual<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">table</span><span style="color:#bbb"> </span>vec_chat<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">using</span><span style="color:#bbb"> </span>vec0(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>embedding<span style="color:#bbb"> </span><span style="color:#008000">float</span>[<span style="color:#666">2048</span>]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="inserting-text-into-db">Inserting text into DB</h3>
+<p>Then we want to insert the text into the <code>text_lines</code> table:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> file <span style="color:#a2f;font-weight:bold">in</span> folder<span style="color:#666">.</span>glob(<span style="color:#ba2121">&#34;*.json&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(file)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction, <span style="color:#008000">open</span>(file, <span style="color:#ba2121">&#34;r&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> in_json:
+</span></span><span style="display:flex;"><span>        json_object <span style="color:#666">=</span> json<span style="color:#666">.</span>load(in_json)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> json_object:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> item[<span style="color:#ba2121">&#34;type&#34;</span>] <span style="color:#666">==</span> <span style="color:#ba2121">&#34;NarrativeText&#34;</span>:
+</span></span><span style="display:flex;"><span>                text <span style="color:#666">=</span> item[<span style="color:#ba2121">&#34;text&#34;</span>]
+</span></span><span style="display:flex;"><span>                transaction<span style="color:#666">.</span>execute(
+</span></span><span style="display:flex;"><span>                    <span style="color:#ba2121">&#34;insert into text_lines(filename, text_line) values(?, ?)&#34;</span>,
+</span></span><span style="display:flex;"><span>                    (<span style="color:#008000">str</span>(file), text),
+</span></span><span style="display:flex;"><span>                )
+</span></span></code></pre></div><h3 id="premature-optimization-use-a-sliding-window">Premature Optimization: Use a Sliding Window</h3>
+<p>After a little bit of hacking, I decided to use an overlapping window of text items. Then, I noticed that longer bits of conversation could overwhelm the embedding processor later down the line. Here&rsquo;s what I wound up with as a heuristic sliding window generator:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">_sliding_window</span>(
+</span></span><span style="display:flex;"><span>    row_factory, window_size<span style="color:#666">=</span><span style="color:#666">4</span>, overlap<span style="color:#666">=</span><span style="color:#666">1</span>, min_length<span style="color:#666">=</span><span style="color:#666">20</span>, max_length<span style="color:#666">=</span><span style="color:#666">80</span>
+</span></span><span style="display:flex;"><span>):
+</span></span><span style="display:flex;"><span>    window <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> row_factory:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> <span style="color:#008000">len</span>(row) <span style="color:#666">&lt;</span> min_length:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">elif</span> <span style="color:#008000">len</span>(row) <span style="color:#666">&gt;</span> max_length:
+</span></span><span style="display:flex;"><span>            <span style="color:#408080;font-style:italic"># Use long lines as implicit breaks</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> window:
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">yield</span> window
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> [row]
+</span></span><span style="display:flex;"><span>            window <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">elif</span> <span style="color:#008000">len</span>(<span style="color:#ba2121">&#34;&#34;</span><span style="color:#666">.</span>join(window)) <span style="color:#666">&gt;</span> max_length:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> window
+</span></span><span style="display:flex;"><span>            window <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> <span style="color:#008000">len</span>(window) <span style="color:#666">&gt;=</span> window_size:
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> window
+</span></span><span style="display:flex;"><span>            window <span style="color:#666">=</span> window[<span style="color:#666">-</span>overlap:]
+</span></span><span style="display:flex;"><span>        window<span style="color:#666">.</span>append(row)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> window:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">yield</span> window
+</span></span></code></pre></div><p>Then I replace</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> json_object:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> item[<span style="color:#ba2121">&#34;type&#34;</span>] <span style="color:#666">==</span> <span style="color:#ba2121">&#34;NarrativeText&#34;</span>:
+</span></span></code></pre></div><p>with</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> text <span style="color:#a2f;font-weight:bold">in</span> _sliding_window(
+</span></span><span style="display:flex;"><span>    item[<span style="color:#ba2121">&#34;text&#34;</span>] <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> json_object <span style="color:#008000;font-weight:bold">if</span> item[<span style="color:#ba2121">&#34;type&#34;</span>] <span style="color:#666">==</span> <span style="color:#ba2121">&#34;NarrativeText&#34;</span>
+</span></span><span style="display:flex;"><span>):
+</span></span></code></pre></div><h3 id="adding-embeddings">Adding Embeddings</h3>
+<p>Then we want to use <code>embedding_for_text</code> to add an embedding value to correspond with each:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> transaction<span style="color:#666">.</span>execute(<span style="color:#ba2121">&#34;select rowid, text_line from text_lines&#34;</span>):
+</span></span><span style="display:flex;"><span>        rowid, text <span style="color:#666">=</span> row
+</span></span><span style="display:flex;"><span>        embedding <span style="color:#666">=</span> embedding_for_text(text)
+</span></span><span style="display:flex;"><span>        transaction<span style="color:#666">.</span>execute(
+</span></span><span style="display:flex;"><span>            <span style="color:#ba2121">&#34;insert into vec_chat(rowid, embedding) values (?, ?)&#34;</span>,
+</span></span><span style="display:flex;"><span>            (rowid, json<span style="color:#666">.</span>dumps(embedding)),
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><h3 id="kicking-the-tires-on-semantic-search">Kicking the Tires on Semantic Search</h3>
+<p>Let&rsquo;s try out a noat particularly controversial prompt (<em>Anthony Fauci, as head of the CDC, helped accelerate the COVID vaccine&rsquo;s release</em>) and see what the most semantically similar things our system is calibrated to inject:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">nearest_n_neighbors</span>(
+</span></span><span style="display:flex;"><span>    text: <span style="color:#008000">str</span>, connection: sqlite3<span style="color:#666">.</span>Connection, limit: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#666">5</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">int</span>]:
+</span></span><span style="display:flex;"><span>    limit <span style="color:#666">=</span> <span style="color:#008000">int</span>(limit)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> [
+</span></span><span style="display:flex;"><span>            x
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> transaction<span style="color:#666">.</span>execute(
+</span></span><span style="display:flex;"><span>                <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    select rowid, distance
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    from vec_chat
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    where embedding match ?
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    order by distance
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    limit ?;
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                &#34;&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>                (json<span style="color:#666">.</span>dumps(json<span style="color:#666">.</span>dumps(embedding_for_text(text))), limit),
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">nearest_n_text_lines</span>(
+</span></span><span style="display:flex;"><span>    text: <span style="color:#008000">str</span>, connection: sqlite3<span style="color:#666">.</span>Connection, limit: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#666">5</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">str</span>]:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> [
+</span></span><span style="display:flex;"><span>            row[<span style="color:#666">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> connection<span style="color:#666">.</span>execute(
+</span></span><span style="display:flex;"><span>                <span style="color:#ba2121">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    select text_line from text_lines where rowid in ?
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                &#34;&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>                (
+</span></span><span style="display:flex;"><span>                    [
+</span></span><span style="display:flex;"><span>                        c[<span style="color:#666">0</span>]
+</span></span><span style="display:flex;"><span>                        <span style="color:#008000;font-weight:bold">for</span> c <span style="color:#a2f;font-weight:bold">in</span> nearest_n_neighbors(
+</span></span><span style="display:flex;"><span>                            text, connection<span style="color:#666">=</span>connection, limit<span style="color:#666">=</span>limit
+</span></span><span style="display:flex;"><span>                        )
+</span></span><span style="display:flex;"><span>                    ],
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>connection <span style="color:#666">=</span> llm_functions<span style="color:#666">.</span>fresh_db_connection()
+</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(
+</span></span><span style="display:flex;"><span>    nearest_n_text_lines(
+</span></span><span style="display:flex;"><span>        <span style="color:#ba2121">&#34;Anthony Fauci helped release the COVID vaccine&#34;</span>,
+</span></span><span style="display:flex;"><span>        connection
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>That gives us:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;Right. Covid was a rerun of the AIDS chapter with AZT.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">But the AIDS chapter seems even more terrifying because if the initial treatment was AZT, and we know AZT kills people, you&#39;re taking someone who has a compromised immune system and your response to that was give them something that&#39;s going to kill them quicker and then say there&#39;s a giant crisis and this is what Deusberg was demonized for.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Yeah, I agree. And for many years I resisted the interpretation. I was more familiar with Kerry Mullis&#39;s objections. Kerry Mullis was the inventor of PCR technology who died tragically, and some would say, strangely, at the very beginning of the COVID cris.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Have you ever seen this piece of video where he talks about Anthony Fauci? Yeah, let&#39;s put it this way. Kerry Mullis was a outspoken, vigorous, highly intelligent person who was not corralled by fashion. And in fact, his objection to the idea that HIV was causing AIDS was an early testament to his maverick nature.&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#666">...</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;Chris Christie&#39;s a healthy guy and he wants to keep people healthy. He be covered. That should be the end of lockdown right there.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">He did be covered so that whatever drugs they got.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Well, I have a friend who is 80 and he just beat the shit, took some I.V. vitamins, said he was sick for four days.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">New Jersey Governor Phil Murphy&#39;s highly confident marijuana will be legal. I look at him clapping.&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#666">...</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;So here&#39;s the thing. The controversial experiments and one lab suspected of starting the coronavirus pandemic and says the case against a human lab. And so it says why the human lab remains a suspect in the coronavirus investigation.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">I mean, it&#39;s really likely that we never really will know. But they most certainly were working on viruses similar to this one right there.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">At the end of this article says there&#39;s another one called Rat RTG 13, which is very, very similar to the sars-cov-2 one that we&#39;re experiencing now. Oh, terrific.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">It&#39;s thought to be the most similar to the sars-cov-2 of any known virus to share 96 percent of the genetic material, that four percent gap, but still be a formidable gap for animal passage research, says Ralph Burek, Virologist University, North Carolina, probably in bed with the Russians who collaborated with like when you found out that a Harvard guy got arrested, that because he was taking money from Russia or excuse me, taking money from China because he was doing something with them.&#34;</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>All right, not terrible. It makes me want to punch my monitor which is a good sign.</p>
+<h1 id="trying-it-out">Trying it Out</h1>
+<h2 id="you-have-to-post-the-entire-transcript-over-and-over">You Have to Post The entire Transcript Over and Over</h2>
+<p>One of the shortcomings of LLMs (with no escape that I know of) is the conversation has to <em>fully be injected into the LLM to maintain state</em>. So what I&rsquo;ll do is pipe an initial state with a question into the model, get the response from Llama, append a question, and do another round trip.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">output_from_llama</span>(text: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">str</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> subprocess<span style="color:#666">.</span>run(
+</span></span><span style="display:flex;"><span>        args<span style="color:#666">=</span>[<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">{</span>shlex<span style="color:#666">.</span>quote(llama_executable)<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121"> -f -&#34;</span>],
+</span></span><span style="display:flex;"><span>        stdout<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>PIPE,
+</span></span><span style="display:flex;"><span>        stderr<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>DEVNULL,
+</span></span><span style="display:flex;"><span>        shell<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">input</span><span style="color:#666">=</span>text<span style="color:#666">.</span>encode(<span style="color:#ba2121">&#34;utf-8&#34;</span>),
+</span></span><span style="display:flex;"><span>    )<span style="color:#666">.</span>stdout<span style="color:#666">.</span>decode(<span style="color:#ba2121">&#34;utf-8&#34;</span>)[<span style="color:#008000">len</span>(text) <span style="color:#666">+</span> <span style="color:#666">1</span> :]
+</span></span></code></pre></div><p>From here we can cobble together a conversation.</p>
+<h2 id="not-very-good-end-results">Not Very Good End Results</h2>
+<p>Well this was signficiantly dumber than I had feared:</p>
+<pre tabindex="0"><code>Me:&gt; What do you think about peer pressure?
+Response:  As a language model, I do not have personal opinions or thoughts, but I can provide you with some information about peer pressure.
+
+Peer pressure is the influence that peers have on an individual to adopt or act according to their values, attitudes, behaviors, and beliefs. It can be both positive and negative, as peers can encourage individuals to engage in healthy behaviors, such as exercising or studying, or discourage them from participating in risky behaviors, such as drug use or underage drinking.
+
+In the context of the conversation, it seems that the participants are discussing aspartame, a sugar substitute used in many low-calorie and sugar-free products, such as diet soda, yogurt, and desserts. They appear to be debating whether or not it&#39;s poisonous, which could be an example of the influence of peers on each other&#39;s opinions about a certain topic.
+</code></pre><p>In retrospect, the Joe Rogan transcripts are too information sparse and conversational to provide useful context for a conversation. But thinking peer pressure and aspartame are related is sure a silly one.</p>
+<h2 id="making-it-harder">Making it harder</h2>
+<p><a href="https://techcommunity.microsoft.com/t5/microsoft-developer-community/doing-rag-vector-search-is-not-enough/ba-p/4161073">This blog post</a> says we can&rsquo;t just do one. We have to do both. Maybe that&rsquo;s a task for another time.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I put together the parts. I used a horrible source corpus. I learned a valuable lesson.</p>
+<p>The important part is I was able to understand the pieces individually, I was able to host it on my own hardware, which I think is a very critical part of the LLM world nobody really thinks about since so much of it depends on cobbling together third-party services on the internet.</p>
+<p>The code is all <a href="https://github.com/jasonbot/babys-first-rag">on Github in an appropriately named repository</a>.</p>
+
+			</div>
+		</article>
+	</main>
+
+	
+<footer>
+  <p>
+    &copy; 2024
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
+</footer>
+
+</body>
+</html>

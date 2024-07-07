@@ -44,7 +44,7 @@
       <description>&lt;p&gt;At work I&amp;rsquo;m currently working on a fairly large system in which we have a pool of greedy workers, of unknown size, which can opt it at any time to the flow of work.&lt;/p&gt;
 &lt;p&gt;A job is considered abandoned if it is marked as &lt;code&gt;IN_PROGRESS&lt;/code&gt; but the worker who has claimed it hasn&amp;rsquo;t phoned home in sone amount of time.&lt;/p&gt;
 &lt;p&gt;The project is async, which makes things bot more and less interesting. It looks something like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@contextlib&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;contextmanager
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@contextlib.contextmanager&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;run_keepalive_function_while_awaiting&lt;/span&gt;(
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    call: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Callable[[&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;], typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Awaitable[&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;]], interval: &lt;span style=&#34;color:#008000&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1.0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;):
@@ -110,7 +110,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@flaskapp&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@flaskapp.route&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;main_sync_route&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; get_multiple_urls()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The three parts to make this work:&lt;/p&gt;
@@ -163,10 +163,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;copy_keys&lt;/span&gt;(&lt;span style=&#34;color:#008000&#34;&gt;input&lt;/span&gt;: &lt;span style=&#34;color:#008000&#34;&gt;dict&lt;/span&gt;, keep_keys: typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Iterable[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable &lt;span style=&#34;color:#666&#34;&gt;|&lt;/span&gt; typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Tuple[typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable, typing&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Hashable]]):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keep_map &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; keep_keys:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        match item:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            case (from_key, to_key):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;match&lt;/span&gt; item:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;case&lt;/span&gt; (from_key, to_key):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keep_map[from_key] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; to_key
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            case key:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;case&lt;/span&gt; key:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                keep_map[key] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; key
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000&#34;&gt;print&lt;/span&gt;(keep_map)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -194,13 +194,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;sys&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lru_cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools.lru_cache&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;getlines&lt;/span&gt;(filename):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;open&lt;/span&gt;(filename, &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; file_handle:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#008000&#34;&gt;tuple&lt;/span&gt;(file_handle)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lru_cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@functools.lru_cache&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;getline&lt;/span&gt;(filename, line_number):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; getlines(filename)[line_number &lt;span style=&#34;color:#666&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -234,6 +234,7 @@
 &lt;p&gt;while not as elegantly self-bootstrapping as other languages like a Lisp, Python does have lots of idiomatic, strange ways of doing Python in Python. In this case, you can set a trace function (normally reserved for writing debuggers) and do something very meta and &lt;em&gt;print the dang line&lt;/em&gt; as it executes.&lt;/p&gt;
 &lt;p&gt;Now, this is neat and clever but it&amp;rsquo;s also largely a CPython-specific set of internal details: how would one expect to implement this API in another &amp;ldquo;flavor&amp;rdquo; of Python like IronPython or Jython which have their own runtimes that look nothing like the CPython bytecode interpreter?&lt;/p&gt;
 &lt;p&gt;Note &lt;em&gt;this is in the standard library&lt;/em&gt;. Those poor developers would have to either 1) write this API off and get derogatorily accused of stunting their Python or do insane things to make what is trivial in CPython with byzantine .Net or JVM internals* to achieve parity.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://tratt.net/laurie/blog/2023/compiled_and_interpreted_languages_two_ways_of_saying_tomato.html&#34;&gt;This blog post&lt;/a&gt; touches on a lot of what I discuss here.&lt;/p&gt;
 &lt;p&gt;* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the compiled Python VM bytecode to make the Python runtime in that system aware that it&amp;rsquo;s reentered Python? It fills me with fear.&lt;/p&gt;
 </description>
     </item>
@@ -454,7 +455,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;dataclasses&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;typing&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;T&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@dataclasses&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dataclass
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@dataclasses.dataclass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;MyStruct&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_1: &lt;span style=&#34;color:#008000&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    field_2: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt;
@@ -604,7 +605,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
       
       <guid>https://www.jasonscheirer.com/weblog/bottle-introspection/</guid>
       <description>&lt;p&gt;I have a stupid json-only REST API I implemented in bottle.py. This introspects the default app, gives a dumb readout that should act as an adequate reference for discovery:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@bottle&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;route(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;@bottle.route&lt;/span&gt;(&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#00f&#34;&gt;index&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;response&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;content_type &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;
