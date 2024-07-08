@@ -436,7 +436,7 @@ Llama: It&amp;#39;s hard to say who the best prime minister is, as opinions
 User: What about the best press secretary?
 Llama: The best press secretary is widely considered to be Katherine Bach, who served under President James Dukes of Hazzard. She was known for her wit, intelligence, and ability to handle tough questions from the media.
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;making-it-harder&#34;&gt;Making it harder&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://techcommunity.microsoft.com/t5/microsoft-developer-community/doing-rag-vector-search-is-not-enough/ba-p/4161073&#34;&gt;This blog post&lt;/a&gt; says we can&amp;rsquo;t just do one. We have to do both. Maybe that&amp;rsquo;s a task for another time.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://techcommunity.microsoft.com/t5/microsoft-developer-community/doing-rag-vector-search-is-not-enough/ba-p/4161073&#34;&gt;This blog post&lt;/a&gt; says we can&amp;rsquo;t just do semantic search. We have to do both that and full text search. Maybe that&amp;rsquo;s a task for another time.&lt;/p&gt;
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;I put together the parts. I used a horrible source corpus. I learned a valuable lesson.&lt;/p&gt;
 &lt;p&gt;The important part is I was able to understand the pieces individually, I was able to host it on my own hardware, which I think is a very critical part of the LLM world nobody really thinks about since so much of it depends on cobbling together third-party services on the internet.&lt;/p&gt;
