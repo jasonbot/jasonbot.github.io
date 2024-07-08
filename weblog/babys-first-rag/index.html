@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1720397021"><link rel="stylesheet" href="/css/fonts.css?rnd=1720397021">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1720397134"><link rel="stylesheet" href="/css/fonts.css?rnd=1720397134">
 	
 </head>
 <body>
@@ -207,7 +207,7 @@ What is X?
 <h1 id="getting-the-data">Getting the Data</h1>
 <p>The first step to doing the RAG is to collect the actual data. I found <a href="https://www.happyscribe.com/public/the-joe-rogan-experience">this sketch-ass website with transcripts of previous Joe Rogan episodes</a>, so what I want to do is take that information, extract just the stuff I care about, and index it in a form I can pull from in later steps.</p>
 <h2 id="a-eulogy-for-wget">A Eulogy for <code>wget</code></h2>
-<p>The <a href="https://www.gnu.org/software/wget/">wget project</a> has been my constant companion since the early 2000s. <code>wget -r -l 2 http://somesite/</code> would quickly and reliably spider a web site two links deep onto disk. However, with modern sites (and abominations like <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA">SPAs</a>) the HTML the client fetches is not the document tree that is ultimately established in the browser. So many pages are partially or fully rendered in Javscript now, requiring an entire bulky browser engine to derive the full DOM.</p>
+<p>The <a href="https://www.gnu.org/software/wget/">wget project</a> has been my constant companion since the early 2000s. <code>wget -r -l 2 http://somesite/</code> would quickly and reliably spider a web site two links deep onto disk. However, with modern sites (and abominations like <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA">SPAs</a>) the HTML the client fetches is not the document tree that is ultimately established in the browser. So many pages are partially or fully rendered in Javascript now, requiring an entire bulky browser engine to derive the full DOM.</p>
 <h2 id="enter-playwright">Enter Playwright</h2>
 <p><a href="https://www.selenium.dev/">Selenium</a> came out many years ago for doing browser testing and I never really liked it &ndash; it seemed unstable and finicky. A few generations later, we get a beautiful tool in the form of <a href="https://playwright.dev/">Playwright</a>, which gives us so much: Javascript and Python APIs, and simulation of multiple browsers, including the Chromium family and Firefox. It&rsquo;s really slick.</p>
 <h2 id="our-playwright-script">Our Playwright Script</h2>
@@ -419,7 +419,7 @@ What is X?
 </span></span><span style="display:flex;"><span>            (rowid, json<span style="color:#666">.</span>dumps(embedding)),
 </span></span><span style="display:flex;"><span>        )
 </span></span></code></pre></div><h3 id="kicking-the-tires-on-semantic-search">Kicking the Tires on Semantic Search</h3>
-<p>Let&rsquo;s try out a noat particularly controversial prompt (<em>Anthony Fauci, as head of the CDC, helped accelerate the COVID vaccine&rsquo;s release</em>) and see what the most semantically similar things our system is calibrated to inject:</p>
+<p>Let&rsquo;s try out a not particularly controversial prompt (<em>Anthony Fauci, as head of the CDC, helped accelerate the COVID vaccine&rsquo;s release</em>) and see what the most semantically similar things our system is calibrated to inject:</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">nearest_n_neighbors</span>(
 </span></span><span style="display:flex;"><span>    text: <span style="color:#008000">str</span>, connection: sqlite3<span style="color:#666">.</span>Connection, limit: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#666">5</span>
 </span></span><span style="display:flex;"><span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">int</span>]:
@@ -491,7 +491,7 @@ What is X?
 </span></span><span style="display:flex;"><span>    )<span style="color:#666">.</span>stdout<span style="color:#666">.</span>decode(<span style="color:#ba2121">&#34;utf-8&#34;</span>)[<span style="color:#008000">len</span>(text) <span style="color:#666">+</span> <span style="color:#666">1</span> :]
 </span></span></code></pre></div><p>From here we can cobble together a conversation.</p>
 <h2 id="not-very-good-end-results">Not Very Good End Results</h2>
-<p>Well this was signficiantly dumber than I had feared:</p>
+<p>Well this was significantly dumber than I had feared:</p>
 <pre tabindex="0"><code>Me:&gt; What do you think about peer pressure?
 Response:  As a language model, I do not have personal opinions or thoughts, but I can provide you with some information about peer pressure.
 
