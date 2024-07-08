@@ -69,7 +69,18 @@
         &lt;li&gt;&lt;a href=&#34;#making-it-harder&#34;&gt;Making it harder&lt;/a&gt;&lt;/li&gt;
       &lt;/ol&gt;
     &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&#34;#things-i-could-have-done-better&#34;&gt;Things I Could Have Done Better&lt;/a&gt;
+          &lt;ol&gt;
+            &lt;li&gt;&lt;a href=&#34;#realize-some-things-are-slow&#34;&gt;Realize Some Things are Slow&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;#dont-be-cute-with-the-source-of-data&#34;&gt;Don&amp;rsquo;t Be &amp;ldquo;Cute&amp;rdquo; With the Source of Data&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;#use-python&#34;&gt;Use Python&lt;/a&gt;&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#the-code&#34;&gt;The Code&lt;/a&gt;&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/nav&gt;
 &lt;/div&gt;
@@ -440,6 +451,14 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;I put together the parts. I used a horrible source corpus. I learned a valuable lesson.&lt;/p&gt;
 &lt;p&gt;The important part is I was able to understand the pieces individually, I was able to host it on my own hardware, which I think is a very critical part of the LLM world nobody really thinks about since so much of it depends on cobbling together third-party services on the internet.&lt;/p&gt;
+&lt;h2 id=&#34;things-i-could-have-done-better&#34;&gt;Things I Could Have Done Better&lt;/h2&gt;
+&lt;h3 id=&#34;realize-some-things-are-slow&#34;&gt;Realize Some Things are Slow&lt;/h3&gt;
+&lt;p&gt;The embedding stage of the project took 4 days to complete. That took a bit of window out of my sail. You&amp;rsquo;ll also notice that the further down in the process I got the more spartan and handwavey this post gets as I get into territory I am less familiar with.&lt;/p&gt;
+&lt;h3 id=&#34;dont-be-cute-with-the-source-of-data&#34;&gt;Don&amp;rsquo;t Be &amp;ldquo;Cute&amp;rdquo; With the Source of Data&lt;/h3&gt;
+&lt;p&gt;I was deliberately trying to be funny with my choice of source material. The source material is not only awful for its content, but also its structure. The best material for a RAG (and LLMs in general) are non-conversational, infformation dense things like refernce books and textbooks. Conversations, with their short &amp;ldquo;uh-huh&amp;rdquo; paragraphs are not a good way to add useful context to an exising LLM, and a most of the conversations I had quite obviously fell back to just using the LLM for material.&lt;/p&gt;
+&lt;h3 id=&#34;use-python&#34;&gt;Use Python&lt;/h3&gt;
+&lt;p&gt;The code is &lt;em&gt;in&lt;/em&gt; Python, but I&amp;rsquo;m not using any Python-native libraries like &lt;a href=&#34;https://pypi.org/project/llm/&#34;&gt;llm&lt;/a&gt; to streamline and appropriately take advantage of the innards of exising models. The code is /in/ Python, but it could have been in any language considering the Unstructured ASI, vector store, and the llamafile were all callable from other langauges as well.&lt;/p&gt;
+&lt;h1 id=&#34;the-code&#34;&gt;The Code&lt;/h1&gt;
 &lt;p&gt;The code is all &lt;a href=&#34;https://github.com/jasonbot/babys-first-rag&#34;&gt;on Github in an appropriately named repository&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
