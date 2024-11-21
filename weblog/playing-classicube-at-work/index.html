@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732150029"><link rel="stylesheet" href="/css/fonts.css?rnd=1732150029">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732150222"><link rel="stylesheet" href="/css/fonts.css?rnd=1732150222">
 	
 </head>
 <body>
@@ -120,9 +120,9 @@
 <h1 id="minecraft">Minecraft?</h1>
 <p><a href="https://www.youtube.com/@ActionRetro">One retro YouTuber I like</a> pretty consistently plays <a href="https://www.classicube.net/">ClassiCube</a> on the hardware devices he features in his videos. This seemed like a pretty good option: lower software requirements then MC Java Edition, as well as not requiring a paid account to play. It even <a href="https://www.classicube.net/server/play/">has a browser-based client</a> that can connect to servers.</p>
 <p><a href="https://github.com/ClassiCube/ClassiCube/blob/master/doc/hosting-flask.md">ClassiCube has documentation on Github for how to run a browser-based session</a>.</p>
-<p>This seems pretty easy: you host a web page that has the ClassiCube JS client on it, and then configure it via Javascript in the page&rsquo;s code to</p>
+<p>This seems pretty easy: you host a web page that has the ClassiCube JS client on it, and then configure it via Javascript in the page&rsquo;s code to connect to your hosted server.</p>
 <h2 id="of-course-i-have-to-write-software-to-run-software-it-is-my-wont">Of Course I Have To Write Software to Run Software, It is my Wont</h2>
-<p>The end product I made was <a href="https://github.com/jasonbot/cube-with-friends">Cube With Friends on Github</a>. It&rsquo;s a very easy to set up little program that does all the above manual steps</p>
+<p>The end product I made was <a href="https://github.com/jasonbot/cube-with-friends">Cube With Friends on Github</a>. It&rsquo;s a very easy to set up little program that does all the above manual steps &ndash; at build time it embeds all the resources it needs from the internet into a single Go executable, and has other niceness like overlaying a pre-authored config that turns off ClassiCube authentication so people can join without having ClassiCube accounts.</p>
 <h1 id="getting-to-it-from-other-computers">Getting to It from Other computers</h1>
 <p>Now that I had something running, how do I get other players on here?</p>
 <p>I spun up <code>cube-with-friends</code> on my laptop and started thinking my way through that problem.</p>
