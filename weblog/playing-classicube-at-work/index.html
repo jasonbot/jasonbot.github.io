@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Classicube at Work</title>
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Classicube at Work" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732149513"><link rel="stylesheet" href="/css/fonts.css?rnd=1732149513">
+	
+</head>
+<body>
+	<header>
+	<nav>
+			
+
+			
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/"><b>Main</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/about/"><b>About</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/games-by-jason/"><b>Games by Jason</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/hardware/"><b>Hardware</b></a>
+				
+			</span>
+
+			
+
+			
+			
+
+			<span class="nav-item">
+				
+					<a href="/tags/"><b>Tags</b></a>
+				
+			</span>
+
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Classicube at Work</h1>
+
+			<p>
+			
+			<time>2024-11-20</time>
+			
+		       
+		           <a class="taglink" href="/tags/programming">programming</a>
+        	       
+		           <a class="taglink" href="/tags/work">work</a>
+        	       
+		           <a class="taglink" href="/tags/go">go</a>
+        	       
+		           <a class="taglink" href="/tags/minecraft">minecraft</a>
+        	       
+		           <a class="taglink" href="/tags/games">games</a>
+        	       
+			</p>
+			
+			<div>
+				<h1 id="problem-space">Problem Space</h1>
+<p>At <a href="https://www.academia.edu/">my new job</a>, my new team engages in an activity that seems pretty unique to it: every other week we get together for 30 minutes to play a game together online. We&rsquo;re mixed hybrid, meaning about half of us work in office and half of us are grandfathered/exceptioned in to working remotely. this means we can&rsquo;t play a board/card game in person, but has to be perfomrable over the internet in a Zoom call.</p>
+<p>It takes a team with a long-lived team for something like this to persist, I think. My assumption is the team&rsquo;s culture predates COVID-era and has remained cohesive and coherent enough to continue to this day. The first action being the establishment of a virtual game day at the dawn of the pandemic in an attempt to retain a semblance of in-person culture, then a partial shift back to in-person keeping the thing going.</p>
+<p>It is now my turn to host a game.</p>
+<h1 id="picking-a-game">Picking a Game</h1>
+<p>I&rsquo;m sure everyone is tired of playing Werewolf and variants at this point. I wanted something easy to pick up in the spirit of the games we&rsquo;ve played on game days since I joined:</p>
+<ul>
+<li>Casual</li>
+<li>Multiplayer</li>
+<li>Browser-based</li>
+<li>Very low barrier to entry</li>
+</ul>
+<p>I don&rsquo;t want to pick Yet Another Card Game. Thast sounds boring.</p>
+<h1 id="minecraft">Minecraft?</h1>
+<p><a href="https://www.youtube.com/@ActionRetro">One retro YouTuber I like</a> pretty consistently plays <a href="https://www.classicube.net/">ClassiCube</a> on the hardware devices he features in his videos. This seemed like a pretty good option: lower software requirements then MC Java Edition, as well as not requiring a paid account to play. It even <a href="https://www.classicube.net/server/play/">has a browser-based client</a> that can connect to servers.</p>
+<p><a href="https://github.com/ClassiCube/ClassiCube/blob/master/doc/hosting-flask.md">ClassiCube has documentation on Github for how to run a browser-based session</a>.</p>
+<p>This seems pretty easy: you host a web page that has the ClassiCube JS client on it, and then configure it via Javascript in the page&rsquo;s code to</p>
+<h2 id="of-course-i-have-to-write-software-to-run-software-it-is-my-wont">Of Course I Have To Write Software to Run Software, It is my Wont</h2>
+<p>The end product I made was <a href="https://github.com/jasonbot/cube-with-friends">Cube With Friends on Github</a>. It&rsquo;s a very easy to set up little program that does all the above manual steps</p>
+<h1 id="getting-to-it-from-other-computers">Getting to It from Other computers</h1>
+<p>Now that I had something running, how do I get other players on here?</p>
+<p>I spun up <code>cube-with-friends</code> on my laptop and started thinking my way through that problem.</p>
+<h2 id="hosting-on-the-internet">Hosting on the Internet</h2>
+<p>I don&rsquo;t want to sacrifice one of my Raspberry Pis to be a permanent host for this app, and I&rsquo;m not going to mess with seeing if I can get to the public IP that my ISP assignes me.</p>
+<p>I don&rsquo;t want to spin up a new VM on GCP and assign it a Real Internet IP Address and do all the work of exposing a service to the world if I can help it either.</p>
+<h2 id="hosting-on-tailnet">Hosting on Tailnet</h2>
+<p>Here comes an idea: my employer pays for a Tailscale corporate account, and all of our dev machines belong to the work tailnet. This is good, I can just point everyone to my work Mac.</p>
+<h3 id="my-work-mac-has-a-firewall-i-cant-disable">My Work Mac Has a Firewall I Can&rsquo;t Disable</h3>
+<p>As is corporate policy, all of our work laptops have a firewall we can&rsquo;t turn off. I can run Cube with Friends locally but the TCP ports are blocked.</p>
+<h3 id="i-dont-want-to-ask-the-infra-team-how-to-host-a-minecraft-server-thats-embarrassing">I Don&rsquo;t Want to ask the Infra Team How to Host a Minecraft Server, That&rsquo;s Embarrassing</h3>
+<p>I could host a machine on the Tailnet on our corporate Infrastructure, but I&rsquo;m not on the infra team and I don&rsquo;t know how to do that. I also don&rsquo;t think I&rsquo;d get buy-in for that. I&rsquo;ll save my goodwill forf some other day.</p>
+<h2 id="running-a-non-firewalled-machine-how-about-linux">Running a Non-Firewalled Machine: How About Linux?</h2>
+<h3 id="rub-some-docker-on-it">Rub Some Docker on It</h3>
+<p>I quickly threw together a preliminary Dockerfile to make an image of a cube-with-friends instance, and started making progress. Now how to get it on the Tailnet?</p>
+<p><a href="https://tailscale.com/kb/1453/quick-guide-docker">This guide to using docker-compose to make a container join a Tailnet</a> made me very sad at the complexity involved, but hopeful. I could run a Docker container on Linux, have the container join the Tailnet, and it would not be subject to the macOS firewall on the hardware network interfaces.</p>
+<p>I switched from Docker Desktop to <a href="https://github.com/abiosoft/colima">Colima</a> a few years back &ndash; I&rsquo;ve been moving away from using brand named Docker utils for a while now since 1) Docker has a <a href="https://www.docker.com/pricing/">weird licensing tripwire</a> I don&rsquo;t want to set off and 2) containers are just a commodity in 2024 &ndash; I use Podman on all my Linux machines to do containerization.</p>
+<p>Colima just works, and <a href="https://github.com/abiosoft/colima?tab=readme-ov-file#runtimes">has multiple personalities</a> which was useful at my last job for dicking about with k8s and stuff.</p>
+<h3 id="colima-is-short-for-containers-on-lima">CoLima is short for Containers on Lima</h3>
+<p><a href="https://github.com/lima-vm/lima">The Lima Project</a> implements the underlying functionality of running a Linux VM on macOS that can then host</p>
+<p>Why not short-circuit the process and just use the VM directly? Why bother with another abstraction layer? I&rsquo;ll just use Lima directly and not make myself sad with the extra abstraction layer that a <code>compose</code>-based solution im-&hellip;poses.</p>
+<h2 id="starting-a-new-vm">Starting a New VM</h2>
+<p>So I:</p>
+<ul>
+<li>Cloned the repo <code>git clone git@github.com:jasonbot/cube-with-friends.git</code></li>
+<li>Started a new VM using <code>lima create default</code></li>
+<li>I edited the configuration so that my auto-mounted home drive was <code>writable: true</code> before launching (this is important if you&rsquo;re keeping the cloned repo on your Mac home dir and not on the VM)</li>
+<li>Installed prereqs: <code>sudo apt install golang mono-runtime</code></li>
+<li>Ran <code>lima</code> to get into the VM</li>
+<li>Edited the <code>/etc/hostname</code> to something memorable</li>
+<li>Restarted the VM</li>
+<li>Went back in via <code>lima</code> and Installed Tailscale via <code>curl -fsSL https://tailscale.com/install.sh | sh</code></li>
+<li>Signed in to tailscale <code>sudo tailscale up</code></li>
+<li>Ran the cube-with-friends server: <code>go run cmd/server.go</code></li>
+<li>Opened a browser to <code>http://my-new-machine:5555/</code> and verified it worked</li>
+</ul>
+<h1 id="conclusion">Conclusion</h1>
+<p>So there we go! Something a little more interesting than playing another card game.</p>
+<p>
+<figure>
+  <img src="/images/playing-classicube-at-work/ss1.png" alt="Login Screen" />
+</figure>
+
+
+</p>
+<p>
+<figure>
+  <img src="/images/playing-classicube-at-work/ss2.png" alt="Success &amp;ndash; logged in" />
+</figure>
+
+
+</p>
+
+			</div>
+		</article>
+	</main>
+
+	
+<footer>
+  <p>
+    &copy; 2024
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
+</footer>
+
+</body>
+</html>

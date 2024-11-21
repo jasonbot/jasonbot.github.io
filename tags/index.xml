@@ -6,20 +6,38 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Jul 2024 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Nov 2024 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>llm</title>
-      <link>https://www.jasonscheirer.com/tags/llm/</link>
-      <pubDate>Sun, 07 Jul 2024 00:00:00 -0800</pubDate>
+      <title>games</title>
+      <link>https://www.jasonscheirer.com/tags/games/</link>
+      <pubDate>Wed, 20 Nov 2024 08:00:00 -0800</pubDate>
       
-      <guid>https://www.jasonscheirer.com/tags/llm/</guid>
+      <guid>https://www.jasonscheirer.com/tags/games/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://www.jasonscheirer.com/tags/go/</link>
+      <pubDate>Wed, 20 Nov 2024 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minecraft</title>
+      <link>https://www.jasonscheirer.com/tags/minecraft/</link>
+      <pubDate>Wed, 20 Nov 2024 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/minecraft/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
       <link>https://www.jasonscheirer.com/tags/programming/</link>
-      <pubDate>Sun, 07 Jul 2024 00:00:00 -0800</pubDate>
+      <pubDate>Wed, 20 Nov 2024 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/programming/</guid>
       <description></description>
@@ -28,9 +46,27 @@
     <item>
       <title>work</title>
       <link>https://www.jasonscheirer.com/tags/work/</link>
-      <pubDate>Thu, 02 May 2024 00:55:10 -0800</pubDate>
+      <pubDate>Wed, 20 Nov 2024 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://www.jasonscheirer.com/tags/linux/</link>
+      <pubDate>Mon, 18 Nov 2024 10:00:00 -0600</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://www.jasonscheirer.com/tags/llm/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/llm/</guid>
       <description></description>
     </item>
     
@@ -53,15 +89,6 @@
     </item>
     
     <item>
-      <title>linux</title>
-      <link>https://www.jasonscheirer.com/tags/linux/</link>
-      <pubDate>Mon, 07 Aug 2023 01:11:45 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>vscode</title>
       <link>https://www.jasonscheirer.com/tags/vscode/</link>
       <pubDate>Sun, 28 May 2023 08:00:00 -0800</pubDate>
@@ -76,15 +103,6 @@
       <pubDate>Thu, 29 Dec 2022 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/apple/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>games</title>
-      <link>https://www.jasonscheirer.com/tags/games/</link>
-      <pubDate>Wed, 07 Sep 2022 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/games/</guid>
       <description></description>
     </item>
     

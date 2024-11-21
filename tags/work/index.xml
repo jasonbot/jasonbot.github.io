@@ -6,7 +6,87 @@
     <description>Recent content in work on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 May 2024 00:55:10 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Nov 2024 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Classicube at Work</title>
+      <link>https://www.jasonscheirer.com/weblog/playing-classicube-at-work/</link>
+      <pubDate>Wed, 20 Nov 2024 08:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/playing-classicube-at-work/</guid>
+      <description>&lt;h1 id=&#34;problem-space&#34;&gt;Problem Space&lt;/h1&gt;
+&lt;p&gt;At &lt;a href=&#34;https://www.academia.edu/&#34;&gt;my new job&lt;/a&gt;, my new team engages in an activity that seems pretty unique to it: every other week we get together for 30 minutes to play a game together online. We&amp;rsquo;re mixed hybrid, meaning about half of us work in office and half of us are grandfathered/exceptioned in to working remotely. this means we can&amp;rsquo;t play a board/card game in person, but has to be perfomrable over the internet in a Zoom call.&lt;/p&gt;
+&lt;p&gt;It takes a team with a long-lived team for something like this to persist, I think. My assumption is the team&amp;rsquo;s culture predates COVID-era and has remained cohesive and coherent enough to continue to this day. The first action being the establishment of a virtual game day at the dawn of the pandemic in an attempt to retain a semblance of in-person culture, then a partial shift back to in-person keeping the thing going.&lt;/p&gt;
+&lt;p&gt;It is now my turn to host a game.&lt;/p&gt;
+&lt;h1 id=&#34;picking-a-game&#34;&gt;Picking a Game&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m sure everyone is tired of playing Werewolf and variants at this point. I wanted something easy to pick up in the spirit of the games we&amp;rsquo;ve played on game days since I joined:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Casual&lt;/li&gt;
+&lt;li&gt;Multiplayer&lt;/li&gt;
+&lt;li&gt;Browser-based&lt;/li&gt;
+&lt;li&gt;Very low barrier to entry&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don&amp;rsquo;t want to pick Yet Another Card Game. Thast sounds boring.&lt;/p&gt;
+&lt;h1 id=&#34;minecraft&#34;&gt;Minecraft?&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/@ActionRetro&#34;&gt;One retro YouTuber I like&lt;/a&gt; pretty consistently plays &lt;a href=&#34;https://www.classicube.net/&#34;&gt;ClassiCube&lt;/a&gt; on the hardware devices he features in his videos. This seemed like a pretty good option: lower software requirements then MC Java Edition, as well as not requiring a paid account to play. It even &lt;a href=&#34;https://www.classicube.net/server/play/&#34;&gt;has a browser-based client&lt;/a&gt; that can connect to servers.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ClassiCube/ClassiCube/blob/master/doc/hosting-flask.md&#34;&gt;ClassiCube has documentation on Github for how to run a browser-based session&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This seems pretty easy: you host a web page that has the ClassiCube JS client on it, and then configure it via Javascript in the page&amp;rsquo;s code to&lt;/p&gt;
+&lt;h2 id=&#34;of-course-i-have-to-write-software-to-run-software-it-is-my-wont&#34;&gt;Of Course I Have To Write Software to Run Software, It is my Wont&lt;/h2&gt;
+&lt;p&gt;The end product I made was &lt;a href=&#34;https://github.com/jasonbot/cube-with-friends&#34;&gt;Cube With Friends on Github&lt;/a&gt;. It&amp;rsquo;s a very easy to set up little program that does all the above manual steps&lt;/p&gt;
+&lt;h1 id=&#34;getting-to-it-from-other-computers&#34;&gt;Getting to It from Other computers&lt;/h1&gt;
+&lt;p&gt;Now that I had something running, how do I get other players on here?&lt;/p&gt;
+&lt;p&gt;I spun up &lt;code&gt;cube-with-friends&lt;/code&gt; on my laptop and started thinking my way through that problem.&lt;/p&gt;
+&lt;h2 id=&#34;hosting-on-the-internet&#34;&gt;Hosting on the Internet&lt;/h2&gt;
+&lt;p&gt;I don&amp;rsquo;t want to sacrifice one of my Raspberry Pis to be a permanent host for this app, and I&amp;rsquo;m not going to mess with seeing if I can get to the public IP that my ISP assignes me.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to spin up a new VM on GCP and assign it a Real Internet IP Address and do all the work of exposing a service to the world if I can help it either.&lt;/p&gt;
+&lt;h2 id=&#34;hosting-on-tailnet&#34;&gt;Hosting on Tailnet&lt;/h2&gt;
+&lt;p&gt;Here comes an idea: my employer pays for a Tailscale corporate account, and all of our dev machines belong to the work tailnet. This is good, I can just point everyone to my work Mac.&lt;/p&gt;
+&lt;h3 id=&#34;my-work-mac-has-a-firewall-i-cant-disable&#34;&gt;My Work Mac Has a Firewall I Can&amp;rsquo;t Disable&lt;/h3&gt;
+&lt;p&gt;As is corporate policy, all of our work laptops have a firewall we can&amp;rsquo;t turn off. I can run Cube with Friends locally but the TCP ports are blocked.&lt;/p&gt;
+&lt;h3 id=&#34;i-dont-want-to-ask-the-infra-team-how-to-host-a-minecraft-server-thats-embarrassing&#34;&gt;I Don&amp;rsquo;t Want to ask the Infra Team How to Host a Minecraft Server, That&amp;rsquo;s Embarrassing&lt;/h3&gt;
+&lt;p&gt;I could host a machine on the Tailnet on our corporate Infrastructure, but I&amp;rsquo;m not on the infra team and I don&amp;rsquo;t know how to do that. I also don&amp;rsquo;t think I&amp;rsquo;d get buy-in for that. I&amp;rsquo;ll save my goodwill forf some other day.&lt;/p&gt;
+&lt;h2 id=&#34;running-a-non-firewalled-machine-how-about-linux&#34;&gt;Running a Non-Firewalled Machine: How About Linux?&lt;/h2&gt;
+&lt;h3 id=&#34;rub-some-docker-on-it&#34;&gt;Rub Some Docker on It&lt;/h3&gt;
+&lt;p&gt;I quickly threw together a preliminary Dockerfile to make an image of a cube-with-friends instance, and started making progress. Now how to get it on the Tailnet?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://tailscale.com/kb/1453/quick-guide-docker&#34;&gt;This guide to using docker-compose to make a container join a Tailnet&lt;/a&gt; made me very sad at the complexity involved, but hopeful. I could run a Docker container on Linux, have the container join the Tailnet, and it would not be subject to the macOS firewall on the hardware network interfaces.&lt;/p&gt;
+&lt;p&gt;I switched from Docker Desktop to &lt;a href=&#34;https://github.com/abiosoft/colima&#34;&gt;Colima&lt;/a&gt; a few years back &amp;ndash; I&amp;rsquo;ve been moving away from using brand named Docker utils for a while now since 1) Docker has a &lt;a href=&#34;https://www.docker.com/pricing/&#34;&gt;weird licensing tripwire&lt;/a&gt; I don&amp;rsquo;t want to set off and 2) containers are just a commodity in 2024 &amp;ndash; I use Podman on all my Linux machines to do containerization.&lt;/p&gt;
+&lt;p&gt;Colima just works, and &lt;a href=&#34;https://github.com/abiosoft/colima?tab=readme-ov-file#runtimes&#34;&gt;has multiple personalities&lt;/a&gt; which was useful at my last job for dicking about with k8s and stuff.&lt;/p&gt;
+&lt;h3 id=&#34;colima-is-short-for-containers-on-lima&#34;&gt;CoLima is short for Containers on Lima&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/lima-vm/lima&#34;&gt;The Lima Project&lt;/a&gt; implements the underlying functionality of running a Linux VM on macOS that can then host&lt;/p&gt;
+&lt;p&gt;Why not short-circuit the process and just use the VM directly? Why bother with another abstraction layer? I&amp;rsquo;ll just use Lima directly and not make myself sad with the extra abstraction layer that a &lt;code&gt;compose&lt;/code&gt;-based solution im-&amp;hellip;poses.&lt;/p&gt;
+&lt;h2 id=&#34;starting-a-new-vm&#34;&gt;Starting a New VM&lt;/h2&gt;
+&lt;p&gt;So I:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cloned the repo &lt;code&gt;git clone git@github.com:jasonbot/cube-with-friends.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Started a new VM using &lt;code&gt;lima create default&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;I edited the configuration so that my auto-mounted home drive was &lt;code&gt;writable: true&lt;/code&gt; before launching (this is important if you&amp;rsquo;re keeping the cloned repo on your Mac home dir and not on the VM)&lt;/li&gt;
+&lt;li&gt;Installed prereqs: &lt;code&gt;sudo apt install golang mono-runtime&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ran &lt;code&gt;lima&lt;/code&gt; to get into the VM&lt;/li&gt;
+&lt;li&gt;Edited the &lt;code&gt;/etc/hostname&lt;/code&gt; to something memorable&lt;/li&gt;
+&lt;li&gt;Restarted the VM&lt;/li&gt;
+&lt;li&gt;Went back in via &lt;code&gt;lima&lt;/code&gt; and Installed Tailscale via &lt;code&gt;curl -fsSL https://tailscale.com/install.sh | sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Signed in to tailscale &lt;code&gt;sudo tailscale up&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ran the cube-with-friends server: &lt;code&gt;go run cmd/server.go&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Opened a browser to &lt;code&gt;http://my-new-machine:5555/&lt;/code&gt; and verified it worked&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;So there we go! Something a little more interesting than playing another card game.&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss1.png&#34; alt=&#34;Login Screen&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;amp;ndash; logged in&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Job #1 of Codebases is Onboardability</title>
       <link>https://www.jasonscheirer.com/weblog/onboardable-codebases/</link>
