@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732149513"><link rel="stylesheet" href="/css/fonts.css?rnd=1732149513">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732149847"><link rel="stylesheet" href="/css/fonts.css?rnd=1732149847">
 	
 </head>
 <body>
@@ -105,7 +105,7 @@
 			
 			<div>
 				<h1 id="problem-space">Problem Space</h1>
-<p>At <a href="https://www.academia.edu/">my new job</a>, my new team engages in an activity that seems pretty unique to it: every other week we get together for 30 minutes to play a game together online. We&rsquo;re mixed hybrid, meaning about half of us work in office and half of us are grandfathered/exceptioned in to working remotely. this means we can&rsquo;t play a board/card game in person, but has to be perfomrable over the internet in a Zoom call.</p>
+<p>At <a href="https://www.academia.edu/">my new job</a>, my new team engages in an activity that seems pretty unique to it: every other week we get together for 30 minutes to play a game together online. We&rsquo;re mixed hybrid, meaning about half of us work in office and half of us are grandfathered/exceptioned in to working remotely. this means we can&rsquo;t play a board/card game in person, but has to be procurable over the internet in a Zoom call.</p>
 <p>It takes a team with a long-lived team for something like this to persist, I think. My assumption is the team&rsquo;s culture predates COVID-era and has remained cohesive and coherent enough to continue to this day. The first action being the establishment of a virtual game day at the dawn of the pandemic in an attempt to retain a semblance of in-person culture, then a partial shift back to in-person keeping the thing going.</p>
 <p>It is now my turn to host a game.</p>
 <h1 id="picking-a-game">Picking a Game</h1>
@@ -116,7 +116,7 @@
 <li>Browser-based</li>
 <li>Very low barrier to entry</li>
 </ul>
-<p>I don&rsquo;t want to pick Yet Another Card Game. Thast sounds boring.</p>
+<p>I don&rsquo;t want to pick Yet Another Card Game. That sounds boring.</p>
 <h1 id="minecraft">Minecraft?</h1>
 <p><a href="https://www.youtube.com/@ActionRetro">One retro YouTuber I like</a> pretty consistently plays <a href="https://www.classicube.net/">ClassiCube</a> on the hardware devices he features in his videos. This seemed like a pretty good option: lower software requirements then MC Java Edition, as well as not requiring a paid account to play. It even <a href="https://www.classicube.net/server/play/">has a browser-based client</a> that can connect to servers.</p>
 <p><a href="https://github.com/ClassiCube/ClassiCube/blob/master/doc/hosting-flask.md">ClassiCube has documentation on Github for how to run a browser-based session</a>.</p>
@@ -127,14 +127,14 @@
 <p>Now that I had something running, how do I get other players on here?</p>
 <p>I spun up <code>cube-with-friends</code> on my laptop and started thinking my way through that problem.</p>
 <h2 id="hosting-on-the-internet">Hosting on the Internet</h2>
-<p>I don&rsquo;t want to sacrifice one of my Raspberry Pis to be a permanent host for this app, and I&rsquo;m not going to mess with seeing if I can get to the public IP that my ISP assignes me.</p>
+<p>I don&rsquo;t want to sacrifice one of my Raspberry Pis to be a permanent host for this app, and I&rsquo;m not going to mess with seeing if I can get to the public IP that my ISP assigns me.</p>
 <p>I don&rsquo;t want to spin up a new VM on GCP and assign it a Real Internet IP Address and do all the work of exposing a service to the world if I can help it either.</p>
 <h2 id="hosting-on-tailnet">Hosting on Tailnet</h2>
 <p>Here comes an idea: my employer pays for a Tailscale corporate account, and all of our dev machines belong to the work tailnet. This is good, I can just point everyone to my work Mac.</p>
 <h3 id="my-work-mac-has-a-firewall-i-cant-disable">My Work Mac Has a Firewall I Can&rsquo;t Disable</h3>
 <p>As is corporate policy, all of our work laptops have a firewall we can&rsquo;t turn off. I can run Cube with Friends locally but the TCP ports are blocked.</p>
 <h3 id="i-dont-want-to-ask-the-infra-team-how-to-host-a-minecraft-server-thats-embarrassing">I Don&rsquo;t Want to ask the Infra Team How to Host a Minecraft Server, That&rsquo;s Embarrassing</h3>
-<p>I could host a machine on the Tailnet on our corporate Infrastructure, but I&rsquo;m not on the infra team and I don&rsquo;t know how to do that. I also don&rsquo;t think I&rsquo;d get buy-in for that. I&rsquo;ll save my goodwill forf some other day.</p>
+<p>I could host a machine on the Tailnet on our corporate Infrastructure, but I&rsquo;m not on the infra team and I don&rsquo;t know how to do that. I also don&rsquo;t think I&rsquo;d get buy-in for that. I&rsquo;ll save my goodwill for some other day.</p>
 <h2 id="running-a-non-firewalled-machine-how-about-linux">Running a Non-Firewalled Machine: How About Linux?</h2>
 <h3 id="rub-some-docker-on-it">Rub Some Docker on It</h3>
 <p>I quickly threw together a preliminary Dockerfile to make an image of a cube-with-friends instance, and started making progress. Now how to get it on the Tailnet?</p>

@@ -14,7 +14,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/playing-classicube-at-work/</guid>
       <description>&lt;h1 id=&#34;problem-space&#34;&gt;Problem Space&lt;/h1&gt;
-&lt;p&gt;At &lt;a href=&#34;https://www.academia.edu/&#34;&gt;my new job&lt;/a&gt;, my new team engages in an activity that seems pretty unique to it: every other week we get together for 30 minutes to play a game together online. We&amp;rsquo;re mixed hybrid, meaning about half of us work in office and half of us are grandfathered/exceptioned in to working remotely. this means we can&amp;rsquo;t play a board/card game in person, but has to be perfomrable over the internet in a Zoom call.&lt;/p&gt;
+&lt;p&gt;At &lt;a href=&#34;https://www.academia.edu/&#34;&gt;my new job&lt;/a&gt;, my new team engages in an activity that seems pretty unique to it: every other week we get together for 30 minutes to play a game together online. We&amp;rsquo;re mixed hybrid, meaning about half of us work in office and half of us are grandfathered/exceptioned in to working remotely. this means we can&amp;rsquo;t play a board/card game in person, but has to be procurable over the internet in a Zoom call.&lt;/p&gt;
 &lt;p&gt;It takes a team with a long-lived team for something like this to persist, I think. My assumption is the team&amp;rsquo;s culture predates COVID-era and has remained cohesive and coherent enough to continue to this day. The first action being the establishment of a virtual game day at the dawn of the pandemic in an attempt to retain a semblance of in-person culture, then a partial shift back to in-person keeping the thing going.&lt;/p&gt;
 &lt;p&gt;It is now my turn to host a game.&lt;/p&gt;
 &lt;h1 id=&#34;picking-a-game&#34;&gt;Picking a Game&lt;/h1&gt;
@@ -25,7 +25,7 @@
 &lt;li&gt;Browser-based&lt;/li&gt;
 &lt;li&gt;Very low barrier to entry&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I don&amp;rsquo;t want to pick Yet Another Card Game. Thast sounds boring.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to pick Yet Another Card Game. That sounds boring.&lt;/p&gt;
 &lt;h1 id=&#34;minecraft&#34;&gt;Minecraft?&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.youtube.com/@ActionRetro&#34;&gt;One retro YouTuber I like&lt;/a&gt; pretty consistently plays &lt;a href=&#34;https://www.classicube.net/&#34;&gt;ClassiCube&lt;/a&gt; on the hardware devices he features in his videos. This seemed like a pretty good option: lower software requirements then MC Java Edition, as well as not requiring a paid account to play. It even &lt;a href=&#34;https://www.classicube.net/server/play/&#34;&gt;has a browser-based client&lt;/a&gt; that can connect to servers.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/ClassiCube/ClassiCube/blob/master/doc/hosting-flask.md&#34;&gt;ClassiCube has documentation on Github for how to run a browser-based session&lt;/a&gt;.&lt;/p&gt;
@@ -36,14 +36,14 @@
 &lt;p&gt;Now that I had something running, how do I get other players on here?&lt;/p&gt;
 &lt;p&gt;I spun up &lt;code&gt;cube-with-friends&lt;/code&gt; on my laptop and started thinking my way through that problem.&lt;/p&gt;
 &lt;h2 id=&#34;hosting-on-the-internet&#34;&gt;Hosting on the Internet&lt;/h2&gt;
-&lt;p&gt;I don&amp;rsquo;t want to sacrifice one of my Raspberry Pis to be a permanent host for this app, and I&amp;rsquo;m not going to mess with seeing if I can get to the public IP that my ISP assignes me.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to sacrifice one of my Raspberry Pis to be a permanent host for this app, and I&amp;rsquo;m not going to mess with seeing if I can get to the public IP that my ISP assigns me.&lt;/p&gt;
 &lt;p&gt;I don&amp;rsquo;t want to spin up a new VM on GCP and assign it a Real Internet IP Address and do all the work of exposing a service to the world if I can help it either.&lt;/p&gt;
 &lt;h2 id=&#34;hosting-on-tailnet&#34;&gt;Hosting on Tailnet&lt;/h2&gt;
 &lt;p&gt;Here comes an idea: my employer pays for a Tailscale corporate account, and all of our dev machines belong to the work tailnet. This is good, I can just point everyone to my work Mac.&lt;/p&gt;
 &lt;h3 id=&#34;my-work-mac-has-a-firewall-i-cant-disable&#34;&gt;My Work Mac Has a Firewall I Can&amp;rsquo;t Disable&lt;/h3&gt;
 &lt;p&gt;As is corporate policy, all of our work laptops have a firewall we can&amp;rsquo;t turn off. I can run Cube with Friends locally but the TCP ports are blocked.&lt;/p&gt;
 &lt;h3 id=&#34;i-dont-want-to-ask-the-infra-team-how-to-host-a-minecraft-server-thats-embarrassing&#34;&gt;I Don&amp;rsquo;t Want to ask the Infra Team How to Host a Minecraft Server, That&amp;rsquo;s Embarrassing&lt;/h3&gt;
-&lt;p&gt;I could host a machine on the Tailnet on our corporate Infrastructure, but I&amp;rsquo;m not on the infra team and I don&amp;rsquo;t know how to do that. I also don&amp;rsquo;t think I&amp;rsquo;d get buy-in for that. I&amp;rsquo;ll save my goodwill forf some other day.&lt;/p&gt;
+&lt;p&gt;I could host a machine on the Tailnet on our corporate Infrastructure, but I&amp;rsquo;m not on the infra team and I don&amp;rsquo;t know how to do that. I also don&amp;rsquo;t think I&amp;rsquo;d get buy-in for that. I&amp;rsquo;ll save my goodwill for some other day.&lt;/p&gt;
 &lt;h2 id=&#34;running-a-non-firewalled-machine-how-about-linux&#34;&gt;Running a Non-Firewalled Machine: How About Linux?&lt;/h2&gt;
 &lt;h3 id=&#34;rub-some-docker-on-it&#34;&gt;Rub Some Docker on It&lt;/h3&gt;
 &lt;p&gt;I quickly threw together a preliminary Dockerfile to make an image of a cube-with-friends instance, and started making progress. Now how to get it on the Tailnet?&lt;/p&gt;
