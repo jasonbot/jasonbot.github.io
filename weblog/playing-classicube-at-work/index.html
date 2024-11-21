@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732149847"><link rel="stylesheet" href="/css/fonts.css?rnd=1732149847">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732150029"><link rel="stylesheet" href="/css/fonts.css?rnd=1732150029">
 	
 </head>
 <body>
@@ -142,7 +142,7 @@
 <p>I switched from Docker Desktop to <a href="https://github.com/abiosoft/colima">Colima</a> a few years back &ndash; I&rsquo;ve been moving away from using brand named Docker utils for a while now since 1) Docker has a <a href="https://www.docker.com/pricing/">weird licensing tripwire</a> I don&rsquo;t want to set off and 2) containers are just a commodity in 2024 &ndash; I use Podman on all my Linux machines to do containerization.</p>
 <p>Colima just works, and <a href="https://github.com/abiosoft/colima?tab=readme-ov-file#runtimes">has multiple personalities</a> which was useful at my last job for dicking about with k8s and stuff.</p>
 <h3 id="colima-is-short-for-containers-on-lima">CoLima is short for Containers on Lima</h3>
-<p><a href="https://github.com/lima-vm/lima">The Lima Project</a> implements the underlying functionality of running a Linux VM on macOS that can then host</p>
+<p><a href="https://github.com/lima-vm/lima">The Lima Project</a> implements the underlying functionality of running a Linux VM on macOS that can then host the containers, since containers require <a href="https://lwn.net/Articles/236038/">Linux kernel internals</a> to work (<a href="https://wiki.freebsd.org/Containers">or not</a>).</p>
 <p>Why not short-circuit the process and just use the VM directly? Why bother with another abstraction layer? I&rsquo;ll just use Lima directly and not make myself sad with the extra abstraction layer that a <code>compose</code>-based solution im-&hellip;poses.</p>
 <h2 id="starting-a-new-vm">Starting a New VM</h2>
 <p>So I:</p>
