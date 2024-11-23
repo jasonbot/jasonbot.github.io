@@ -31,7 +31,7 @@
 &lt;p&gt;This seems pretty easy: you host a web page that has the ClassiCube JS client on it, and then configure it via Javascript in the page&amp;rsquo;s code to connect to your hosted server.&lt;/p&gt;
 &lt;h2 id=&#34;of-course-i-have-to-write-software-to-run-software-it-is-my-wont&#34;&gt;Of Course I Have To Write Software to Run Software, It is My Wont&lt;/h2&gt;
 &lt;p&gt;The end product I made was &lt;a href=&#34;https://github.com/jasonbot/cube-with-friends&#34;&gt;Cube With Friends on Github&lt;/a&gt;. It&amp;rsquo;s a very easy to set up little program that does all the above manual steps &amp;ndash; at build time it embeds all the resources it needs from the internet into a single Go executable, and has other niceness like overlaying a pre-authored config that turns off ClassiCube authentication so people can join without having ClassiCube accounts.&lt;/p&gt;
-&lt;h1 id=&#34;getting-to-it-from-other-computers&#34;&gt;Getting to It From Other computers&lt;/h1&gt;
+&lt;h1 id=&#34;getting-to-it-from-other-computers&#34;&gt;Getting to It From Other Computers&lt;/h1&gt;
 &lt;p&gt;Now that I had something running, how do I get other players on here?&lt;/p&gt;
 &lt;p&gt;I spun up &lt;code&gt;cube-with-friends&lt;/code&gt; on my laptop and started thinking my way through that problem.&lt;/p&gt;
 &lt;h2 id=&#34;hosting-on-the-internet&#34;&gt;Hosting on the Internet&lt;/h2&gt;
