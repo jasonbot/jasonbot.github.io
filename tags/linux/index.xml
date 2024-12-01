@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on Jason Scheirer</title>
+    <title>Linux on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/linux/</link>
-    <description>Recent content in linux on Jason Scheirer</description>
+    <description>Recent content in Linux on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 18 Nov 2024 10:00:00 -0600</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
@@ -21,7 +21,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      
     </item>
     
     <item>
@@ -40,7 +41,10 @@
 &lt;p&gt;For the whole &amp;ldquo;I need at least one Windows machine in the house&amp;rdquo; thing: Proton plays all my games. Steam on here does 95% of what I need. TYhe only Windows app I &lt;em&gt;really&lt;/em&gt; need is &lt;a href=&#34;https://www.xara.com/photo-graphic-plus/&#34;&gt;Xara&lt;/a&gt;, because I&amp;rsquo;ve been using it or its lineage since 1999 and I have muscle memory. Every attempt I&amp;rsquo;ve made in every flavor of Wine has failed, and even &lt;a href=&#34;http://www.xaraxtreme.org/&#34;&gt;the Linux versions they briefly released&lt;/a&gt; are now too bit-rotted to be usable on a modern installation on an x64 machine.&lt;/p&gt;
 &lt;p&gt;So Wine mostly has me covered, but for that single app I&amp;rsquo;m now using &lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; to handle a single Win10 install. It it&amp;rsquo;s got a very small footprint and it runs my programs and is &lt;em&gt;probably&lt;/em&gt; a better idea than an Win7 or XP VM.&lt;/p&gt;
 &lt;p&gt;So Nobara has been fine for the past several months. I have &lt;a href=&#34;https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions&#34;&gt;VS Code as an RPM source&lt;/a&gt;, I just download Go as &lt;code&gt;.tar.gz&lt;/code&gt; and plop it into &lt;code&gt;~&lt;/code&gt;, Python via &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;PyEnv&lt;/a&gt;, and then &lt;a href=&#34;https://cloud.google.com/sdk/docs/install&#34;&gt;google cloud command line apps&lt;/a&gt;. Additionally, &lt;a href=&#34;https://flathub.org/en&#34;&gt;Flatpak&lt;/a&gt; has turned out to be this amazing dark horse over the past 3 years to find decent software in a distro-independent fashion. The only annoyance remaining is that there&amp;rsquo;s the occasional double-buffering-flicker thing that pops up on 3d accelerated UI apps.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pinebook on Jason Scheirer</title>
+    <title>Pinebook on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/pinebook/</link>
-    <description>Recent content in pinebook on Jason Scheirer</description>
+    <description>Recent content in Pinebook on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 19 Jan 2021 12:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/pinebook/index.xml" rel="self" type="application/rss+xml" />
@@ -22,7 +22,10 @@
 &lt;p&gt;Then I thought I wanted to learn i3 to deal with the slowness of the Pinebook and make it more useful, and wound up choosing &lt;a href=&#34;https://swaywm.org/&#34;&gt;Sway&lt;/a&gt; and &lt;a href=&#34;https://github.com/Alexays/Waybar&#34;&gt;Waybar&lt;/a&gt;. I almost got it usable but I had the option of 1) spending months redeveloping muscle memory or 2) customizing it so far into oblivion that I am the only human on earth who understands my idiomatic setup.&lt;/p&gt;
 &lt;p&gt;The usability of this environment was bad, and it mde me want something more traditional. I started getting weird and dark. I wanted to feel some nostalgia so I started building old desktop stuff. Like &lt;a href=&#34;https://www.lysator.liu.se/~marcus/amiwm.html&#34;&gt;AmiWM&lt;/a&gt; and &lt;a href=&#34;https://www.windowmaker.org/&#34;&gt;Windowmaker&lt;/a&gt; which led to me going ahead and build &lt;a href=&#34;http://www.gnustep.org/&#34;&gt;the entire GNUStep stack&lt;/a&gt; from scratch.&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;ve been spending a lot of time on a highly resource contrained device building source from scratch and fighting with dotfiles. Years ago I would abhor this stage of getting stuff up and running, but nowadays it has an almost meditative, calming quality to it.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/pinebook">pinebook</category>
+      <category domain="https://www.jasonscheirer.com//tags/vscode">vscode</category>
+      
     </item>
     
   </channel>

@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1732927872"><link rel="stylesheet" href="/css/fonts.css?rnd=1732927872">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733073406"><link rel="stylesheet" href="/css/fonts.css?rnd=1733073406">
 	
 </head>
 <body>
@@ -116,22 +116,22 @@
 <h2 id="backend-server">Backend server</h2>
 <p>The backend server is a simple Go server with an even simpler API:</p>
 <table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/print</code></td>
-<td>Enqueues a print job and returns a unique ID</td>
-</tr>
-<tr>
-<td><code>/job/:id</code></td>
-<td>Returns the status of the job, along with the image if it&rsquo;s been taken</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Endpoint</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/print</code></td>
+          <td>Enqueues a print job and returns a unique ID</td>
+      </tr>
+      <tr>
+          <td><code>/job/:id</code></td>
+          <td>Returns the status of the job, along with the image if it&rsquo;s been taken</td>
+      </tr>
+  </tbody>
 </table>
 <p>The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&rsquo;s it. That&rsquo;s the synchronization mechanism. A goroutine and a channel.</p>
 <p>Jobs are stored in a <a href="https://github.com/boltdb/bolt">Bolt</a> database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?</p>

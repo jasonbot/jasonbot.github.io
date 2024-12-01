@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Jason Scheirer</title>
+    <title>Python on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/python/</link>
-    <description>Recent content in python on Jason Scheirer</description>
+    <description>Recent content in Python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 29 Aug 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
@@ -32,7 +32,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    val: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_running_loop()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run_in_executor(tp, long_running_process)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the main async code will contnue to run in an async fashion, but will use a parallel executor to run the sync code.&lt;/p&gt;
 &lt;p&gt;This code is very simple to reason about, but did take me a few hours to piece together myself.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -70,7 +72,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; run_keepalive_function_while_awaiting(announce_signs_of_life, &lt;span style=&#34;color:#666&#34;&gt;0.25&lt;/span&gt;):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; do_long_running_task()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As long as the code block in the &lt;code&gt;run_keepalive_function_while_awaiting&lt;/code&gt; context manager is running, the system will run a background coroutine that periodically runs the keepalive function.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -120,7 +124,9 @@
 &lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/asyncio-task.html#asyncio.run&#34;&gt;&lt;code&gt;asyncio.run&lt;/code&gt;&lt;/a&gt; to run a block of async code in a sync context&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Long story short: &lt;code&gt;asyncio.run&lt;/code&gt; does exactly what it says on the tin with minimal fuss. If you&amp;rsquo;re not in an async event loop in the current thread, it starts one for you, runs the async function as its main, then blocks until it&amp;rsquo;s done.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -130,7 +136,9 @@
       
       <guid>https://www.jasonscheirer.com/weblog/new-features-better-code/</guid>
       <description>&lt;p&gt;I wrote a blog post &lt;a href=&#34;https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code&#34;&gt;that is now on my employer&amp;rsquo;s engineering blog&lt;/a&gt;. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history &lt;a href=&#34;https://github.com/jasonbot/weblog/commits/master/content/weblog/new-features-better-code.md&#34;&gt;it&amp;rsquo;s right here&lt;/a&gt;.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -179,7 +187,8 @@
 &lt;p&gt;* The one case I have come up with for Walrus that makes sense:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; (x &lt;span style=&#34;color:#666&#34;&gt;:=&lt;/span&gt; do_something()) &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    x&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;do_something_else()
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -236,7 +245,8 @@
 &lt;p&gt;Note &lt;em&gt;this is in the standard library&lt;/em&gt;. Those poor developers would have to either 1) write this API off and get derogatorily accused of stunting their Python or do insane things to make what is trivial in CPython with byzantine .Net or JVM internals* to achieve parity.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://tratt.net/laurie/blog/2023/compiled_and_interpreted_languages_two_ways_of_saying_tomato.html&#34;&gt;This blog post&lt;/a&gt; touches on a lot of what I discuss here.&lt;/p&gt;
 &lt;p&gt;* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the compiled Python VM bytecode to make the Python runtime in that system aware that it&amp;rsquo;s reentered Python? It fills me with fear.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -372,7 +382,10 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;Javascript Promises&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await&#34;&gt;Javascript &lt;code&gt;await&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/javascript">javascript</category>
+      
     </item>
     
     <item>
@@ -415,7 +428,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;p&gt;YES. I need these too.&lt;/p&gt;
 &lt;h2 id=&#34;faster-cpython&#34;&gt;Faster CPython&lt;/h2&gt;
 &lt;p&gt;Python 3.11. Sure, I&amp;rsquo;ll take it.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -476,7 +491,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;p&gt;You don&amp;rsquo;t have to go all in with typing, but when you do the &lt;a href=&#34;https://peps.python.org/pep-0484/&#34;&gt;type annotation system&lt;/a&gt; is good enough (though not nearly as rich as other languages&amp;rsquo;). In particular I find TypeVar to be clunky for doing generic coding, but it&amp;rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.&lt;/p&gt;
 &lt;h2 id=&#34;thats-all&#34;&gt;That&amp;rsquo;s All&lt;/h2&gt;
 &lt;p&gt;These relatively minor changes to my Python coding I&amp;rsquo;ve made over the last 3-5 years have definitely made the language feel safer and quite a bit different than the unsafe, scary, let&amp;rsquo;s-pass-opaque-dicts-around crazy party that made larger codebases unmaintainable and encourages Python library authors to do weird, abusive metaprogramming stuff in their code to make it more suitable &amp;ldquo;for humans.&amp;rdquo;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -496,7 +513,8 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And it outputs:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;My names are: [[&amp;#39;x&amp;#39;]]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You &lt;em&gt;could&lt;/em&gt; create a class where all its instances know their names. All their names. Do not do this. I will leave you poop.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -524,7 +542,8 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; is &lt;code&gt;[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;]&lt;/code&gt; and not your list of variable names, it&amp;rsquo;s your list of export names.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; is, and has always been, &lt;a href=&#34;https://docs.python.org/3/tutorial/modules.html#importing-from-a-package&#34;&gt;a list of &lt;em&gt;STRINGS&lt;/em&gt; to be exported from your idiot module&lt;/a&gt; into your idiot notebook.&lt;/p&gt;
 &lt;p&gt;Oh my god my irrational hate has fueled in me a series of topics I care to &amp;ldquo;engage&amp;rdquo; about (COMMENTS DISABLED).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -577,7 +596,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;do this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dump(x, file_handle)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;there are usually two functions exposed when an API deals with I/O: a string version and a file-like version.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -595,7 +616,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;li&gt;Scope out a new project to make your first microservice&lt;/li&gt;
 &lt;li&gt;Pull out a relatively isolated piece of code in the monolith to make your next microservice&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      
     </item>
     
     <item>
@@ -611,7 +634,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(x[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;app()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;routes))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/bottle.py">bottle.py</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>apple on Jason Scheirer</title>
+    <title>Apple on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/apple/</link>
-    <description>Recent content in apple on Jason Scheirer</description>
+    <description>Recent content in Apple on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 29 Dec 2022 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/apple/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,9 @@
 &lt;p&gt;I am very happy with this piece of hardware. I held onto my iPhone 4 then original iPhone SE because I liked the form factor. Got the XS when it came out because my phone was dead and it was the smallest one on the market at the time.&lt;/p&gt;
 &lt;p&gt;With smaller devices there is a smaller battery: my Kid&amp;rsquo;s iPad runs a week on a charge. This runs a day.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s an iPhone. It&amp;rsquo;s small. It takes good pictures. It runs iOS. The migration story from an older phone is simple &amp;ndash; the only two apps that took extra attention were Google Auth and Duo. Since I migrated from backup, most other accounts/devices carried over without issue.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/apple">apple</category>
+      
     </item>
     
   </channel>

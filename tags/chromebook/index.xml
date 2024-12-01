@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chromebook on Jason Scheirer</title>
+    <title>Chromebook on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/chromebook/</link>
-    <description>Recent content in chromebook on Jason Scheirer</description>
+    <description>Recent content in Chromebook on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 10 Feb 2020 01:11:45 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/chromebook/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +16,9 @@
       <description>&lt;p&gt;So I &lt;a href=&#34;https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/&#34;&gt;bought that dang Chromebook&lt;/a&gt; over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.&lt;/p&gt;
 &lt;p&gt;All in all, the Chromebook was a good purchase, it has served many purposes, and it&amp;rsquo;s lasted a lot longer than a lot of other laptops I&amp;rsquo;ve owned (Surface Pro, looking at you).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve got a Pinebook Pro on the way, here&amp;rsquo;s hoping that lasts as long (and is as useful).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/chromebook">chromebook</category>
+      
     </item>
     
     <item>
@@ -56,7 +58,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://code.headmelted.com/installers/apt.sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh ./apt.sh
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;now VS Code is installed. You can code in these two arbitrary languages I have chosen as my favorites on this awful hardware, and to be honest it&amp;rsquo;s minimally painful (minus building huge Golang projects).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/chromebook">chromebook</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
   </channel>

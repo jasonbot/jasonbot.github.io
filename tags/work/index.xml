@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>work on Jason Scheirer</title>
+    <title>Work on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/work/</link>
-    <description>Recent content in work on Jason Scheirer</description>
+    <description>Recent content in Work on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 20 Nov 2024 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
@@ -80,12 +80,17 @@
 &lt;/p&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;amp;ndash; logged in&#34; /&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;ndash; logged in&#34; /&gt;
 &lt;/figure&gt;
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/go">go</category>
+      <category domain="https://www.jasonscheirer.com//tags/minecraft">minecraft</category>
+      <category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      
     </item>
     
     <item>
@@ -118,7 +123,9 @@
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -143,7 +150,9 @@
 &lt;li&gt;Professional engineers clean it up, finding common patterns across codebases and standardizing&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;By inverting the process from framework to solution to solution to framework, the frameworks themselves will be far more appropriate to the solutions they encompass.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -171,7 +180,9 @@
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -184,7 +195,10 @@
 &lt;p&gt;This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.&lt;/p&gt;
 &lt;p&gt;However, when you&amp;rsquo;re on-call, you no longer own your uptime. Amazon will randomly flip bits. Its hosted services will go down without warning and leave you helpless but to wait &amp;ndash; you&amp;rsquo;re down until Amazon Hosted Whatever Thing decides to go back up (and the status page will lie about it being up).&lt;/p&gt;
 &lt;p&gt;Now I&amp;rsquo;m at a new place where the systems team (I am back in plain old Software Engineering, hopefully out of DevOps forever) actually runs data centers. Everything is done in VMs and not containers. And it&amp;rsquo;s so refreshing. Not only can we be 100% responsible for fixing downtime, but it provides a much stabler and less abstract system to build software on top of. When the solution to a problem is &amp;ldquo;this Bash script&amp;rdquo; and not &amp;ldquo;this Byzantine pipeline only one guy understands&amp;rdquo; it makes the infrastructure easier to reason about and less prone to failure.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      
     </item>
     
     <item>
@@ -202,7 +216,9 @@
 &lt;li&gt;Scope out a new project to make your first microservice&lt;/li&gt;
 &lt;li&gt;Pull out a relatively isolated piece of code in the monolith to make your next microservice&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      
     </item>
     
     <item>
@@ -230,7 +246,9 @@
 &lt;p&gt;&lt;strong&gt;Unofficially Sanctioned Social Events&lt;/strong&gt;: A lot of people have common interests and like each other enough to organize small group activities. Some people do rock climbing or go to amusement parks or do a weekly board game night. It&amp;rsquo;s pretty great.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The People&lt;/strong&gt;: As a San Francisco tech startup, the people skew a little younger than I&amp;rsquo;m used to, but everyone is smart and reasonable and easy to talk to. There&amp;rsquo;s no &amp;ldquo;watch out for that guy&amp;rdquo; warnings because there are no &amp;ldquo;that guy&amp;quot;s.&lt;/p&gt;
 &lt;p&gt;All in all I&amp;rsquo;m glad I came up and I&amp;rsquo;m happy with Hearsay Social.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>javascript on Jason Scheirer</title>
+    <title>Javascript on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/javascript/</link>
-    <description>Recent content in javascript on Jason Scheirer</description>
+    <description>Recent content in Javascript on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 12 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
@@ -140,7 +140,10 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;Javascript Promises&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await&#34;&gt;Javascript &lt;code&gt;await&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/javascript">javascript</category>
+      
     </item>
     
   </channel>

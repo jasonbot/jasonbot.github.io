@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bottle.py on Jason Scheirer</title>
+    <title>Bottle.py on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/bottle.py/</link>
-    <description>Recent content in bottle.py on Jason Scheirer</description>
+    <description>Recent content in Bottle.py on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 25 Mar 2012 22:11:11 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/bottle.py/index.xml" rel="self" type="application/rss+xml" />
@@ -20,7 +20,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(x[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;app()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;routes))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/bottle.py">bottle.py</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
   </channel>
