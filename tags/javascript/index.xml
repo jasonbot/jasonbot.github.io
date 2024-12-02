@@ -140,7 +140,10 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;Javascript Promises&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await&#34;&gt;Javascript &lt;code&gt;await&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/javascript">javascript</category>
+      
     </item>
     
   </channel>

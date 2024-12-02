@@ -59,7 +59,12 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper&#34;&gt;Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper&lt;/h2&gt;
 &lt;p&gt;Just gotta do what you can do a day at a time, man.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -95,7 +100,11 @@
 
 &lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5&#34;&gt;On to part 5 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -253,7 +262,11 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;end&#34;&gt;End&lt;/h1&gt;
 &lt;p&gt;This is the beefiest of the posts because it includes real code. TL;DR: the configuration of the service is larger than the actual code of the service.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4&#34;&gt;On to part 4 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -292,7 +305,12 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;I&amp;rsquo;ll use Nginx at the edge to route to a frontend application. Then I&amp;rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.&lt;/p&gt;
 &lt;p&gt;Then, I&amp;rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3&#34;&gt;On to part 3 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -312,7 +330,12 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2&#34;&gt;On to part 2 →&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; (Yes, I am aware of &lt;a href=&#34;http://labelary.com/viewer.html&#34;&gt;Labelary&lt;/a&gt;, but that&amp;rsquo;s also proprietary and probably in violation of all kinds of agreements)&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
   </channel>

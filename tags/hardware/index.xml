@@ -23,7 +23,10 @@
 &lt;p&gt;For the whole &amp;ldquo;I need at least one Windows machine in the house&amp;rdquo; thing: Proton plays all my games. Steam on here does 95% of what I need. TYhe only Windows app I &lt;em&gt;really&lt;/em&gt; need is &lt;a href=&#34;https://www.xara.com/photo-graphic-plus/&#34;&gt;Xara&lt;/a&gt;, because I&amp;rsquo;ve been using it or its lineage since 1999 and I have muscle memory. Every attempt I&amp;rsquo;ve made in every flavor of Wine has failed, and even &lt;a href=&#34;http://www.xaraxtreme.org/&#34;&gt;the Linux versions they briefly released&lt;/a&gt; are now too bit-rotted to be usable on a modern installation on an x64 machine.&lt;/p&gt;
 &lt;p&gt;So Wine mostly has me covered, but for that single app I&amp;rsquo;m now using &lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; to handle a single Win10 install. It it&amp;rsquo;s got a very small footprint and it runs my programs and is &lt;em&gt;probably&lt;/em&gt; a better idea than an Win7 or XP VM.&lt;/p&gt;
 &lt;p&gt;So Nobara has been fine for the past several months. I have &lt;a href=&#34;https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions&#34;&gt;VS Code as an RPM source&lt;/a&gt;, I just download Go as &lt;code&gt;.tar.gz&lt;/code&gt; and plop it into &lt;code&gt;~&lt;/code&gt;, Python via &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;PyEnv&lt;/a&gt;, and then &lt;a href=&#34;https://cloud.google.com/sdk/docs/install&#34;&gt;google cloud command line apps&lt;/a&gt;. Additionally, &lt;a href=&#34;https://flathub.org/en&#34;&gt;Flatpak&lt;/a&gt; has turned out to be this amazing dark horse over the past 3 years to find decent software in a distro-independent fashion. The only annoyance remaining is that there&amp;rsquo;s the occasional double-buffering-flicker thing that pops up on 3d accelerated UI apps.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -39,7 +42,8 @@
 &lt;p&gt;I like it so much that I bought my 5 year old one and put &lt;a href=&#34;https://github.com/shauninman/union-minui&#34;&gt;MinUI&lt;/a&gt; on it. Aside from being largely text-based which isn&amp;rsquo;t great for a 5 year old, it&amp;rsquo;s super usable and its no-frills approach makes it ideal for people who just want to play games.&lt;/p&gt;
 &lt;p&gt;My only concern is that the only firmware that runs Dreamcast is &lt;a href=&#34;https://rg35xx-cfw.github.io/&#34;&gt;Batocera&lt;/a&gt;, which I am not particularly inclined to use as a daily driver.&lt;/p&gt;
 &lt;p&gt;Honestly, I play this more than my Steam Deck. I take it with me all the time since it&amp;rsquo;s so small. Waiting rooms, the bus, it&amp;rsquo;s a great little thing to pull out when you have a few seconds to spare.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -59,7 +63,8 @@
 &lt;li&gt;OS support is not great, at one point I built my own Raspbian image because the official one had drifted so far out of date that the apt repos stopped working&lt;/li&gt;
 &lt;li&gt;The keyboard and trackball (even with flashed firmware) are painful to use&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -71,7 +76,8 @@
       <description>&lt;p&gt;I bought a &lt;a href=&#34;https://www.steamdeck.com/en/&#34;&gt;Steam Deck&lt;/a&gt;. I was on a waiting list that said I wouldn&amp;rsquo;t get it until this year (2023), but it arrived in October 2022.&lt;/p&gt;
 &lt;p&gt;This thing is so versatile thanks to its Desktop Mode. For games like the boomer shooters I so love, I can dock the Deck and play with a mouse and keyboard and nicer monitor. I can install Flatpaks.&lt;/p&gt;
 &lt;p&gt;The gaming experience is bar none the best. Steam OS is an accomplishment. It has none of the fiddly bits around power management etc that a standard Linux machine does. It&amp;rsquo;s a usable, console-quality experience.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -88,7 +94,8 @@
 &lt;p&gt;I cannot say enough good things about the display. Blows the Deck out of the water.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;TL;DR&lt;/em&gt;: The hardware is amazing, the support not so much. The screen and the gaming power are the big draws.&lt;/p&gt;
 &lt;p&gt;The A1 has been supplanted by the A1 Pro at this point, so you should be able to find A1s much cheaper now.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -101,7 +108,9 @@
 &lt;p&gt;I am very happy with this piece of hardware. I held onto my iPhone 4 then original iPhone SE because I liked the form factor. Got the XS when it came out because my phone was dead and it was the smallest one on the market at the time.&lt;/p&gt;
 &lt;p&gt;With smaller devices there is a smaller battery: my Kid&amp;rsquo;s iPad runs a week on a charge. This runs a day.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s an iPhone. It&amp;rsquo;s small. It takes good pictures. It runs iOS. The migration story from an older phone is simple &amp;ndash; the only two apps that took extra attention were Google Auth and Duo. Since I migrated from backup, most other accounts/devices carried over without issue.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/apple">apple</category>
+      
     </item>
     
     <item>
@@ -156,7 +165,12 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper&#34;&gt;Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper&lt;/h2&gt;
 &lt;p&gt;Just gotta do what you can do a day at a time, man.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -192,7 +206,11 @@
 
 &lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5&#34;&gt;On to part 5 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -231,7 +249,12 @@
 &lt;p&gt;I&amp;rsquo;ll use Nginx at the edge to route to a frontend application. Then I&amp;rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.&lt;/p&gt;
 &lt;p&gt;Then, I&amp;rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3&#34;&gt;On to part 3 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -251,7 +274,12 @@
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2&#34;&gt;On to part 2 →&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; (Yes, I am aware of &lt;a href=&#34;http://labelary.com/viewer.html&#34;&gt;Labelary&lt;/a&gt;, but that&amp;rsquo;s also proprietary and probably in violation of all kinds of agreements)&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -310,7 +338,9 @@
 &lt;p&gt;This device works as my wandering &amp;ldquo;off site&amp;rdquo; backup now as it still shows up as &lt;code&gt;/Media/Music&lt;/code&gt; on my Mac so my rsync script just works, so it&amp;rsquo;s the living TF adapter/music player for one of my backups.&lt;/p&gt;
 &lt;p&gt;Anyway, they&amp;rsquo;re expensive now and I don&amp;rsquo;t know if I $125 love the thing, but it&amp;rsquo;s a nice piece of compact hardware to put on the pile.&lt;/p&gt;
 &lt;p&gt;And I&amp;rsquo;d recommend nerds check out check out the standalone MP3 player market. They still exist, they have nice, incremental improvements over older players, and are mainly targets to audiophiles which forces them to include features and a build quality that are above what you&amp;rsquo;d see in commodity consumer level players, were that still a market.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
+      
     </item>
     
     <item>
@@ -328,7 +358,10 @@
 &lt;p&gt;Then I thought I wanted to learn i3 to deal with the slowness of the Pinebook and make it more useful, and wound up choosing &lt;a href=&#34;https://swaywm.org/&#34;&gt;Sway&lt;/a&gt; and &lt;a href=&#34;https://github.com/Alexays/Waybar&#34;&gt;Waybar&lt;/a&gt;. I almost got it usable but I had the option of 1) spending months redeveloping muscle memory or 2) customizing it so far into oblivion that I am the only human on earth who understands my idiomatic setup.&lt;/p&gt;
 &lt;p&gt;The usability of this environment was bad, and it mde me want something more traditional. I started getting weird and dark. I wanted to feel some nostalgia so I started building old desktop stuff. Like &lt;a href=&#34;https://www.lysator.liu.se/~marcus/amiwm.html&#34;&gt;AmiWM&lt;/a&gt; and &lt;a href=&#34;https://www.windowmaker.org/&#34;&gt;Windowmaker&lt;/a&gt; which led to me going ahead and build &lt;a href=&#34;http://www.gnustep.org/&#34;&gt;the entire GNUStep stack&lt;/a&gt; from scratch.&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;ve been spending a lot of time on a highly resource contrained device building source from scratch and fighting with dotfiles. Years ago I would abhor this stage of getting stuff up and running, but nowadays it has an almost meditative, calming quality to it.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/pinebook">pinebook</category>
+      <category domain="https://www.jasonscheirer.com//tags/vscode">vscode</category>
+      
     </item>
     
     <item>
@@ -340,7 +373,9 @@
       <description>&lt;p&gt;So I &lt;a href=&#34;https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/&#34;&gt;bought that dang Chromebook&lt;/a&gt; over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.&lt;/p&gt;
 &lt;p&gt;All in all, the Chromebook was a good purchase, it has served many purposes, and it&amp;rsquo;s lasted a lot longer than a lot of other laptops I&amp;rsquo;ve owned (Surface Pro, looking at you).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve got a Pinebook Pro on the way, here&amp;rsquo;s hoping that lasts as long (and is as useful).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/chromebook">chromebook</category>
+      
     </item>
     
     <item>
@@ -353,7 +388,10 @@
 &lt;p&gt;This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.&lt;/p&gt;
 &lt;p&gt;However, when you&amp;rsquo;re on-call, you no longer own your uptime. Amazon will randomly flip bits. Its hosted services will go down without warning and leave you helpless but to wait &amp;ndash; you&amp;rsquo;re down until Amazon Hosted Whatever Thing decides to go back up (and the status page will lie about it being up).&lt;/p&gt;
 &lt;p&gt;Now I&amp;rsquo;m at a new place where the systems team (I am back in plain old Software Engineering, hopefully out of DevOps forever) actually runs data centers. Everything is done in VMs and not containers. And it&amp;rsquo;s so refreshing. Not only can we be 100% responsible for fixing downtime, but it provides a much stabler and less abstract system to build software on top of. When the solution to a problem is &amp;ldquo;this Bash script&amp;rdquo; and not &amp;ldquo;this Byzantine pipeline only one guy understands&amp;rdquo; it makes the infrastructure easier to reason about and less prone to failure.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      
     </item>
     
     <item>
@@ -393,7 +431,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://code.headmelted.com/installers/apt.sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh ./apt.sh
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;now VS Code is installed. You can code in these two arbitrary languages I have chosen as my favorites on this awful hardware, and to be honest it&amp;rsquo;s minimally painful (minus building huge Golang projects).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/chromebook">chromebook</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
   </channel>

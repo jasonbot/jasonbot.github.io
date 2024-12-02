@@ -85,7 +85,12 @@
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/go">go</category>
+      <category domain="https://www.jasonscheirer.com//tags/minecraft">minecraft</category>
+      <category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      
     </item>
     
     <item>
@@ -102,7 +107,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      
     </item>
     
     <item>
@@ -558,7 +564,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;The code is &lt;em&gt;in&lt;/em&gt; Python, but I&amp;rsquo;m not using any Python-native libraries like &lt;a href=&#34;https://pypi.org/project/llm/&#34;&gt;llm&lt;/a&gt; or &lt;a href=&#34;https://pypi.org/project/langchain/&#34;&gt;langchain&lt;/a&gt; to streamline and appropriately take advantage of the innards of existing models. The code is &lt;em&gt;in&lt;/em&gt; Python, but it could have been in any language considering the Unstructured API is just plain old REST, the vector store is an SQlite plugin, and the llamafile is callable from other languages as well as long as they can open a subprocess (all of them).&lt;/p&gt;
 &lt;h1 id=&#34;the-code&#34;&gt;The Code&lt;/h1&gt;
 &lt;p&gt;The code is all &lt;a href=&#34;https://github.com/jasonbot/babys-first-rag&#34;&gt;on Github in an appropriately named repository&lt;/a&gt;.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/llm">llm</category>
+      
     </item>
     
     <item>
@@ -591,7 +599,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -616,7 +626,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;li&gt;Professional engineers clean it up, finding common patterns across codebases and standardizing&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;By inverting the process from framework to solution to solution to framework, the frameworks themselves will be far more appropriate to the solutions they encompass.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -642,7 +654,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;In this way it&amp;rsquo;s not constructive: it&amp;rsquo;s hard to justify doing &amp;rsquo;empty&amp;rsquo; coding where you&amp;rsquo;re not advancing a side project or your employer&amp;rsquo;s goals.&lt;/p&gt;
 &lt;h1 id=&#34;its-timing-is-in-the-worst-part-of-the-year&#34;&gt;Its Timing is in the Worst Part of the Year&lt;/h1&gt;
 &lt;p&gt;I&amp;rsquo;m flying in December. I&amp;rsquo;m driving. I&amp;rsquo;m spending time going to my kid&amp;rsquo;s Christmas concerts. I&amp;rsquo;m not around at 9:00 PM every night to rush through a problem and it consistently gives me anxiety when I try to participate.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -670,7 +683,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    val: &lt;span style=&#34;color:#008000&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get_running_loop()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run_in_executor(tp, long_running_process)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the main async code will contnue to run in an async fashion, but will use a parallel executor to run the sync code.&lt;/p&gt;
 &lt;p&gt;This code is very simple to reason about, but did take me a few hours to piece together myself.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -708,7 +723,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;with&lt;/span&gt; run_keepalive_function_while_awaiting(announce_signs_of_life, &lt;span style=&#34;color:#666&#34;&gt;0.25&lt;/span&gt;):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;await&lt;/span&gt; do_long_running_task()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As long as the code block in the &lt;code&gt;run_keepalive_function_while_awaiting&lt;/code&gt; context manager is running, the system will run a background coroutine that periodically runs the keepalive function.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -727,7 +744,10 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;For the whole &amp;ldquo;I need at least one Windows machine in the house&amp;rdquo; thing: Proton plays all my games. Steam on here does 95% of what I need. TYhe only Windows app I &lt;em&gt;really&lt;/em&gt; need is &lt;a href=&#34;https://www.xara.com/photo-graphic-plus/&#34;&gt;Xara&lt;/a&gt;, because I&amp;rsquo;ve been using it or its lineage since 1999 and I have muscle memory. Every attempt I&amp;rsquo;ve made in every flavor of Wine has failed, and even &lt;a href=&#34;http://www.xaraxtreme.org/&#34;&gt;the Linux versions they briefly released&lt;/a&gt; are now too bit-rotted to be usable on a modern installation on an x64 machine.&lt;/p&gt;
 &lt;p&gt;So Wine mostly has me covered, but for that single app I&amp;rsquo;m now using &lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; to handle a single Win10 install. It it&amp;rsquo;s got a very small footprint and it runs my programs and is &lt;em&gt;probably&lt;/em&gt; a better idea than an Win7 or XP VM.&lt;/p&gt;
 &lt;p&gt;So Nobara has been fine for the past several months. I have &lt;a href=&#34;https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions&#34;&gt;VS Code as an RPM source&lt;/a&gt;, I just download Go as &lt;code&gt;.tar.gz&lt;/code&gt; and plop it into &lt;code&gt;~&lt;/code&gt;, Python via &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;PyEnv&lt;/a&gt;, and then &lt;a href=&#34;https://cloud.google.com/sdk/docs/install&#34;&gt;google cloud command line apps&lt;/a&gt;. Additionally, &lt;a href=&#34;https://flathub.org/en&#34;&gt;Flatpak&lt;/a&gt; has turned out to be this amazing dark horse over the past 3 years to find decent software in a distro-independent fashion. The only annoyance remaining is that there&amp;rsquo;s the occasional double-buffering-flicker thing that pops up on 3d accelerated UI apps.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -743,7 +763,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;I like it so much that I bought my 5 year old one and put &lt;a href=&#34;https://github.com/shauninman/union-minui&#34;&gt;MinUI&lt;/a&gt; on it. Aside from being largely text-based which isn&amp;rsquo;t great for a 5 year old, it&amp;rsquo;s super usable and its no-frills approach makes it ideal for people who just want to play games.&lt;/p&gt;
 &lt;p&gt;My only concern is that the only firmware that runs Dreamcast is &lt;a href=&#34;https://rg35xx-cfw.github.io/&#34;&gt;Batocera&lt;/a&gt;, which I am not particularly inclined to use as a daily driver.&lt;/p&gt;
 &lt;p&gt;Honestly, I play this more than my Steam Deck. I take it with me all the time since it&amp;rsquo;s so small. Waiting rooms, the bus, it&amp;rsquo;s a great little thing to pull out when you have a few seconds to spare.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -760,7 +781,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Simple enough!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; &lt;a href=&#34;https://glitchbone.github.io/vscode-base16-term/&#34;&gt;This site&lt;/a&gt; has a panoply of copy-pastable terminal themes.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/vscode">vscode</category>
+      
     </item>
     
     <item>
@@ -780,7 +803,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;li&gt;OS support is not great, at one point I built my own Raspbian image because the official one had drifted so far out of date that the apt repos stopped working&lt;/li&gt;
 &lt;li&gt;The keyboard and trackball (even with flashed firmware) are painful to use&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -792,7 +816,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
       <description>&lt;p&gt;I bought a &lt;a href=&#34;https://www.steamdeck.com/en/&#34;&gt;Steam Deck&lt;/a&gt;. I was on a waiting list that said I wouldn&amp;rsquo;t get it until this year (2023), but it arrived in October 2022.&lt;/p&gt;
 &lt;p&gt;This thing is so versatile thanks to its Desktop Mode. For games like the boomer shooters I so love, I can dock the Deck and play with a mouse and keyboard and nicer monitor. I can install Flatpaks.&lt;/p&gt;
 &lt;p&gt;The gaming experience is bar none the best. Steam OS is an accomplishment. It has none of the fiddly bits around power management etc that a standard Linux machine does. It&amp;rsquo;s a usable, console-quality experience.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -809,7 +834,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;I cannot say enough good things about the display. Blows the Deck out of the water.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;TL;DR&lt;/em&gt;: The hardware is amazing, the support not so much. The screen and the gaming power are the big draws.&lt;/p&gt;
 &lt;p&gt;The A1 has been supplanted by the A1 Pro at this point, so you should be able to find A1s much cheaper now.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      
     </item>
     
     <item>
@@ -822,7 +848,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;I am very happy with this piece of hardware. I held onto my iPhone 4 then original iPhone SE because I liked the form factor. Got the XS when it came out because my phone was dead and it was the smallest one on the market at the time.&lt;/p&gt;
 &lt;p&gt;With smaller devices there is a smaller battery: my Kid&amp;rsquo;s iPad runs a week on a charge. This runs a day.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s an iPhone. It&amp;rsquo;s small. It takes good pictures. It runs iOS. The migration story from an older phone is simple &amp;ndash; the only two apps that took extra attention were Google Auth and Duo. Since I migrated from backup, most other accounts/devices carried over without issue.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/apple">apple</category>
+      
     </item>
     
     <item>
@@ -872,7 +900,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/library/asyncio-task.html#asyncio.run&#34;&gt;&lt;code&gt;asyncio.run&lt;/code&gt;&lt;/a&gt; to run a block of async code in a sync context&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Long story short: &lt;code&gt;asyncio.run&lt;/code&gt; does exactly what it says on the tin with minimal fuss. If you&amp;rsquo;re not in an async event loop in the current thread, it starts one for you, runs the async function as its main, then blocks until it&amp;rsquo;s done.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -882,7 +912,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
       
       <guid>https://www.jasonscheirer.com/weblog/new-features-better-code/</guid>
       <description>&lt;p&gt;I wrote a blog post &lt;a href=&#34;https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code&#34;&gt;that is now on my employer&amp;rsquo;s engineering blog&lt;/a&gt;. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history &lt;a href=&#34;https://github.com/jasonbot/weblog/commits/master/content/weblog/new-features-better-code.md&#34;&gt;it&amp;rsquo;s right here&lt;/a&gt;.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -898,7 +930,11 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 
 &lt;iframe src=&#34;https://itch.io/embed-upload/6466103?color=161616&#34; allowfullscreen=&#34;&#34; width=&#34;600&#34; height=&#34;420&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/anime-watcher&#34;&gt;Play The Anime Watcher on itch.io&lt;/a&gt;&lt;/iframe&gt;
 
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      <category domain="https://www.jasonscheirer.com//tags/games-by-jason">games-by-jason</category>
+      
     </item>
     
     <item>
@@ -947,7 +983,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;* The one case I have come up with for Walrus that makes sense:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;if&lt;/span&gt; (x &lt;span style=&#34;color:#666&#34;&gt;:=&lt;/span&gt; do_something()) &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;None&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    x&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;do_something_else()
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -1004,7 +1041,8 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;Note &lt;em&gt;this is in the standard library&lt;/em&gt;. Those poor developers would have to either 1) write this API off and get derogatorily accused of stunting their Python or do insane things to make what is trivial in CPython with byzantine .Net or JVM internals* to achieve parity.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://tratt.net/laurie/blog/2023/compiled_and_interpreted_languages_two_ways_of_saying_tomato.html&#34;&gt;This blog post&lt;/a&gt; touches on a lot of what I discuss here.&lt;/p&gt;
 &lt;p&gt;* How would one expect this to work when calling native .Net code? What kind of decoration would need to be annotated to the compiled Python VM bytecode to make the Python runtime in that system aware that it&amp;rsquo;s reentered Python? It fills me with fear.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -1018,7 +1056,11 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 
 &lt;iframe src=&#34;https://itch.io/embed-upload/6208200?color=262b44&#34; allowfullscreen=&#34;&#34; width=&#34;640&#34; height=&#34;500&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/trump-run&#34;&gt;Play Trump Run on itch.io&lt;/a&gt;&lt;/iframe&gt;
 
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      <category domain="https://www.jasonscheirer.com//tags/games-by-jason">games-by-jason</category>
+      
     </item>
     
     <item>
@@ -1032,7 +1074,11 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 
 &lt;iframe src=&#34;https://itch.io/embed-upload/6226779?color=63c64d&#34; allowfullscreen=&#34;&#34; width=&#34;360&#34; height=&#34;380&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/little-guys&#34;&gt;Play Little Guys (A Puzzle Game) on itch.io&lt;/a&gt;&lt;/iframe&gt;
 
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      <category domain="https://www.jasonscheirer.com//tags/games-by-jason">games-by-jason</category>
+      
     </item>
     
     <item>
@@ -1168,7 +1214,10 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;Javascript Promises&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await&#34;&gt;Javascript &lt;code&gt;await&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/javascript">javascript</category>
+      
     </item>
     
     <item>
@@ -1211,7 +1260,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;p&gt;YES. I need these too.&lt;/p&gt;
 &lt;h2 id=&#34;faster-cpython&#34;&gt;Faster CPython&lt;/h2&gt;
 &lt;p&gt;Python 3.11. Sure, I&amp;rsquo;ll take it.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -1272,7 +1323,9 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;p&gt;You don&amp;rsquo;t have to go all in with typing, but when you do the &lt;a href=&#34;https://peps.python.org/pep-0484/&#34;&gt;type annotation system&lt;/a&gt; is good enough (though not nearly as rich as other languages&amp;rsquo;). In particular I find TypeVar to be clunky for doing generic coding, but it&amp;rsquo;s easy to use and covers most cases. If anything, its limitations keep you from doing insane turing-complete stunts like C++ programmers like to do with template metaprogramming.&lt;/p&gt;
 &lt;h2 id=&#34;thats-all&#34;&gt;That&amp;rsquo;s All&lt;/h2&gt;
 &lt;p&gt;These relatively minor changes to my Python coding I&amp;rsquo;ve made over the last 3-5 years have definitely made the language feel safer and quite a bit different than the unsafe, scary, let&amp;rsquo;s-pass-opaque-dicts-around crazy party that made larger codebases unmaintainable and encourages Python library authors to do weird, abusive metaprogramming stuff in their code to make it more suitable &amp;ldquo;for humans.&amp;rdquo;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -1292,7 +1345,8 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And it outputs:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;My names are: [[&amp;#39;x&amp;#39;]]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You &lt;em&gt;could&lt;/em&gt; create a class where all its instances know their names. All their names. Do not do this. I will leave you poop.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -1320,7 +1374,8 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; is &lt;code&gt;[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;]&lt;/code&gt; and not your list of variable names, it&amp;rsquo;s your list of export names.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; is, and has always been, &lt;a href=&#34;https://docs.python.org/3/tutorial/modules.html#importing-from-a-package&#34;&gt;a list of &lt;em&gt;STRINGS&lt;/em&gt; to be exported from your idiot module&lt;/a&gt; into your idiot notebook.&lt;/p&gt;
 &lt;p&gt;Oh my god my irrational hate has fueled in me a series of topics I care to &amp;ldquo;engage&amp;rdquo; about (COMMENTS DISABLED).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -1375,7 +1430,12 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;/ol&gt;
 &lt;h2 id=&#34;life-is-a-sequence-of-disappointments-and-confusion-until-it-usually-ends-anticlimactically-in-a-whimper&#34;&gt;Life is a sequence of disappointments and confusion until it (usually) ends anticlimactically in a whimper&lt;/h2&gt;
 &lt;p&gt;Just gotta do what you can do a day at a time, man.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -1411,7 +1471,11 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 
 &lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-5&#34;&gt;On to part 5 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -1569,7 +1633,11 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;end&#34;&gt;End&lt;/h1&gt;
 &lt;p&gt;This is the beefiest of the posts because it includes real code. TL;DR: the configuration of the service is larger than the actual code of the service.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-4&#34;&gt;On to part 4 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -1608,7 +1676,12 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;I&amp;rsquo;ll use Nginx at the edge to route to a frontend application. Then I&amp;rsquo;ll forward to a backend application which is running on my Raspberry pi which handles the printing/photography step.&lt;/p&gt;
 &lt;p&gt;Then, I&amp;rsquo;ll present the user a nice web service hosted on a machine on the cloud with a Real Internet IP where the user can log in, enter ZPL, and see the output.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-3&#34;&gt;On to part 3 →&lt;/a&gt;&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -1628,7 +1701,12 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;&lt;a href=&#34;https://www.jasonscheirer.com/weblog/zpl-o-rama-part-2&#34;&gt;On to part 2 →&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; (Yes, I am aware of &lt;a href=&#34;http://labelary.com/viewer.html&#34;&gt;Labelary&lt;/a&gt;, but that&amp;rsquo;s also proprietary and probably in violation of all kinds of agreements)&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/zpl-o-rama">zpl-o-rama</category>
+      
     </item>
     
     <item>
@@ -1687,7 +1765,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;This device works as my wandering &amp;ldquo;off site&amp;rdquo; backup now as it still shows up as &lt;code&gt;/Media/Music&lt;/code&gt; on my Mac so my rsync script just works, so it&amp;rsquo;s the living TF adapter/music player for one of my backups.&lt;/p&gt;
 &lt;p&gt;Anyway, they&amp;rsquo;re expensive now and I don&amp;rsquo;t know if I $125 love the thing, but it&amp;rsquo;s a nice piece of compact hardware to put on the pile.&lt;/p&gt;
 &lt;p&gt;And I&amp;rsquo;d recommend nerds check out check out the standalone MP3 player market. They still exist, they have nice, incremental improvements over older players, and are mainly targets to audiophiles which forces them to include features and a build quality that are above what you&amp;rsquo;d see in commodity consumer level players, were that still a market.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
+      
     </item>
     
     <item>
@@ -1736,7 +1816,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;Consuming files via an SFTP client is as easy to do as consuming via an HTTP client, with significantly fewer failure modes.&lt;/p&gt;
 &lt;h1 id=&#34;it-works-to-keep-the-world-working&#34;&gt;It works to keep the world working&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.treasurysoftware.com/ACH/ssh-sftp.aspx&#34;&gt;SFTP powers the financial world&lt;/a&gt;. Every day millions (billions? I honestly have no idea) of financial transactions are compelted via the ACH system, which is text files over SFTP. Similar batch jobs are completed for all kinds of similar systems which may be mainframes running COBOL or &amp;ldquo;cutting-edge&amp;rdquo; Enterprise Java rats&amp;rsquo; nests of code copying files over to a Linux machine somewhere to expose them to the world.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/internet">internet</category>
+      
     </item>
     
     <item>
@@ -1789,7 +1871,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;do this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dump(x, file_handle)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;there are usually two functions exposed when an API deals with I/O: a string version and a file-like version.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -1802,7 +1886,8 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;I&amp;rsquo;ve tried to use full tiling managers before but I&amp;rsquo;ve found it difficult because 1) Irregularly sized window totally mess up the flow, 2) I am so used to the WIMP paradigm, including moving windows around so I have only been semi-functional with and 3) really weird shortcuts I have to memorize.&lt;/p&gt;
 &lt;p&gt;I tried sway on my Linux laptop and could never really &amp;ldquo;get&amp;rdquo; it &amp;ndash; I&amp;rsquo;m not smart enough, and I didn&amp;rsquo;t like the idea of using Gnome again because it&amp;rsquo;s gotten so big, but I&amp;rsquo;ve recently found great success in using &lt;a href=&#34;https://cinnamon-spices.linuxmint.com/extensions/view/76&#34;&gt;gTile&lt;/a&gt; in Cinnamon.&lt;/p&gt;
 &lt;p&gt;I like apps like Rectangle because they take a middle ground to window management &amp;ndash; they don&amp;rsquo;t have a complex set of layout paradigms they don&amp;rsquo;t take full assumption of positioning windows, and they have very, very sane, very easy to learn defaults.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/mac">mac</category>
+      
     </item>
     
     <item>
@@ -1830,7 +1915,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -1848,7 +1935,10 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;Then I thought I wanted to learn i3 to deal with the slowness of the Pinebook and make it more useful, and wound up choosing &lt;a href=&#34;https://swaywm.org/&#34;&gt;Sway&lt;/a&gt; and &lt;a href=&#34;https://github.com/Alexays/Waybar&#34;&gt;Waybar&lt;/a&gt;. I almost got it usable but I had the option of 1) spending months redeveloping muscle memory or 2) customizing it so far into oblivion that I am the only human on earth who understands my idiomatic setup.&lt;/p&gt;
 &lt;p&gt;The usability of this environment was bad, and it mde me want something more traditional. I started getting weird and dark. I wanted to feel some nostalgia so I started building old desktop stuff. Like &lt;a href=&#34;https://www.lysator.liu.se/~marcus/amiwm.html&#34;&gt;AmiWM&lt;/a&gt; and &lt;a href=&#34;https://www.windowmaker.org/&#34;&gt;Windowmaker&lt;/a&gt; which led to me going ahead and build &lt;a href=&#34;http://www.gnustep.org/&#34;&gt;the entire GNUStep stack&lt;/a&gt; from scratch.&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;ve been spending a lot of time on a highly resource contrained device building source from scratch and fighting with dotfiles. Years ago I would abhor this stage of getting stuff up and running, but nowadays it has an almost meditative, calming quality to it.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/pinebook">pinebook</category>
+      <category domain="https://www.jasonscheirer.com//tags/vscode">vscode</category>
+      
     </item>
     
     <item>
@@ -1860,7 +1950,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <description>&lt;p&gt;So I &lt;a href=&#34;https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/&#34;&gt;bought that dang Chromebook&lt;/a&gt; over three years ago at this point and it keeps chugging on. Google has continued to ship OS updates (which I only notice as weird, arbitrary UI changes) and I can still use it to code but its main purpose now is its new life: ChromeOS runs Android apps pretty well, so I put an SD card full of movies on it and play them via VLC for my kid.&lt;/p&gt;
 &lt;p&gt;All in all, the Chromebook was a good purchase, it has served many purposes, and it&amp;rsquo;s lasted a lot longer than a lot of other laptops I&amp;rsquo;ve owned (Surface Pro, looking at you).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve got a Pinebook Pro on the way, here&amp;rsquo;s hoping that lasts as long (and is as useful).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/chromebook">chromebook</category>
+      
     </item>
     
     <item>
@@ -1877,7 +1969,8 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;I&amp;rsquo;ve been able to get back into web development after years of being out of it and the landscape has changed a lot but all the fundamentals are the same. The &lt;code&gt;Referer&lt;/code&gt; HTTP header still exists.&lt;/p&gt;
 &lt;h1 id=&#34;quality-of-life&#34;&gt;Quality of Life&lt;/h1&gt;
 &lt;p&gt;Quality of life is a mixed bag. It&amp;rsquo;s crowded and expensive, but there&amp;rsquo;s stuff to do. We basically throw an entire paycheck into our apartment and single car, but I can take public transit everywhere and we&amp;rsquo;re an hour away from Napa. Now that we&amp;rsquo;re parents we appreciate the suburban wasteland that is the Inland Empire as a good place for kids.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -1890,7 +1983,10 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;This started out great for my career because I have not built a server machine from parts out since I was in college and I could use all my developer muscles to be operations person.&lt;/p&gt;
 &lt;p&gt;However, when you&amp;rsquo;re on-call, you no longer own your uptime. Amazon will randomly flip bits. Its hosted services will go down without warning and leave you helpless but to wait &amp;ndash; you&amp;rsquo;re down until Amazon Hosted Whatever Thing decides to go back up (and the status page will lie about it being up).&lt;/p&gt;
 &lt;p&gt;Now I&amp;rsquo;m at a new place where the systems team (I am back in plain old Software Engineering, hopefully out of DevOps forever) actually runs data centers. Everything is done in VMs and not containers. And it&amp;rsquo;s so refreshing. Not only can we be 100% responsible for fixing downtime, but it provides a much stabler and less abstract system to build software on top of. When the solution to a problem is &amp;ldquo;this Bash script&amp;rdquo; and not &amp;ldquo;this Byzantine pipeline only one guy understands&amp;rdquo; it makes the infrastructure easier to reason about and less prone to failure.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      
     </item>
     
     <item>
@@ -1900,7 +1996,8 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/hello-world/</guid>
       <description>&lt;p&gt;I should probably start blogging again.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -1918,7 +2015,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;li&gt;Scope out a new project to make your first microservice&lt;/li&gt;
 &lt;li&gt;Pull out a relatively isolated piece of code in the monolith to make your next microservice&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      
     </item>
     
     <item>
@@ -1931,7 +2030,10 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 
 &lt;iframe src=&#34;https://itch.io/embed-upload/893486?color=333333&#34; allowfullscreen=&#34;&#34; width=&#34;800&#34; height=&#34;600&#34; frameborder=&#34;0&#34;&gt;&lt;a href=&#34;https://jasonbot.itch.io/jumpbear&#34;&gt;Play Jumpbear: The Global Warming Bear on itch.io&lt;/a&gt;&lt;/iframe&gt;
 
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      <category domain="https://www.jasonscheirer.com//tags/games-by-jason">games-by-jason</category>
+      
     </item>
     
     <item>
@@ -1971,7 +2073,10 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://code.headmelted.com/installers/apt.sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh ./apt.sh
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;now VS Code is installed. You can code in these two arbitrary languages I have chosen as my favorites on this awful hardware, and to be honest it&amp;rsquo;s minimally painful (minus building huge Golang projects).&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/chromebook">chromebook</category>
+      <category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -1999,7 +2104,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;&lt;strong&gt;Unofficially Sanctioned Social Events&lt;/strong&gt;: A lot of people have common interests and like each other enough to organize small group activities. Some people do rock climbing or go to amusement parks or do a weekly board game night. It&amp;rsquo;s pretty great.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The People&lt;/strong&gt;: As a San Francisco tech startup, the people skew a little younger than I&amp;rsquo;m used to, but everyone is smart and reasonable and easy to talk to. There&amp;rsquo;s no &amp;ldquo;watch out for that guy&amp;rdquo; warnings because there are no &amp;ldquo;that guy&amp;quot;s.&lt;/p&gt;
 &lt;p&gt;All in all I&amp;rsquo;m glad I came up and I&amp;rsquo;m happy with Hearsay Social.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -2015,7 +2122,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;=== API REFERENCE ===&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(x[&lt;span style=&#34;color:#ba2121&#34;&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      bottle&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;app()&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;routes))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/bottle.py">bottle.py</category>
+      <category domain="https://www.jasonscheirer.com//tags/python">python</category>
+      
     </item>
     
     <item>
@@ -2026,7 +2135,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <guid>https://www.jasonscheirer.com/weblog/cpp-is-ok/</guid>
       <description>&lt;p&gt;For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.&lt;/p&gt;
 &lt;p&gt;I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the &lt;code&gt;with&lt;/code&gt; statement for the same tightly scoped data lifetime in Python.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/c&#43;&#43;">c&#43;&#43;</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
     <item>
@@ -2043,7 +2154,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;p&gt;Installing software is obviously much easier in OSX (discounting apt): I drag an icon to /Applications. If a title isn’t in apt, or is outdated in the Ubuntu repositories, it’s a pain to get going. But more and more apps are providing .debs (with daily builds!), or better yet, are showing up in the Ubuntu PPAs and this is becoming less of an issue. I’m also learning to live with 6 month old software: it’ll get in when it gets in, I’ll live with the features it has now. Usually the bleeding edge has APIs that are so in flux that it makes absolutely no sense to develop against them.&lt;/p&gt;
 &lt;p&gt;So I find myself on Ubuntu. The UI is familiar and at this point it’s easier to test and deploy apps onto a Debian server using the system that is more Debian-like than the one that is not. It’s fast, it’s responsive, and while it can be idiomatic in its own right for a developer who mostly uses vi, Python and C, it’s great. I can’t really heap too much praise or criticism on it, it just is there and gets out of the way. Ubuntu sucked for stability in 2006, but it works well now. It lets me get stuff done. The new “features” like Ubuntu One that are being constantly tacked on stay out of the way and can even be uninstalled. I had to install a third-party hack to get rid of the Mobile Me account thing in the Finder.&lt;/p&gt;
 &lt;p&gt;This isn’t to say I’ve had a falling out with the Mac: just having used it for 6 years now, it seems a lot less exciting and a lot more of a hassle to use than it used to. I’m slowly using it less and less and while I will likely always have OSX and Windows as a desktop install somewhere, it won’t necessarily be my go-to platform to get things done. So from a highly subjective point of view, I seem to be unconsciously preferring Linux to OSX to do my daily computing chores, and the trend seems to be strengthening every day.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/mac">mac</category>
+      
     </item>
     
   </channel>

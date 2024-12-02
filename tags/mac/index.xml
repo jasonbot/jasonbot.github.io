@@ -17,7 +17,8 @@
 &lt;p&gt;I&amp;rsquo;ve tried to use full tiling managers before but I&amp;rsquo;ve found it difficult because 1) Irregularly sized window totally mess up the flow, 2) I am so used to the WIMP paradigm, including moving windows around so I have only been semi-functional with and 3) really weird shortcuts I have to memorize.&lt;/p&gt;
 &lt;p&gt;I tried sway on my Linux laptop and could never really &amp;ldquo;get&amp;rdquo; it &amp;ndash; I&amp;rsquo;m not smart enough, and I didn&amp;rsquo;t like the idea of using Gnome again because it&amp;rsquo;s gotten so big, but I&amp;rsquo;ve recently found great success in using &lt;a href=&#34;https://cinnamon-spices.linuxmint.com/extensions/view/76&#34;&gt;gTile&lt;/a&gt; in Cinnamon.&lt;/p&gt;
 &lt;p&gt;I like apps like Rectangle because they take a middle ground to window management &amp;ndash; they don&amp;rsquo;t have a complex set of layout paradigms they don&amp;rsquo;t take full assumption of positioning windows, and they have very, very sane, very easy to learn defaults.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/mac">mac</category>
+      
     </item>
     
     <item>
@@ -34,7 +35,9 @@
 &lt;p&gt;Installing software is obviously much easier in OSX (discounting apt): I drag an icon to /Applications. If a title isn’t in apt, or is outdated in the Ubuntu repositories, it’s a pain to get going. But more and more apps are providing .debs (with daily builds!), or better yet, are showing up in the Ubuntu PPAs and this is becoming less of an issue. I’m also learning to live with 6 month old software: it’ll get in when it gets in, I’ll live with the features it has now. Usually the bleeding edge has APIs that are so in flux that it makes absolutely no sense to develop against them.&lt;/p&gt;
 &lt;p&gt;So I find myself on Ubuntu. The UI is familiar and at this point it’s easier to test and deploy apps onto a Debian server using the system that is more Debian-like than the one that is not. It’s fast, it’s responsive, and while it can be idiomatic in its own right for a developer who mostly uses vi, Python and C, it’s great. I can’t really heap too much praise or criticism on it, it just is there and gets out of the way. Ubuntu sucked for stability in 2006, but it works well now. It lets me get stuff done. The new “features” like Ubuntu One that are being constantly tacked on stay out of the way and can even be uninstalled. I had to install a third-party hack to get rid of the Mobile Me account thing in the Finder.&lt;/p&gt;
 &lt;p&gt;This isn’t to say I’ve had a falling out with the Mac: just having used it for 6 years now, it seems a lot less exciting and a lot more of a hassle to use than it used to. I’m slowly using it less and less and while I will likely always have OSX and Windows as a desktop install somewhere, it won’t necessarily be my go-to platform to get things done. So from a highly subjective point of view, I seem to be unconsciously preferring Linux to OSX to do my daily computing chores, and the trend seems to be strengthening every day.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/mac">mac</category>
+      
     </item>
     
   </channel>

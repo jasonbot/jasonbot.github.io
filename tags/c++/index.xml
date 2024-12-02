@@ -15,7 +15,9 @@
       <guid>https://www.jasonscheirer.com/weblog/cpp-is-ok/</guid>
       <description>&lt;p&gt;For as much shit as I like to talk about C++, I sure can get a lot done quite efficiently in it.&lt;/p&gt;
 &lt;p&gt;I read an interview with Bjarne a while back and he said C++’s most important feature was destructors. After thinking about it, yeah, they are pretty awesome and I’ve been using the &lt;code&gt;with&lt;/code&gt; statement for the same tightly scoped data lifetime in Python.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/c&#43;&#43;">c&#43;&#43;</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
     </item>
     
   </channel>

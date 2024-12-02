@@ -460,7 +460,9 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
 &lt;p&gt;The code is &lt;em&gt;in&lt;/em&gt; Python, but I&amp;rsquo;m not using any Python-native libraries like &lt;a href=&#34;https://pypi.org/project/llm/&#34;&gt;llm&lt;/a&gt; or &lt;a href=&#34;https://pypi.org/project/langchain/&#34;&gt;langchain&lt;/a&gt; to streamline and appropriately take advantage of the innards of existing models. The code is &lt;em&gt;in&lt;/em&gt; Python, but it could have been in any language considering the Unstructured API is just plain old REST, the vector store is an SQlite plugin, and the llamafile is callable from other languages as well as long as they can open a subprocess (all of them).&lt;/p&gt;
 &lt;h1 id=&#34;the-code&#34;&gt;The Code&lt;/h1&gt;
 &lt;p&gt;The code is all &lt;a href=&#34;https://github.com/jasonbot/babys-first-rag&#34;&gt;on Github in an appropriately named repository&lt;/a&gt;.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/llm">llm</category>
+      
     </item>
     
   </channel>

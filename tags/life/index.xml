@@ -32,7 +32,9 @@
 
 
 &lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -49,7 +51,8 @@
 &lt;p&gt;I&amp;rsquo;ve been able to get back into web development after years of being out of it and the landscape has changed a lot but all the fundamentals are the same. The &lt;code&gt;Referer&lt;/code&gt; HTTP header still exists.&lt;/p&gt;
 &lt;h1 id=&#34;quality-of-life&#34;&gt;Quality of Life&lt;/h1&gt;
 &lt;p&gt;Quality of life is a mixed bag. It&amp;rsquo;s crowded and expensive, but there&amp;rsquo;s stuff to do. We basically throw an entire paycheck into our apartment and single car, but I can take public transit everywhere and we&amp;rsquo;re an hour away from Napa. Now that we&amp;rsquo;re parents we appreciate the suburban wasteland that is the Inland Empire as a good place for kids.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -59,7 +62,8 @@
       
       <guid>https://www.jasonscheirer.com/weblog/hello-world/</guid>
       <description>&lt;p&gt;I should probably start blogging again.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
     <item>
@@ -87,7 +91,9 @@
 &lt;p&gt;&lt;strong&gt;Unofficially Sanctioned Social Events&lt;/strong&gt;: A lot of people have common interests and like each other enough to organize small group activities. Some people do rock climbing or go to amusement parks or do a weekly board game night. It&amp;rsquo;s pretty great.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The People&lt;/strong&gt;: As a San Francisco tech startup, the people skew a little younger than I&amp;rsquo;m used to, but everyone is smart and reasonable and easy to talk to. There&amp;rsquo;s no &amp;ldquo;watch out for that guy&amp;rdquo; warnings because there are no &amp;ldquo;that guy&amp;quot;s.&lt;/p&gt;
 &lt;p&gt;All in all I&amp;rsquo;m glad I came up and I&amp;rsquo;m happy with Hearsay Social.&lt;/p&gt;
-</description>
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      
     </item>
     
   </channel>
