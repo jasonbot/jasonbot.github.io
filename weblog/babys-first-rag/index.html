@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733108454"><link rel="stylesheet" href="/css/fonts.css?rnd=1733108454">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733109344"><link rel="stylesheet" href="/css/fonts.css?rnd=1733109344">
 	
 </head>
 <body>
@@ -189,10 +189,10 @@
 </ol>
 <h2 id="first-things-first">First Things First</h2>
 <p>We need a pyenv:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#19177c">PYTHON_CONFIGURE_OPTS</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;--enable-loadable-sqlite-extensions&#34;</span> pyenv install 3.12.4
-</span></span><span style="display:flex;"><span>pyenv virtualenv 3.12.4 babys-first-rag
-</span></span><span style="display:flex;"><span>pyenv activate babys-first-rag
-</span></span><span style="display:flex;"><span>pip install -r requirements.txt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">PYTHON_CONFIGURE_OPTS</span><span class="o">=</span><span class="s2">&#34;--enable-loadable-sqlite-extensions&#34;</span> pyenv install 3.12.4
+</span></span><span class="line"><span class="cl">pyenv virtualenv 3.12.4 babys-first-rag
+</span></span><span class="line"><span class="cl">pyenv activate babys-first-rag
+</span></span><span class="line"><span class="cl">pip install -r requirements.txt
 </span></span></code></pre></div><h1 id="retrieval-augmented-generation">Retrieval-Augmented Generation</h1>
 <h2 id="what-the-hell-is-a-rag">What The Hell is a RAG?</h2>
 <p>This was the hardest thing to get a simple answer for.</p>
@@ -231,45 +231,45 @@ What is X?
 <li>If there is a next button, click it and <code>GOTO 2</code></li>
 </ol>
 <p>So to get a base script going, I&rsquo;m going to ask Playwright to do a recording for me:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>playwright codegen --browser chromium --target python-async --output spider.py https://www.happyscribe.com/public/the-joe-rogan-experience
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">playwright codegen --browser chromium --target python-async --output spider.py https://www.happyscribe.com/public/the-joe-rogan-experience
 </span></span></code></pre></div><p>I&rsquo;m just going to click the &ldquo;Next&rdquo; button at the bottom of the page and stop recording. This gives me:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">asyncio</span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">playwright.async_api</span> <span style="color:#008000;font-weight:bold">import</span> Playwright, async_playwright, expect
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">run</span>(playwright: Playwright) <span style="color:#666">-&gt;</span> <span style="color:#008000;font-weight:bold">None</span>:
-</span></span><span style="display:flex;"><span>    browser <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> playwright<span style="color:#666">.</span>chromium<span style="color:#666">.</span>launch(headless<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">False</span>)
-</span></span><span style="display:flex;"><span>    context <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> browser<span style="color:#666">.</span>new_context()
-</span></span><span style="display:flex;"><span>    page <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> context<span style="color:#666">.</span>new_page()
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>goto(<span style="color:#ba2121">&#34;https://www.happyscribe.com/public/the-joe-rogan-experience&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>get_by_role(<span style="color:#ba2121">&#34;link&#34;</span>, name<span style="color:#666">=</span><span style="color:#ba2121">&#34;Next ›&#34;</span>)<span style="color:#666">.</span>click()
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>close()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># ---------------------</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> context<span style="color:#666">.</span>close()
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> browser<span style="color:#666">.</span>close()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">main</span>() <span style="color:#666">-&gt;</span> <span style="color:#008000;font-weight:bold">None</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> async_playwright() <span style="color:#008000;font-weight:bold">as</span> playwright:
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">await</span> run(playwright)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>asyncio<span style="color:#666">.</span>run(main())
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">playwright.async_api</span> <span class="kn">import</span> <span class="n">Playwright</span><span class="p">,</span> <span class="n">async_playwright</span><span class="p">,</span> <span class="n">expect</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">playwright</span><span class="p">:</span> <span class="n">Playwright</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">playwright</span><span class="o">.</span><span class="n">chromium</span><span class="o">.</span><span class="n">launch</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">context</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_context</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s2">&#34;https://www.happyscribe.com/public/the-joe-rogan-experience&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">get_by_role</span><span class="p">(</span><span class="s2">&#34;link&#34;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;Next ›&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># ---------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">with</span> <span class="n">async_playwright</span><span class="p">()</span> <span class="k">as</span> <span class="n">playwright</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">run</span><span class="p">(</span><span class="n">playwright</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </span></span></code></pre></div><p>I&rsquo;ve got some boilerplate I can work with rather than starting from scratch, which is nice. Now I want to keep clicking <em>Next &gt;</em> until I run out of Next pages (and I checked, the next button is missing on the last page), so I modify part of the script as follows:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># All the pages to look for transcript links on</span>
-</span></span><span style="display:flex;"><span>page_urls <span style="color:#666">=</span> []
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">try</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">while</span> <span style="color:#008000;font-weight:bold">True</span>:
-</span></span><span style="display:flex;"><span>        page_urls<span style="color:#666">.</span>append(page<span style="color:#666">.</span>url)
-</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Try to click next, but give up if there is no button on</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># the DOM within a few seconds</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">with</span> asyncio<span style="color:#666">.</span>timeout(<span style="color:#666">2</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>get_by_role(<span style="color:#ba2121">&#34;link&#34;</span>, name<span style="color:#666">=</span><span style="color:#ba2121">&#34;Next ›&#34;</span>)<span style="color:#666">.</span>click()
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">except</span> <span style="color:#d2413a;font-weight:bold">TimeoutError</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Ran out of pages to click&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">finally</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>close()
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># All the pages to look for transcript links on</span>
+</span></span><span class="line"><span class="cl"><span class="n">page_urls</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">page_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Try to click next, but give up if there is no button on</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># the DOM within a few seconds</span>
+</span></span><span class="line"><span class="cl">        <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">get_by_role</span><span class="p">(</span><span class="s2">&#34;link&#34;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;Next ›&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Ran out of pages to click&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span></span></code></pre></div><p>Now I&rsquo;m going to look into the DOM tree to figure out the links to the transcripts:</p>
 <p>
 <figure>
@@ -279,67 +279,67 @@ What is X?
 
 </p>
 <p>With this we see that the links to transcript pages all have the class <code>hsp-card-episode</code>, so we can use Javascript to find them all on the page and pull out the link URLs:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>urls <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>evaluate(
-</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#39;Array.from(document.getElementsByClassName(&#34;hsp-card-episode&#34;)).map(a =&gt; a.href)&#39;</span>
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">urls</span> <span class="o">=</span> <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Array.from(document.getElementsByClassName(&#34;hsp-card-episode&#34;)).map(a =&gt; a.href)&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>We can then use this list of links to download individual pages:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_transcript_files</span>(playwright: Playwright, urls: <span style="color:#008000">list</span>[<span style="color:#008000">str</span>]):
-</span></span><span style="display:flex;"><span>    download_path <span style="color:#666">=</span> pathlib<span style="color:#666">.</span>Path(<span style="color:#ba2121">&#34;./transcript_pages&#34;</span>)
-</span></span><span style="display:flex;"><span>    download_path<span style="color:#666">.</span>mkdir(exist_ok<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    browser <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> playwright<span style="color:#666">.</span>chromium<span style="color:#666">.</span>launch(headless<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>    context <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> browser<span style="color:#666">.</span>new_context()
-</span></span><span style="display:flex;"><span>    page <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> context<span style="color:#666">.</span>new_page()
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> transcript_page_url <span style="color:#a2f;font-weight:bold">in</span> urls:
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(transcript_page_url)
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>goto(transcript_page_url)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        filename <span style="color:#666">=</span> <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">{</span>transcript_page_url<span style="color:#666">.</span>split(<span style="color:#ba2121">&#34;/&#34;</span>)[<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">.html&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;Downloading </span><span style="color:#b68;font-weight:bold">{</span>filename<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(download_path <span style="color:#666">/</span> filename, <span style="color:#ba2121">&#34;w&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> out_handle:
-</span></span><span style="display:flex;"><span>            out_handle<span style="color:#666">.</span>write(<span style="color:#008000;font-weight:bold">await</span> page<span style="color:#666">.</span>content())
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_transcript_files</span><span class="p">(</span><span class="n">playwright</span><span class="p">:</span> <span class="n">Playwright</span><span class="p">,</span> <span class="n">urls</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">download_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&#34;./transcript_pages&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">download_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">playwright</span><span class="o">.</span><span class="n">chromium</span><span class="o">.</span><span class="n">launch</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">context</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_context</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">transcript_page_url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">transcript_page_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">transcript_page_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">transcript_page_url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">download_path</span> <span class="o">/</span> <span class="n">filename</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_handle</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">out_handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">())</span>
 </span></span></code></pre></div><h1 id="cleaning-up-the-data">Cleaning Up the Data</h1>
 <p>At this point I have the page&rsquo;s computed HTML, and I want to extract just the parts that are interesting. Let&rsquo;s put them into a JSON file I use for later manipulation and maybe insert into SQLite.</p>
 <h2 id="install-unstructured">Install Unstructured</h2>
 <p>I&rsquo;m going to use a hosted instance of <a href="https://github.com/Unstructured-IO/unstructured-api">the Unstructured API</a> in Docker. Unstructured is probably the best and most widely used tool for the job.</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Grab image</span>
-</span></span><span style="display:flex;"><span>docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
-</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Run on port 5435 just because it&#39;s not commonly used and 8000 is</span>
-</span></span><span style="display:flex;"><span>docker run -p 5435:8000 -d --rm --name unstructured-api downloads.unstructured.io/unstructured-io/unstructured-api:latest
-</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Should return {&#34;healthcheck&#34;:&#34;HEALTHCHECK STATUS: EVERYTHING OK!&#34;}%</span>
-</span></span><span style="display:flex;"><span>curl http://localhost:5435/healthcheck
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Grab image</span>
+</span></span><span class="line"><span class="cl">docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
+</span></span><span class="line"><span class="cl"><span class="c1"># Run on port 5435 just because it&#39;s not commonly used and 8000 is</span>
+</span></span><span class="line"><span class="cl">docker run -p 5435:8000 -d --rm --name unstructured-api downloads.unstructured.io/unstructured-io/unstructured-api:latest
+</span></span><span class="line"><span class="cl"><span class="c1"># Should return {&#34;healthcheck&#34;:&#34;HEALTHCHECK STATUS: EVERYTHING OK!&#34;}%</span>
+</span></span><span class="line"><span class="cl">curl http://localhost:5435/healthcheck
 </span></span></code></pre></div><p>Unstructured is also my employer, so obviously they have an incredible team of attractive geniuses working for them and it&rsquo;s a good idea to buy as many commercial licenses as your employer can afford when you get back to work next.</p>
 <h2 id="processing-the-html-into-something-more-usable">Processing the HTML into Something More Usable</h2>
 <p>We can iterate through the downloaded HTML using <a href="https://github.com/Unstructured-IO/unstructured-python-client">the Unstructured Python API client</a>:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>in_path <span style="color:#666">=</span> pathlib<span style="color:#666">.</span>Path(<span style="color:#ba2121">&#34;./transcript_pages&#34;</span>)
-</span></span><span style="display:flex;"><span>out_path <span style="color:#666">=</span> pathlib<span style="color:#666">.</span>Path(<span style="color:#ba2121">&#34;./processed_pages&#34;</span>)
-</span></span><span style="display:flex;"><span>out_path<span style="color:#666">.</span>mkdir(exist_ok<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>s <span style="color:#666">=</span> unstructured_client<span style="color:#666">.</span>UnstructuredClient(
-</span></span><span style="display:flex;"><span>    api_key_auth<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">None</span>, server_url<span style="color:#666">=</span><span style="color:#ba2121">&#34;http://localhost:5435/general/v0/&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> file <span style="color:#a2f;font-weight:bold">in</span> in_path<span style="color:#666">.</span>glob(<span style="color:#ba2121">&#34;*.html&#34;</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;Handling </span><span style="color:#b68;font-weight:bold">{</span>file<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">...&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(file, <span style="color:#ba2121">&#34;rb&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> in_handle:
-</span></span><span style="display:flex;"><span>        res <span style="color:#666">=</span> s<span style="color:#666">.</span>general<span style="color:#666">.</span>partition(
-</span></span><span style="display:flex;"><span>            request<span style="color:#666">=</span>operations<span style="color:#666">.</span>PartitionRequest(
-</span></span><span style="display:flex;"><span>                partition_parameters<span style="color:#666">=</span>shared<span style="color:#666">.</span>PartitionParameters(
-</span></span><span style="display:flex;"><span>                    files<span style="color:#666">=</span>shared<span style="color:#666">.</span>Files(
-</span></span><span style="display:flex;"><span>                        file_name<span style="color:#666">=</span>file<span style="color:#666">.</span>name,
-</span></span><span style="display:flex;"><span>                        content<span style="color:#666">=</span>in_handle<span style="color:#666">.</span>read(),
-</span></span><span style="display:flex;"><span>                    ),
-</span></span><span style="display:flex;"><span>                    strategy<span style="color:#666">=</span>shared<span style="color:#666">.</span>Strategy<span style="color:#666">.</span>AUTO,
-</span></span><span style="display:flex;"><span>                ),
-</span></span><span style="display:flex;"><span>            )
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> res<span style="color:#666">.</span>elements <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#008000;font-weight:bold">None</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#408080;font-style:italic"># handle response</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">pass</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">with</span> <span style="color:#008000">open</span>(out_path <span style="color:#666">/</span> (file<span style="color:#666">.</span>name <span style="color:#666">+</span> <span style="color:#ba2121">&#34;.json&#34;</span>), <span style="color:#ba2121">&#34;w&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> out_file:
-</span></span><span style="display:flex;"><span>            json<span style="color:#666">.</span>dump(res<span style="color:#666">.</span>elements, out_file, indent<span style="color:#666">=</span><span style="color:#666">4</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">in_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&#34;./transcript_pages&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">out_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&#34;./processed_pages&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">out_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">unstructured_client</span><span class="o">.</span><span class="n">UnstructuredClient</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">api_key_auth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">server_url</span><span class="o">=</span><span class="s2">&#34;http://localhost:5435/general/v0/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">in_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&#34;*.html&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Handling </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_handle</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">general</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">request</span><span class="o">=</span><span class="n">operations</span><span class="o">.</span><span class="n">PartitionRequest</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">partition_parameters</span><span class="o">=</span><span class="n">shared</span><span class="o">.</span><span class="n">PartitionParameters</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">files</span><span class="o">=</span><span class="n">shared</span><span class="o">.</span><span class="n">Files</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">file_name</span><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">content</span><span class="o">=</span><span class="n">in_handle</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">strategy</span><span class="o">=</span><span class="n">shared</span><span class="o">.</span><span class="n">Strategy</span><span class="o">.</span><span class="n">AUTO</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">elements</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># handle response</span>
+</span></span><span class="line"><span class="cl">            <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&#34;.json&#34;</span><span class="p">),</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">elements</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </span></span></code></pre></div><h1 id="getting-a-locally-runnable-llm">Getting a Locally-Runnable LLM</h1>
 <p>This part is really easy, easier than it should be &ndash; the <a href="https://github.com/Mozilla-Ocho/llamafile">llamafile project</a> has executable files that already come with baked-in, pre-downloaded LLM models. In my case I&rsquo;m going to get the example llamafile <a href="https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile/tree/main">hosted on huggingface</a>.</p>
 <p>I can <code>chmod +x llava-v1.5-7b-q4.llamafile &amp;&amp; ./llava-v1.5-7b-q4.llamafile</code> and a browser will open, ready to teach me the mysteries of the universe.</p>
@@ -350,156 +350,156 @@ What is X?
 <h3 id="getting-an-embedding-from-text">Getting an Embedding from Text</h3>
 <p>Llamafile offers an easy way to extract an embedding from a string of text: the <code>--embedding</code> flag. So we can do <code>./llamafile --embedding -p &quot;&lt;Text goes here&gt;&quot;</code> and get back the embedding vector on standard out.</p>
 <p>We can write a python function that shells out to this program and returns an embedding vector:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">embedding_for_text</span>(text: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">float</span>]:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">float</span>(x)
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> subprocess<span style="color:#666">.</span>run(
-</span></span><span style="display:flex;"><span>            args<span style="color:#666">=</span>[<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">{</span>llama_executable<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121"> --embedding -p </span><span style="color:#b68;font-weight:bold">{</span>shlex<span style="color:#666">.</span>quote(text)<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">&#34;</span>],
-</span></span><span style="display:flex;"><span>            stdout<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>PIPE,
-</span></span><span style="display:flex;"><span>            stdin<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>DEVNULL,
-</span></span><span style="display:flex;"><span>            stderr<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>DEVNULL,
-</span></span><span style="display:flex;"><span>            shell<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>,
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>        <span style="color:#666">.</span>stdout<span style="color:#666">.</span>decode(<span style="color:#ba2121">&#34;ascii&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#666">.</span>split(<span style="color:#ba2121">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>    ]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">embedding_for_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">llama_executable</span><span class="si">}</span><span class="s2"> --embedding -p </span><span class="si">{</span><span class="n">shlex</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&#34;ascii&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span></code></pre></div><h2 id="indexing-our-transcripts-with-embeddings">Indexing our Transcripts with Embeddings</h2>
 <p>We&rsquo;re gonna want a table with each line item from the transcripts:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">table</span><span style="color:#bbb"> </span>text_lines(<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>filename<span style="color:#bbb"> </span><span style="color:#008000">text</span>,<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>text_line<span style="color:#bbb"> </span><span style="color:#008000">text</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">text_lines</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">filename</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">text_line</span><span class="w"> </span><span class="nb">text</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p>And then a virtual vec0 table to store the embedding vectors ins a searchable way:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">create</span><span style="color:#bbb"> </span>virtual<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">table</span><span style="color:#bbb"> </span>vec_chat<span style="color:#bbb"> </span><span style="color:#008000;font-weight:bold">using</span><span style="color:#bbb"> </span>vec0(<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>embedding<span style="color:#bbb"> </span><span style="color:#008000">float</span>[<span style="color:#666">2048</span>]<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">vec_chat</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">vec0</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">embedding</span><span class="w"> </span><span class="nb">float</span><span class="p">[</span><span class="mi">2048</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><h3 id="inserting-text-into-db">Inserting text into DB</h3>
 <p>Then we want to insert the text into the <code>text_lines</code> table:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> file <span style="color:#a2f;font-weight:bold">in</span> folder<span style="color:#666">.</span>glob(<span style="color:#ba2121">&#34;*.json&#34;</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(file)
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction, <span style="color:#008000">open</span>(file, <span style="color:#ba2121">&#34;r&#34;</span>) <span style="color:#008000;font-weight:bold">as</span> in_json:
-</span></span><span style="display:flex;"><span>        json_object <span style="color:#666">=</span> json<span style="color:#666">.</span>load(in_json)
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> json_object:
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> item[<span style="color:#ba2121">&#34;type&#34;</span>] <span style="color:#666">==</span> <span style="color:#ba2121">&#34;NarrativeText&#34;</span>:
-</span></span><span style="display:flex;"><span>                text <span style="color:#666">=</span> item[<span style="color:#ba2121">&#34;text&#34;</span>]
-</span></span><span style="display:flex;"><span>                transaction<span style="color:#666">.</span>execute(
-</span></span><span style="display:flex;"><span>                    <span style="color:#ba2121">&#34;insert into text_lines(filename, text_line) values(?, ?)&#34;</span>,
-</span></span><span style="display:flex;"><span>                    (<span style="color:#008000">str</span>(file), text),
-</span></span><span style="display:flex;"><span>                )
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">folder</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&#34;*.json&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">connection</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_json</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">json_object</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">in_json</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">json_object</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">&#34;type&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;NarrativeText&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">text</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">transaction</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;insert into text_lines(filename, text_line) values(?, ?)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">text</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
 </span></span></code></pre></div><h3 id="premature-optimization-use-a-sliding-window">Premature Optimization: Use a Sliding Window</h3>
 <p>After a little bit of hacking, I decided to use an overlapping window of text items. Then, I noticed that longer bits of conversation could overwhelm the embedding processor later down the line. Here&rsquo;s what I wound up with as a heuristic sliding window generator:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">_sliding_window</span>(
-</span></span><span style="display:flex;"><span>    row_factory, window_size<span style="color:#666">=</span><span style="color:#666">4</span>, overlap<span style="color:#666">=</span><span style="color:#666">1</span>, min_length<span style="color:#666">=</span><span style="color:#666">20</span>, max_length<span style="color:#666">=</span><span style="color:#666">80</span>
-</span></span><span style="display:flex;"><span>):
-</span></span><span style="display:flex;"><span>    window <span style="color:#666">=</span> []
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> row_factory:
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> <span style="color:#008000">len</span>(row) <span style="color:#666">&lt;</span> min_length:
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">elif</span> <span style="color:#008000">len</span>(row) <span style="color:#666">&gt;</span> max_length:
-</span></span><span style="display:flex;"><span>            <span style="color:#408080;font-style:italic"># Use long lines as implicit breaks</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">if</span> window:
-</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">yield</span> window
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> [row]
-</span></span><span style="display:flex;"><span>            window <span style="color:#666">=</span> []
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">continue</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">elif</span> <span style="color:#008000">len</span>(<span style="color:#ba2121">&#34;&#34;</span><span style="color:#666">.</span>join(window)) <span style="color:#666">&gt;</span> max_length:
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> window
-</span></span><span style="display:flex;"><span>            window <span style="color:#666">=</span> []
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">if</span> <span style="color:#008000">len</span>(window) <span style="color:#666">&gt;=</span> window_size:
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> window
-</span></span><span style="display:flex;"><span>            window <span style="color:#666">=</span> window[<span style="color:#666">-</span>overlap:]
-</span></span><span style="display:flex;"><span>        window<span style="color:#666">.</span>append(row)
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> window:
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">yield</span> window
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_sliding_window</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">row_factory</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">80</span>
+</span></span><span class="line"><span class="cl"><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">row_factory</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_length</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Use long lines as implicit breaks</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">window</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">yield</span> <span class="n">window</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="p">[</span><span class="n">row</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">window</span>
+</span></span><span class="line"><span class="cl">            <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">window</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">window_size</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">window</span>
+</span></span><span class="line"><span class="cl">            <span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="p">[</span><span class="o">-</span><span class="n">overlap</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">window</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">window</span>
 </span></span></code></pre></div><p>Then I replace</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> json_object:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> item[<span style="color:#ba2121">&#34;type&#34;</span>] <span style="color:#666">==</span> <span style="color:#ba2121">&#34;NarrativeText&#34;</span>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">json_object</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">&#34;type&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;NarrativeText&#34;</span><span class="p">:</span>
 </span></span></code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> text <span style="color:#a2f;font-weight:bold">in</span> _sliding_window(
-</span></span><span style="display:flex;"><span>    item[<span style="color:#ba2121">&#34;text&#34;</span>] <span style="color:#008000;font-weight:bold">for</span> item <span style="color:#a2f;font-weight:bold">in</span> json_object <span style="color:#008000;font-weight:bold">if</span> item[<span style="color:#ba2121">&#34;type&#34;</span>] <span style="color:#666">==</span> <span style="color:#ba2121">&#34;NarrativeText&#34;</span>
-</span></span><span style="display:flex;"><span>):
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">_sliding_window</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">item</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">json_object</span> <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">&#34;type&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;NarrativeText&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">):</span>
 </span></span></code></pre></div><h3 id="adding-embeddings">Adding Embeddings</h3>
 <p>Then we want to use <code>embedding_for_text</code> to add an embedding value to correspond with each:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> transaction<span style="color:#666">.</span>execute(<span style="color:#ba2121">&#34;select rowid, text_line from text_lines&#34;</span>):
-</span></span><span style="display:flex;"><span>        rowid, text <span style="color:#666">=</span> row
-</span></span><span style="display:flex;"><span>        embedding <span style="color:#666">=</span> embedding_for_text(text)
-</span></span><span style="display:flex;"><span>        transaction<span style="color:#666">.</span>execute(
-</span></span><span style="display:flex;"><span>            <span style="color:#ba2121">&#34;insert into vec_chat(rowid, embedding) values (?, ?)&#34;</span>,
-</span></span><span style="display:flex;"><span>            (rowid, json<span style="color:#666">.</span>dumps(embedding)),
-</span></span><span style="display:flex;"><span>        )
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">with</span> <span class="n">connection</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transaction</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;select rowid, text_line from text_lines&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rowid</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">row</span>
+</span></span><span class="line"><span class="cl">        <span class="n">embedding</span> <span class="o">=</span> <span class="n">embedding_for_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transaction</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;insert into vec_chat(rowid, embedding) values (?, ?)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">rowid</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">embedding</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
 </span></span></code></pre></div><h3 id="kicking-the-tires-on-semantic-search">Kicking the Tires on Semantic Search</h3>
 <p>Let&rsquo;s try out a not particularly controversial prompt (<em>Anthony Fauci, as head of the CDC, helped accelerate the COVID vaccine&rsquo;s release</em>) and see what the most semantically similar things our system is calibrated to inject:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">nearest_n_neighbors</span>(
-</span></span><span style="display:flex;"><span>    text: <span style="color:#008000">str</span>, connection: sqlite3<span style="color:#666">.</span>Connection, limit: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#666">5</span>
-</span></span><span style="display:flex;"><span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">int</span>]:
-</span></span><span style="display:flex;"><span>    limit <span style="color:#666">=</span> <span style="color:#008000">int</span>(limit)
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction:
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> [
-</span></span><span style="display:flex;"><span>            x
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> transaction<span style="color:#666">.</span>execute(
-</span></span><span style="display:flex;"><span>                <span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    select rowid, distance
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    from vec_chat
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    where embedding match ?
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    order by distance
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    limit ?;
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                &#34;&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>                (json<span style="color:#666">.</span>dumps(json<span style="color:#666">.</span>dumps(embedding_for_text(text))), limit),
-</span></span><span style="display:flex;"><span>            )
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">nearest_n_text_lines</span>(
-</span></span><span style="display:flex;"><span>    text: <span style="color:#008000">str</span>, connection: sqlite3<span style="color:#666">.</span>Connection, limit: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#666">5</span>
-</span></span><span style="display:flex;"><span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">list</span>[<span style="color:#008000">str</span>]:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> connection <span style="color:#008000;font-weight:bold">as</span> transaction:
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> [
-</span></span><span style="display:flex;"><span>            row[<span style="color:#666">0</span>]
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> connection<span style="color:#666">.</span>execute(
-</span></span><span style="display:flex;"><span>                <span style="color:#ba2121">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                    select text_line from text_lines where rowid in ?
-</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">                &#34;&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>                (
-</span></span><span style="display:flex;"><span>                    [
-</span></span><span style="display:flex;"><span>                        c[<span style="color:#666">0</span>]
-</span></span><span style="display:flex;"><span>                        <span style="color:#008000;font-weight:bold">for</span> c <span style="color:#a2f;font-weight:bold">in</span> nearest_n_neighbors(
-</span></span><span style="display:flex;"><span>                            text, connection<span style="color:#666">=</span>connection, limit<span style="color:#666">=</span>limit
-</span></span><span style="display:flex;"><span>                        )
-</span></span><span style="display:flex;"><span>                    ],
-</span></span><span style="display:flex;"><span>                ),
-</span></span><span style="display:flex;"><span>            )
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>connection <span style="color:#666">=</span> llm_functions<span style="color:#666">.</span>fresh_db_connection()
-</span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(
-</span></span><span style="display:flex;"><span>    nearest_n_text_lines(
-</span></span><span style="display:flex;"><span>        <span style="color:#ba2121">&#34;Anthony Fauci helped release the COVID vaccine&#34;</span>,
-</span></span><span style="display:flex;"><span>        connection
-</span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nearest_n_neighbors</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">limit</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">connection</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">transaction</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    select rowid, distance
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    from vec_chat
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    where embedding match ?
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    order by distance
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    limit ?;
+</span></span></span><span class="line"><span class="cl"><span class="s2">                &#34;&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">embedding_for_text</span><span class="p">(</span><span class="n">text</span><span class="p">))),</span> <span class="n">limit</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nearest_n_text_lines</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">connection</span> <span class="k">as</span> <span class="n">transaction</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">connection</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    select text_line from text_lines where rowid in ?
+</span></span></span><span class="line"><span class="cl"><span class="s2">                &#34;&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">nearest_n_neighbors</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">text</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">connection</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">connection</span> <span class="o">=</span> <span class="n">llm_functions</span><span class="o">.</span><span class="n">fresh_db_connection</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nearest_n_text_lines</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Anthony Fauci helped release the COVID vaccine&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">connection</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>That gives us:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[
-</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;Right. Covid was a rerun of the AIDS chapter with AZT.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">But the AIDS chapter seems even more terrifying because if the initial treatment was AZT, and we know AZT kills people, you&#39;re taking someone who has a compromised immune system and your response to that was give them something that&#39;s going to kill them quicker and then say there&#39;s a giant crisis and this is what Deusberg was demonized for.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Yeah, I agree. And for many years I resisted the interpretation. I was more familiar with Kerry Mullis&#39;s objections. Kerry Mullis was the inventor of PCR technology who died tragically, and some would say, strangely, at the very beginning of the COVID cris.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Have you ever seen this piece of video where he talks about Anthony Fauci? Yeah, let&#39;s put it this way. Kerry Mullis was a outspoken, vigorous, highly intelligent person who was not corralled by fashion. And in fact, his objection to the idea that HIV was causing AIDS was an early testament to his maverick nature.&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#666">...</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;Chris Christie&#39;s a healthy guy and he wants to keep people healthy. He be covered. That should be the end of lockdown right there.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">He did be covered so that whatever drugs they got.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">Well, I have a friend who is 80 and he just beat the shit, took some I.V. vitamins, said he was sick for four days.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">New Jersey Governor Phil Murphy&#39;s highly confident marijuana will be legal. I look at him clapping.&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#666">...</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;So here&#39;s the thing. The controversial experiments and one lab suspected of starting the coronavirus pandemic and says the case against a human lab. And so it says why the human lab remains a suspect in the coronavirus investigation.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">I mean, it&#39;s really likely that we never really will know. But they most certainly were working on viruses similar to this one right there.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">At the end of this article says there&#39;s another one called Rat RTG 13, which is very, very similar to the sars-cov-2 one that we&#39;re experiencing now. Oh, terrific.</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#ba2121">It&#39;s thought to be the most similar to the sars-cov-2 of any known virus to share 96 percent of the genetic material, that four percent gap, but still be a formidable gap for animal passage research, says Ralph Burek, Virologist University, North Carolina, probably in bed with the Russians who collaborated with like when you found out that a Harvard guy got arrested, that because he was taking money from Russia or excuse me, taking money from China because he was doing something with them.&#34;</span>,
-</span></span><span style="display:flex;"><span>]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Right. Covid was a rerun of the AIDS chapter with AZT.</span><span class="se">\n</span><span class="s2">But the AIDS chapter seems even more terrifying because if the initial treatment was AZT, and we know AZT kills people, you&#39;re taking someone who has a compromised immune system and your response to that was give them something that&#39;s going to kill them quicker and then say there&#39;s a giant crisis and this is what Deusberg was demonized for.</span><span class="se">\n</span><span class="s2">Yeah, I agree. And for many years I resisted the interpretation. I was more familiar with Kerry Mullis&#39;s objections. Kerry Mullis was the inventor of PCR technology who died tragically, and some would say, strangely, at the very beginning of the COVID cris.</span><span class="se">\n</span><span class="s2">Have you ever seen this piece of video where he talks about Anthony Fauci? Yeah, let&#39;s put it this way. Kerry Mullis was a outspoken, vigorous, highly intelligent person who was not corralled by fashion. And in fact, his objection to the idea that HIV was causing AIDS was an early testament to his maverick nature.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Chris Christie&#39;s a healthy guy and he wants to keep people healthy. He be covered. That should be the end of lockdown right there.</span><span class="se">\n</span><span class="s2">He did be covered so that whatever drugs they got.</span><span class="se">\n</span><span class="s2">Well, I have a friend who is 80 and he just beat the shit, took some I.V. vitamins, said he was sick for four days.</span><span class="se">\n</span><span class="s2">New Jersey Governor Phil Murphy&#39;s highly confident marijuana will be legal. I look at him clapping.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;So here&#39;s the thing. The controversial experiments and one lab suspected of starting the coronavirus pandemic and says the case against a human lab. And so it says why the human lab remains a suspect in the coronavirus investigation.</span><span class="se">\n</span><span class="s2">I mean, it&#39;s really likely that we never really will know. But they most certainly were working on viruses similar to this one right there.</span><span class="se">\n</span><span class="s2">At the end of this article says there&#39;s another one called Rat RTG 13, which is very, very similar to the sars-cov-2 one that we&#39;re experiencing now. Oh, terrific.</span><span class="se">\n</span><span class="s2">It&#39;s thought to be the most similar to the sars-cov-2 of any known virus to share 96 percent of the genetic material, that four percent gap, but still be a formidable gap for animal passage research, says Ralph Burek, Virologist University, North Carolina, probably in bed with the Russians who collaborated with like when you found out that a Harvard guy got arrested, that because he was taking money from Russia or excuse me, taking money from China because he was doing something with them.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><p>All right, not terrible. It makes me want to punch my monitor which is a good sign.</p>
 <h1 id="trying-it-out">Trying it Out</h1>
 <h2 id="you-have-to-post-the-entire-transcript-over-and-over">You Have to Post the Entire Transcript Over and Over</h2>
 <p>One of the shortcomings of LLMs (with no escape that I know of) is the conversation has to <em>fully be injected into the LLM to maintain state</em>. So what I&rsquo;ll do is pipe an initial state with a question into the model, get the response from Llama, append a question, and do another round trip.</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">output_from_llama</span>(text: <span style="color:#008000">str</span>) <span style="color:#666">-&gt;</span> <span style="color:#008000">str</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> subprocess<span style="color:#666">.</span>run(
-</span></span><span style="display:flex;"><span>        args<span style="color:#666">=</span>[<span style="color:#ba2121">f</span><span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">{</span>shlex<span style="color:#666">.</span>quote(llama_executable)<span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121"> -f -&#34;</span>],
-</span></span><span style="display:flex;"><span>        stdout<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>PIPE,
-</span></span><span style="display:flex;"><span>        stderr<span style="color:#666">=</span>subprocess<span style="color:#666">.</span>DEVNULL,
-</span></span><span style="display:flex;"><span>        shell<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">input</span><span style="color:#666">=</span>text<span style="color:#666">.</span>encode(<span style="color:#ba2121">&#34;utf-8&#34;</span>),
-</span></span><span style="display:flex;"><span>    )<span style="color:#666">.</span>stdout<span style="color:#666">.</span>decode(<span style="color:#ba2121">&#34;utf-8&#34;</span>)[<span style="color:#008000">len</span>(text) <span style="color:#666">+</span> <span style="color:#666">1</span> :]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">output_from_llama</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">shlex</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">llama_executable</span><span class="p">)</span><span class="si">}</span><span class="s2"> -f -&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">input</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)[</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span>
 </span></span></code></pre></div><p>From here we can cobble together a conversation.</p>
 <h2 id="not-very-good-end-results">Not Very Good End Results</h2>
 <p>Well this was significantly dumber than I had feared:</p>

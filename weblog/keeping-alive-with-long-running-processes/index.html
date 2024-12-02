@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733108454"><link rel="stylesheet" href="/css/fonts.css?rnd=1733108454">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733109344"><link rel="stylesheet" href="/css/fonts.css?rnd=1733109344">
 	
 </head>
 <body>
@@ -107,14 +107,14 @@
 <p>What can I see to do with the code that already exists in the standard library?</p>
 <h1 id="what-i-wound-up-with">What I wound up with</h1>
 <p>Very simply, I create a new <a href="https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor"><code>ThreadPoolExecutor</code></a> resource constrained to a specific number of threads (wherein it will block if more than that many requests are currently outstanding), then tell the async framework to run it:</p>
-<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tp <span style="color:#666">=</span> concurrent<span style="color:#666">.</span>futures<span style="color:#666">.</span>ThreadPoolExecutor(max_threads<span style="color:#666">=</span>multiprocessing<span style="color:#666">.</span>cpu_count() <span style="color:#666">*</span> <span style="color:#666">2</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">long_running_process</span>() <span style="color:#666">-&gt;</span> <span style="color:#008000">int</span>:
-</span></span><span style="display:flex;"><span>    time<span style="color:#666">.</span>sleep(<span style="color:#666">10.0</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> <span style="color:#666">5</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">async</span> <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">run_long_running_process</span>():
-</span></span><span style="display:flex;"><span>    val: <span style="color:#008000">int</span> <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">await</span> asyncio<span style="color:#666">.</span>get_running_loop()<span style="color:#666">.</span>run_in_executor(tp, long_running_process)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">tp</span> <span class="o">=</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_threads</span><span class="o">=</span><span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">long_running_process</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">run_long_running_process</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">long_running_process</span><span class="p">)</span>
 </span></span></code></pre></div><p>Now the main async code will contnue to run in an async fashion, but will use a parallel executor to run the sync code.</p>
 <p>This code is very simple to reason about, but did take me a few hours to piece together myself.</p>
 
