@@ -27,9 +27,6 @@ footer {
   background: var(--darkest-blue);
   padding: 4px;
   text-align: center;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border-radius: 6px;
 }
 
 header a,
@@ -41,9 +38,27 @@ footer a:hover {
   color: white;
 }
 
+@media only screen and (min-width: 800px) {
+  header,
+  footer {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+  }
+}
+
+div.everything {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   border: 1em solid white;
   background: white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 a {
@@ -65,6 +80,7 @@ h6 {
   margin-top: 0.25em;
   padding-top: 0.25em;
   font-weight: 700;
+  line-height: 1;
 }
 
 h1,
@@ -75,14 +91,13 @@ h2 {
 h1.page-title {
   font-size: 36pt;
   text-align: center;
-  line-height: 1;
 }
 
 h1.summary-title {
   margin: 0;
   padding: 8px;
   text-align: center;
-  font-size: 20pt;
+  font-size: 30pt;
 }
 
 h1.summary-title a {
@@ -93,6 +108,8 @@ h1.summary-title a {
 pre {
   color: darkslategray !important;
   font-family: var(--mono-font);
+  font-weight: 300;
+  font-size: 10pt;
   background: white !important;
   margin: 1em;
   padding: 1em;
@@ -102,7 +119,7 @@ pre {
 }
 
 code {
-  color: darkslategray !important;
+  color: var(--darkest-blue) !important;
   font-family: var(--mono-font);
   background: white !important;
 }
@@ -115,13 +132,21 @@ nav {
 
 div.byline-etc {
   font-size: 12pt;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 4px;
   padding: 4px;
-  background: rgba(0, 0, 0, 0.025);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 1px,
+    rgba(0, 0, 0, 0.025) 3px,
+    rgba(0, 0, 0, 0.05) 4px,
+    rgba(0, 0, 0, 0.05) 100%
+  );
 }
 
 div.read-more {
+  padding: 4px;
   text-align: right;
   padding-right: 8px;
   font-weight: 700;
@@ -153,17 +178,18 @@ img {
 }
 
 a.taglink {
-  font-size: smaller;
+  font-size: small;
   font-family: var(--mono-font);
   text-decoration: none;
-  font-weight: normal;
+  font-weight: 300;
   padding: 2px;
   color: black !important;
   border-radius: 12px;
   display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   background-color: rgba(0, 0, 0, 0.05);
   padding: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 3px rgb(255, 255, 255);
 }
 
 a.taglink::before {
@@ -176,17 +202,24 @@ a.taglink::before {
 
 span.tag-count {
   font-family: var(--body-font);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.5);
   padding-left: 8px;
   padding-right: 8px;
   background: rgba(0, 0, 0, 0.125);
   border-radius: 8px;
   font-weight: 600;
   font-size: smaller;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 3px rgba(255, 255, 255);
 }
 
 article.summary {
   margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  padding: 2px;
 }
 
 div.summary-text {
@@ -224,15 +257,19 @@ time {
   font-size: smaller;
   font-weight: 300;
   padding: 4px;
-  background: rgba(255, 255, 255, 0.125);
-  border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.125);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  color: black;
 }
 
 time:before {
   color: var(--darkest-blue);
   content: "📅";
   font-weight: normal;
+  text-shadow: 0 0 2px black;
+  margin-right: 2px;
 }
 
 .nav-item:not(:first-child):before {
@@ -247,4 +284,48 @@ ul.links-tags li {
   font-size: 16pt;
   display: inline-block;
   margin: 4px;
+}
+
+/* Syntax highlighting */
+
+span.k {
+  color: var(--darkest-blue);
+}
+
+span.o {
+  opacity: 0.5;
+}
+
+span.ow,
+span.k {
+  font-style: italic;
+  color: var(--darkest-blue);
+}
+
+span.n {
+  color: var(--darkest-blue);
+  opacity: 0.55;
+}
+
+span.nb {
+  color: var(--dark-purple);
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+span.nf {
+  color: var(--dark-blue);
+  font-weight: 600;
+}
+
+span.kc {
+  color: var(--darkest-blue);
+}
+
+span.o {
+  color: var(--dark-blue);
+}
+
+span.p {
+  color: var(--dark-purple);
 }
