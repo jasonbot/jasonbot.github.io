@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733805836"><link rel="stylesheet" href="/css/fonts.css?rnd=1733805836">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1733806495"><link rel="stylesheet" href="/css/fonts.css?rnd=1733806495">
 	
 </head>
 <body>
@@ -133,6 +133,7 @@
       const calculatePossibilities = (letterList, allLengthPossibilities = true) => {
         const gen = generation;
         const words = [];
+        const visited = new Set();
 
         const startTime = Date.now();
         const nodes = [["", letterList, rootWordNode]];
@@ -141,7 +142,10 @@
           const [isTerminal, childMap] = node;
 
           if (isTerminal && (allLengthPossibilities || lettersLeft.length === 0)) {
-            words.unshift(wordSoFar);
+            if (!visited.has(wordSoFar)) {
+              words.unshift(wordSoFar);
+              visited.add(wordSoFar);
+            }
           }
 
           for (const combo of letterCombination(lettersLeft)) {
@@ -154,7 +158,7 @@
               }
             }
 
-            if (Date.now() - startTime > 3000 || generation !== gen) {
+            if (Date.now() - startTime > 250 || generation !== gen) {
               return words;
             }
           }
