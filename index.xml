@@ -2184,8 +2184,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 &lt;li&gt;Writing bullet points in a text editor&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;(Speculative)&lt;/em&gt; Dead&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The theme for this weblog is a fork of &lt;a href=&#34;https://github.com/colorchestra/smol&#34;&gt;smol&lt;/a&gt;, built in &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, and hosted on &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; through the magic of &lt;a href=&#34;https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;a CNAME&lt;/a&gt;. I&amp;rsquo;m using &lt;a href=&#34;https://pampatype.com/reforma&#34;&gt;Reforma&lt;/a&gt;, &lt;a href=&#34;https://rsms.me/inter/&#34;&gt;Inter&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here and not on Google Fonts) so my indulgence of picking custom type shouldn&amp;rsquo;t hurt the load times of the pages as much as it &lt;em&gt;could&lt;/em&gt; (or spy on you).&lt;/p&gt;
-&lt;p&gt;For diagrams and artwork I use &lt;a href=&#34;https://monodraw.helftone.com/&#34;&gt;Monodraw&lt;/a&gt; and an older version of &lt;a href=&#34;https://www.xara.com/us/photo-graphic-designer/&#34;&gt;Xara Photo and Graphic Designer&lt;/a&gt;. Sometimes &lt;a href=&#34;https://www.gimp.org/&#34;&gt;The Gimp&lt;/a&gt; and &lt;a href=&#34;https://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; come along for the party, too.&lt;/p&gt;
+&lt;p&gt;See my &lt;a href=&#34;https://www.jasonscheirer.com/uses&#34;&gt;&lt;code&gt;/uses&lt;/code&gt; page&lt;/a&gt; for more information about my things.&lt;/p&gt;
 &lt;p&gt;I do not have any sort of analytics on this page. I have no idea what my traffic or &amp;ldquo;engagement&amp;rdquo; stats look like. I could be getting 1 hit a month, I could be getting 100000 hits a day on some single blog post. I honestly have no idea and it&amp;rsquo;s not something I want to think about.&lt;/p&gt;
 &lt;p&gt;There&amp;rsquo;s also no Javascript on this page. I can&amp;rsquo;t justify &amp;ldquo;enhancing&amp;rdquo; the &amp;ldquo;experience&amp;rdquo; of viewing words on a screen with some stupid runtime-in-the-browser trickery.&lt;/p&gt;
 &lt;p&gt;(Late 2022 update: Javascript exists, where necessary, for &amp;ldquo;functional&amp;rdquo; pages like to display games but not for content load or navigation UI trickery.)&lt;/p&gt;
@@ -2428,6 +2427,102 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
     &lt;/div&gt;
   
 </description><category domain="https://www.jasonscheirer.com//tags/toys">toys</category>
+      
+    </item>
+    
+    <item>
+      <title>Uses</title>
+      <link>https://www.jasonscheirer.com/uses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/uses/</guid>
+      <description>&lt;h1 id=&#34;development&#34;&gt;Development&lt;/h1&gt;
+&lt;p&gt;I use a mix of things, depending on where I am!&lt;/p&gt;
+&lt;h2 id=&#34;languagestechnologies&#34;&gt;Languages/Technologies&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I am primarily a Python expert (25 years!)&lt;/li&gt;
+&lt;li&gt;I am primarily a &lt;a href=&#34;https://github.com/fastapi/fastapi&#34;&gt;FastAPI&lt;/a&gt; user, and I am better than average at doing async programming (which sucks and is bad, but it&amp;rsquo;s fun to do bad things)&lt;/li&gt;
+&lt;li&gt;I primarily choose Postgres as my database&lt;/li&gt;
+&lt;li&gt;I reluctantly use Ruby at my office&lt;/li&gt;
+&lt;li&gt;I do most of my personal taskss in Go&lt;/li&gt;
+&lt;li&gt;If you ask me to write something in C++ I will say no but I will write C++ to spite you&lt;/li&gt;
+&lt;li&gt;I prefer Linux desktop to Mac at this point&lt;/li&gt;
+&lt;li&gt;I usually prefer Debian stable or one of its relatives for servers and Alpine for container base images&lt;/li&gt;
+&lt;li&gt;I use Tailwind at home, Sass at work&lt;/li&gt;
+&lt;li&gt;I use &lt;a href=&#34;https://www.solidjs.com/&#34;&gt;Solid&lt;/a&gt; and &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript&#34;&gt;plain old JS&lt;/a&gt; at home, &lt;a href=&#34;https://react.dev/&#34;&gt;React&lt;/a&gt; at work&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;editorsenvironments&#34;&gt;Editors/Environments&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My muscle memory is &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;, I use it everywhere&lt;/li&gt;
+&lt;li&gt;Most of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I am forcing myself to use &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; more too, just because monocultures are aa Bad Idea and VSC is a monoculture now&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;cloud-stuff&#34;&gt;Cloud Stuff&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;In the past, I did Terraform&lt;/li&gt;
+&lt;li&gt;At my last job, I learned a little &lt;a href=&#34;https://www.pulumi.com/&#34;&gt;Pulumi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;At most places of employment, I use AWS&lt;/li&gt;
+&lt;li&gt;I had to learn Azure at my last job&lt;/li&gt;
+&lt;li&gt;At home, I use GCP&lt;/li&gt;
+&lt;li&gt;I am in the process of switching my self-hosted stuff over to &lt;a href=&#34;https://fly.io/&#34;&gt;fly.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;this-site&#34;&gt;This Site&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;The theme for this weblog is a fork of &lt;a href=&#34;https://github.com/colorchestra/smol&#34;&gt;smol&lt;/a&gt;, built in &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hosted on &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; through the magic of &lt;a href=&#34;https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;a CNAME&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href=&#34;https://pampatype.com/reforma&#34;&gt;Reforma&lt;/a&gt;, &lt;a href=&#34;https://rsms.me/inter/&#34;&gt;Inter&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here and not on Google Fonts).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;p&gt;I have a handful of computers I use regularly!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An older Legion desktop running &lt;a href=&#34;https://nobaraproject.org/&#34;&gt;Nobara&lt;/a&gt; for gaming and general computing&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&#34;https://pine64.org/devices/pinebook_pro/&#34;&gt;Pinebook Pro&lt;/a&gt; for remote terminal stuff and a lightweight Miniflux client&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;https://aokzoestore.com/products/aokzoe-8-inch-amd%C2%AE-ryzen%C2%AE-6800u&#34;&gt;AOKZOE A1&lt;/a&gt; for handheld PC gaming, also using its Gnome desktop as a portable development setup&lt;/li&gt;
+&lt;li&gt;Whatever the smallest iPhone is on the market at the time for doomscrolling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;productivity&#34;&gt;Productivity&lt;/h1&gt;
+&lt;h2 id=&#34;visual-artifacts&#34;&gt;Visual Artifacts&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;For diagrams and artwork I use &lt;a href=&#34;https://monodraw.helftone.com/&#34;&gt;Monodraw&lt;/a&gt; and&lt;/li&gt;
+&lt;li&gt;An older version of &lt;a href=&#34;https://www.xara.com/us/photo-graphic-designer/&#34;&gt;Xara Photo and Graphic Designer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sometimes &lt;a href=&#34;https://www.gimp.org/&#34;&gt;The Gimp&lt;/a&gt; and&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; come along for the party, too&lt;/li&gt;
+&lt;li&gt;I touch up SVGs in &lt;a href=&#34;https://flathub.org/apps/org.inkscape.Inkscape&#34;&gt;Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I like &lt;a href=&#34;https://d2lang.com/&#34;&gt;D2&lt;/a&gt; for diagrams as code in terms of how clean the language looks, how clean the output looks, and how easy it is to use&lt;/li&gt;
+&lt;li&gt;I use &lt;a href=&#34;https://mermaid.js.org/&#34;&gt;Mermaid&lt;/a&gt; extensively because it&amp;rsquo;s everywhere&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;desktop-apps&#34;&gt;Desktop Apps&lt;/h2&gt;
+&lt;h3 id=&#34;mac&#34;&gt;Mac&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/waydabber/BetterDisplay&#34;&gt;BetterDisplay&lt;/a&gt; for better extgernal monitor support&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://syncthing.net/&#34;&gt;SyncThing&lt;/a&gt; to move files around&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/leits/MeetingBar&#34;&gt;MeetingBar&lt;/a&gt; to see what I&amp;rsquo;m supposed to be doing&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rectangleapp.com/&#34;&gt;Rectange&lt;/a&gt; to move windows around&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/me.kozec.syncthingtk&#34;&gt;Syncthing&lt;/a&gt; to move files around easily&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.gnome.Rhythmbox3&#34;&gt;Rhythmbox&lt;/a&gt; to hbndle my large music library&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.gnome.Boxes&#34;&gt;Boxes&lt;/a&gt; for light virtualization work&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/app.devsuite.Ptyxis&#34;&gt;Ptyxis&lt;/a&gt; as my terminal emulator&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://podman-desktop.io/&#34;&gt;Podman Desktop&lt;/a&gt; for container-fu&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; for my Windows VMs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://prismlauncher.org/&#34;&gt;Prism Launcher&lt;/a&gt; to play Minecraft with my kid&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;networked-software&#34;&gt;Networked Software&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mastodon&#34;&gt;Mastodon&lt;/a&gt; for one Fediverse server&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gotosocial.org/&#34;&gt;GotoSocial&lt;/a&gt; for the other&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://miniflux.app/&#34;&gt;Miniflux&lt;/a&gt; for keeping up on news&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://about.gitea.com/&#34;&gt;Gitea&lt;/a&gt; for hosting my private repos but considering the upgrade to Forgejo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;toys&#34;&gt;Toys&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;I use a &lt;a href=&#34;https://en.shanling.com/product/259&#34;&gt;small, no-name MP3 player&lt;/a&gt; for sound and an&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://anbernic.com/products/rg35xx&#34;&gt;RG35XX&lt;/a&gt; running &lt;a href=&#34;https://github.com/Turro75/MyMinUI&#34;&gt;MyMinUI&lt;/a&gt; for video games during my commute hours&lt;/li&gt;
+&lt;li&gt;I also have a &lt;a href=&#34;https://flipperzero.one/&#34;&gt;Flipper&lt;/a&gt; that I never use to break the law with&lt;/li&gt;
+&lt;/ul&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/uses">uses</category>
       
     </item>
     
