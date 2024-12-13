@@ -2265,6 +2265,12 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
           }
         }
 
+        if (allLengthPossibilities) {
+          words.sort((a, b) =&gt;
+            a.length !== b.length ? b.length - a.length : a.localeCompare(b)
+          );
+        }
+
         return words;
       };
 
@@ -2308,7 +2314,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         );
       };
 
-      let matchLength = false;
+      let matchLength = true;
 
       const updateValue = (e) =&gt; {
         const str = e.target.value;
@@ -2323,6 +2329,9 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       const bind = () =&gt; {
         const inputElt = document.getElementById(&#34;textinput&#34;);
         inputElt.addEventListener(&#34;input&#34;, debounce(updateValue, 250));
+
+        // On load
+        populatePossbilities(inputElt.value, matchLength);
 
         const matchlengthCheck = document.getElementById(&#34;matchlength&#34;);
         matchlengthCheck.checked = !matchLength;
