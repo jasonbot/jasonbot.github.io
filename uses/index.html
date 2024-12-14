@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Uses</title>
+	<title>Tools I Use to Live My Glamorous Life</title>
 	
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Uses" />
+	<meta property="og:title" content="Tools I Use to Live My Glamorous Life" />
 	
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1734136038"><link rel="stylesheet" href="/css/fonts.css?rnd=1734136038">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1734203616"><link rel="stylesheet" href="/css/fonts.css?rnd=1734203616">
 	
 </head>
 <body>
@@ -97,10 +97,10 @@
 	<main>
 		<article>
 			<h1 class="page-title">
-				Uses</h1>
+				Tools I Use to Live My Glamorous Life</h1>
 			<div class="byline-etc">
 				
-				<time>2024-12-13</time>
+				<time>2024-12-14</time>
 				
 				
 					<a class="taglink" href="/tags/uses">uses</a>
@@ -115,9 +115,14 @@
 <li>I am primarily a <a href="https://github.com/fastapi/fastapi">FastAPI</a> user, and I am better than average at doing async programming (which sucks and is bad, but it&rsquo;s fun to do bad things)</li>
 <li>I primarily choose Postgres as my database</li>
 <li>I reluctantly use Ruby at my office</li>
-<li>I do most of my personal tasks in Go</li>
+<li>I do most of my personal dev projects in Go</li>
 <li>If you ask me to write something in C++ I will say no but I <em>will</em> write C++ to spite you</li>
-<li>I prefer Linux desktop to Mac at this point</li>
+<li>I prefer Linux on the desktop to Mac on the desktop at this point
+<ul>
+<li>I do not value my time or sanity</li>
+<li>If something is reliable, I get bored and self-destructive so I need to be in a state of crisis in all aspects of my life and a Linux desktop fills that need in this space</li>
+</ul>
+</li>
 <li>I usually prefer Debian stable or one of its relatives for servers and Alpine for container base images</li>
 <li>I use <a href="https://tailwindcss.com/">Tailwind</a> at home, <a href="https://sass-lang.com/">Sass</a> at work</li>
 <li>I use <a href="https://www.solidjs.com/">Solid</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">plain old JS</a> at home, <a href="https://react.dev/">React</a> at work</li>
@@ -129,9 +134,23 @@
 <li>Most of my polyglot development is via <a href="https://code.visualstudio.com/">VS Code</a></li>
 <li>I am forcing myself to use <a href="https://zed.dev/">Zed</a> more too, just because monocultures are a Bad Idea and VSC is a monoculture now</li>
 <li>I like using <a href="https://ebitengine.org/">Ebitengine</a> to make silly 2D games</li>
-<li>I like <a href="https://github.com/dandavison/delta">git-delta</a> for command line diffing</li>
-<li>I usually use zsh and start out with <a href="https://ohmyz.sh/">oh-my-zsh</a> on new systems</li>
+<li>I also (rarely) play around with <a href="https://www.lexaloffle.com/picotron.php">Picotron</a>, <a href="https://www.lexaloffle.com/pico-8.php">Pico-8</a>, <a href="https://tic80.com/">TIC-80</a> and <a href="https://love2d.org/">LÖVE</a> for the same</li>
+</ul>
+<h2 id="command-line">Command line</h2>
+<ul>
 <li><a href="https://github.com/jasonbot/dotfiles">Here is the bootstrap set of dotfiles I use</a> on new computers</li>
+<li>I use zsh and bash almost equally, though I think I have more zsh machines now</li>
+<li>I usually start out with <a href="https://ohmyz.sh/">oh-my-zsh</a> or <a href="https://github.com/ohmybash/oh-my-bash">oh-my-bash</a> on new systems</li>
+<li>I use <a href="https://github.com/nvm-sh/nvm">nvm</a>, <a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/rbenv/rbenv">rbenv</a> to manage node/python/ruby installs</li>
+<li>I use <code>grep</code>, <a href="https://github.com/BurntSushi/ripgrep"><code>rg</code></a> and <a href="https://github.com/ggreer/the_silver_searcher"><code>ag</code></a> in descending order of frequency</li>
+<li>I like <a href="https://github.com/dandavison/delta">git-delta</a> for command line diffing</li>
+</ul>
+<h3 id="it-came-from-userspace">It Came from Userspace</h3>
+<ul>
+<li>I always add <code>~/.local/bin</code> and <code>~/bin/</code> to my <code>$PATH</code> so I can manage my own binaries without superuser perms</li>
+<li>I download <a href="https://code.visualstudio.com/download">VS Code</a> and <a href="https://go.dev/doc/install">Go</a> (setting <code>$GOPATH</code> to <code>~/.go</code>) from tarballs and manage them myself, adding <code>~/go/bin</code> and <code>~/VSCode-linux-x64/bin</code> to <code>$PATH</code> &ndash; that way I don&rsquo;t need to deal with native packages or elevated install permissions</li>
+<li>Same with <a href="https://deno.com/">Deno</a></li>
+<li>Currently in <code>~/bin</code>: <code>btm</code> <code>slirp4netns</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <code>tmux</code> <code>tic80</code> (static binaries acquired from their release pages)</li>
 </ul>
 <h2 id="cloud-stuff">Cloud Stuff</h2>
 <ul>
@@ -148,24 +167,16 @@
 <li>Hosted on <a href="https://pages.github.com/">Github Pages</a> through the magic of <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site">a CNAME</a>.</li>
 <li><strong>Fonts</strong>: I&rsquo;m using <a href="https://pampatype.com/reforma">Reforma</a>, <a href="https://rsms.me/inter/">Inter</a> and <a href="https://github.com/0xType/0xProto">0xProto</a> (hosted here and not on Google Fonts).</li>
 </ul>
-<h1 id="hardware">Hardware</h1>
-<p>I have a handful of computers I use regularly!</p>
-<ul>
-<li>An older Legion desktop running <a href="https://nobaraproject.org/">Nobara</a> for gaming and general computing</li>
-<li><a href="https://pine64.org/devices/pinebook_pro/">Pinebook Pro</a> for remote terminal stuff and a lightweight Miniflux client</li>
-<li><a href="https://aokzoestore.com/products/aokzoe-8-inch-amd%C2%AE-ryzen%C2%AE-6800u">AOKZOE A1</a> for handheld PC gaming, also using its Gnome desktop as a portable development setup</li>
-<li>Whatever the smallest iPhone is on the market at the time for doomscrolling</li>
-</ul>
 <h1 id="productivity">Productivity</h1>
-<h2 id="visual-artifacts">Visual Artifacts</h2>
+<h2 id="producing-and-manipulating-visual-artifacts">Producing and Manipulating Visual Artifacts</h2>
 <ul>
 <li><a href="https://monodraw.helftone.com/">Monodraw</a> for cool text-mode diagrams</li>
 <li><a href="https://www.xara.com/us/photo-graphic-designer/">Xara Photo and Graphic Designer</a> as I have muscle memeory and it&rsquo;s fast to make drawings in</li>
 <li><a href="https://www.gimp.org/">The Gimp</a> for quick raster touchups</li>
-<li><a href="https://graphviz.org/">Graphviz</a> come along for the party, too</li>
 <li><a href="https://flathub.org/apps/org.inkscape.Inkscape">Inkscape</a> to touch up SVGs</li>
 <li><a href="https://d2lang.com/">D2</a> for diagrams as code &ndash; I like it in terms of how clean the language looks, how clean the output looks, and how easy it is to use</li>
 <li><a href="https://mermaid.js.org/">Mermaid</a> for diagrams extensively because it&rsquo;s everywhere, mark a code block as <code>mermaid</code> in markdown and you get the rendering for free in things like Obsidian and on Github</li>
+<li><a href="https://graphviz.org/">Graphviz</a> comes along for the party, too &ndash; it&rsquo;s old but it gets the job done for a large range of jobs</li>
 </ul>
 <h2 id="desktop-apps">Desktop Apps</h2>
 <h3 id="mac">Mac</h3>
@@ -180,7 +191,7 @@
 <h3 id="linux">Linux</h3>
 <ul>
 <li><a href="https://flathub.org/apps/me.kozec.syncthingtk">Syncthing</a> to move files around easily</li>
-<li><a href="https://flathub.org/apps/org.gnome.Rhythmbox3">Rhythmbox</a> to hbndle my large music library</li>
+<li><a href="https://flathub.org/apps/org.gnome.Rhythmbox3">Rhythmbox</a> to handle my large music library</li>
 <li><a href="https://flathub.org/apps/org.gnome.Boxes">Boxes</a> for light virtualization work</li>
 <li><a href="https://flathub.org/apps/app.devsuite.Ptyxis">Ptyxis</a> as my terminal emulator</li>
 <li><a href="https://podman-desktop.io/">Podman Desktop</a> for container-fu</li>
@@ -196,12 +207,33 @@
 <li><a href="https://miniflux.app/">Miniflux</a> for keeping up on news</li>
 <li><a href="https://about.gitea.com/">Gitea</a> for hosting my private repos but considering the upgrade to Forgejo</li>
 </ul>
-<h1 id="toys">Toys</h1>
+<h1 id="computer-hardware">Computer Hardware</h1>
+<h2 id="general-purpose-computing-and-development">General-Purpose Computing and Development</h2>
+<p>I have a handful of computers I use regularly!</p>
+<ul>
+<li>An older Legion desktop running <a href="https://nobaraproject.org/">Nobara</a> for gaming and general computing</li>
+<li><a href="https://pine64.org/devices/pinebook_pro/">Pinebook Pro</a> running <a href="https://manjaro.org/products/download/arm">Manjaro</a> for remote terminal stuff and as a lightweight Miniflux client</li>
+<li><a href="https://aokzoestore.com/products/aokzoe-8-inch-amd%C2%AE-ryzen%C2%AE-6800u">AOKZOE A1</a> running <a href="https://chimeraos.org/">ChimeraOS</a> for handheld PC gaming, also using its Gnome desktop as a portable development setup</li>
+<li><a href="https://en.wikipedia.org/wiki/IPhone_13">Whatever the smallest iPhone is</a> on the market at the time for doomscrolling</li>
+</ul>
+<h2 id="toys">Toys</h2>
 <ul>
 <li><a href="https://en.shanling.com/product/259">Shanling Q1</a> for listening to music outside of my home office</li>
 <li><a href="https://anbernic.com/products/rg35xx">RG35XX</a> running <a href="https://github.com/Turro75/MyMinUI">MyMinUI</a> for video games during my commute hours</li>
 <li><a href="https://flipperzero.one/">Flipper</a> that I never break the law with</li>
 </ul>
+<h1 id="non-computer-hardware">Non-Computer Hardware</h1>
+<ul>
+<li>The <a href="https://www.peakdesign.com/products/everyday-backpack">Peak Design Everyday Backpack</a> as a backpack</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>This is missing in ChimeraOS for some reason and the only part absent from a working podman setup on my handheld&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 
 			</div>
 		</article>

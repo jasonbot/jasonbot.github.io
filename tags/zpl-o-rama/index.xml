@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>zpl-o-rama on Jason Scheirer</title>
+    <title>Zpl-O-Rama on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/zpl-o-rama/</link>
-    <description>Recent content in zpl-o-rama on Jason Scheirer</description>
+    <description>Recent content in Zpl-O-Rama on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 08 Mar 2021 05:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/zpl-o-rama/index.xml" rel="self" type="application/rss+xml" />
@@ -127,22 +127,22 @@
 &lt;h2 id=&#34;backend-server&#34;&gt;Backend server&lt;/h2&gt;
 &lt;p&gt;The backend server is a simple Go server with an even simpler API:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Endpoint&lt;/th&gt;
-&lt;th&gt;Purpose&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Endpoint&lt;/th&gt;
+          &lt;th&gt;Purpose&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&amp;rsquo;s it. That&amp;rsquo;s the synchronization mechanism. A goroutine and a channel.&lt;/p&gt;
 &lt;p&gt;Jobs are stored in a &lt;a href=&#34;https://github.com/boltdb/bolt&#34;&gt;Bolt&lt;/a&gt; database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?&lt;/p&gt;
