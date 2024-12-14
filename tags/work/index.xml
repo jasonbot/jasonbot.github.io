@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Work on Jason Scheirer</title>
+    <title>work on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/work/</link>
-    <description>Recent content in Work on Jason Scheirer</description>
+    <description>Recent content in work on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 20 Nov 2024 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
@@ -80,7 +80,7 @@
 &lt;/p&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;ndash; logged in&#34; /&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;amp;ndash; logged in&#34; /&gt;
 &lt;/figure&gt;
 
 
