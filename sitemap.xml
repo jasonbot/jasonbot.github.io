@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2024-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2024-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/uses/</loc>
+    <lastmod>2024-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/uses/</loc>
+    <lastmod>2024-12-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/weblog/playing-classicube-at-work/</loc>
     <lastmod>2024-11-20T08:00:00-08:00</lastmod>
   </url><url>
@@ -11,16 +23,10 @@
     <loc>https://www.jasonscheirer.com/tags/go/</loc>
     <lastmod>2024-11-20T08:00:00-08:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2024-11-20T08:00:00-08:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/tags/minecraft/</loc>
     <lastmod>2024-11-20T08:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2024-11-20T08:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2024-11-20T08:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/work/</loc>
@@ -240,9 +246,5 @@
     <loc>https://www.jasonscheirer.com/match-o-matic/</loc>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/toys/</loc>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/uses/</loc>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/uses/</loc>
   </url>
 </urlset>
