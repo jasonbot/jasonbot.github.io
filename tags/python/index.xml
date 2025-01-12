@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Jason Scheirer</title>
+    <title>Python on Jason Scheirer</title>
     <link>https://www.jasonscheirer.com/tags/python/</link>
-    <description>Recent content in python on Jason Scheirer</description>
+    <description>Recent content in Python on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 29 Aug 2023 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
