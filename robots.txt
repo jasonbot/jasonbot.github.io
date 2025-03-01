@@ -1,2 +1,2 @@
-User-agent: *bot*
+User-agent: *
 Disallow: /
