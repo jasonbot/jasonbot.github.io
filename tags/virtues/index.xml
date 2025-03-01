@@ -32,7 +32,7 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</guid>
       <description>&lt;p&gt;One thing that is important to me as an engineer that I don&amp;rsquo;t think I&amp;rsquo;ve seen put in writing is something I have distilled into the term &lt;em&gt;passively transparent&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;It should be obvious to the people in leadership what is motivating you to work and what you are working on (transparency), and it should not require an on-demand effort on your part to communicate this to them (passivity).&lt;/p&gt;
+&lt;p&gt;It should be obvious to the people in leadership what is motivating you to work and what you are working on (transparency), and it should not require an on-demand effort on your part to communicate this to them (passive access).&lt;/p&gt;
 &lt;p&gt;You should also be transparent for the reason that you are setting a baseline of what you are expecting to share with your manager: if they feel like you aren&amp;rsquo;t giving good status it gives them tacit permission to ask &lt;em&gt;too many questions&lt;/em&gt; or &lt;em&gt;questions that are inappropriately deep&lt;/em&gt;. Calibrate the level of communication by setting it yourself: keep your management at an arm&amp;rsquo;s length in how they use your time and attention. &amp;ldquo;I refer you to this query on GitHub, which you may access at any time&amp;rdquo; when someone asks about your deliverables should be a response you aspire for and your leadership accepts.&lt;/p&gt;
 &lt;p&gt;A lot of the agile software movement and its offshoots attempt to codify and formalize processes of behavior that boil down to expressing these values:&lt;/p&gt;
 &lt;h1 id=&#34;keep-track-of-what-you-are-working-on&#34;&gt;Keep Track Of What You Are Working On&lt;/h1&gt;
@@ -65,6 +65,8 @@
 &lt;li&gt;As quickly as possible with minimal consensus but easy to change course on&lt;/li&gt;
 &lt;li&gt;As late as possible with as long as reasonable to get input on&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h1 id=&#34;encourage-this-behavior-in-others&#34;&gt;Encourage This Behavior In Others&lt;/h1&gt;
+&lt;p&gt;One way to promote this way of working is to practice it yourself: when working in a team, engage with your peers with the expectation that they are working in a passively transparent manner themselves. A quick, no-expectations &amp;ldquo;I was reading your draft PR, looks good,&amp;rdquo; or &amp;ldquo;is there a Jira queue I&amp;rsquo;m not watching where you&amp;rsquo;re doing daily updates?&amp;rdquo; on Slack can do wonders in a non-forceful way.&lt;/p&gt;
 &lt;h1 id=&#34;be-an-iceberg&#34;&gt;Be An Iceberg&lt;/h1&gt;
 &lt;p&gt;When operating transparently, as the phrase goes, &lt;em&gt;don&amp;rsquo;t let your mouth write checks your ass can&amp;rsquo;t cash&lt;/em&gt;. Send along curated information that is a good summary of what you are doing, but be able to support it with research, opinion, or buy-in when pushed. Reveal enough to convey that you are a force, but do not reveal &lt;em&gt;everything&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Do not operate at 100% capacity at all times, aim to operate at 80% so that when you &lt;em&gt;really&lt;/em&gt; need to you can crank up your productivity in a sustainable way.&lt;/p&gt;
