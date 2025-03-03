@@ -39,7 +39,7 @@
 &lt;h1 id=&#34;keep-track-of-what-you-are-working-on&#34;&gt;Keep Track Of What You Are Working On&lt;/h1&gt;
 &lt;p&gt;If a manager or peer wants to see what you are working on, they shouldn&amp;rsquo;t have to ask for a status update: they should be able to figure it out on their own at any time on demand.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Open a draft PR the &lt;em&gt;second&lt;/em&gt; you begin coding, push to it regularly. Hourly during standard hour, if you can.&lt;/li&gt;
+&lt;li&gt;Open a draft PR the &lt;em&gt;second&lt;/em&gt; you begin coding, push to it regularly. Hourly, during a standard working day, if you can.&lt;/li&gt;
 &lt;li&gt;Broadcast your current status on your issue tracking site: it is more work in the short run, but give you warm fuzzies (line go down on burndown) and lets you give high-value opportunities to course correct before going too far.
 &lt;ul&gt;
 &lt;li&gt;Keep tickets at a 1-3 working day granularity and&lt;/li&gt;
