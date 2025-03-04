@@ -16,7 +16,7 @@
       <description>&lt;p&gt;We&amp;rsquo;re a couple of years into the LLM hype cycle and the volume at this point is &lt;em&gt;deafening&lt;/em&gt;. I use LLMs, and I find them interesting, and they have played a major part of my professional life for the past three years.&lt;/p&gt;
 &lt;p&gt;That said, I can&amp;rsquo;t declare them an unqualified success or a miracle cure for anything. I approach them with a combination of skepticism and grief. I understand they are here to stay and I will do my best to use them effectively in the use cases where they are indeed effective. However, I think it is both foolish and ireeposnible to myself, my employers, and society in general to seem them solely in a positive light and think we need to think critically about how we want to approach them.&lt;/p&gt;
 &lt;h1 id=&#34;how-llms-are-made&#34;&gt;How LLMs are Made&lt;/h1&gt;
-&lt;p&gt;As an undergraduate and a couple of years into my post-university life, I did research in what could be considered &amp;ldquo;natural language processing&amp;rdquo; or &amp;ldquo;computational linguistics&amp;rdquo;: I worked on the &lt;a href=&#34;https://link.springer.com/article/10.3758/BF03204766&#34;&gt;HAL Model&lt;/a&gt;, which was an early high-dimensional model for approximating language understanding, and later &lt;a href=&#34;https://dlib.org/dlib/january03/mitchell/01mitchell.html&#34;&gt;a software systems employing all kinds of cool cutting-edge techniques&lt;/a&gt; (early Support Vector Machine tooling being one I worked on) and there was one lesson I learned from both:&lt;/p&gt;
+&lt;p&gt;As an undergraduate and a couple of years into my post-university life, I did research in what could be considered &amp;ldquo;natural language processing&amp;rdquo; or &amp;ldquo;computational linguistics&amp;rdquo;: I worked on the &lt;a href=&#34;https://link.springer.com/article/10.3758/BF03204766&#34;&gt;HAL Model&lt;/a&gt;, which was an early high-dimensional model for approximating language understanding, and later &lt;a href=&#34;https://dlib.org/dlib/january03/mitchell/01mitchell.html&#34;&gt;a software system employing all kinds of cool cutting-edge techniques&lt;/a&gt; (early Support Vector Machine tooling being one I worked on) and there was one lesson I learned from both:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Better models are good, but better data is &lt;em&gt;better&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -105,6 +105,26 @@
 &lt;h1 id=&#34;how-llms-are-sold&#34;&gt;How LLMs are Sold&lt;/h1&gt;
 &lt;p&gt;I&amp;rsquo;ll say this is my least objective or reasonable prong critiquing LLMs as they are currently practiced, but the strongest one I go to when asked what I think about LLMs: &lt;strong&gt;cheerleaders are fucking annoying&lt;/strong&gt;. When I hear ridiculously stupid, not-backed-up-by-evidence claims about what LLMs can and will do I immediately knee-jerk block the person for being so stupid. The people who know the least about what they are talking about are being the loudest.&lt;/p&gt;
 &lt;p&gt;We &lt;em&gt;had&lt;/em&gt; &amp;ldquo;agentic&amp;rdquo; software before, it was just called &amp;ldquo;computer programs&amp;rdquo; or sometimes &amp;ldquo;automations&amp;rdquo; or &amp;ldquo;APIs&amp;rdquo; or &amp;ldquo;integrations&amp;rdquo; or &amp;ldquo;cronjobs.&amp;rdquo; The generic term &amp;ldquo;AI&amp;rdquo; was hijacked to represent LLMs and only LLMs, and the terms for traditional software were unecessarily thrown away for a new term for the same thing. &lt;em&gt;There is so much marketing baked into the terminology&lt;/em&gt;. We&amp;rsquo;ve gone from arguing the virtues of the thing to arguing based on pure enthusiasm for the thing.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I pose the following questions (the answer to some of these are unequivocally &lt;em&gt;yes&lt;/em&gt;, but they are still important to keep in mind):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Are LLMs, in general, an improvement to what was there before?&lt;/li&gt;
+&lt;li&gt;Are LLMs, in your specific cases, worth the financial cost? Will the be worth it at 2x the cost? 10x?&lt;/li&gt;
+&lt;li&gt;Are the benefits of LLMs worth the &lt;em&gt;social&lt;/em&gt; cost?
+&lt;ul&gt;
+&lt;li&gt;Are you willing and able to live in a world in which creative work is impacted in a transformatively negative way?&lt;/li&gt;
+&lt;li&gt;Are you able to look to your friends and peers and tell them that anything they produce in written form belongs contribute to the public good without compensation?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Do LLMs make coding &lt;em&gt;better&lt;/em&gt;, or just &lt;em&gt;different&lt;/em&gt;?
+&lt;ul&gt;
+&lt;li&gt;Are you actually more productive using an LLM agent to code, or it it just novel?&lt;/li&gt;
+&lt;li&gt;Are you aware of what you are giving up in terms of control and understanding when yielding control to an LLM?&lt;/li&gt;
+&lt;li&gt;Are you willing to give up that understanding and control long-term?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You may come to the conclusion that yes, LLMs are worth it. That&amp;rsquo;s fine. I just hope you went though a process of thought and introspection and considered the pros and cons of the technology before loudly and enthusiastically adopting them into your life.&lt;/p&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/llm">llm</category>
       
     </item>
