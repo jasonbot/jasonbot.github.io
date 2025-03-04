@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Llm</title>
+      <link>https://www.jasonscheirer.com/tags/llm/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/llm/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Virtues</title>
       <link>https://www.jasonscheirer.com/tags/virtues/</link>
@@ -76,15 +85,6 @@
       <pubDate>Mon, 18 Nov 2024 10:00:00 -0600</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Llm</title>
-      <link>https://www.jasonscheirer.com/tags/llm/</link>
-      <pubDate>Sun, 07 Jul 2024 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/llm/</guid>
       <description></description>
     </item>
     
