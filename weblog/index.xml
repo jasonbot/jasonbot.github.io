@@ -50,10 +50,10 @@
 &lt;li&gt;The Strawberry problem&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In every case, we&amp;rsquo;re finding limits to the technology that get fixed in the next release, but are something of an indicator that we are no longer in the world of boundless possibilities and uninterruptible optimism for what they are capable of: the problems get fixed in subsequent models with what are essentially &amp;ldquo;bugfixes&amp;rdquo; to work around these cases. &lt;strong&gt;We aren&amp;rsquo;t discovering substantially new, greenfield capabilities with new LLM models anymore, we are in a stable &amp;ldquo;bug fix&amp;rdquo; phase&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m copying a graph from an old book (&lt;a href=&#34;https://davewentzel.com/content/putts-law/&#34;&gt;&lt;em&gt;Putt&amp;rsquo;s Law&lt;/em&gt;&lt;/a&gt;) to demonstrate my thoughts here: we&amp;rsquo;re at &lt;em&gt;C&lt;/em&gt;, everyone is projecting a straight line up, we&amp;rsquo;re only going to make it to &lt;em&gt;D&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m copying a graph from an old book (&lt;a href=&#34;https://en.wikipedia.org/wiki/Putt%27s_Law_and_the_Successful_Technocrat&#34;&gt;&lt;em&gt;Putt&amp;rsquo;s Law&lt;/em&gt;&lt;/a&gt;) to demonstrate my thoughts here: we&amp;rsquo;re rounding the &lt;em&gt;success&lt;/em&gt; intersection point, everyone is projecting a straight line up, we&amp;rsquo;re going to slow down at some point.&lt;/p&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/llms/s-curve.png&#34; alt=&#34;S-Curve Law&#34; /&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/llms/s-curve.svg&#34; alt=&#34;S-Curve Law&#34; /&gt;
 &lt;/figure&gt;
 
 
