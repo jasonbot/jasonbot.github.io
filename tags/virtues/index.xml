@@ -6,7 +6,21 @@
     <description>Recent content in Virtues on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/virtues/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/virtues/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Give Yourself Little Treats Sometimes</title>
+      <link>https://www.jasonscheirer.com/engineering-virtues/little-treats/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/engineering-virtues/little-treats/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve found that my productivity varies wildly based on the time of year, the phase of the moon, my mental state, the quality of my morning shower thought session, and &lt;strong&gt;how enthuisiastic I am about what I&amp;rsquo;m working on&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I like to give myself &amp;ldquo;little treat&amp;rdquo; issues ocasionally to keep my motivation up: issues I pick up outside of the product backlog that are quick to fix, fun to do, and give me little dopamine hits.&lt;/p&gt;
+&lt;p&gt;These keep my average motivation level up, give me a chance to remember why I&amp;rsquo;m a software engineer, and don&amp;rsquo;t really eat into the time I already have budgeted to work on other stuff: I&amp;rsquo;m highly motivated to get it done, so I do it quickly and enthusiastically and it doesn&amp;rsquo;t make my slog work any slower to deliver.&lt;/p&gt;
+&lt;p&gt;Give yourself treats. Side projects. Little tweaks. Fun stuff.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
+      
+    </item>
+    
     <item>
       <title>You Need to Break the Rules</title>
       <link>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</link>
@@ -94,70 +108,6 @@
 &lt;p&gt;Do not operate at 100% capacity at all times, aim to operate at 80% so that when you &lt;em&gt;really&lt;/em&gt; need to you can crank up your productivity in a sustainable way.&lt;/p&gt;
 &lt;p&gt;Always have a strategic reserve of competence.&lt;/p&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Job #1 of Codebases is Onboardability</title>
-      <link>https://www.jasonscheirer.com/weblog/onboardable-codebases/</link>
-      <pubDate>Thu, 02 May 2024 00:55:10 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/weblog/onboardable-codebases/</guid>
-      <description>&lt;p&gt;I got my first job as a software engineer in 2000, so in 2024 I&amp;rsquo;m pushing a quarter century of being a developer. This is one of the topics I have begun to hold near and dear to my heart.&lt;/p&gt;
-&lt;p&gt;Software engineering is a team sport. If you&amp;rsquo;re not setting new players up for success, you&amp;rsquo;re not being the best teammate you could be. Supporting others is just as important as getting your needs met.&lt;/p&gt;
-&lt;p&gt;The &lt;em&gt;absolute first goal&lt;/em&gt; of your codebase is to make it easy to get up and running for a new developer.&lt;/p&gt;
-&lt;h1 id=&#34;good-getting-started-resources&#34;&gt;Good Getting Started Resources&lt;/h1&gt;
-&lt;p&gt;Your codebase &lt;em&gt;must&lt;/em&gt; have a base readme file with a getting started guide. It must be simple but comprehensive and step-by-step. This must also be kept up-to-date. It should be opinionated. &amp;ldquo;You can do it this way or this other way&amp;rdquo; is only going to spawn a &amp;ldquo;well which way should I do it?????&amp;rdquo; conversation in Slack. If you spend an hour a month grooming this document it will save you person-weeks a month in pairing sessions getting a new developer up and running. It is disrespectful to yourself and others&amp;rsquo; time to be proud enough to think your code is &amp;ldquo;special&amp;rdquo; or you can&amp;rsquo;t be bothered to engage in some form of service to your peers.&lt;/p&gt;
-&lt;h1 id=&#34;good-documentation-on-the-deep-stuff&#34;&gt;Good Documentation on the &amp;ldquo;Deep&amp;rdquo; Stuff&lt;/h1&gt;
-&lt;p&gt;Code gains complexity, complexity is the demon that makes code unmaintainable. By forcing developers to explain (in documentation) their decisions you 1) make them concrete and force them to be justified (code complete is not complete) 2) throttle developers who code for the sake of coding and make them explain why they did what they did (aside from the wrong reason &amp;ldquo;I like coding&amp;rdquo;).&lt;/p&gt;
-&lt;h1 id=&#34;organizational-conventions&#34;&gt;Organizational Conventions&lt;/h1&gt;
-&lt;p&gt;Every codebase in the organization should follow conventions so that a new developer is able to get rudimentarily started without any prior knowledge.&lt;/p&gt;
-&lt;p&gt;Convention means that skills learned in one place can continue to be used elsewhere, and reduce cognitive load on remembering project-specific quirks when one is in e.g. a firefighting situation.&lt;/p&gt;
-&lt;p&gt;When I worked at Nerdwallet, we had this to an absurd degree with our internal tool &lt;code&gt;indy&lt;/code&gt;. You could &lt;code&gt;indy get&lt;/code&gt; a repo, &lt;code&gt;indy build&lt;/code&gt; to produce a deployable artifact, &lt;code&gt;indy test&lt;/code&gt; to run test suites, etc. This was regardless of stack or language, if you were not a Go or Node developer you could still use your &lt;code&gt;indy&lt;/code&gt; knowledge to get up and running in a repo in an unfamiliar stack.&lt;/p&gt;
-&lt;p&gt;Usually this is done via Makefiles in most startups I work in. Make sure you have common &lt;code&gt;{install,build,test,run}&lt;/code&gt; targets in every repo.&lt;/p&gt;
-&lt;h1 id=&#34;local-development-is-not-optional&#34;&gt;Local Development Is Not Optional&lt;/h1&gt;
-&lt;p&gt;Your employer has given you a tremendously powerful laptop. It makes sense so utilize that hardware, and by keeping the running code close to the developer it makes it easier to instrument the code, start and stop individual components in the case of a constellation of services, and more effectively enter feedback loops and end-to-end development in an emotionally secure environment.&lt;/p&gt;
-&lt;h1 id=&#34;end&#34;&gt;End&lt;/h1&gt;
-&lt;p&gt;I don&amp;rsquo;t care how &amp;ldquo;complex&amp;rdquo; your needs are, your code is not special. You owe the respect to the people around you to make it possible (and, with empathy, &lt;em&gt;easy&lt;/em&gt;) to get started on your team.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt; Say &lt;a href=&#34;https://microsoft.github.io/code-with-engineering-playbook/developer-experience/&#34;&gt;DevEx&lt;/a&gt; without saying DevEx.&lt;/p&gt;
-&lt;p&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/onboardable-codebases/build-process.png&#34; alt=&#34;Onboardable Codebases Meme&#34; /&gt;
-&lt;/figure&gt;
-
-
-&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
-      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
-      <category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Framework Syndrome: Solving Software Problems by Not Solving Them</title>
-      <link>https://www.jasonscheirer.com/weblog/framework-syndrome/</link>
-      <pubDate>Wed, 01 May 2024 19:55:10 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/weblog/framework-syndrome/</guid>
-      <description>&lt;p&gt;A common antipattern I&amp;rsquo;ve been both perpetrator of and victim to is what I describe as &lt;em&gt;Framework Syndrome&lt;/em&gt;. This is the act of writing software that does not solve the inherent problem at hand, but provides a poorly designed scaffold in which one is expected to eventually &amp;ldquo;fill in the blanks.&amp;rdquo; That is, in the absence of the ability or desire to make the code do what it needs to do, kick the can down the road while at the same time writing mountains of not particularly useful code that will never be fully excised from the codebase.&lt;/p&gt;
-&lt;h1 id=&#34;you-dont-understand-the-problem-so-you-code-around-it&#34;&gt;You Don&amp;rsquo;t Understand the Problem, So You Code Around It&lt;/h1&gt;
-&lt;p&gt;It was 2005. I was working on an early SaaS product for automating Intro to Statistical Methods courses for Psychology undergraduates. We had a few functional requirements that I could do easily (user generation, logins, survey generators) and others I simply did not have the ability to do well (namely, actually do the statistical analysis that the grant required). So I worked around it. I added support to slice and dice data and export to Excel. I added natural language date parsing for forms. I polished the hell out of the admin interface. &amp;ldquo;This system is perfect,&amp;rdquo; I declared, &amp;ldquo;we just need someone to plug in the code to do that one thing it was designed to do: statistical methods. You just need to drop it in&amp;hellip;here. See how elegant it is?&amp;rdquo;&lt;/p&gt;
-&lt;h1 id=&#34;it-can-do-anything-you-just-have-to-provide-the-code&#34;&gt;&amp;ldquo;It Can Do Anything, You Just Have to Provide the Code&amp;rdquo;&lt;/h1&gt;
-&lt;p&gt;Code that does not solve the problem, but provides an environment to add code that solves the problem, is ridiculous on its face. It&amp;rsquo;s just another level of abstraction that was added for the sake of engaging in the act of coding and not taking into mind any practical or business concerns.&lt;/p&gt;
-&lt;h1 id=&#34;youve-done-the-fun-part-and-gotten-the-credit-someone-else-does-the-actual-work&#34;&gt;You&amp;rsquo;ve Done the &amp;ldquo;Fun&amp;rdquo; Part and Gotten The Credit, Someone Else Does the Actual Work&lt;/h1&gt;
-&lt;p&gt;This is the unfair part of Framework Syndrome, and something that makes me deeply resentful when I run into it. A developer who arrives at the project first &amp;ldquo;designs&amp;rdquo; a solution, runs it past management, declares it Mission Complete, and moves on. The person who has to work within the constraints established by that long-gone person does the actual work that adds the business value, and is ignored by management.&lt;/p&gt;
-&lt;h1 id=&#34;a-skills-gap-in-architecture-design&#34;&gt;A Skills Gap in Architecture Design&lt;/h1&gt;
-&lt;p&gt;This is not an argument against software architecture or architects. However, there tends to be a very drastic difference in a developer doing &lt;em&gt;speculative architecture&lt;/em&gt; without thinking the problem through and a more skilled, formal process of &lt;em&gt;anticipatory architecture&lt;/em&gt; that is required for a cohesive system.&lt;/p&gt;
-&lt;h1 id=&#34;let-the-implementors-do-the-framework-clean-up-later&#34;&gt;Let The Implementors do the Framework, Clean Up Later&lt;/h1&gt;
-&lt;p&gt;From the resentment part of the section above, I propose that software be written in the following way:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Prototype written by domain expert as messy code&lt;/li&gt;
-&lt;li&gt;Professional engineers clean it up, finding common patterns across codebases and standardizing&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;By inverting the process from framework to solution to solution to framework, the frameworks themselves will be far more appropriate to the solutions they encompass.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
-      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
-      <category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
       
     </item>
     
