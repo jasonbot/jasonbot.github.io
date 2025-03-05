@@ -67,10 +67,10 @@
 &lt;p&gt;Very similar to the last point above with the search engine, we can make an LLM &amp;ldquo;know&amp;rdquo; things not baked into its model by pre-emptively doing a search engine queries on its behalf and by injecting snippets into its conversation context it can &amp;ldquo;know about&amp;rdquo; in its context to appear to be able to comment on user-relevant data.&lt;/p&gt;
 &lt;p&gt;Some models now have larger context models in which the RAG approach is &amp;lsquo;obsolete,&amp;rsquo; but technically the methodology is the same: inject massive amounts of non-model data into the context to get the LLM to &amp;lsquo;know&amp;rsquo; about it.&lt;/p&gt;
 &lt;h1 id=&#34;how-llms-are-monetized-theft-and-planned-enshittification&#34;&gt;How LLMs are Monetized (Theft and Planned Enshittification)&lt;/h1&gt;
-&lt;p&gt;LLMs as a business plan don&amp;rsquo;t seem very viable long-term unless they engage in some major enshittification. Enjoy ChatGPT and Claude at affordable rates without embedded advertisements now, because as soon as they&amp;rsquo;re a part of your workflow they&amp;rsquo;re going to bet &lt;em&gt;real bad, real fast&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;LLMs as a business plan don&amp;rsquo;t seem very viable long-term unless they engage in some major enshittification. Enjoy ChatGPT and Claude at affordable rates without embedded advertisements now, because not long after you&amp;rsquo;ve let them become an indispensable part of your workflow they&amp;rsquo;re going to get &lt;em&gt;real bad, real fast&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;They are an incredibly expensive product to make (millions of dollars to train one)&lt;/li&gt;
-&lt;li&gt;Sold for well below the cost to recoup the cost of their production (OpenAI and Anthropic are running comically massive losses)&lt;/li&gt;
+&lt;li&gt;Sold for well below the price point needed to recoup the cost of their production (OpenAI and Anthropic are running comically massive losses)&lt;/li&gt;
 &lt;li&gt;Replaced with newer models at a dizzying pace, with no real way of comparing them apples-to-apples (see the disjoint and inconsistent &amp;ldquo;benchmarks,&amp;rdquo; which themselves are gamed by vendors and can&amp;rsquo;t be trusted)&lt;/li&gt;
 &lt;li&gt;While themselves becoming commodity products within days of their release (each model immediately is replaced with a new one)&lt;/li&gt;
 &lt;/ol&gt;
