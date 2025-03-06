@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1741221935"><link rel="stylesheet" href="/css/fonts.css?rnd=1741221935">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1741279762"><link rel="stylesheet" href="/css/fonts.css?rnd=1741279762">
 	
 </head>
 <body>
@@ -128,22 +128,22 @@
 <h2 id="backend-server">Backend server</h2>
 <p>The backend server is a simple Go server with an even simpler API:</p>
 <table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/print</code></td>
-<td>Enqueues a print job and returns a unique ID</td>
-</tr>
-<tr>
-<td><code>/job/:id</code></td>
-<td>Returns the status of the job, along with the image if it&rsquo;s been taken</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Endpoint</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/print</code></td>
+          <td>Enqueues a print job and returns a unique ID</td>
+      </tr>
+      <tr>
+          <td><code>/job/:id</code></td>
+          <td>Returns the status of the job, along with the image if it&rsquo;s been taken</td>
+      </tr>
+  </tbody>
 </table>
 <p>The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&rsquo;s it. That&rsquo;s the synchronization mechanism. A goroutine and a channel.</p>
 <p>Jobs are stored in a <a href="https://github.com/boltdb/bolt">Bolt</a> database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?</p>
@@ -152,8 +152,7 @@
 <blockquote>
 <h3 id="an-aside-making-peace-with-systemd">An aside: Making Peace with <code>systemd</code></h3>
 <p>People like to talk shit about <code>systemd</code>. It&rsquo;s weird, it&rsquo;s disruptive, it tries to do too much.
-First off, at least it&rsquo;s not <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">launchd</a>, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&rsquo;m running in.</p>
-</blockquote>
+First off, at least it&rsquo;s not <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">launchd</a>, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&rsquo;m running in.</p></blockquote>
 <h1 id="keeping-the-software-running">Keeping the software running</h1>
 <h2 id="operating-environment-on-the-server">Operating Environment on the Server</h2>
 <p>I use <a href="https://letsencrypt.org/">letsencrypt</a> for SSL, <a href="https://cloud.google.com/compute">GCP for a VM/IP</a> (Docker would be stupid here), and Nginx as the edge. The conf look like:</p>

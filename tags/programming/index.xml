@@ -80,7 +80,7 @@
 &lt;/p&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;amp;ndash; logged in&#34; /&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;ndash; logged in&#34; /&gt;
 &lt;/figure&gt;
 
 
@@ -116,7 +116,7 @@
         &lt;li&gt;&lt;a href=&#34;#what-does-this-mean&#34;&gt;What does this mean?&lt;/a&gt;&lt;/li&gt;
       &lt;/ol&gt;
     &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#case-study-the-dumbest-possible-person-in-the-room&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#getting-the-data&#34;&gt;Getting the Data&lt;/a&gt;
       &lt;ol&gt;
         &lt;li&gt;&lt;a href=&#34;#a-eulogy-for-wget&#34;&gt;A Eulogy for &lt;code&gt;wget&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -199,8 +199,7 @@
 &lt;p&gt;This was the hardest thing to get a simple answer for.&lt;/p&gt;
 &lt;p&gt;A typical &lt;a href=&#34;https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation&#34;&gt;vague-as-hell explanation&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;I understand all those words, but in practical terms, what exactly does that mean? Like, specifically?&lt;/p&gt;
 &lt;h2 id=&#34;what-does-this-mean&#34;&gt;What does this mean?&lt;/h2&gt;
 &lt;p&gt;Turns out, &lt;strong&gt;a RAG is just a dirty trick decorated with academic language to seem less dirty to outsiders&lt;/strong&gt;. The long and short of it is the RAG injects extra contextual information into the chatbot to give it more domain-specificity.&lt;/p&gt;
@@ -213,7 +212,7 @@
 How would you answer the following question:
 What is X?
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it. It&amp;rsquo;s prompt injection with a pretty name. The injection technique may vary in sophistication, but this is what it ultimately boils down to.&lt;/p&gt;
-&lt;h1 id=&#34;case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;case-study-the-dumbest-possible-person-in-the-room&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;On the subject of the goal of &lt;em&gt;non-commercial viability&lt;/em&gt; and my love of making the world worse, not better, I present what I wish to do with a RAG here: take the transcripts of the &lt;a href=&#34;https://spoti.fi/JoeRoganExperience&#34;&gt;Joe Rogan show&lt;/a&gt; and turn a chatbot into a poorly-informed, blubbering idiot.&lt;/p&gt;
 &lt;p&gt;And so is born &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;: a conspiracy theory addled, misinformed LLM chat that will serve to both enrage you and make you dumber at the same time.&lt;/p&gt;
 &lt;h1 id=&#34;getting-the-data&#34;&gt;Getting the Data&lt;/h1&gt;
@@ -878,8 +877,7 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
 &lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
 &lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
@@ -1238,22 +1236,22 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;h2 id=&#34;backend-server&#34;&gt;Backend server&lt;/h2&gt;
 &lt;p&gt;The backend server is a simple Go server with an even simpler API:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Endpoint&lt;/th&gt;
-&lt;th&gt;Purpose&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Endpoint&lt;/th&gt;
+          &lt;th&gt;Purpose&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&amp;rsquo;s it. That&amp;rsquo;s the synchronization mechanism. A goroutine and a channel.&lt;/p&gt;
 &lt;p&gt;Jobs are stored in a &lt;a href=&#34;https://github.com/boltdb/bolt&#34;&gt;Bolt&lt;/a&gt; database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?&lt;/p&gt;
@@ -1262,8 +1260,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;blockquote&gt;
 &lt;h3 id=&#34;an-aside-making-peace-with-systemd&#34;&gt;An aside: Making Peace with &lt;code&gt;systemd&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;People like to talk shit about &lt;code&gt;systemd&lt;/code&gt;. It&amp;rsquo;s weird, it&amp;rsquo;s disruptive, it tries to do too much.
-First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;
-&lt;/blockquote&gt;
+First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h1 id=&#34;keeping-the-software-running&#34;&gt;Keeping the software running&lt;/h1&gt;
 &lt;h2 id=&#34;operating-environment-on-the-server&#34;&gt;Operating Environment on the Server&lt;/h2&gt;
 &lt;p&gt;I use &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;letsencrypt&lt;/a&gt; for SSL, &lt;a href=&#34;https://cloud.google.com/compute&#34;&gt;GCP for a VM/IP&lt;/a&gt; (Docker would be stupid here), and Nginx as the edge. The conf look like:&lt;/p&gt;
@@ -1507,8 +1504,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;xyz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;
@@ -1594,8 +1590,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Ha ha ha just lying the real title should be&lt;/p&gt;
 &lt;h1 id=&#34;turning-a-piece-of-shit-chromebook-into-a-good-enough-development-machine-because-youre-unemployed-and-feel-like-an-ass-trying-to-justify-spending-2000-on-a-god-damned-macbook-so-you-wound-up-buying-a-chromebook-instead&#34;&gt;Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead&lt;/h1&gt;
 &lt;p&gt;Anyway, I&amp;rsquo;m &lt;a href=&#34;http://www.theverge.com/2016/12/8/13887622/yik-yak-layoffs-growth-collapse&#34;&gt;unemployed because of reasons&lt;/a&gt; and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: &lt;a href=&#34;https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/&#34;&gt;the Chromebook C100P&lt;/a&gt;. The stats are as follows:&lt;/p&gt;

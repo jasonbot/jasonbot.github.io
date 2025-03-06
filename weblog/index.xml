@@ -18,8 +18,7 @@
 &lt;h1 id=&#34;how-llms-are-made&#34;&gt;How LLMs are Made&lt;/h1&gt;
 &lt;p&gt;As an undergraduate some years into my post-collegiate life, I did research in what could be considered &amp;ldquo;natural language processing&amp;rdquo; or &amp;ldquo;computational linguistics&amp;rdquo;: I worked on the &lt;a href=&#34;https://link.springer.com/article/10.3758/BF03204766&#34;&gt;HAL Model&lt;/a&gt;, which was an early high-dimensional model for approximating language understanding, and later &lt;a href=&#34;https://dlib.org/dlib/january03/mitchell/01mitchell.html&#34;&gt;a software system employing all kinds of cool cutting-edge language-in-computers techniques&lt;/a&gt; (early Support Vector Machine tooling being one I worked on) and there was one lesson I learned from both:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Better models are good, but better data is &lt;em&gt;better&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Better models are good, but better data is &lt;em&gt;better&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Far and away, the best way to get better results was not to develop a better model, it was to develop toolchains for collecting more and better data. We got good results even with okay models when we fed them Wikipedia. We got bad results even with cutting edge models if we just fed them a couple of emails. Good data was what made these things effective.&lt;/p&gt;
 &lt;p&gt;That said, it paints my experience of the current success of LLMs: they are interesting technology from a modeling perspective, but the more interesting part is &lt;em&gt;all the data that went into making them&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;llms-are-not-sourced-from-above-board-places&#34;&gt;LLMs Are Not Sourced from Above-Board Places&lt;/h2&gt;
@@ -69,6 +68,7 @@
 &lt;h3 id=&#34;band-aid-2-injected-context-rag&#34;&gt;Band-Aid 2: Injected Context (RAG)&lt;/h3&gt;
 &lt;p&gt;Very similar to the last point above with the search engine, we can make an LLM &amp;ldquo;know&amp;rdquo; things not baked into its model by pre-emptively doing a search engine queries on its behalf and by injecting snippets into its conversation context it can &amp;ldquo;know about&amp;rdquo; in its context to appear to be able to comment on user-relevant data.&lt;/p&gt;
 &lt;p&gt;Some models now have larger context models in which the RAG approach is &amp;lsquo;obsolete,&amp;rsquo; but technically the methodology is the same: inject massive amounts of non-model data into the context to get the LLM to be able to make mention of it.&lt;/p&gt;
+&lt;p&gt;This is where &amp;ldquo;synthetic data&amp;rdquo; is training sets can also come in in a big way: injecting thousands of copies of times tables and lookup tables for the values of trig functions so that &lt;a href=&#34;https://x.com/yuntiandeng/status/1889704768135905332&#34;&gt;an innumerate model can emulate numeracy&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;how-llms-are-monetized-theft-and-planned-enshittification&#34;&gt;How LLMs are Monetized (Theft and Planned Enshittification)&lt;/h1&gt;
 &lt;p&gt;LLMs as a business plan don&amp;rsquo;t seem very viable long-term unless they engage in some major enshittification. Enjoy ChatGPT and Claude at affordable rates and without annoying limitations now, because not long after you&amp;rsquo;ve let them become an indispensable part of your workflow they&amp;rsquo;re going to get &lt;em&gt;real bad, real fast&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
@@ -78,11 +78,13 @@
 &lt;li&gt;While themselves becoming commodity products within days of their release (each model immediately is replaced with a new one)&lt;/li&gt;
 &lt;li&gt;All the while, the supply of quality data used to train them has dried up and newer models are already worse than older ones in fundamental ways&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;llms-in-usage-are-just-a-reminder-of-what-we-once-had&#34;&gt;LLMs In Usage Are Just A Reminder Of What We Once Had&lt;/h1&gt;
-&lt;p&gt;LLMs are, in essence, a lossily-compressed, fuzzy searchable copy of a lot of contents found on the internet.&lt;/p&gt;
-&lt;p&gt;Google used to be good. We used to be able to type these types of question into Google and get answers. Using an LLM as a search engine is just an indictment of that slow decay of Google&amp;rsquo;s core product and the fact that we simply can&amp;rsquo;t have nice things without other people messing it up &amp;ndash; SEO monsters started posting garbage on the internet to game the search engines and ruined it for all of us.&lt;/p&gt;
-&lt;p&gt;Your chat with an AI session is a sad, watered-down echo of a quality user experience we once had a quarter of a century ago with a single text input box on &lt;code&gt;google.com&lt;/code&gt;.&lt;/p&gt;
-&lt;h1 id=&#34;widespread-adoption-of-llms-is-in-its-uberairbnb-phase&#34;&gt;Widespread Adoption of LLMs is in its Uber/AirBnB Phase&lt;/h1&gt;
+&lt;h2 id=&#34;open-source-will-not-save-us&#34;&gt;Open Source Will Not Save Us&lt;/h2&gt;
+&lt;p&gt;Using the term &amp;ldquo;Open Source&amp;rdquo; to describe openly available models is, frankly, an incorrect term. Not overly generous, not iffy, straight up factually false. A lie. A freely available model as a digital artifact is not the source code that was used to generate the model and it is not a delivery mechanism for unveiling the data that went into them.&lt;/p&gt;
+&lt;p&gt;Open models are largely produced by large organizations as a strategic hedge against the larger commercial players &amp;ndash; IBM, Meta, etc don&amp;rsquo;t want to find themselves in a place where they are dependnent on LLMs &amp;ndash; if they succeeed long term &amp;ndash; hosted by a semi-hostile third party.&lt;/p&gt;
+&lt;p&gt;When the commercial gravy train ends, the open source gravy train will end as well.&lt;/p&gt;
+&lt;p&gt;One credit and a voice in the dark in favor of these open models is this: you can control the hardware they run on, you can control your own uptime, you can control the fact that you are &lt;em&gt;still operating on the same underlying model file from day-to-day&lt;/em&gt;. If the commercial players go dark for whatever reason, you can still use these models on your own servers to drive LLM functionality where it makes sense. If LLMs are ever fully forbidden you still have a local copy you can run &lt;em&gt;in secret&lt;/em&gt; for research/entertainment purposes.&lt;/p&gt;
+&lt;p&gt;I end the section with this because it&amp;rsquo;s my biggest concern with open models over cloud hosted: open models still suffer from the same ethical problems of the black box training sets (&lt;a href=&#34;https://github.com/ibm-granite/granite-3.0-language-models?tab=readme-ov-file#data-collection&#34;&gt;IBM alleges it&amp;rsquo;s less guilty, though&lt;/a&gt;). If there &lt;em&gt;is&lt;/em&gt; an intellectual property reckoning for LLMs and the big players are forced to leave the market and you still have LLMs running, you may be legally obligated to disclose which models you use, similarly to how much commercial software in modern times offers a very large colophon of open source license agreements for all the libraries they consume. It&amp;rsquo;s very confusing to see something that does not access the internet post the cUrl license in its documentation, it will be equally confusing to see things like accounting software disclose they use Deepseek somehow in the future.&lt;/p&gt;
+&lt;h1 id=&#34;widespread-adoption-of-llms-is-in-its-early-uberairbnb-phase&#34;&gt;Widespread Adoption of LLMs is in its Early Uber/AirBnB Phase&lt;/h1&gt;
 &lt;p&gt;I like to tell people that commercial LLMs are in their Uber phase, and I mean this in two ways: 1) they are blatantly illegal and hoping to normalize their bad behavior through mass adoption and 2) priced in a way to hook you, to get you dependent on using it in fiscally unsustainable ways.&lt;/p&gt;
 &lt;h2 id=&#34;normalizing-lawlessness&#34;&gt;Normalizing Lawlessness&lt;/h2&gt;
 &lt;p&gt;When Uber and AirBnB were first entering widespread release, there was immediate backlash: these things were illegal. Uber famously paid its drivers&amp;rsquo; fines and tickets for operating as drivers, and AirBnB lobbied the hell out of local municipalities. Both also played heavily into FOMO: &amp;ldquo;San Francisco is doing it and San Francisco is a world class city, don&amp;rsquo;t you want to be a world class city?&amp;rdquo; &lt;a href=&#34;https://x.com/paulg/status/222462460978937856&#34;&gt;Famous smart-on-paper people pushed real hard on this&lt;/a&gt;, even claiming that &lt;a href=&#34;https://businesslawreview.uchicago.edu/print-archive/lawbreaking-lawmaking&#34;&gt;Uber&amp;rsquo;s right to break the law was akin to the civil rights struggle&lt;/a&gt; &amp;ndash; a stultifyingly wrong claim that can be immediately and viscerally rejected by anyone with common sense.&lt;/p&gt;
@@ -92,6 +94,10 @@
 &lt;h2 id=&#34;the-first-taste-is-free&#34;&gt;The First Taste is Free&lt;/h2&gt;
 &lt;p&gt;I remember when every Uber ride was heavily subsidized by its investors. I could Uber Pool to multiple venues across San Francisco for about $10 on an evening out. Now that Uber has to be profitable, I don&amp;rsquo;t even consider it except as a strategic last choice, and it&amp;rsquo;s significantly more expensive now (that same night out now would run me $75).&lt;/p&gt;
 &lt;p&gt;Don&amp;rsquo;t fool yourselves into thinking that once your default choice is &amp;lsquo;I&amp;rsquo;ll ask ChatGPT&amp;rsquo; that ChatGPT won&amp;rsquo;t find a way to squeeze for as much as it can because it&amp;rsquo;s insinuated itself into your lifestyle.&lt;/p&gt;
+&lt;h1 id=&#34;llms-in-usage-are-just-a-reminder-of-what-we-once-had&#34;&gt;LLMs In Usage Are Just A Reminder Of What We Once Had&lt;/h1&gt;
+&lt;p&gt;LLMs are, in essence, a lossily-compressed, fuzzy searchable copy of a lot of contents found on the internet.&lt;/p&gt;
+&lt;p&gt;Google used to be good. We used to be able to type these types of question into Google and get answers. Using an LLM as a search engine is just an indictment of that slow decay of Google&amp;rsquo;s core product and the fact that we simply can&amp;rsquo;t have nice things without other people messing it up &amp;ndash; SEO monsters started posting garbage on the internet to game the search engines and ruined it for all of us.&lt;/p&gt;
+&lt;p&gt;Your chat with an AI session is a sad, watered-down echo of a quality user experience we once had a quarter of a century ago with a single text input box on &lt;code&gt;google.com&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;llm-tools-as-developer-aids&#34;&gt;LLM Tools as Developer Aids&lt;/h1&gt;
 &lt;p&gt;This is something that I see regularly on my radar as a software engineer. &lt;em&gt;I use LLM code assistance&lt;/em&gt;, but &lt;em&gt;I do not think it is worth the trouble at least 75% of the time&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;an-llm-assistant-is-trained-on-already-written-code&#34;&gt;An LLM Assistant Is Trained On Already Written Code&lt;/h2&gt;
@@ -104,10 +110,9 @@
 &lt;p&gt;LLM-generated code can only be up to about two years old at this point (&amp;ldquo;this point&amp;rdquo; being early March 2025): we&amp;rsquo;re in very early days. In my 2+ decades of software engineering, getting a product out &lt;em&gt;is&lt;/em&gt; important, but then there are years, if not decades, of follow-up fixes and expansion on that software. We have no idea how maintainable LLM-assisted codebases will be, and &lt;a href=&#34;https://www.threads.net/@codingmermaid.ai/post/DG0CoFVxPnQ&#34;&gt;there are already examples of LLM-driven projects growing beyond the scope of e.g. Claude&amp;rsquo;s ability to understand them&lt;/a&gt; and leaving the developers high and dry; unable to understand or extend the existing codebase.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve fixed Fortran that was older than myself at one point. Getting a new React app out with trivial functionality is not the hard part, it&amp;rsquo;s the toil of maintenance that happens over the course of years that is where most of what I would consider &amp;ldquo;software engineering&amp;rdquo; happens and it does not seem like that has been a focus or a strong point of LLM-driven development thus far.&lt;/p&gt;
 &lt;h2 id=&#34;every-prior-advancement-in-developer-productivity-followed-a-pattern-entirely-unlike-this-one&#34;&gt;Every Prior Advancement in Developer Productivity Followed a Pattern Entirely Unlike this One&lt;/h2&gt;
-&lt;p&gt;I don&amp;rsquo;t think an LLM is going to steal my job. Every change in technology that made developers more productive over the last 50 years has only increased the demand for software, and every productivity boost that was supposed to cut the number of people needed to make and run software has only grown the number of people involved.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.threads.net/@benedictevans/post/DG1q-xnuflz&#34;&gt;I don&amp;rsquo;t think an LLM is going to steal my job&lt;/a&gt;. Every change in technology that made developers more productive over the last 50 years has only increased the demand for software, and every productivity boost that was supposed to cut the number of people needed to make and run software has only grown the number of people involved.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Examples:&lt;/strong&gt; your startup probably has more Infra/DevOps engineers than a startup of the equivalent size had Sysadmins in the pre-cloud era. CRUD apps becoming easy to make with better tools led to a Cambrian Explosion of people writing CRUD apps.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Examples:&lt;/strong&gt; your startup probably has more Infra/DevOps engineers than a startup of the equivalent size had Sysadmins in the pre-cloud era. CRUD apps becoming easy to make with better tools led to a Cambrian Explosion of people writing CRUD apps.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Usually improvements to the craft of software engineering have been via &lt;em&gt;better tools and languages&lt;/em&gt;. In the instance of the LLM-assisted coding world, we have given up on the idea of inventing a better programming language and have instead decided we can&amp;rsquo;t do any better and are using non-deterministic macro expansion/copy-paste agents in the form of LLM-enabled development tools.&lt;/p&gt;
 &lt;p&gt;This would be like C never taking off because someone invented a better assembly macro processor, or Python/Ruby/etc never taking off because we never trusted the interpreters to get memory management right on our behalf. We have always come to &lt;em&gt;trust&lt;/em&gt; the abstractions below us, we didn&amp;rsquo;t stop where we were because we didn&amp;rsquo;t think things could be easier.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re just asking an LLM to write more and more code at the same abstraction level, rather than find an appropriate way of expressing these computing concepts in a better way. C compilers wrote mountains of assembly, but did it deterministically and hid the details from us with an abstraction layer. Python interpreters run massive amounts of C under the hood (also deterministically), but as a developer you&amp;rsquo;re shielded from the runtime through abstractions. Decent web frameworks never expose raw TCP sockets to developers. We used to climb the mountain, not make camp halfway up and decide this was high enough.&lt;/p&gt;
@@ -222,7 +227,7 @@
 &lt;/p&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;amp;ndash; logged in&#34; /&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;ndash; logged in&#34; /&gt;
 &lt;/figure&gt;
 
 
@@ -247,8 +252,7 @@
 &lt;p&gt;Now I&amp;rsquo;m &lt;a href=&#34;https://extensions.gnome.org/extension/6099/paperwm/&#34;&gt;trying out PaperWM&lt;/a&gt;. The concept simplifies and streamlines windows fro occupying a fully two dimensional space into something resembling 1.5 dimensions: windows are all arranged side-by-side infinitely, and you just traverse along the line of windows to find what you&amp;rsquo;re looking for.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been using it full time for a week and I&amp;rsquo;m pretty happy with it. Maybe this will stick for a while.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;&lt;/blockquote&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
       
     </item>
@@ -276,7 +280,7 @@
         &lt;li&gt;&lt;a href=&#34;#what-does-this-mean&#34;&gt;What does this mean?&lt;/a&gt;&lt;/li&gt;
       &lt;/ol&gt;
     &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#case-study-the-dumbest-possible-person-in-the-room&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#getting-the-data&#34;&gt;Getting the Data&lt;/a&gt;
       &lt;ol&gt;
         &lt;li&gt;&lt;a href=&#34;#a-eulogy-for-wget&#34;&gt;A Eulogy for &lt;code&gt;wget&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -359,8 +363,7 @@
 &lt;p&gt;This was the hardest thing to get a simple answer for.&lt;/p&gt;
 &lt;p&gt;A typical &lt;a href=&#34;https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation&#34;&gt;vague-as-hell explanation&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;I understand all those words, but in practical terms, what exactly does that mean? Like, specifically?&lt;/p&gt;
 &lt;h2 id=&#34;what-does-this-mean&#34;&gt;What does this mean?&lt;/h2&gt;
 &lt;p&gt;Turns out, &lt;strong&gt;a RAG is just a dirty trick decorated with academic language to seem less dirty to outsiders&lt;/strong&gt;. The long and short of it is the RAG injects extra contextual information into the chatbot to give it more domain-specificity.&lt;/p&gt;
@@ -373,7 +376,7 @@
 How would you answer the following question:
 What is X?
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it. It&amp;rsquo;s prompt injection with a pretty name. The injection technique may vary in sophistication, but this is what it ultimately boils down to.&lt;/p&gt;
-&lt;h1 id=&#34;case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;case-study-the-dumbest-possible-person-in-the-room&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;On the subject of the goal of &lt;em&gt;non-commercial viability&lt;/em&gt; and my love of making the world worse, not better, I present what I wish to do with a RAG here: take the transcripts of the &lt;a href=&#34;https://spoti.fi/JoeRoganExperience&#34;&gt;Joe Rogan show&lt;/a&gt; and turn a chatbot into a poorly-informed, blubbering idiot.&lt;/p&gt;
 &lt;p&gt;And so is born &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;: a conspiracy theory addled, misinformed LLM chat that will serve to both enrage you and make you dumber at the same time.&lt;/p&gt;
 &lt;h1 id=&#34;getting-the-data&#34;&gt;Getting the Data&lt;/h1&gt;
@@ -1230,8 +1233,7 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
 &lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
 &lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
@@ -1640,22 +1642,22 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;h2 id=&#34;backend-server&#34;&gt;Backend server&lt;/h2&gt;
 &lt;p&gt;The backend server is a simple Go server with an even simpler API:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Endpoint&lt;/th&gt;
-&lt;th&gt;Purpose&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Endpoint&lt;/th&gt;
+          &lt;th&gt;Purpose&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&amp;rsquo;s it. That&amp;rsquo;s the synchronization mechanism. A goroutine and a channel.&lt;/p&gt;
 &lt;p&gt;Jobs are stored in a &lt;a href=&#34;https://github.com/boltdb/bolt&#34;&gt;Bolt&lt;/a&gt; database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?&lt;/p&gt;
@@ -1664,8 +1666,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;blockquote&gt;
 &lt;h3 id=&#34;an-aside-making-peace-with-systemd&#34;&gt;An aside: Making Peace with &lt;code&gt;systemd&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;People like to talk shit about &lt;code&gt;systemd&lt;/code&gt;. It&amp;rsquo;s weird, it&amp;rsquo;s disruptive, it tries to do too much.
-First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;
-&lt;/blockquote&gt;
+First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h1 id=&#34;keeping-the-software-running&#34;&gt;Keeping the software running&lt;/h1&gt;
 &lt;h2 id=&#34;operating-environment-on-the-server&#34;&gt;Operating Environment on the Server&lt;/h2&gt;
 &lt;p&gt;I use &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;letsencrypt&lt;/a&gt; for SSL, &lt;a href=&#34;https://cloud.google.com/compute&#34;&gt;GCP for a VM/IP&lt;/a&gt; (Docker would be stupid here), and Nginx as the edge. The conf look like:&lt;/p&gt;
@@ -1970,8 +1971,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;xyz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;
@@ -2186,8 +2186,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Ha ha ha just lying the real title should be&lt;/p&gt;
 &lt;h1 id=&#34;turning-a-piece-of-shit-chromebook-into-a-good-enough-development-machine-because-youre-unemployed-and-feel-like-an-ass-trying-to-justify-spending-2000-on-a-god-damned-macbook-so-you-wound-up-buying-a-chromebook-instead&#34;&gt;Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead&lt;/h1&gt;
 &lt;p&gt;Anyway, I&amp;rsquo;m &lt;a href=&#34;http://www.theverge.com/2016/12/8/13887622/yik-yak-layoffs-growth-collapse&#34;&gt;unemployed because of reasons&lt;/a&gt; and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: &lt;a href=&#34;https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/&#34;&gt;the Chromebook C100P&lt;/a&gt;. The stats are as follows:&lt;/p&gt;
@@ -2229,8 +2228,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Please note I am contractually prohibited from saying what I &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; like about most of my prior employers so don&amp;rsquo;t expect any negative posts.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco. I&amp;rsquo;ve been here about three months now and this is a list of (some) of the things I like about my new job.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Continuous Integration&lt;/strong&gt;: This is something that I took for granted almost a decade ago at a former employer and haven&amp;rsquo;t had since. When I make a change and push it to GitHub, a set of tests automatically spin up and I can&amp;rsquo;t merge to master until those tests pass. This is good, I have a self-service QA agent where I can iteratively work on an issue and finally do a PR when it&amp;rsquo;s ready.&lt;/p&gt;

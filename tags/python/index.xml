@@ -256,8 +256,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
 &lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
 &lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
@@ -553,8 +552,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;xyz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;
