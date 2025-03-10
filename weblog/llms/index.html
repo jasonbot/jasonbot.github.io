@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1741282067"><link rel="stylesheet" href="/css/fonts.css?rnd=1741282067">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1741620246"><link rel="stylesheet" href="/css/fonts.css?rnd=1741620246">
 	
 </head>
 <body>
@@ -111,7 +111,7 @@
 				<p>We&rsquo;re a couple of years into the LLM hype cycle and the volume at this point is <em>deafening</em>. I use LLMs, and I find them interesting, and they have played a major part of my professional life for the past two and a half years.</p>
 <p>That said, I can&rsquo;t declare them an unqualified success or a miracle cure for anything. I approach them with a combination of skepticism and grief. I understand they are here to stay and I will do my best to use them effectively in the use cases where they are indeed effective. However, I think it is both foolish and irresponsible to myself/my employers/my friends/my peers/society in general to see them solely in a positive light and I think we need to consider critically how we want to approach them.</p>
 <h1 id="how-llms-are-made">How LLMs are Made</h1>
-<p>As an undergraduate some years into my post-collegiate life, I did research in what could be considered &ldquo;natural language processing&rdquo; or &ldquo;computational linguistics&rdquo;: I worked on the <a href="https://link.springer.com/article/10.3758/BF03204766">HAL Model</a>, which was an early high-dimensional model for approximating language understanding, and later <a href="https://dlib.org/dlib/january03/mitchell/01mitchell.html">a software system employing all kinds of cool cutting-edge language-in-computers techniques</a> (early Support Vector Machine tooling being one I worked on) and there was one lesson I learned from both:</p>
+<p>As an undergraduate and about three years into my post-collegiate life, I did research in what could be considered &ldquo;natural language processing&rdquo; or &ldquo;computational linguistics&rdquo;: I worked on the <a href="https://link.springer.com/article/10.3758/BF03204766">HAL Model</a>, which was an early high-dimensional model for approximating language understanding, and later <a href="https://dlib.org/dlib/january03/mitchell/01mitchell.html">a software system employing all kinds of cool cutting-edge language-in-computers techniques</a> (early Support Vector Machine tooling being one I worked on) and there was one lesson I learned from both:</p>
 <blockquote>
 <p><strong>Better models are good, but better data is <em>better</em>.</strong></p></blockquote>
 <p>Far and away, the best way to get better results was not to develop a better model, it was to develop toolchains for collecting more and better data. We got good results even with okay models when we fed them Wikipedia. We got bad results even with cutting edge models if we just fed them a couple of emails. Good data was what made these things effective.</p>
@@ -137,7 +137,7 @@
 <li>Given an input, there is no reliable way of getting the same output every time. You can&rsquo;t even get a sentence back from the training data fully verbatim in a reliable way. Facts can&rsquo;t happen when a machine is dreaming half-truths based on superpositions of sentences.</li>
 <li>This is exacerbated by models being a &lsquo;black box&rsquo; &ndash; OpenAI or Anthropic can make tweaks to the model, putting out a slightly model on the same product offering, change operating parameters like temperature, even by <em>hosting the same system on a new data center</em> you can get wildly varying, unpredictable results.</li>
 </ol>
-<p>If we can&rsquo;t depend on an LLM to reliably do the same thing the same way every time, it&rsquo;s not dependable like a simple machine in a factory. Or a computer running deterministic software. We have added nondeterminism to a set of tools that used to be deterministic. We&rsquo;ve given up as property of general-purpose computing.</p>
+<p>If we can&rsquo;t depend on an LLM to reliably do the same thing the same way every time, it&rsquo;s not dependable like a simple machine in a factory. Or a computer running deterministic software. We have added nondeterminism to a set of tools that used to be deterministic. We&rsquo;ve given up a property of general-purpose computing.</p>
 <p>Manufactured goods are made within tolerance margins for the dimensions of their parts. Classical computation models are usually accurate, and in cases where they may not be fully accurate (see IEEE 754 floating point numbers) they are still inaccurate in a predictable, regular way.</p>
 <h2 id="were-already-approaching-their-upper-limits">We&rsquo;re Already Approaching their Upper Limits</h2>
 <p>We&rsquo;ve seen emergent issues with LLMs that give us pause and act as comical, widely-published issues that suggest these things aren&rsquo;t armed with the unlimited potential they claim to have:</p>
