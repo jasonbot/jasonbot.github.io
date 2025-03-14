@@ -8,6 +8,24 @@
     <language>en</language>
     <lastBuildDate>Wed, 01 Jan 2025 12:00:00 -0700</lastBuildDate><atom:link href="https://www.jasonscheirer.com/engineering-virtues/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Throw your Team a Bone</title>
+      <link>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</link>
+      <pubDate>Fri, 14 Mar 2025 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</guid>
+      <description>&lt;p&gt;You like &lt;a href=&#34;../little-treats&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
+&lt;p&gt;Sometimes this is called &lt;a href=&#34;https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics&#34;&gt;the hariy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham&#39;s_Law%22&#34;&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
+&lt;p&gt;Some examples I&amp;rsquo;ve used over the years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Name a new source file slightly wrong in the PR. You&amp;rsquo;ll be asked to correct the name and then you won&amp;rsquo;t have to have a long conversation where you get the reviewer up-to-speed about the logic of the method that you spent a week thinking through, they&amp;rsquo;re satisfied with the feedback they&amp;rsquo;ve given and do not feel obligated to go further.&lt;/li&gt;
+&lt;li&gt;Just ship a new UI without being provided a design. You&amp;rsquo;ll get some minor markup corrections but you don&amp;rsquo;t have to go through a lengthy planning phase.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just a suggestion!&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
+      
+    </item>
+    
+    <item>
       <title>Give Yourself Little Treats Sometimes</title>
       <link>https://www.jasonscheirer.com/engineering-virtues/little-treats/</link>
       <pubDate>Wed, 05 Mar 2025 00:00:00 -0800</pubDate>
