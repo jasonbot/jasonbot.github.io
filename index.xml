@@ -14,7 +14,7 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</guid>
       <description>&lt;p&gt;You like &lt;a href=&#34;../little-treats/&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
-&lt;p&gt;Sometimes this is called &lt;a href=&#34;https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics&#34;&gt;the hariy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham&#39;s_Law%22&#34;&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
+&lt;p&gt;Sometimes this is called &lt;a href=&#34;https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics&#34;&gt;the hairy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham&#39;s_Law%22&#34;&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
 &lt;p&gt;Some examples I&amp;rsquo;ve used over the years:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Name a new source file slightly wrong in the PR. You&amp;rsquo;ll be asked to correct the name and then you won&amp;rsquo;t have to have a long conversation where you get the reviewer up-to-speed about the logic of the method that you spent a week thinking through, they&amp;rsquo;re satisfied with the feedback they&amp;rsquo;ve given and do not feel obligated to go further.&lt;/li&gt;
@@ -313,7 +313,12 @@
 &lt;h2 id=&#34;editorsenvironments&#34;&gt;Editors/Environments&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;My muscle memory is &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;, I use it everywhere&lt;/li&gt;
-&lt;li&gt;Most of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Most of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;I use LLMs for developing code signficiantly less than other people on the cutting edge of tech. I have the &lt;a href=&#34;https://www.continue.dev/&#34;&gt;Continue plugin&lt;/a&gt; installed at home against local Ollama but use its features quite sparingly.&lt;/li&gt;
+&lt;li&gt;At work I use &lt;a href=&#34;https://www.cursor.com/&#34;&gt;Cursor, a VS Code parasite&lt;/a&gt; IDE because the Thought Leaders in Engineering Leadership have mandated it, partly as an assertion of thought leadership and partly to assuage the board of directors that we are, as an organization, indeed taking AI seriously. It&amp;rsquo;s also configured to use local Ollama in the places where it works. I use the chat window occasionally and it fixes some trivial mistakes fine, but I don&amp;rsquo;t use the non-vanilla-VSCode stuff any more than I use Continue at home (which is to say, maybe 3-5 chats/autocompletes a week).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;I am forcing myself to use &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; more too, just because monocultures are a Bad Idea and VSC is a monoculture now&lt;/li&gt;
 &lt;li&gt;I like using &lt;a href=&#34;https://ebitengine.org/&#34;&gt;Ebitengine&lt;/a&gt; to make silly 2D games&lt;/li&gt;
 &lt;li&gt;I also (rarely) play around with &lt;a href=&#34;https://www.lexaloffle.com/picotron.php&#34;&gt;Picotron&lt;/a&gt;, &lt;a href=&#34;https://www.lexaloffle.com/pico-8.php&#34;&gt;Pico-8&lt;/a&gt;, &lt;a href=&#34;https://tic80.com/&#34;&gt;TIC-80&lt;/a&gt; and &lt;a href=&#34;https://love2d.org/&#34;&gt;LÖVE&lt;/a&gt; for the same&lt;/li&gt;
@@ -326,6 +331,7 @@
 &lt;li&gt;I use &lt;a href=&#34;https://github.com/nvm-sh/nvm&#34;&gt;nvm&lt;/a&gt;, &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt; and &lt;a href=&#34;https://github.com/rbenv/rbenv&#34;&gt;rbenv&lt;/a&gt; to manage node/python/ruby installs&lt;/li&gt;
 &lt;li&gt;I use &lt;code&gt;grep&lt;/code&gt;, &lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;&lt;code&gt;rg&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34;&gt;&lt;code&gt;ag&lt;/code&gt;&lt;/a&gt; in descending order of frequency&lt;/li&gt;
 &lt;li&gt;I like &lt;a href=&#34;https://github.com/dandavison/delta&#34;&gt;git-delta&lt;/a&gt; for command line diffing&lt;/li&gt;
+&lt;li&gt;I like &lt;a href=&#34;https://github.com/jesseduffield/lazygit&#34;&gt;lazygit&lt;/a&gt; for some easy to explain but harder to do than necessary git operations. Sometimes a GUI (or a TUI) is nice! Not everythnig has to be commands or code!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;it-came-from-userspace&#34;&gt;It Came from Userspace&lt;/h3&gt;
 &lt;ul&gt;
