@@ -6,7 +6,33 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Mar 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 May 2025 00:00:00 -0600</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Wrong Conclusion</title>
+      <link>https://www.jasonscheirer.com/weblog/the-wrong-conclusion/</link>
+      <pubDate>Thu, 15 May 2025 00:00:00 -0600</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/the-wrong-conclusion/</guid>
+      <description>&lt;p&gt;A common pattern I have come to recognize everywhere as an anti-pattern:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Person starts a dialogue establishing a problem, upon which we all agree&lt;/li&gt;
+&lt;li&gt;Person continues on down the same line of conversation, outlining a solution&lt;/li&gt;
+&lt;li&gt;Person comes to a conclusion which is a call to action&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I see this a lot because step 1 seems to short-circuit the thinking behind the rest of the logic. You got a narrative going that you feel compelled to continue to listen to, and assume it&amp;rsquo;s only going to stay sane.&lt;/p&gt;
+&lt;p&gt;However, &lt;strong&gt;just because you have identified a problem does not mean your solution is correct&lt;/strong&gt;. Stop yourself when a person opens a paragraph and remember that &lt;em&gt;where they are going is not necessarily the only path, or even a sensible one&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The example I see most currently is about AI somehow matching human intelligence, usually in the context of LLMs.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;LLMs exist, and seem to have novel properties that mimic humans producing language&lt;/li&gt;
+&lt;li&gt;Therefore, LLMs are the same as humans producing language&lt;/li&gt;
+&lt;li&gt;Therefore, LLMs have all the other capacities of humans and have been endowed with human nature and will replace us all&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I&amp;rsquo;ve decorated these talking points with some straw men that are usually left implicit when the idea is presented, but you get the idea.&lt;/p&gt;
+&lt;p&gt;Just because you agree with the problem statement does not mean that the conclusion is correct just because it occurs a few sentences later.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/writing">writing</category>
+      
+    </item>
+    
     <item>
       <title>Throw your Team a Bone</title>
       <link>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</link>
@@ -503,7 +529,7 @@
 &lt;/p&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;amp;ndash; logged in&#34; /&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/playing-classicube-at-work/ss2.png&#34; alt=&#34;Success &amp;ndash; logged in&#34; /&gt;
 &lt;/figure&gt;
 
 
@@ -1924,22 +1950,22 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;h2 id=&#34;backend-server&#34;&gt;Backend server&lt;/h2&gt;
 &lt;p&gt;The backend server is a simple Go server with an even simpler API:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Endpoint&lt;/th&gt;
-&lt;th&gt;Purpose&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Endpoint&lt;/th&gt;
+          &lt;th&gt;Purpose&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/print&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Enqueues a print job and returns a unique ID&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;/job/:id&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Returns the status of the job, along with the image if it&amp;rsquo;s been taken&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;The only thing to be aware of is that only one job can be running at a time. The way we get around this is very simple: a single goroutine waiting for jobs running in a loop. That&amp;rsquo;s it. That&amp;rsquo;s the synchronization mechanism. A goroutine and a channel.&lt;/p&gt;
 &lt;p&gt;Jobs are stored in a &lt;a href=&#34;https://github.com/boltdb/bolt&#34;&gt;Bolt&lt;/a&gt; database, which has all the ACID properties I want in a database while being stupid simple to use. Like, easier than Sqlite. I know, right?&lt;/p&gt;
