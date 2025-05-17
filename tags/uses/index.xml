@@ -19,7 +19,6 @@
 &lt;li&gt;I am primarily a Python expert (25 years!)&lt;/li&gt;
 &lt;li&gt;I am primarily a &lt;a href=&#34;https://github.com/fastapi/fastapi&#34;&gt;FastAPI&lt;/a&gt; user, and I am better than average at doing async programming (which sucks and is bad, but it&amp;rsquo;s fun to do bad things)&lt;/li&gt;
 &lt;li&gt;I primarily choose Postgres as my database&lt;/li&gt;
-&lt;li&gt;I reluctantly use Ruby at my office&lt;/li&gt;
 &lt;li&gt;I do most of my personal dev projects in Go&lt;/li&gt;
 &lt;li&gt;If you ask me to write something in C++ I will say no but I &lt;em&gt;will&lt;/em&gt; write C++ to spite you&lt;/li&gt;
 &lt;li&gt;I prefer Linux on the desktop to Mac on the desktop at this point
@@ -39,7 +38,6 @@
 &lt;li&gt;Most of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;I use LLMs for developing code signficiantly less than other people on the cutting edge of tech. I have the &lt;a href=&#34;https://www.continue.dev/&#34;&gt;Continue plugin&lt;/a&gt; installed at home against local Ollama but use its features quite sparingly.&lt;/li&gt;
-&lt;li&gt;At work I use &lt;a href=&#34;https://www.cursor.com/&#34;&gt;Cursor, a VS Code parasite&lt;/a&gt; IDE because the Thought Leaders in Engineering Leadership have mandated it, partly as an assertion of thought leadership and partly to assuage the board of directors that we are, as an organization, indeed taking AI seriously. It&amp;rsquo;s also configured to use local Ollama in the places where it works. I use the chat window occasionally and it fixes some trivial mistakes fine, but I don&amp;rsquo;t use the non-vanilla-VSCode stuff any more than I use Continue at home (which is to say, maybe 3-5 chats/autocompletes a week).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;I am forcing myself to use &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; more too, just because monocultures are a Bad Idea and VSC is a monoculture now&lt;/li&gt;
