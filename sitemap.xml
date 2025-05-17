@@ -2,16 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</loc>
+    <lastmod>2025-05-17T00:00:00-08:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2025-05-17T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2025-05-17T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/virtues/</loc>
     <lastmod>2025-05-17T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/harper/</loc>
     <lastmod>2025-05-15T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/kicking-the-tires-on-harper/</loc>
-    <lastmod>2025-05-15T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2025-05-15T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/writing/</loc>
@@ -21,9 +27,6 @@
     <lastmod>2025-05-15T00:00:00-06:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</loc>
-    <lastmod>2025-03-14T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/virtues/</loc>
     <lastmod>2025-03-14T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/engineering-virtues/little-treats/</loc>
