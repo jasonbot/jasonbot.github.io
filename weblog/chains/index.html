@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748125753"><link rel="stylesheet" href="/css/fonts.css?rnd=1748125753">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748125810"><link rel="stylesheet" href="/css/fonts.css?rnd=1748125810">
 	
 </head>
 <body>
@@ -252,7 +252,7 @@
 </span></span><span class="line"><span class="cl"><span class="nx">item3</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">RoundRobin</span><span class="p">(</span><span class="nf">Each</span><span class="p">(</span><span class="nx">item1</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item2</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item3</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 5, 9, 2, 6, 10, 3, 7, 11, 4, 8, 12}
+</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 5, 10, 2, 6, 11, 3, 7, 12, 4, 8, 9}
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div><h3 id="merging-sorted-streams">Merging Sorted Streams</h3>
 <p>Use case: I have 3000 CSVs, each has rows in order of date. The time ranges <em>may</em> overlap in some cases. I wanted a unified stream of all the rows in order. For that, I wrote <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go#L231-L259"><code>Merged</code></a>, which is at its core a pull-on-demand heap. Once the smallest value has been pulled off the heap, yield it, then grab the next value from the iterator that provided the value to place on the heap.</p>
