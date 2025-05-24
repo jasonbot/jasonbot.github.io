@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748126619"><link rel="stylesheet" href="/css/fonts.css?rnd=1748126619">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748126856"><link rel="stylesheet" href="/css/fonts.css?rnd=1748126856">
 	
 </head>
 <body>
@@ -126,6 +126,11 @@
 <p>Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators.</p>
 <h2 id="cleanups">Cleanups</h2>
 <p>Similar to the above, pretty trivial to write. Can even treat these as specific cases of <code>Filter</code>.</p>
+<h2 id="ruby-silliness">Ruby Silliness</h2>
+<ul>
+<li><a href="https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Flatten"><code>Flatten</code> takes an iterable of iterables and turns it into a flat iterable</a>, but it doesn&rsquo;t do it to arbitrray levels of nesting like Ruby does. There are rules here dude.</li>
+<li><a href="https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Tap"><code>Tap</code> is largely useless</a>, kind of like a forEach or a visitor that passes the item along.</li>
+</ul>
 <h2 id="combinatorics">Combinatorics</h2>
 <p>I wanted <code>combinations</code> and <code>permutations</code>, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is <a href="https://github.com/jasonbot/chains/blob/main/combinatorics.go"><code>combinatorics.go</code></a>. Funnily enough, each combinatorial case was some combination of:</p>
 <ul>

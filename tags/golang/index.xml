@@ -39,6 +39,11 @@
 &lt;p&gt;Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators.&lt;/p&gt;
 &lt;h2 id=&#34;cleanups&#34;&gt;Cleanups&lt;/h2&gt;
 &lt;p&gt;Similar to the above, pretty trivial to write. Can even treat these as specific cases of &lt;code&gt;Filter&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;ruby-silliness&#34;&gt;Ruby Silliness&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Flatten&#34;&gt;&lt;code&gt;Flatten&lt;/code&gt; takes an iterable of iterables and turns it into a flat iterable&lt;/a&gt;, but it doesn&amp;rsquo;t do it to arbitrray levels of nesting like Ruby does. There are rules here dude.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Tap&#34;&gt;&lt;code&gt;Tap&lt;/code&gt; is largely useless&lt;/a&gt;, kind of like a forEach or a visitor that passes the item along.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;combinatorics&#34;&gt;Combinatorics&lt;/h2&gt;
 &lt;p&gt;I wanted &lt;code&gt;combinations&lt;/code&gt; and &lt;code&gt;permutations&lt;/code&gt;, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is &lt;a href=&#34;https://github.com/jasonbot/chains/blob/main/combinatorics.go&#34;&gt;&lt;code&gt;combinatorics.go&lt;/code&gt;&lt;/a&gt;. Funnily enough, each combinatorial case was some combination of:&lt;/p&gt;
 &lt;ul&gt;
