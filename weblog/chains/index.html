@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Chains: My Attempt at an Itertools for Go</title>
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Chains: My Attempt at an Itertools for Go" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748114634"><link rel="stylesheet" href="/css/fonts.css?rnd=1748114634">
+	
+</head>
+<body>
+	<div class="everything">
+		<header>
+  <nav>
+        
+
+    <span class="nav-item">
+      
+      <a href="/"><b>Main</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/about/"><b>About</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/uses/"><b>Uses</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/toys/"><b>Toys</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/engineering-virtues/"><b>Virtues</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/"><b>Tags</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/search/"><b>Search</b></a>
+      
+    </span>
+
+    
+  </nav>
+  
+</header>
+
+		
+	<main>
+		<article>
+			<h1 class="page-title" data-pagefind-body>
+				Chains: My Attempt at an Itertools for Go
+			</h1>
+			
+				<div class="byline-etc">
+					
+					<time>2025-05-24</time>
+					
+					
+						<a class="taglink" href="/tags/golang">golang</a>
+						
+						<a class="taglink" href="/tags/programming">programming</a>
+						
+				</div>
+			
+			
+			<div data-pagefind-body>
+				<blockquote>
+<p><strong>Top Matter</strong>: <a href="https://pkg.go.dev/github.com/jasonbot/chains">Doc for this library</a>.</p>
+</blockquote>
+<p>It&rsquo;s been six months since I&rsquo;ve done this, but I&rsquo;m finally writing about it!</p>
+<p>Go <a href="https://go.dev/blog/range-functions">recently added proper iterator support</a> to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a <code>range</code> to get a stream of values.</p>
+<p>One of the tools in my toolbox that I use in coding interviews and some light data processing work is <a href="https://docs.python.org/3/library/itertools.html">Python&rsquo;s itertools</a>. The nice thing about this library is it gives you a good set of conceptual building blocks to use as a frame around a problem and a fairly clean way to use them. Once you&rsquo;re familiar with, say, <code>combinations</code> and <code>permutations</code> you can take a harder problem and decompose it into those recognizable parts and then have a stdlib function that&rsquo;s already bug free and readily available.</p>
+<p>While I was inspired to author this, I was writing a <em>lot</em> of Ruby and Typescript. Both Ruby and Javascript do processing over lists in a very chainy way; for example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">thing</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">filter</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="p">=&gt;</span> <span class="nx">key</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;data-&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="p">=&gt;</span> <span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^data-/</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span></code></pre></div><p>Ruby like to add lots of <a href="https://docs.ruby-lang.org/en/2.5.0/Array.html#method-i-compact">compact</a> calls etc as well to handle bad data.</p>
+<p>Having this syntactic sugar makes it easier to write complex logic, and it also helps conform the logic to one&rsquo;s brain.</p>
+<p>Anyway, Go has iterators now, and I like using iterators. The first thing I wanted was my brain poisoning syntactic sugar from Ruby/Typescript; how could I go about doing <code>X.Filter(g =&gt; g &gt; 100)</code> in Go?</p>
+<h1 id="the-cookbook-is-the-requirements-doc">The Cookbook is the Requirements Doc</h1>
+<p>Once I had a framework cooking I could start thinking of examples. <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go">My test suite took a backdoor to being a test of cases I cared about</a>, in cookbook form.</p>
+<p>Some things I wanted:</p>
+<ul>
+<li>Map/Filter/Reduce</li>
+<li>Cleanups (compacts, nonzeroes, etc)</li>
+<li>Combinatorics</li>
+<li>Higher-level stream processing (various merges)</li>
+</ul>
+<h2 id="mapfilterreduce">Map/Filter/Reduce</h2>
+<p>Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators.</p>
+<h2 id="cleanups">Cleanups</h2>
+<p>Similar to the above, pretty trivial to write. Can even treat these as specific cases of <code>Filter</code>.</p>
+<h2 id="combinatorics">Combinatorics</h2>
+<p>I wanted <code>combinations</code> and <code>permutations</code>, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is <a href="https://github.com/jasonbot/chains/blob/main/combinatorics.go"><code>combinatorics.go</code></a>. Funnily enough, each combinatorial case was some combination of:</p>
+<ul>
+<li>Length (one, fixed, variable)</li>
+<li>Ordering (in order of occurrence, free variance)</li>
+<li>Repetition of elements (on/off)</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Length</th>
+          <th>Repetition</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Permutations</code></td>
+          <td>N (Length of inputs)</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>PermutationsOfLength</code></td>
+          <td>M (User-specified)</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>PermutationsWithReplacement</code></td>
+          <td>N (Length of inputs)</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td><code>PermutationsOfLengthWithReplacement</code></td>
+          <td>M (User-specified)</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td><code>Combinations</code></td>
+          <td>1&hellip;N (Length of inputs)</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td><code>CombinationsOfLength</code></td>
+          <td>1&hellip;M (User-specified)</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="windows">Windows</h2>
+<p>Not as high-level as Combinatorics, but I wanted to take a window of N at as time.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Length</th>
+          <th>Overlaps</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Windows</code></td>
+          <td>1&hellip;M</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>SlidingWindows</code></td>
+          <td>1&hellip;M</td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="higher-level-chaining">Higher-Level Chaining</h2>
+<p>I like to concatenate iterators sometimes; e.g. to process the results of two tasks in a single queue. <code>itertools.chain</code> works in Python, it was a breeze to write here as well.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">chains</span><span class="p">.</span><span class="nf">FlattenArgs</span><span class="p">(</span><span class="nx">chains</span><span class="p">.</span><span class="nf">Each</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">/// Gives you 1, 2, 3, 4, 5, 6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>Got the base case down.</p>
+<h2 id="things-i-never-had-in-itertools-merging-iterators">Things I Never Had in Itertools: Merging Iterators</h2>
+<p>Some common use cases I find myself writing a lot just aren&rsquo;t in the stdlib in Python. They generally involve taking many iterators and unifying then in ways dependent on the structure of the iterators themselves; either by length or by value.</p>
+<h3 id="combining-streams-fairly">Combining Streams &ldquo;Fairly&rdquo;</h3>
+<p>Another use case is Round-Robining a set of iterators until they are all exhausted. We&rsquo;ve got a set of inputs and want to consume from all of them until we run out. For that, there&rsquo;s <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go#L261-L272"><code>RoundRobin</code></a>, which works exactly as expected. Each iterator can have a variable number of entries but all entries are considered by index, so we don&rsquo;t exhaust one before going to the next but try to consume them all equally.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">item1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">item2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">item3</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">RoundRobin</span><span class="p">(</span><span class="nf">Each</span><span class="p">(</span><span class="nx">item1</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item2</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item3</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 5, 9, 2, 6, 10, 3, 7, 11, 4, 8, 12}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="merging-sorted-streams">Merging Sorted Streams</h3>
+<p>Use case: I have 3000 CSVs, each has rows in order of date. The time ranges <em>may</em> overlap in some cases. I wanted a unified stream of all the rows in order. For that, I wrote <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go#L231-L259"><code>Merged</code></a>, which is at its core a pull-on-demand heap. Once the smallest value has been pulled off, pull another item from the iterator to got that item from and put it back on the heap.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">item1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">item2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">item3</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">expectedSlice</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">Merged</span><span class="p">(</span><span class="nf">Each</span><span class="p">(</span><span class="nx">item1</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item2</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item3</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8, 10}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h1 id="my-journey-of-discovery-got-me-using-my-favored-pattern-in-a-more-go-like-way-in-go">My Journey of Discovery got me Using My Favored Pattern in a More Go-Like Way in Go</h1>
+<p>I was in love with my ability to do chained iterators, but they got clunky. Go generics only apply to functions and you can&rsquo;t template an interface. So while <code>X.Filter(...).Map(...)</code> is fun and cute, in Go you&rsquo;re better off doing something like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">f</span> <span class="o">:=</span> <span class="nf">Filter</span><span class="p">(</span><span class="nx">X</span><span class="p">,</span> <span class="nx">filterFunc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m</span> <span class="o">:=</span> <span class="nf">Map</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">mapfunc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">results</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">m</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</span></span></code></pre></div><p>&hellip;which, quite frankly, feels a lot more Go-like and less foreign than the cute way we do it in other languages. You can see I gave up on chaining in the above examples and just do individual iterators.</p>
+<p>Once I started doing things the Go way, it really increased the pace of development as well. Being able to implement each iterator as a simple function meant I could focus on implementation and not boilerplate. Constraining myself to <code>iter.Seq</code> and <code>iter.Seq2</code> relieved me of the analysis paralysis of variadic iterators: one value, and when it made sense, two.</p>
+<h1 id="dont-use-this-as-a-library">Don&rsquo;t Use this as a Library</h1>
+<p>I&rsquo;ve made this available as an importable library, but many of these patterns are easier to just copy and paste into your code. They should also be inspiration: this is a fun problem to solve! Solve it yourself!</p>
+
+			</div>
+		</article>
+	</main>
+
+		
+<footer>
+  <p>
+    &copy; 2025
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
+</footer>
+
+	</div>
+</body>
+</html>
