@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748125362"><link rel="stylesheet" href="/css/fonts.css?rnd=1748125362">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748125446"><link rel="stylesheet" href="/css/fonts.css?rnd=1748125446">
 	
 </head>
 <body>
@@ -244,7 +244,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div><p>Got the base case down.</p>
 <h2 id="things-i-never-had-in-itertools-merging-iterators">Things I Never Had in Itertools: Merging Iterators</h2>
-<p><code>itertools.chain</code> works in a pinch for &ldquo;gluing&rdquo; together iterators in Python, and that was pretty trivial to write (<a href="https://pkg.go.dev/github.com/jasonbot/chains#Flatten">I called it &ldquo;Flatten&rdquo;</a> because the first iteration took an iterator of iterators, thanks to Ruby/Javascript brain, <a href="https://pkg.go.dev/github.com/jasonbot/chains#FlattenArgs">then made one that took variadic iterator args as <code>FlattenArgs</code></a> too). Some common use cases I find myself writing a lot just aren&rsquo;t in the stdlib in Python. They generally involve taking many iterators and unifying then in ways dependent on the structure of the iterators themselves; either by length or by value.</p>
+<p><a href="https://docs.python.org/3/library/itertools.html#itertools.chain"><code>itertools.chain</code> works in a pinch for &ldquo;gluing&rdquo; together iterators in Python</a>, and that was pretty trivial to write (<a href="https://pkg.go.dev/github.com/jasonbot/chains#Flatten">I called it &ldquo;Flatten&rdquo;</a> because the first iteration took an iterator of iterators, thanks to Ruby/Javascript brain, <a href="https://pkg.go.dev/github.com/jasonbot/chains#FlattenArgs">then made one that took variadic iterator args as <code>FlattenArgs</code></a> too). Some common use cases I find myself writing a lot just aren&rsquo;t in the stdlib in Python. They generally involve taking many iterators and unifying then in ways dependent on the structure of the iterators themselves; either by length or by value.</p>
 <h3 id="combining-streams-fairly">Combining Streams &ldquo;Fairly&rdquo;</h3>
 <p>Another use case is Round-Robining a set of iterators until they are all exhausted. We&rsquo;ve got a set of inputs and want to consume from all of them until we run out. For that, there&rsquo;s <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go#L261-L272"><code>RoundRobin</code></a>, which works exactly as expected. Each iterator can have a variable number of entries but all entries are considered by index, so we don&rsquo;t exhaust one before going to the next but try to consume them all equally.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">item1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
