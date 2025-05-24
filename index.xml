@@ -63,6 +63,12 @@
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;OrderedPermutationsOfLength&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;M (User-specified)&lt;/td&gt;
+          &lt;td&gt;Fixed&lt;/td&gt;
+          &lt;td&gt;No&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;AllOrderedPermutations&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;1&amp;hellip;N (Length of inputs)&lt;/td&gt;
           &lt;td&gt;Fixed&lt;/td&gt;
@@ -75,20 +81,14 @@
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;OrderedPermutationsOfLength&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;M (User-specified)&lt;/td&gt;
-          &lt;td&gt;Fixed&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Permutations&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;N (Length of inputs)&lt;/td&gt;
+          &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;AllPermutations&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;1&amp;hellip;N (Length of inputs)&lt;/td&gt;
-          &lt;td&gt;Free&lt;/td&gt;
-          &lt;td&gt;No&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;Permutations&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;N (Length of inputs)&lt;/td&gt;
           &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
@@ -146,7 +146,7 @@
           &lt;td&gt;&lt;code&gt;SlidingWindows&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;1&amp;hellip;M&lt;/td&gt;
           &lt;td&gt;Yes&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;{1, 2, 3}, 2 -&amp;gt; {1, 2}, {2, 3}, {3}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;{1, 2, 3}, 2 -&amp;gt; {1, 2}, {2, 3}&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3231,7 +3231,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
