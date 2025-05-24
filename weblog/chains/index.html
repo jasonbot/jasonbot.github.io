@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748115115"><link rel="stylesheet" href="/css/fonts.css?rnd=1748115115">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748118481"><link rel="stylesheet" href="/css/fonts.css?rnd=1748118481">
 	
 </head>
 <body>
@@ -101,7 +101,7 @@
 			
 			<div data-pagefind-body>
 				<blockquote>
-<p><strong>Top Matter</strong>: <a href="https://pkg.go.dev/github.com/jasonbot/chains">Doc for this library</a>.</p>
+<p><strong>Top Matter</strong>: <a href="https://github.com/jasonbot/chains">Github for the library</a>, <a href="https://pkg.go.dev/github.com/jasonbot/chains">doc for the library</a>.</p>
 </blockquote>
 <p>It&rsquo;s been six months since I&rsquo;ve done this, but I&rsquo;m finally writing about it!</p>
 <p>Go <a href="https://go.dev/blog/range-functions">recently added proper iterator support</a> to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a <code>range</code> to get a stream of values.</p>
@@ -110,9 +110,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">thing</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">filter</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="p">=&gt;</span> <span class="nx">key</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;data-&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="p">=&gt;</span> <span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^data-/</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span></span></code></pre></div><p>Ruby like to add lots of <a href="https://docs.ruby-lang.org/en/2.5.0/Array.html#method-i-compact">compact</a> calls etc as well to handle bad data.</p>
+</span></span></code></pre></div><p>Ruby likes to add lots of <a href="https://docs.ruby-lang.org/en/2.5.0/Array.html#method-i-compact">compact</a> calls etc. as well to handle bad data.</p>
 <p>Having this syntactic sugar makes it easier to write complex logic, and it also helps conform the logic to one&rsquo;s brain.</p>
-<p>Anyway, Go has iterators now, and I like using iterators. The first thing I wanted was my brain poisoning syntactic sugar from Ruby/Typescript; how could I go about doing <code>X.Filter(g =&gt; g &gt; 100)</code> in Go?</p>
+<p>Anyway, Go has iterators now, and I like using iterators. The first thing I wanted was my brain poisoning syntactic sugar from Ruby/Typescript; how could I go about doing <code>X.Filter(g =&gt; g &gt; 100).Map(h =&gt; fmt.Sprintf(&quot;Hello, %v!&quot;, h))</code> in Go?</p>
 <h1 id="the-cookbook-is-the-requirements-doc">The Cookbook is the Requirements Doc</h1>
 <p>Once I had a framework cooking I could start thinking of examples. <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go">My test suite took a backdoor to being a test of cases I cared about</a>, in cookbook form.</p>
 <p>Some things I wanted:</p>
@@ -138,38 +138,69 @@
       <tr>
           <th>Function</th>
           <th>Length</th>
+          <th>Ordering</th>
           <th>Repetition</th>
       </tr>
   </thead>
   <tbody>
       <tr>
+          <td>(Identity function, superfluous)</td>
+          <td>N (Length of inputs)</td>
+          <td>Fixed</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>OrderedPermutations</code></td>
+          <td>1&hellip;N (Length of inputs)</td>
+          <td>Fixed</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>OrderedPermutationsOfLength</code></td>
+          <td>M (User-specified)</td>
+          <td>Fixed</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>AllPermutations</code></td>
+          <td>1&hellip;N (Length of inputs)</td>
+          <td>Free</td>
+          <td>No</td>
+      </tr>
+      <tr>
           <td><code>Permutations</code></td>
           <td>N (Length of inputs)</td>
+          <td>Free</td>
           <td>No</td>
       </tr>
       <tr>
           <td><code>PermutationsOfLength</code></td>
           <td>M (User-specified)</td>
+          <td>Free</td>
           <td>No</td>
       </tr>
       <tr>
           <td><code>PermutationsWithReplacement</code></td>
           <td>N (Length of inputs)</td>
+          <td>Free</td>
           <td>Yes</td>
       </tr>
       <tr>
           <td><code>PermutationsOfLengthWithReplacement</code></td>
           <td>M (User-specified)</td>
+          <td>Free</td>
           <td>Yes</td>
       </tr>
       <tr>
           <td><code>Combinations</code></td>
           <td>1&hellip;N (Length of inputs)</td>
+          <td>Free</td>
           <td>Yes</td>
       </tr>
       <tr>
           <td><code>CombinationsOfLength</code></td>
           <td>1&hellip;M (User-specified)</td>
+          <td>Free</td>
           <td>Yes</td>
       </tr>
   </tbody>
@@ -182,6 +213,7 @@
           <th>Function</th>
           <th>Length</th>
           <th>Overlaps</th>
+          <th>Examples</th>
       </tr>
   </thead>
   <tbody>
@@ -189,11 +221,13 @@
           <td><code>Windows</code></td>
           <td>1&hellip;M</td>
           <td>No</td>
+          <td><code>{1, 2, 3}, 2 -&gt; {1, 2}, {3}</code></td>
       </tr>
       <tr>
           <td><code>SlidingWindows</code></td>
           <td>1&hellip;M</td>
-          <td>No</td>
+          <td>Yes</td>
+          <td><code>{1, 2, 3}, 2 -&gt; {1, 2}, {2, 3}, {3}</code></td>
       </tr>
   </tbody>
 </table>
