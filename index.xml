@@ -200,7 +200,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;results&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;hellip;which, quite frankly, feels a lot more Go-like and less foreign than the cute way we do it in other languages. You can see I gave up on chaining in the above examples and just do individual iterators.&lt;/p&gt;
-&lt;p&gt;And so, instead I found myself using single iterators via &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Each&#34;&gt;the &lt;code&gt;Each&lt;/code&gt; adapter function&lt;/a&gt; and back to slices &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#ToSlice&#34;&gt;with &lt;code&gt;ToSlice&lt;/code&gt;&lt;/a&gt;. As I got further into impklementing the various functions I wanted, I moved away from the &lt;code&gt;Chainable&lt;/code&gt; pattern into simple functions. It&amp;rsquo;s still ugly to do &lt;code&gt;Map(Filter(Reduce(...)))&lt;/code&gt; because the pipeline appears in opposite order but doing each as an assignment keeps the order at the expense of slightly more verbosity. It&amp;rsquo;s not as &lt;em&gt;aesthetic&lt;/em&gt; but it works.&lt;/p&gt;
+&lt;p&gt;And so, instead I found myself using single iterators via &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Each&#34;&gt;the &lt;code&gt;Each&lt;/code&gt; adapter function&lt;/a&gt; and back to slices &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#ToSlice&#34;&gt;with &lt;code&gt;ToSlice&lt;/code&gt;&lt;/a&gt;. As I got further into implementing the various functions I wanted, I moved away from the &lt;code&gt;Chainable&lt;/code&gt; pattern into simple functions. It&amp;rsquo;s still ugly to do &lt;code&gt;Map(Filter(Reduce(...)))&lt;/code&gt; because the pipeline appears in opposite order but doing each as an assignment keeps the order at the expense of slightly more verbosity. It&amp;rsquo;s not as &lt;em&gt;aesthetic&lt;/em&gt; but it works.&lt;/p&gt;
 &lt;p&gt;I think the most practical example I can give is the test in the cookbook that generates a sequence of fights in Street Fighter. If you play as a playable character you can fight all the other playable characters &lt;em&gt;and&lt;/em&gt; each of the bosses. You &lt;em&gt;cannot&lt;/em&gt; play as the bosses. As such, we have two separate matchup types:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Player v Player, unordered&lt;/li&gt;
@@ -3231,7 +3231,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode1s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
