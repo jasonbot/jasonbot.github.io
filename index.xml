@@ -54,8 +54,8 @@
 &lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Flatten&#34;&gt;&lt;code&gt;Flatten&lt;/code&gt; takes an iterable of iterables and turns it into a flat iterable&lt;/a&gt;, but it doesn&amp;rsquo;t do it to arbitrary levels of nesting like Ruby does. There are rules here dude.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Tap&#34;&gt;&lt;code&gt;Tap&lt;/code&gt; is largely useless&lt;/a&gt;, kind of like a forEach or a visitor that passes the item along.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Partition&#34;&gt;&lt;code&gt;Partition&lt;/code&gt; splits an iterator into two&lt;/a&gt; based on a partition function, allowing you to e.g. split good/bad inputs into separate pipelines. A simpler &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Uniq&#34;&gt;&lt;code&gt;Uniq&lt;/code&gt;&lt;/a&gt; function just returns the first value of each key grouping instead.&lt;/li&gt;
-&lt;li&gt;There&amp;rsquo;s also a &lt;code&gt;Tee&lt;/code&gt; to get a tear-off copy of the iterator.&lt;/li&gt;
 &lt;li&gt;Similarly, &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#GroupBy&#34;&gt;&lt;code&gt;GroupBy&lt;/code&gt;&lt;/a&gt; takes an ordered set of items and &amp;ldquo;bins&amp;rdquo; them based on a key function, allowing you to &lt;code&gt;for key, vals := range Partition { for val := range vals { ...} }&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s also a &lt;code&gt;Tee&lt;/code&gt; to get a tear-off copy of the iterator.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;combinatorics&#34;&gt;Combinatorics&lt;/h2&gt;
 &lt;p&gt;I wanted &lt;code&gt;combinations&lt;/code&gt; and &lt;code&gt;permutations&lt;/code&gt;, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is &lt;a href=&#34;https://github.com/jasonbot/chains/blob/main/combinatorics.go&#34;&gt;&lt;code&gt;combinatorics.go&lt;/code&gt;&lt;/a&gt;. Funnily enough, each combinatorial case was some combination of:&lt;/p&gt;
@@ -3255,7 +3255,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode57s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
