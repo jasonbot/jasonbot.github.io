@@ -123,13 +123,13 @@
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;PermutationsWithReplacement&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Combinations&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;N (Length of inputs)&lt;/td&gt;
           &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;Yes&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;PermutationsWithReplacementToLength&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;CombinationsOfLength&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;M (User-specified)&lt;/td&gt;
           &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;Yes&lt;/td&gt;
