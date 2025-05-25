@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748132454"><link rel="stylesheet" href="/css/fonts.css?rnd=1748132454">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748132470"><link rel="stylesheet" href="/css/fonts.css?rnd=1748132470">
 	
 </head>
 <body>
@@ -142,7 +142,7 @@
 <li><a href="https://pkg.go.dev/github.com/jasonbot/chains#Tap"><code>Tap</code> is largely useless</a>, kind of like a forEach or a visitor that passes the item along.</li>
 <li><a href="https://pkg.go.dev/github.com/jasonbot/chains#Partition"><code>Partition</code> splits an iterator into two</a> based on a partition function, allowing you to e.g. split good/bad inputs into separate pipelines. A simpler <a href="https://pkg.go.dev/github.com/jasonbot/chains#Uniq"><code>Uniq</code></a> function just returns the first value of each key grouping instead.</li>
 <li>There&rsquo;s also a <code>Tee</code> to get a tear-off copy of the iterator.</li>
-<li>Similarly, <a href="https://pkg.go.dev/github.com/jasonbot/chains#GroupBy"><code>GroupBy</code></a> takes an ordered set of items and &ldquo;bins&rsquo; them based on a key function, allowing you to <code>for key, vals := range Partition { for val := range vals { ...} }</code></li>
+<li>Similarly, <a href="https://pkg.go.dev/github.com/jasonbot/chains#GroupBy"><code>GroupBy</code></a> takes an ordered set of items and &ldquo;bins&rdquo; them based on a key function, allowing you to <code>for key, vals := range Partition { for val := range vals { ...} }</code></li>
 </ul>
 <h2 id="combinatorics">Combinatorics</h2>
 <p>I wanted <code>combinations</code> and <code>permutations</code>, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is <a href="https://github.com/jasonbot/chains/blob/main/combinatorics.go"><code>combinatorics.go</code></a>. Funnily enough, each combinatorial case was some combination of:</p>
