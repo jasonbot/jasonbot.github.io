@@ -94,7 +94,7 @@
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;OrderedPermutationsToLength&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;1&amp;hellip;M (User specified)&lt;/td&gt;
+          &lt;td&gt;1&amp;hellip;M (User-specified)&lt;/td&gt;
           &lt;td&gt;Fixed&lt;/td&gt;
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
@@ -118,7 +118,7 @@
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;PermutationsToLength&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;1&amp;hellip;M (User specified)&lt;/td&gt;
+          &lt;td&gt;1&amp;hellip;M (User-specified)&lt;/td&gt;
           &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
