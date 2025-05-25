@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748133538"><link rel="stylesheet" href="/css/fonts.css?rnd=1748133538">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748133653"><link rel="stylesheet" href="/css/fonts.css?rnd=1748133653">
 	
 </head>
 <body>
@@ -291,18 +291,18 @@
 </span></span></code></pre></div><h1 id="my-journey-of-discovery-got-me-using-my-favored-pattern-in-a-more-go-like-way-in-go">My Journey Of Discovery Got Me Using My Favored Pattern In A More Go-Like Way In Go</h1>
 <h2 id="starting-out-the-chain">Starting Out: The <code>Chain</code></h2>
 <p>I wanted to be able to chain calls like I can in <em>those other</em> languages, so the first thing I thought to do was design some sort of struct or interface with various <code>.Map</code>/<code>.Reduce</code>/<code>.Filter</code>/etc methods &ndash; so like</p>
-<pre tabindex="0"><code>type Chainable interface {
-    Map(mapFunc(T) V) Chainable[V]
-    Reduce(mapFunc(T) V) Chainable[V]
-    Filter(mapFunc(T) V) Chainable[V]
-}
-</code></pre><p>Immediately there&rsquo;s a problem because Interfaces can&rsquo;t use generics in Go, so we do a struct instead:</p>
-<pre tabindex="0"><code>type Chainable[T] struct {
-    func(c *Chainable) Map(mapFunc(T) V) Chainable[V] { ... }
-    Reduce(mapFunc(T) V) Chainable[V] Chainable[V] { ... }
-    Filter(mapFunc(T) V) Chainable[T] Chainable[V] { ... }
-}
-</code></pre><p>This sort of works! You can see in the <a href="https://pkg.go.dev/github.com/jasonbot/chains#IterableSequence"><code>IterableSequence</code> type </a> we do this. But to do two types (say we&rsquo;re mapping from <code>int</code> to <code>string</code>), we have to have an <code>IterableSequence</code> that does two, and so <a href="https://pkg.go.dev/github.com/jasonbot/chains#IterableSequence2"><code>IterableSequence2</code> was born</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Chainable</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Map</span><span class="p">(</span><span class="nf">mapFunc</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="nx">V</span><span class="p">)</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Reduce</span><span class="p">(</span><span class="nf">mapFunc</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="nx">V</span><span class="p">)</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Filter</span><span class="p">(</span><span class="nf">mapFunc</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="nx">V</span><span class="p">)</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Immediately there&rsquo;s a problem because Interfaces can&rsquo;t use generics in Go, so we do a struct instead:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Chainable</span><span class="p">)</span> <span class="nf">Map</span><span class="p">(</span><span class="nf">mapFunc</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="nx">V</span><span class="p">)</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Reduce</span><span class="p">(</span><span class="nf">mapFunc</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="nx">V</span><span class="p">)</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Filter</span><span class="p">(</span><span class="nf">mapFunc</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="nx">V</span><span class="p">)</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">T</span><span class="p">]</span> <span class="nx">Chainable</span><span class="p">[</span><span class="nx">V</span><span class="p">]</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This sort of works! You can see in the <a href="https://pkg.go.dev/github.com/jasonbot/chains#IterableSequence"><code>IterableSequence</code> type </a> we do this. But to do two types (say we&rsquo;re mapping from <code>int</code> to <code>string</code>), we have to have an <code>IterableSequence</code> that does two, and so <a href="https://pkg.go.dev/github.com/jasonbot/chains#IterableSequence2"><code>IterableSequence2</code> was born</a>.</p>
 <p>Now how to get from an <code>IterableSequence</code> to an <code>IterableSequence2</code>? I decided on a top-level function to create <a href="https://pkg.go.dev/github.com/jasonbot/chains#ChainJunction">a type called a <code>Junction</code></a> to go from a one-typed chainable to a two-typed one. Now what if we need a third type? This is getting messy.</p>
 <p>This pattern works for simple cases just fine, but it falls down once we get into the variadic world. Go&rsquo;s obviously stunted-on-purpose generics are preventing us from doing this syntactic sugar in a clean way, but it is also suggesting a different way to do it.</p>
 <p>I was in love with my ability to do chained iterators, but they got clunky. Go generics only apply to functions and you can&rsquo;t template an interface. So while <code>X.Filter(...).Map(...)</code> is fun and cute, in Go you&rsquo;re better off doing something like:</p>
