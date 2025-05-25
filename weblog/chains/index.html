@@ -12,7 +12,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748127489"><link rel="stylesheet" href="/css/fonts.css?rnd=1748127489">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1748132266"><link rel="stylesheet" href="/css/fonts.css?rnd=1748132266">
 	
 </head>
 <body>
@@ -101,7 +101,7 @@
 			
 			<div data-pagefind-body>
 				<blockquote>
-<p><strong>Top Matter</strong>: <a href="https://github.com/jasonbot/chains">Github for the library</a>, <a href="https://pkg.go.dev/github.com/jasonbot/chains">doc for the library</a>.</p>
+<p><strong>Top Matter</strong>: <a href="https://github.com/jasonbot/chains">GitHub for the library</a>, <a href="https://pkg.go.dev/github.com/jasonbot/chains">doc for the library</a>.</p>
 </blockquote>
 <p>It&rsquo;s been six months since I&rsquo;ve done this, but I&rsquo;m finally writing about it!</p>
 <p>Go <a href="https://go.dev/blog/range-functions">recently added proper iterator support</a> to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a <code>range</code> to get a stream of values.</p>
@@ -123,13 +123,26 @@
 <li>Higher-level stream processing (various merges)</li>
 </ul>
 <h2 id="mapfilterreduce">Map/Filter/Reduce</h2>
-<p>Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators.</p>
+<p>Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators. There&rsquo;s the usual suspects here along with various types of <code>Reduce</code> that all boil down to the base <a href="https://pkg.go.dev/github.com/jasonbot/chains#Accumulate"><code>Accumulate</code></a>.</p>
 <h2 id="cleanups">Cleanups</h2>
-<p>Similar to the above, pretty trivial to write. Can even treat these as specific cases of <code>Filter</code>.</p>
+<p>Similar to the above, pretty trivial to write. Can even treat these as specific cases of <code>Filter</code>. <a href="https://pkg.go.dev/github.com/jasonbot/chains#Compact"><code>Compact</code> is one such case</a>.</p>
+<h2 id="basic-tests">Basic Tests</h2>
+<ul>
+<li>There&rsquo;s an <code>Any</code> and an <code>All</code> for testing for conditions satisfied by the entire sequence; <code>Count</code> gets just the length. All are useful with <code>Tee</code>!</li>
+</ul>
+<h2 id="slicing">Slicing</h2>
+<ul>
+<li><code>First</code> and <code>Last</code> do what they say; <code>FirstAndRest</code> is the CAR/CDR you didn&rsquo;t know you needed.</li>
+<li>You can <code>TakeWhile</code> and <code>DropUntil</code> to start/end at a particular point.</li>
+<li>You can <code>Repeat</code> an item N times, <code>Rotate</code> a slice so the first N items are moved to the back, <code>Repeat</code> each element N times, and <code>Cycle</code> the iterator which is just infinite repeats.</li>
+</ul>
 <h2 id="ruby-silliness">Ruby Silliness</h2>
 <ul>
-<li><a href="https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Flatten"><code>Flatten</code> takes an iterable of iterables and turns it into a flat iterable</a>, but it doesn&rsquo;t do it to arbitrray levels of nesting like Ruby does. There are rules here dude.</li>
-<li><a href="https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Tap"><code>Tap</code> is largely useless</a>, kind of like a forEach or a visitor that passes the item along.</li>
+<li><a href="https://pkg.go.dev/github.com/jasonbot/chains#Flatten"><code>Flatten</code> takes an iterable of iterables and turns it into a flat iterable</a>, but it doesn&rsquo;t do it to arbitrary levels of nesting like Ruby does. There are rules here dude.</li>
+<li><a href="https://pkg.go.dev/github.com/jasonbot/chains#Tap"><code>Tap</code> is largely useless</a>, kind of like a forEach or a visitor that passes the item along.</li>
+<li><a href="https://pkg.go.dev/github.com/jasonbot/chains#Partition"><code>Partition</code> splits an iterator into two</a> based on a partition function, allowing you to e.g. split good/bad inputs into separate pipelines. A simpler <a href="https://pkg.go.dev/github.com/jasonbot/chains#Uniq"><code>Uniq</code></a> function just returns the first value of each key grouping instead.</li>
+<li>There&rsquo;s also a <code>Tee</code> to get a tear-off copy of the iterator.</li>
+<li>Similarly, <a href="https://pkg.go.dev/github.com/jasonbot/chains#GroupBy"><code>GroupBy</code></a> takes an ordered set of items and &ldquo;bins&rsquo; them based on a key function, allowing you to <code>for key, vals := range Partition { for val := range vals { ...} }</code></li>
 </ul>
 <h2 id="combinatorics">Combinatorics</h2>
 <p>I wanted <code>combinations</code> and <code>permutations</code>, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is <a href="https://github.com/jasonbot/chains/blob/main/combinatorics.go"><code>combinatorics.go</code></a>. Funnily enough, each combinatorial case was some combination of:</p>
@@ -167,7 +180,7 @@
           <td>No</td>
       </tr>
       <tr>
-          <td><code>OrderedPermutations</code></td>
+          <td><code>OrderedPermutationsToLength</code></td>
           <td>1&hellip;M (User specified)</td>
           <td>Fixed</td>
           <td>No</td>
@@ -209,13 +222,13 @@
           <td>Yes</td>
       </tr>
       <tr>
-          <td><code>Combinations</code></td>
+          <td><code>AllCombinations</code></td>
           <td>1&hellip;N (Length of inputs)</td>
           <td>Free</td>
           <td>Yes</td>
       </tr>
       <tr>
-          <td><code>CombinationsOfLength</code></td>
+          <td><code>CombinationsToLength</code></td>
           <td>1&hellip;M (User-specified)</td>
           <td>Free</td>
           <td>Yes</td>

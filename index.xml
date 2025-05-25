@@ -14,7 +14,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/chains/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://github.com/jasonbot/chains&#34;&gt;Github for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://github.com/jasonbot/chains&#34;&gt;GitHub for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;It&amp;rsquo;s been six months since I&amp;rsquo;ve done this, but I&amp;rsquo;m finally writing about it!&lt;/p&gt;
 &lt;p&gt;Go &lt;a href=&#34;https://go.dev/blog/range-functions&#34;&gt;recently added proper iterator support&lt;/a&gt; to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a &lt;code&gt;range&lt;/code&gt; to get a stream of values.&lt;/p&gt;
@@ -36,13 +36,26 @@
 &lt;li&gt;Higher-level stream processing (various merges)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;mapfilterreduce&#34;&gt;Map/Filter/Reduce&lt;/h2&gt;
-&lt;p&gt;Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators.&lt;/p&gt;
+&lt;p&gt;Not much to write home about here, anyone can write these and I encourage each person to do it themselves using Go iterators. There&amp;rsquo;s the usual suspects here along with various types of &lt;code&gt;Reduce&lt;/code&gt; that all boil down to the base &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Accumulate&#34;&gt;&lt;code&gt;Accumulate&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;cleanups&#34;&gt;Cleanups&lt;/h2&gt;
-&lt;p&gt;Similar to the above, pretty trivial to write. Can even treat these as specific cases of &lt;code&gt;Filter&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Similar to the above, pretty trivial to write. Can even treat these as specific cases of &lt;code&gt;Filter&lt;/code&gt;. &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Compact&#34;&gt;&lt;code&gt;Compact&lt;/code&gt; is one such case&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;basic-tests&#34;&gt;Basic Tests&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;There&amp;rsquo;s an &lt;code&gt;Any&lt;/code&gt; and an &lt;code&gt;All&lt;/code&gt; for testing for conditions satisfied by the entire sequence; &lt;code&gt;Count&lt;/code&gt; gets just the length. All are useful with &lt;code&gt;Tee&lt;/code&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slicing&#34;&gt;Slicing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;First&lt;/code&gt; and &lt;code&gt;Last&lt;/code&gt; do what they say; &lt;code&gt;FirstAndRest&lt;/code&gt; is the CAR/CDR you didn&amp;rsquo;t know you needed.&lt;/li&gt;
+&lt;li&gt;You can &lt;code&gt;TakeWhile&lt;/code&gt; and &lt;code&gt;DropUntil&lt;/code&gt; to start/end at a particular point.&lt;/li&gt;
+&lt;li&gt;You can &lt;code&gt;Repeat&lt;/code&gt; an item N times, &lt;code&gt;Rotate&lt;/code&gt; a slice so the first N items are moved to the back, &lt;code&gt;Repeat&lt;/code&gt; each element N times, and &lt;code&gt;Cycle&lt;/code&gt; the iterator which is just infinite repeats.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;ruby-silliness&#34;&gt;Ruby Silliness&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Flatten&#34;&gt;&lt;code&gt;Flatten&lt;/code&gt; takes an iterable of iterables and turns it into a flat iterable&lt;/a&gt;, but it doesn&amp;rsquo;t do it to arbitrray levels of nesting like Ruby does. There are rules here dude.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains@v0.0.10#Tap&#34;&gt;&lt;code&gt;Tap&lt;/code&gt; is largely useless&lt;/a&gt;, kind of like a forEach or a visitor that passes the item along.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Flatten&#34;&gt;&lt;code&gt;Flatten&lt;/code&gt; takes an iterable of iterables and turns it into a flat iterable&lt;/a&gt;, but it doesn&amp;rsquo;t do it to arbitrary levels of nesting like Ruby does. There are rules here dude.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Tap&#34;&gt;&lt;code&gt;Tap&lt;/code&gt; is largely useless&lt;/a&gt;, kind of like a forEach or a visitor that passes the item along.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Partition&#34;&gt;&lt;code&gt;Partition&lt;/code&gt; splits an iterator into two&lt;/a&gt; based on a partition function, allowing you to e.g. split good/bad inputs into separate pipelines. A simpler &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Uniq&#34;&gt;&lt;code&gt;Uniq&lt;/code&gt;&lt;/a&gt; function just returns the first value of each key grouping instead.&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s also a &lt;code&gt;Tee&lt;/code&gt; to get a tear-off copy of the iterator.&lt;/li&gt;
+&lt;li&gt;Similarly, &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#GroupBy&#34;&gt;&lt;code&gt;GroupBy&lt;/code&gt;&lt;/a&gt; takes an ordered set of items and &amp;ldquo;bins&amp;rsquo; them based on a key function, allowing you to &lt;code&gt;for key, vals := range Partition { for val := range vals { ...} }&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;combinatorics&#34;&gt;Combinatorics&lt;/h2&gt;
 &lt;p&gt;I wanted &lt;code&gt;combinations&lt;/code&gt; and &lt;code&gt;permutations&lt;/code&gt;, so those were high on the list. I found myself writing the code more and more generically as I went along, eventually ending with the mess that is &lt;a href=&#34;https://github.com/jasonbot/chains/blob/main/combinatorics.go&#34;&gt;&lt;code&gt;combinatorics.go&lt;/code&gt;&lt;/a&gt;. Funnily enough, each combinatorial case was some combination of:&lt;/p&gt;
@@ -80,7 +93,7 @@
           &lt;td&gt;No&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;OrderedPermutations&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;OrderedPermutationsToLength&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;1&amp;hellip;M (User specified)&lt;/td&gt;
           &lt;td&gt;Fixed&lt;/td&gt;
           &lt;td&gt;No&lt;/td&gt;
@@ -122,13 +135,13 @@
           &lt;td&gt;Yes&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;Combinations&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;AllCombinations&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;1&amp;hellip;N (Length of inputs)&lt;/td&gt;
           &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;Yes&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;CombinationsOfLength&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;CombinationsToLength&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;1&amp;hellip;M (User-specified)&lt;/td&gt;
           &lt;td&gt;Free&lt;/td&gt;
           &lt;td&gt;Yes&lt;/td&gt;
@@ -3242,7 +3255,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
