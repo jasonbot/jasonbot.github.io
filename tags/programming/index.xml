@@ -27,7 +27,7 @@
 &lt;p&gt;Having this syntactic sugar makes it easier to write complex logic, and it also helps conform the logic to one&amp;rsquo;s brain.&lt;/p&gt;
 &lt;p&gt;Anyway, Go has iterators now, and I like using iterators. The first thing I wanted was my brain poisoning syntactic sugar from Ruby/Typescript; how could I go about doing &lt;code&gt;X.Filter(g =&amp;gt; g &amp;gt; 100).Map(h =&amp;gt; fmt.Sprintf(&amp;quot;Hello, %v!&amp;quot;, h))&lt;/code&gt; in Go?&lt;/p&gt;
 &lt;h1 id=&#34;the-cookbook-is-the-requirements-doc&#34;&gt;The Cookbook is the Requirements Doc&lt;/h1&gt;
-&lt;p&gt;Once I had a framework cooking I could start thinking of examples. &lt;a href=&#34;https://github.com/jasonbot/chains/blob/main/cookbook_test.go&#34;&gt;My test suite took a backdoor to being a test of cases I cared about&lt;/a&gt;, in cookbook form.&lt;/p&gt;
+&lt;p&gt;Once I had a framework cooking I could start thinking of examples. &lt;a href=&#34;https://github.com/jasonbot/chains/blob/main/cookbook_test.go&#34;&gt;My test suite took a backseat to being a test of cases I cared about&lt;/a&gt;, in cookbook form.&lt;/p&gt;
 &lt;p&gt;Some things I wanted:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Map/Filter/Reduce&lt;/li&gt;
