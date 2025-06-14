@@ -798,12 +798,12 @@
 &lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/me.kozec.syncthingtk&#34;&gt;Syncthing&lt;/a&gt; to move files around easily&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.gnome.Rhythmbox3&#34;&gt;Rhythmbox&lt;/a&gt; to handle my large music library&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.gnome.Boxes&#34;&gt;Boxes&lt;/a&gt; for light virtualization work&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/app.devsuite.Ptyxis&#34;&gt;Ptyxis&lt;/a&gt; as my terminal emulator&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://podman-desktop.io/&#34;&gt;Podman Desktop&lt;/a&gt; for container-fu&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; for my Windows VMs&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://prismlauncher.org/&#34;&gt;Prism Launcher&lt;/a&gt; to play Minecraft with my kid&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/com.jeffser.Alpaca&#34;&gt;Alpaca&lt;/a&gt; as a standalone frontend to Ollama&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://store.steampowered.com/about/&#34;&gt;Steam&lt;/a&gt; for Steam&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ghostty.org/&#34;&gt;Ghostty&lt;/a&gt; as my terminal emulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;networked-software&#34;&gt;Networked Software&lt;/h2&gt;
 &lt;ul&gt;
@@ -3279,7 +3279,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode2s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
