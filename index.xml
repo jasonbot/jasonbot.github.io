@@ -68,10 +68,10 @@
       <pubDate>Tue, 22 Jul 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</guid>
-      <description>&lt;p&gt;In the course of my problem solving, &lt;em&gt;especially&lt;/em&gt; when I am solving a problem I think &lt;a href=&#34;../this-shouldnt-be-hard/&#34;&gt;shouldn&amp;rsquo;t be hard&lt;/a&gt;, I think back to the essential &lt;em&gt;core&lt;/em&gt; of the problem&lt;/p&gt;
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;For the 500 lines of boilerplate, &lt;em&gt;what are the five truly interesting lines that solve the problem&lt;/em&gt;?&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;In the course of my problem solving, &lt;em&gt;especially&lt;/em&gt; when I am solving a problem I think &lt;a href=&#34;../this-shouldnt-be-hard/&#34;&gt;shouldn&amp;rsquo;t be hard&lt;/a&gt;, I think back to the essential &lt;em&gt;core&lt;/em&gt; of the problem&lt;/p&gt;
 &lt;p&gt;Typically a fix is a couple of API calls or a single clever data structure.&lt;/p&gt;
 &lt;p&gt;As a consequence of this, I typically annotate my Pull Requests with an annotated &amp;ldquo;this is the interesting part&amp;rdquo; section. I recommend this approach: you are asking your reviewers for special attention on the original thoughts, and signaling the other code you had to write is something you do not feel is important, and are far more open to nitpicking on (versus thoughful review).&lt;/p&gt;
 &lt;p&gt;Pair this with &lt;em&gt;This Shouldn&amp;rsquo;t Be Hard&lt;/em&gt;: You just need those five lines of beauty and then you need to do the 500 lines of ceremony to make them real.&lt;/p&gt;
@@ -85,12 +85,12 @@
       <pubDate>Mon, 21 Jul 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</guid>
-      <description>&lt;p&gt;Overall, you should be working toward writing functional code that achieves a goal.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;As you are working your way to the goal, you should be able to be clearminded about how you aim on getting there and when you are slowed down for silly reasons do not accept them as excuses. Say to yourself, &amp;ldquo;I know what I need to do, it shouldn&amp;rsquo;t be this hard.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Overall, you should be working toward writing functional code that achieves a goal.&lt;/p&gt;
 &lt;p&gt;Oftentimes we get stuck on the actual specifics of a task: how do we set up the branch, how the dev environment gets up and running, etc.&lt;/p&gt;
 &lt;p&gt;These are obstacles. Keep your eyes on the prize. If you can imagine a problem, if you have a clear vision for how to do it, this is all that matters. Process and tools are a means to the goal, not necessarily a requisite of getting to it.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;In short, as you are working your way to the goal, you should be able to be clearminded about how you aim on getting there and when you are slowed down for silly reasons do not accept them as excuses. Say to yourself, &amp;ldquo;I know what I need to do, it shouldn&amp;rsquo;t be this hard.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;p&gt;You must achieve your end goals despite everything in front of you. You have a vision and it should be as little friction as possible. This means minimizing unnecessary steps and busywork. Automate it. Don&amp;rsquo;t do it if you don&amp;rsquo;t have to.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Document and work around pain points, make sure they do not remain painful for long.&lt;/li&gt;
@@ -406,7 +406,10 @@
       <pubDate>Sat, 17 May 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</guid>
-      <description>&lt;p&gt;The title &lt;em&gt;Hate What You Know&lt;/em&gt; is admittedly vague, I know! There are a handful of directions I&amp;rsquo;ll go with it, bear with me. And at least to some extent I don&amp;rsquo;t mean &amp;ldquo;hate,&amp;rdquo; I just mean &amp;ldquo;know well.&amp;rdquo;&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;You should be familiar enough with your tools to be able list critical things about them, even though they&amp;rsquo;re what you still choose to use every day.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The title &lt;em&gt;Hate What You Know&lt;/em&gt; is admittedly vague, I know! There are a handful of directions I&amp;rsquo;ll go with it, bear with me. And at least to some extent I don&amp;rsquo;t mean &amp;ldquo;hate,&amp;rdquo; I just mean &amp;ldquo;know well.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m an advocate of being a craftsperson out of anger. Do things because they need doing and dammit, you can&amp;rsquo;t live in a world where this problem isn&amp;rsquo;t solved anymore.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll make a deliberately outrageous claim: doing something out of need is craft, doing something out of compulsion is art. A craftsman makes a work because they see something missing in the world. An artist makes a work because they see something of a possibility in the world. Professionally, at least, you&amp;rsquo;re hopefully operating in the former camp. In the latter, you&amp;rsquo;re either outrageously lucky doing what you love in a place of psychological safety or secretly pissing everyone off around you by being a perfectionist primadonna.&lt;/p&gt;
 &lt;h1 id=&#34;the-opposite-of-hate-is-not-love-its-indifference&#34;&gt;The Opposite of Hate is not Love, It&amp;rsquo;s Indifference&lt;/h1&gt;
@@ -511,7 +514,9 @@
       <pubDate>Fri, 14 Mar 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</guid>
-      <description>&lt;p&gt;You like &lt;a href=&#34;../little-treats/&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;You like &lt;a href=&#34;../little-treats/&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Sometimes this is called &lt;a href=&#34;https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics&#34;&gt;the hairy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham&#39;s_Law%22&#34;&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
 &lt;p&gt;Some examples I&amp;rsquo;ve used over the years:&lt;/p&gt;
 &lt;ul&gt;
@@ -529,7 +534,10 @@
       <pubDate>Wed, 05 Mar 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/little-treats/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve found that my productivity varies wildly based on the time of year, the phase of the moon, my mental state, the quality of my morning shower thought session, and &lt;strong&gt;how enthusiastic I am about what I&amp;rsquo;m working on&lt;/strong&gt;.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Palate cleanser tasks are morale boosts&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ve found that my productivity varies wildly based on the time of year, the phase of the moon, my mental state, the quality of my morning shower thought session, and &lt;strong&gt;how enthusiastic I am about what I&amp;rsquo;m working on&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;I like to give myself &amp;ldquo;little treat&amp;rdquo; issues occasionally to keep my motivation up: issues I pick up outside of the product backlog that are quick to fix, fun to do, and give me little dopamine hits.&lt;/p&gt;
 &lt;p&gt;These keep my average motivation level up, give me a chance to remember why I&amp;rsquo;m a software engineer, and don&amp;rsquo;t really eat into the time I already have budgeted to work on other stuff: I&amp;rsquo;m highly motivated to get it done, so I do it quickly and enthusiastically and it doesn&amp;rsquo;t make my slog work any slower to deliver.&lt;/p&gt;
 &lt;p&gt;Give yourself treats. Side projects. Little tweaks. Fun stuff.&lt;/p&gt;
@@ -699,7 +707,10 @@
       <pubDate>Sat, 01 Mar 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</guid>
-      <description>&lt;p&gt;This is a short one: over the course of your job, you are going to need to operate outside of the range of your defined permissions and responsibilities. You should do this &lt;em&gt;sparingly&lt;/em&gt; and &lt;em&gt;secretly&lt;/em&gt;. You should be able to operate outside of the system when you need to, and you need to know how to do it in non-obvious ways so you don&amp;rsquo;t get your escape hatches taken away from you.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Over the course of your job, you are going to need to operate outside of the range of your defined permissions and responsibilities.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You should do this &lt;em&gt;sparingly&lt;/em&gt; and &lt;em&gt;secretly&lt;/em&gt;. You should be able to operate outside of the system when you need to, and you need to know how to do it in non-obvious ways so you don&amp;rsquo;t get your escape hatches taken away from you.&lt;/p&gt;
 &lt;p&gt;Some benign examples of this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Occasionally merging a hotfix PR without code review&lt;/li&gt;
@@ -717,7 +728,10 @@
       <pubDate>Fri, 28 Feb 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</guid>
-      <description>&lt;p&gt;One thing that is important to me as an engineer that I don&amp;rsquo;t think I&amp;rsquo;ve seen put in writing is something I have distilled into the term &lt;em&gt;passively transparent&lt;/em&gt;.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Nobody should have to &lt;em&gt;ask&lt;/em&gt; what you&amp;rsquo;re working on. You should leave an obvious, loud trail. Encourage this pattern in others.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;One thing that is important to me as an engineer that I don&amp;rsquo;t think I&amp;rsquo;ve seen put in writing is something I have distilled into the term &lt;em&gt;passively transparent&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;It should be obvious to the people in leadership what is motivating you to work and what you are working on (transparency), and it should not require an on-demand effort on your part to communicate this to them (passive access).&lt;/p&gt;
 &lt;p&gt;You should be transparent for the reason that you are setting a baseline of what you are expecting to share with your manager: if they feel like you aren&amp;rsquo;t giving good status it gives them tacit permission to ask &lt;em&gt;too many questions&lt;/em&gt; or &lt;em&gt;questions that are inappropriately deep&lt;/em&gt;. Calibrate the level of communication by setting it yourself: keep your management at an arm&amp;rsquo;s length in how they use your time and attention. &amp;ldquo;I refer you to this query on GitHub, which you may access at any time&amp;rdquo; when someone asks about your deliverables should be a response you aspire for and your leadership accepts.&lt;/p&gt;
 &lt;p&gt;You should be passively available for the reason that you are setting a baseline of when and how you are making yourself available to your manager: you, as my lead, should not have to wait for things to escalate to me openly broadcasting a crisis state before reaching out. You should also be able to do a pulse check without requiring my intervention. My time is precious, and I should not be forced to choose &lt;em&gt;which&lt;/em&gt; time I give to you via a scheduled 1:1 if I can choose to give you &lt;em&gt;the time that matters, when I have it&lt;/em&gt; to share progress.&lt;/p&gt;
@@ -769,7 +783,10 @@
       <pubDate>Sat, 01 Feb 2025 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/be-an-iceberg/</guid>
-      <description>&lt;p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Be overprepared.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
 &lt;figure&gt;
   &lt;img src=&#34;https://www.jasonscheirer.com/images/passively-transparent/iceberg.svg&#34; alt=&#34;Iceberg&#34; /&gt;
 &lt;/figure&gt;
