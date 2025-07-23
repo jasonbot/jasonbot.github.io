@@ -13,7 +13,7 @@
       <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/weblog/tailwind/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;the Tailwind CSS Framework&lt;/a&gt; for abut two and a half years (as of July 2025) for my personal projects, and I used it professionally in my time at &lt;a href=&#34;https://unstructured.io/&#34;&gt;unstructured&lt;/a&gt; as well. In all, I think it&amp;rsquo;s a good thing. However, I don&amp;rsquo;t find myself thinking I&amp;rsquo;d use it for new projects at this point: I believe I have outgrown it. Here is a short story.&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;the Tailwind CSS Framework&lt;/a&gt; for about two and a half years (as of July 2025) for my personal projects, and I used it professionally in my time at &lt;a href=&#34;https://unstructured.io/&#34;&gt;unstructured&lt;/a&gt; as well. In all, I think it&amp;rsquo;s a good thing. However, I don&amp;rsquo;t find myself thinking I&amp;rsquo;d use it for new projects at this point: I believe I have outgrown it. Here is a short story.&lt;/p&gt;
 &lt;h1 id=&#34;tailwind-as-style-guide&#34;&gt;Tailwind as Style Guide&lt;/h1&gt;
 &lt;p&gt;Tailwind has a set of that encourages a &lt;a href=&#34;https://en.wikipedia.org/wiki/Linguistic_relativity&#34;&gt;specific styling worldview&lt;/a&gt; that gets you a &amp;ldquo;modern&amp;rdquo; looking UI which doesn&amp;rsquo;t feel offensive versus any other site on the internet. The &lt;a href=&#34;https://tailwindcss.com/docs/colors&#34;&gt;pre-baked color choices&lt;/a&gt; and reasonable framing around &lt;a href=&#34;https://tailwindcss.com/docs/columns&#34;&gt;layout options like columns&lt;/a&gt; give you a framework (ha!) within which to work and make a decent site. It&amp;rsquo;s less greenfield than a blank page and an &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS&#34;&gt;open documentation tab&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;tailwind-as-tutorial&#34;&gt;Tailwind as Tutorial&lt;/h1&gt;
@@ -3372,7 +3372,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
