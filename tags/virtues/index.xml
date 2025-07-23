@@ -6,7 +6,45 @@
     <description>Recent content in Virtues on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 May 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/virtues/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Jul 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/virtues/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Here&#39;s The Interesting Part</title>
+      <link>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</guid>
+      <description>&lt;p&gt;In the course of my problem solving, &lt;em&gt;especially&lt;/em&gt; when I am solving a problem I think &lt;a href=&#34;../this-shouldnt-be-hard/&#34;&gt;shouldn&amp;rsquo;t be hard&lt;/a&gt;, I think back to the essential &lt;em&gt;core&lt;/em&gt; of the problem&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For the 500 lines of boilerplate, &lt;em&gt;what are the five truly interesting lines that solve the problem&lt;/em&gt;?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Typically a fix is a couple of API calls or a single clever data structure.&lt;/p&gt;
+&lt;p&gt;As a consequence of this, I typically annotate my Pull Requests with an annotated &amp;ldquo;this is the interesting part&amp;rdquo; section. I recommend this approach: you are asking your reviewers for special attention on the original thoughts, and signaling the other code you had to write is something you do not feel is important, and are far more open to nitpicking on (versus thoughful review).&lt;/p&gt;
+&lt;p&gt;Pair this with &lt;em&gt;This Shouldn&amp;rsquo;t Be Hard&lt;/em&gt;: You just need those five lines of beauty and then you need to do the 500 lines of ceremony to make them real.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
+      
+    </item>
+    
+    <item>
+      <title>This Shouldn&#39;t Be Hard</title>
+      <link>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</guid>
+      <description>&lt;p&gt;Overall, you should be working toward writing functional code that achieves a goal.&lt;/p&gt;
+&lt;p&gt;Oftentimes we get stuck on the actual specifics of a task: how do we set up the branch, how the dev environment gets up and running, etc.&lt;/p&gt;
+&lt;p&gt;These are obstacles. Keep your eyes on the prize. If you can imagine a problem, if you have a clear vision for how to do it, this is all that matters. Process and tools are a means to the goal, not necessarily a requisite of getting to it.&lt;/p&gt;
+&lt;p&gt;You must achieve your end goals despite everything in front of you. You have a vision and it should be as little friction as possible. This means minimizing unnecessary steps and busywork. Automate it. Don&amp;rsquo;t do it if you don&amp;rsquo;t have to.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Document and work around pain points, make sure they do not remain painful for long.&lt;/li&gt;
+&lt;li&gt;Can you make them less painful via changing the broken parts?&lt;/li&gt;
+&lt;li&gt;Can you make them less painful via &amp;ldquo;sharpening your tools;&amp;rdquo; i.e. getting better at working with the system via practice?&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../you-need-to-break-the-rules/&#34;&gt;Break the rules&lt;/a&gt; if the process gets in your way: you have a goal and it is not your goal to get stopped by the journey.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Always stop and think to yourself: I know how to solve this, &lt;em&gt;it shouldn&amp;rsquo;t be hard to get that solution out into the world&lt;/em&gt;. Treat each hindrance with the utmost of contempt.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
+      
+    </item>
+    
     <item>
       <title>Hate What You Know</title>
       <link>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</link>
