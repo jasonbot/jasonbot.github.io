@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/tags/css/</loc>
+    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/html/</loc>
+    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/tailwind/</loc>
+    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/weblog/chains/</loc>
     <lastmod>2025-05-24T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/golang/</loc>
-    <lastmod>2025-05-24T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2025-05-24T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2025-05-24T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2025-05-24T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</loc>

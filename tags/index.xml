@@ -6,22 +6,40 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 May 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Golang</title>
-      <link>https://www.jasonscheirer.com/tags/golang/</link>
-      <pubDate>Sat, 24 May 2025 00:00:00 -0800</pubDate>
+      <title>Css</title>
+      <link>https://www.jasonscheirer.com/tags/css/</link>
+      <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jasonscheirer.com/tags/golang/</guid>
+      <guid>https://www.jasonscheirer.com/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Html</title>
+      <link>https://www.jasonscheirer.com/tags/html/</link>
+      <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
       <link>https://www.jasonscheirer.com/tags/programming/</link>
-      <pubDate>Sat, 24 May 2025 00:00:00 -0800</pubDate>
+      <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://www.jasonscheirer.com/tags/golang/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/golang/</guid>
       <description></description>
     </item>
     

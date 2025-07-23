@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>There and Back Again: My Journey Into (And Out Of) Tailwind</title>
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="There and Back Again: My Journey Into (And Out Of) Tailwind" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1753287683"><link rel="stylesheet" href="/css/fonts.css?rnd=1753287683">
+	
+</head>
+<body>
+	<div class="everything">
+		<header>
+  <nav>
+        
+
+    <span class="nav-item">
+      
+      <a href="/"><b>Main</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/about/"><b>About</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/uses/"><b>Uses</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/toys/"><b>Toys</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/engineering-virtues/"><b>Virtues</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/"><b>Tags</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/search/"><b>Search</b></a>
+      
+    </span>
+
+    
+  </nav>
+  
+</header>
+
+		
+	<main>
+		<article>
+			<h1 class="page-title" data-pagefind-body>
+				There and Back Again: My Journey Into (And Out Of) Tailwind
+			</h1>
+			
+				<div class="byline-etc">
+					
+					<time>2025-07-23</time>
+					
+					
+						<a class="taglink" href="/tags/css">css</a>
+						
+						<a class="taglink" href="/tags/html">html</a>
+						
+						<a class="taglink" href="/tags/programming">programming</a>
+						
+				</div>
+			
+			
+			<div data-pagefind-body>
+				<p>I&rsquo;ve been using <a href="https://tailwindcss.com/">the Tailwind CSS Framework</a> for abut two and a half years (as of July 2025) for my personal projects, and I used it professionally in my time at <a href="https://unstructured.io/">unstructured</a> as well. In all, I think it&rsquo;s a good thing. However, I don&rsquo;t find myself thinking I&rsquo;d use it for new projects at this point: I believe I have outgrown it. Here is a short story.</p>
+<h1 id="tailwind-as-style-guide">Tailwind as Style Guide</h1>
+<p>Tailwind has a set of that encourages a <a href="https://en.wikipedia.org/wiki/Linguistic_relativity">specific styling worldview</a> that gets you a &ldquo;modern&rdquo; looking UI which doesn&rsquo;t feel offensive versus any other site on the internet. The <a href="https://tailwindcss.com/docs/colors">pre-baked color choices</a> and reasonable framing around <a href="https://tailwindcss.com/docs/columns">layout options like columns</a> give you a framework (ha!) within which to work and make a decent site. It&rsquo;s less greenfield than a blank page and an <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">open documentation tab</a>.</p>
+<h1 id="tailwind-as-tutorial">Tailwind as Tutorial</h1>
+<p>I&rsquo;ve been doing web development on and off for&hellip;well, since my teenage days but I don&rsquo;t specialize in frontend dev and every few years when I come back to focus on it, things have changed. I don&rsquo;t know what&rsquo;s popular, I don&rsquo;t know what&rsquo;s possible, I don&rsquo;t know what&rsquo;s popular (hint: if it&rsquo;s easy to do in CSS, it&rsquo;s popular).</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Flexbox</a> in particular is something I had a somewhat superstitious, vague understanding of. I could do little bits and pieces and sort of make it work, but being able to set the properties with just a few <code>flex flex-column flex-*</code> attributes made it faster. Getting that coding live-reloading in my browser as I made mistakes was the best interactive, REPL-like experience I&rsquo;ve had to gain an intuitive understanding of the new CSS layout options. For that, Tailwind was invaluable.</p>
+<h1 id="tailwind-as-macro-language">Tailwind as Macro Language</h1>
+<p>It certainly is a lot less work to type <code>border-1</code> than <code>border-width: 1px; border-style: solid;</code>. This, I think, along with <a href="https://tailwindcss.com/docs/backdrop-filter-blur">popular UI tricks like blurred, semitransparent elements being baked in as simple attributes</a> are the killer feature of Tailwind.</p>
+<h1 id="reining-in-the-complexity-style-reuse">Reining in the Complexity: Style Reuse</h1>
+<p>When I wanted a button-like element, I found myself going through a series of stages:</p>
+<ol>
+<li>Style a single JSX component as-is with individual tailwind styles iteratively until I get to something that I like</li>
+<li>Start on a second component that I want to make look similar to it</li>
+<li>Copy/paste the style</li>
+<li>Eventually I want to do a refresh system wide, so I find all the overlapping classes, cut them out and reuse them in backticked strings; I have something like</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">TEXT_BUTTON</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;font-normal rounded-lg bg-neutral-100 dark:bg-neutral-500 p-2 text-xs border-neutral-300 border disabled:text-neutral-300 dark:text-neutral-100 dark:bg-neutral-600 cursor-pointer&#34;</span><span class="p">;</span>
+</span></span></code></pre></div><p>And then custom elements that further refine the style:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">span</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">class</span><span class="o">=</span><span class="p">{</span><span class="sb">`</span><span class="si">${</span><span class="nx">TEXT_BUTTON</span><span class="si">}</span><span class="sb"> rounded-l-none border-l-0 empty:hidden`</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">onClick</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">BlinkElement</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nx">children</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/span&gt;</span>
+</span></span></code></pre></div><p>I think this is where I begin to stray from the way most people use Tailwind: I have a tendency to write lots of very small components and I am a bikeshedder in my visual styles so keeping all the elements in sync requires the type of DRY the <code>&quot;tailwind attribute soup&quot;</code> on every tag makes difficult.</p>
+<h1 id="a-winning-combination-apply-and-vanilla-css">A Winning Combination: <code>@apply</code> and Vanilla CSS</h1>
+<p>Eventually I find myself wanting a <code>styles.css</code> having a <code>.button</code> class with all the inline constants pulled out. For the sake of readability and some light DRY, I&rsquo;d rather my buttons be <code>&lt;button className=&quot;button button-specialization&quot;&gt;...</code> than <code> &lt;button className={``${TEXT_BUTTON} spec-1-attr spec-2-attr spec-3-attr``}&gt;...</code>; I then find myself doing this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@apply</span> <span class="err">font-normal</span> <span class="err">rounded-lg</span> <span class="err">bg-neutral-100</span> <span class="n">dark</span><span class="p">:</span><span class="n">bg-neutral-500</span> <span class="n">p-2</span> <span class="kc">text</span><span class="o">-</span><span class="n">xs</span> <span class="k">border</span><span class="o">-</span><span class="n">neutral-300</span> <span class="k">border</span> <span class="n">disabled</span><span class="o">:</span><span class="kc">text</span><span class="o">-</span><span class="n">neutral-300</span> <span class="n">dark</span><span class="o">:</span><span class="kc">text</span><span class="o">-</span><span class="n">neutral-100</span> <span class="n">dark</span><span class="o">:</span><span class="n">bg-neutral-600</span> <span class="k">cursor</span><span class="o">-</span><span class="kc">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">button-specialization</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@apply</span> <span class="err">rounded-l-none</span> <span class="err">border-l-0</span> <span class="n">empty</span><span class="p">:</span><span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>That is; <a href="https://tailwindcss.com/docs/functions-and-directives#apply-directive">the @apply directive</a> gives me Tailwind-style class macros in my CSS.</p>
+<p>I can now use a more traditional approach to CSS: rather than a blast of appearance-based attributes on an element I can give it a semantic role which has an associated set of visual properties attributed to it.</p>
+<p>I also needed this because I wanted to do some things with nested selectors that Tailwind did not entirely make possible (or at least easy). I found in places where it <em>could</em> do selectors the shortened Tailwind attrs beyond <code>:has</code> and <code>:not</code> were harder to skim than fully-expressed CSS versions.</p>
+<p>Anyway, <code>@apply</code> is awesome and I don&rsquo;t see its use encouraged much in the literature I&rsquo;ve seen online. There are probably pedantic reasons for it that are all very reasonable but don&rsquo;t work for me. This worked for me.</p>
+<h1 id="burning-the-ships">Burning the Ships</h1>
+<p>And, once I am happy with the style and relatively certain they won&rsquo;t change much going forward, I transform the core CSS with <code>@apply</code>d styles to fully expanded CSS and cut out Tailwind as a build time dependency. I have used Tailwind as a way to bootstrap my design system, and then cut it out of my build when it has overstayed its welcome.</p>
+<h1 id="thats-all">That&rsquo;s All</h1>
+<p>So that has been my last two years with Tailwind. I like it, it helped me get back up to speed with modern CSS and get a working visual prototype out the door quickly, I got tired of its class soup usage pattern, and I found that once I returned to old-fashioned CSS classes I could wean myself off it.</p>
+
+			</div>
+		</article>
+	</main>
+
+		
+<footer>
+  <p>
+    &copy; 2025
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
+</footer>
+
+	</div>
+</body>
+</html>
