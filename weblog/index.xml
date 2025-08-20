@@ -69,7 +69,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/chains/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://github.com/jasonbot/chains&#34;&gt;GitHub for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://github.com/jasonbot/chains&#34;&gt;GitHub for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;It&amp;rsquo;s been six months since I&amp;rsquo;ve done this, but I&amp;rsquo;m finally writing about it!&lt;/p&gt;
 &lt;p&gt;Go &lt;a href=&#34;https://go.dev/blog/range-functions&#34;&gt;recently added proper iterator support&lt;/a&gt; to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a &lt;code&gt;range&lt;/code&gt; to get a stream of values.&lt;/p&gt;
