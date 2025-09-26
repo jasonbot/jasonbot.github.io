@@ -4222,10 +4222,7 @@ And tract homes reasonably priced`,
         const selectElt = document.getElementById(&#34;multi-alphabet-selector&#34;);
         [...selectElt.querySelectorAll(&#34;option&#34;)].forEach((e, i) =&gt; {
           if (i === 0) {
-            e.innerText =
-              activeTranslations.length === 0
-                ? &#34;Choose a transformation&#34;
-                : randomChoice([&#34;One more?&#34;, &#34;Another&#34;, &#34;Keep going&#34;]);
+            e.innerText = randomChoice([&#34;One more?&#34;, &#34;Another&#34;, &#34;Keep going&#34;]);
             e.disabled = true;
           } else {
             e.disabled = namesUsed.has(e.value);
@@ -4258,8 +4255,9 @@ And tract homes reasonably priced`,
 
         deleteButton.addEventListener(&#34;click&#34;, (e) =&gt; {
           const idx = activeTranslations.findIndex((e) =&gt; e.name === name);
+          console.log(&#34;Index&#34;, idx, activeTranslations);
           if (idx &gt;= 0) {
-            activeTranslations.pop(idx);
+            activeTranslations.splice(idx, 1);
             updateSelectedTranslationItemsInList();
             resultElt.removeChild(translationElt);
           }
@@ -4381,9 +4379,7 @@ And tract homes reasonably priced`,
           class=&#34;multi-alphabet-translation-selector&#34;
           id=&#34;multi-alphabet-selector&#34;
         &gt;
-          &lt;option disabled value=&#34;&#34; selected&gt;
-            Choose a translation method
-          &lt;/option&gt;
+          &lt;option disabled value=&#34;&#34; selected&gt;Choose a transformation&lt;/option&gt;
         &lt;/select&gt;
       &lt;/div&gt;
 
