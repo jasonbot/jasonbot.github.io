@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1758910899"><link rel="stylesheet" href="/css/fonts.css?rnd=1758910899">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1758910975"><link rel="stylesheet" href="/css/fonts.css?rnd=1758910975">
 	
 </head>
 <body>
@@ -962,10 +962,10 @@ And tract homes reasonably priced`,
 
         deleteButton.addEventListener("click", (e) => {
           const idx = activeTranslations.findIndex((e) => e.name === name);
-          resultElt.removeChild(translationElt);
           if (idx >= 0) {
             activeTranslations.pop(idx);
             updateSelectedTranslationItemsInList();
+            resultElt.removeChild(translationElt);
           }
         });
 
