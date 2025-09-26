@@ -3413,6 +3413,10 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 I know how you struggle just to get by
 I know they got farm fresh eggs down in Chino
 And tract homes reasonably priced`,
+                  `I don&#39;t wanna pay for anything
+Clothes and food and drugs for free
+If it was 1970
+I&#39;d have a job at a factory`,
                 ])
               : mappingString),
           ]
@@ -4208,7 +4212,10 @@ And tract homes reasonably priced`,
         const text = t.innerText;
 
         if (!!text &amp;&amp; activeTranslations.length === 0) {
-          addToListOfActiveTranslations(randomChoice(Object.keys(translators)));
+          addToListOfActiveTranslations(
+            randomChoice(Object.keys(translators)),
+            true
+          );
         }
 
         activeTranslations.forEach((display) =&gt; {
@@ -4231,7 +4238,7 @@ And tract homes reasonably priced`,
         inputTextHasChanged();
       };
 
-      const addToListOfActiveTranslations = (name) =&gt; {
+      const addToListOfActiveTranslations = (name, addedByDefault) =&gt; {
         const template = document.getElementById(&#34;translation-item-template&#34;);
         const resultElt = document.getElementById(&#34;multi-alphabet-results&#34;);
 
@@ -4253,25 +4260,28 @@ And tract homes reasonably priced`,
           navigator.clipboard.writeText(translationTextelt.innerText);
         });
 
-        deleteButton.addEventListener(&#34;click&#34;, (e) =&gt; {
+        const deleteMethod = () =&gt; {
           const idx = activeTranslations.findIndex((e) =&gt; e.name === name);
-          console.log(&#34;Index&#34;, idx, activeTranslations);
           if (idx &gt;= 0) {
             activeTranslations.splice(idx, 1);
             updateSelectedTranslationItemsInList();
             resultElt.removeChild(translationElt);
           }
-        });
+        };
+        deleteButton.addEventListener(&#34;click&#34;, deleteMethod);
 
         activeTranslations.push({
-          name: name,
+          name,
+          addedByDefault,
           update: (text) =&gt; {
             const translationBlank = text.trim().length === 0;
             copyButton.disabled = translationBlank;
 
             translationTextelt.innerText = translators[name](text);
           },
+          remove: deleteMethod,
         });
+
         updateSelectedTranslationItemsInList();
       };
 
@@ -4304,7 +4314,7 @@ And tract homes reasonably priced`,
         font-size: larger;
 
         &amp;:empty::before {
-          content: &#34;Type your dumb words here&#34;;
+          content: &#34;Type what you want to make 𝒶𝓮𝓈𝓉𝒽𝓮𝓉𝒾𝒸 here&#34;;
           opacity: 0.75;
           font-style: italic;
         }
@@ -4405,7 +4415,7 @@ And tract homes reasonably priced`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode5s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode6s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
