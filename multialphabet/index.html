@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1758908663"><link rel="stylesheet" href="/css/fonts.css?rnd=1758908663">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1758908817"><link rel="stylesheet" href="/css/fonts.css?rnd=1758908817">
 	
 </head>
 <body>
@@ -939,6 +939,7 @@
           const idx = activeTranslations.indexOf((e) => e.name === name);
           activeTranslations.pop(idx);
           resultElt.removeChild(translationElt);
+          updateSelectedTranslationItemsInList();
         });
 
         activeTranslations.push({
