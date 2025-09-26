@@ -3396,9 +3396,26 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <description>&lt;p&gt;There are so many tools to do this online and a lot of them are annoying or covered in ads or both. Type text, get transforms.&lt;/p&gt;
 
     &lt;script&gt;
+      const randomChoice = (array) =&gt;
+        array[Math.floor(Math.random() * array.length)];
+
       const plainAlphabetMapping = (...alphabetString) =&gt; {
         return (mappingString) =&gt;
-          [...mappingString]
+          [
+            ...(mappingString.length === 0
+              ? randomChoice([
+                  &#34;We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.&#34;,
+                  &#34;Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is the foundation of freedom, justice and peace in the world,&#34;,
+                  &#34;Space: the final frontier. These are the voyages of the starship Enterprise. Its continuing mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before&#34;,
+                  `So, I want you to get up now. I want all of you to get up out of your chairs. I want you to get up right now and go to the window, open it, and stick your head out and yell, &#34;I&#39;m as mad as hell, and I&#39;m not going to take this anymore!!&#34;`,
+                  &#34;Hello from the children of planet Earth.&#34;,
+                  `I know how hard it is down in Chino
+I know how you struggle just to get by
+I know they got farm fresh eggs down in Chino
+And tract homes reasonably priced`,
+                ])
+              : mappingString),
+          ]
             .map((letter, i) =&gt; {
               const charCode = letter.charCodeAt(0);
               if (charCode &gt;= 65 &amp;&amp; charCode &lt;= 91) {
@@ -4254,6 +4271,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         const selectElt = document.getElementById(&#34;multi-alphabet-selector&#34;);
         selectElt.addEventListener(&#34;change&#34;, (e) =&gt; {
           addToListOfActiveTranslations(e.target.value);
+          selectElt.value = &#34;&#34;;
         });
 
         Object.entries(translators).forEach(([name, translator]) =&gt; {
@@ -4293,7 +4311,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 
       div.translation-text {
         padding: 4px;
-        white-space: pre;
+        white-space: pre-wrap;
         padding: 4px;
         font-size: larger;
       }
@@ -4305,8 +4323,13 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         display: flex;
         flex-direction: row;
 
+        .translator-name {
+          text-align: center;
+        }
+
         &amp; &gt; * {
           flex-grow: 1;
+          align-items: center;
         }
 
         .copy-button,
@@ -4344,11 +4367,12 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       &gt;&lt;/div&gt;
       &lt;div class=&#34;multi-alphabet-results&#34; id=&#34;multi-alphabet-results&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;multi-alphabet-add-another&#34;&gt;
-        Add another:
         &lt;select
           class=&#34;multi-alphabet-translation-selector&#34;
           id=&#34;multi-alphabet-selector&#34;
-        &gt;&lt;/select&gt;
+        &gt;
+          &lt;option disabled value=&#34;&#34; selected&gt;Add another:&lt;/option&gt;
+        &lt;/select&gt;
       &lt;/div&gt;
 
       &lt;template id=&#34;translation-item-template&#34;&gt;
@@ -4373,7 +4397,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode2s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode13s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
