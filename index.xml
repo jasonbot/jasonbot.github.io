@@ -3397,8 +3397,6 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
 
     &lt;script&gt;
       const plainAlphabetMapping = (...alphabetString) =&gt; {
-        console.log(alphabetString, alphabetString[0]);
-
         return (mappingString) =&gt;
           [...mappingString]
             .map((letter, i) =&gt; {
@@ -4174,7 +4172,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         ),
       };
 
-      const translationDisplays = [];
+      const activeTranslations = [];
 
       const debounce = (func, delay) =&gt; {
         let timeoutId;
@@ -4188,30 +4186,30 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         };
       };
 
-      const changeInputText = () =&gt; {
+      const inputTextHasChanged = () =&gt; {
         const t = document.getElementById(&#34;multi-alphabet-input&#34;);
         const text = t.innerText;
 
-        if (!!text &amp;&amp; translationDisplays.length === 0) {
-          addTranslation(Object.keys(translators)[0]);
+        if (!!text &amp;&amp; activeTranslations.length === 0) {
+          addToListOfActiveTranslations(Object.keys(translators)[0]);
         }
 
-        translationDisplays.forEach((display) =&gt; {
+        activeTranslations.forEach((display) =&gt; {
           display.update(text);
         });
       };
 
-      const updateList = () =&gt; {
-        namesUsed = new Set(translationDisplays.map((b) =&gt; b.name));
+      const updateSelectedTranslationItemsInList = () =&gt; {
+        namesUsed = new Set(activeTranslations.map((b) =&gt; b.name));
 
         const selectElt = document.getElementById(&#34;multi-alphabet-selector&#34;);
         [...selectElt.querySelectorAll(&#34;option&#34;)].forEach((e) =&gt; {
           e.disabled = namesUsed.has(e.value);
         });
-        changeInputText();
+        inputTextHasChanged();
       };
 
-      const addTranslation = (name) =&gt; {
+      const addToListOfActiveTranslations = (name) =&gt; {
         const template = document.getElementById(&#34;translation-item-template&#34;);
         const resultElt = document.getElementById(&#34;multi-alphabet-results&#34;);
 
@@ -4221,25 +4219,25 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         ).firstElementChild;
         resultElt.appendChild(translationElt);
 
-        const translationTextelt = translationElt.querySelector(&#34;.translation&#34;);
-        const copyButton = translationElt.querySelector(&#34;.copy-button&#34;);
-        const deleteButton = translationElt.querySelector(&#34;.remove-button&#34;);
-
         translationElt.querySelector(
           &#34;.name&#34;
         ).innerText = `${name} (${translators[name](name)})`;
+
+        const translationTextelt = translationElt.querySelector(&#34;.translation&#34;);
+        const copyButton = translationElt.querySelector(&#34;.copy-button&#34;);
+        const deleteButton = translationElt.querySelector(&#34;.remove-button&#34;);
 
         copyButton.addEventListener(&#34;click&#34;, (e) =&gt; {
           navigator.clipboard.writeText(translationTextelt.innerText);
         });
 
         deleteButton.addEventListener(&#34;click&#34;, (e) =&gt; {
-          const idx = translationDisplays.indexOf((e) =&gt; e.name === name);
-          translationDisplays.pop(idx);
+          const idx = activeTranslations.indexOf((e) =&gt; e.name === name);
+          activeTranslations.pop(idx);
           resultElt.removeChild(translationElt);
         });
 
-        translationDisplays.push({
+        activeTranslations.push({
           name: name,
           update: (text) =&gt; {
             const translationBlank = text.trim().length === 0;
@@ -4248,15 +4246,13 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
             translationTextelt.innerText = translators[name](text);
           },
         });
-        updateList();
-
-        console.log(translationDisplays);
+        updateSelectedTranslationItemsInList();
       };
 
-      const bind = () =&gt; {
+      const startupAndBindElements = () =&gt; {
         const selectElt = document.getElementById(&#34;multi-alphabet-selector&#34;);
         selectElt.addEventListener(&#34;change&#34;, (e) =&gt; {
-          addTranslation(e.target.value);
+          addToListOfActiveTranslations(e.target.value);
         });
 
         Object.entries(translators).forEach(([name, translator]) =&gt; {
@@ -4268,10 +4264,10 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         });
 
         const inputElt = document.getElementById(&#34;multi-alphabet-input&#34;);
-        inputElt.addEventListener(&#34;input&#34;, debounce(changeInputText, 150));
+        inputElt.addEventListener(&#34;input&#34;, debounce(inputTextHasChanged, 150));
       };
 
-      document.addEventListener(&#34;DOMContentLoaded&#34;, bind);
+      document.addEventListener(&#34;DOMContentLoaded&#34;, startupAndBindElements);
     &lt;/script&gt;
     &lt;style type=&#34;text/css&#34;&gt;
       div.multi-alphabet-input-area {
@@ -4358,8 +4354,8 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         &lt;div class=&#34;translation-item&#34;&gt;
           &lt;div class=&#34;translation-header&#34;&gt;
             &lt;div class=&#34;name translator-name&#34;&gt;&lt;/div&gt;
-            &lt;button class=&#34;copy-button&#34;&gt;📋&lt;/button&gt;
-            &lt;button class=&#34;remove-button&#34;&gt;❌&lt;/button&gt;
+            &lt;button class=&#34;copy-button&#34;&gt;⧉Copy&lt;/button&gt;
+            &lt;button class=&#34;remove-button&#34;&gt;🗙&lt;/button&gt;
           &lt;/div&gt;
           &lt;div class=&#34;translation translation-text&#34;&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -4376,7 +4372,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode2s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
