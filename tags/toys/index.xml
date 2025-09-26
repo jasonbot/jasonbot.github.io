@@ -258,7 +258,7 @@
       const plainAlphabetMapping = (...alphabetString) =&gt; {
         return (mappingString) =&gt;
           [
-            ...(mappingString.length === 0
+            ...(mappingString.trim().length === 0
               ? randomChoice([
                   &#34;We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.&#34;,
                   &#34;Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is the foundation of freedom, justice and peace in the world,&#34;,
@@ -1076,8 +1076,16 @@ And tract homes reasonably priced`,
         namesUsed = new Set(activeTranslations.map((b) =&gt; b.name));
 
         const selectElt = document.getElementById(&#34;multi-alphabet-selector&#34;);
-        [...selectElt.querySelectorAll(&#34;option&#34;)].forEach((e) =&gt; {
-          e.disabled = namesUsed.has(e.value);
+        [...selectElt.querySelectorAll(&#34;option&#34;)].forEach((e, i) =&gt; {
+          if (i === 0) {
+            e.innerText =
+              activeTranslations.length === 0
+                ? &#34;Choose a transformation&#34;
+                : randomChoice([&#34;One more?&#34;, &#34;Another&#34;, &#34;Keep going&#34;]);
+            e.disabled = true;
+          } else {
+            e.disabled = namesUsed.has(e.value);
+          }
         });
         inputTextHasChanged();
       };
@@ -1105,10 +1113,10 @@ And tract homes reasonably priced`,
         });
 
         deleteButton.addEventListener(&#34;click&#34;, (e) =&gt; {
-          const idx = activeTranslations.indexOf((e) =&gt; e.name === name);
+          const idx = activeTranslations.findIndex((e) =&gt; e.name === name);
+          resultElt.removeChild(translationElt);
           if (idx &gt;= 0) {
             activeTranslations.pop(idx);
-            resultElt.removeChild(translationElt);
             updateSelectedTranslationItemsInList();
           }
         });
@@ -1229,7 +1237,9 @@ And tract homes reasonably priced`,
           class=&#34;multi-alphabet-translation-selector&#34;
           id=&#34;multi-alphabet-selector&#34;
         &gt;
-          &lt;option disabled value=&#34;&#34; selected&gt;Add another:&lt;/option&gt;
+          &lt;option disabled value=&#34;&#34; selected&gt;
+            Choose a translation method
+          &lt;/option&gt;
         &lt;/select&gt;
       &lt;/div&gt;
 
