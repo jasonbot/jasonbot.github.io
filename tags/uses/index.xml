@@ -49,6 +49,7 @@
 &lt;h2 id=&#34;command-line&#34;&gt;Command line&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/jasonbot/dotfiles&#34;&gt;Here is the bootstrap set of dotfiles I use&lt;/a&gt; on new computers&lt;/li&gt;
+&lt;li&gt;On Windows, &lt;a href=&#34;https://github.com/jasonbot/bootstrap-windows-development-machine&#34;&gt;I&amp;rsquo;m doing the same thing but different&lt;/a&gt; with setting up a new machine.&lt;/li&gt;
 &lt;li&gt;I use zsh and bash almost equally, though I think I have more zsh machines now&lt;/li&gt;
 &lt;li&gt;I usually start out with &lt;a href=&#34;https://ohmyz.sh/&#34;&gt;oh-my-zsh&lt;/a&gt; or &lt;a href=&#34;https://github.com/ohmybash/oh-my-bash&#34;&gt;oh-my-bash&lt;/a&gt; on new systems&lt;/li&gt;
 &lt;li&gt;I use &lt;a href=&#34;https://github.com/nvm-sh/nvm&#34;&gt;nvm&lt;/a&gt;, &lt;a href=&#34;https://github.com/rbenv/rbenv&#34;&gt;rbenv&lt;/a&gt;, and &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt; to manage node/ruby/python installs &amp;ndash; I can&amp;rsquo;t get the hang of &lt;a href=&#34;https://github.com/astral-sh/uv&#34;&gt;uv&lt;/a&gt; but that looks like the future at this point for Python.&lt;/li&gt;
@@ -77,7 +78,7 @@
 &lt;ul&gt;
 &lt;li&gt;The theme for this weblog is a fork of &lt;a href=&#34;https://github.com/colorchestra/smol&#34;&gt;smol&lt;/a&gt;, built in &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Hosted on &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; through the magic of &lt;a href=&#34;https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;a CNAME&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href=&#34;https://www.brailleinstitute.org/freefont/&#34;&gt;Atkinson Hyperlegible&lt;/a&gt;, &lt;a href=&#34;https://rsms.me/inter/&#34;&gt;Inter&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here and not on Google Fonts).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href=&#34;https://ohnotype.co/fonts/forevs&#34;&gt;Forevs&lt;/a&gt;, &lt;a href=&#34;https://rsms.me/inter/&#34;&gt;Inter&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here and not on Google Fonts).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;productivity&#34;&gt;Productivity&lt;/h1&gt;
 &lt;h2 id=&#34;producing-and-manipulating-visual-artifacts&#34;&gt;Producing and Manipulating Visual Artifacts&lt;/h2&gt;
@@ -96,7 +97,7 @@
 &lt;li&gt;I run &lt;a href=&#34;https://github.com/Raphire/Win11Debloat&#34;&gt;Win11Debloat&lt;/a&gt; immediately upon starting on a new Windows desktop machine&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/winget-cli&#34;&gt;Winget&lt;/a&gt; is a command line utility built into the operating system you are sleeping on.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;Windows Terminal&lt;/a&gt; for my terminal emulator&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/powertoys/&#34;&gt;Powertoys&lt;/a&gt; for various tweaks, &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/powertoys/run&#34;&gt;the rnner in particular&lt;/a&gt; is nice&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/powertoys/&#34;&gt;Powertoys&lt;/a&gt; for various tweaks, &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/powertoys/run&#34;&gt;the runner in particular&lt;/a&gt; is nice&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.notion.com/desktop&#34;&gt;Notion Desktop&lt;/a&gt; to do work&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.notion.com/product/calendar&#34;&gt;Notion Calendar&lt;/a&gt; as my calendar&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://syncthing.net/&#34;&gt;SyncThing&lt;/a&gt; to move files around&lt;/li&gt;

@@ -1254,7 +1254,7 @@ I&#39;d have a job at a factory`,
           &lt;div class=&#34;translation-header&#34;&gt;
             &lt;div class=&#34;name translator-name&#34;&gt;&lt;/div&gt;
             &lt;button class=&#34;copy-button&#34;&gt;⧉Copy&lt;/button&gt;
-            &lt;button class=&#34;remove-button&#34;&gt;🗙&lt;/button&gt;
+            &lt;button class=&#34;remove-button&#34;&gt;×&lt;/button&gt;
           &lt;/div&gt;
           &lt;div class=&#34;translation translation-text&#34;&gt;&lt;/div&gt;
         &lt;/div&gt;
