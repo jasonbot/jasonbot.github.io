@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/weblog/starship/</loc>
+    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/software/</loc>
+    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/tags/css/</loc>
     <lastmod>2025-07-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/html/</loc>
-    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2025-07-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2025-07-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/tailwind/</loc>
@@ -190,9 +196,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/dunder-all-is-a-sacred-space-and-everyone-is-profaning-it/</loc>
     <lastmod>2021-03-31T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/software/</loc>
-    <lastmod>2021-03-08T05:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/web/</loc>
     <lastmod>2021-03-08T05:00:00+00:00</lastmod>

@@ -8,6 +8,43 @@
     <language>en</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>I Don&#39;t Like that I Like Starship</title>
+      <link>https://www.jasonscheirer.com/weblog/starship/</link>
+      <pubDate>Wed, 29 Oct 2025 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/starship/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;I have &lt;a href=&#34;https://gist.github.com/jasonbot/26e894be371417ee20b973c0def1d366&#34;&gt;my seed Starship config&lt;/a&gt; up as a Gist.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://starship.rs/&#34;&gt;Starship&lt;/a&gt; is a tool that frustrates me because it seems so bikesheddy and unneeded: a custom prompt manager. We already had shell prompt customization! I blindly install &lt;code&gt;oh-my-*&lt;/code&gt; on new machines for prompt customization! And it&amp;rsquo;s in Rust. People just use Rust to be cute.&lt;/p&gt;
+&lt;p&gt;Then I realize that it&amp;rsquo;s okay to have nice things. The command line environment from the 90s can change. &lt;code&gt;rg&lt;/code&gt; doesn&amp;rsquo;t suck. The &lt;code&gt;lazy*&lt;/code&gt; TUIs don&amp;rsquo;t suck. I mock &lt;a href=&#34;https://textual.textualize.io/&#34;&gt;Textual&lt;/a&gt; and &lt;a href=&#34;https://charm.land/&#34;&gt;Charm&lt;/a&gt; openly and unrepentantly and still hypocritically use and enjoy the tools built with them. The terminal is changing because the people using it have the agency and hubris to use it differently.&lt;/p&gt;
+&lt;p&gt;I can have a growth mindset and accept that&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The preferred command line tool to do a thing can change in my lifetime and&lt;/li&gt;
+&lt;li&gt;The preferred workflow to accomplish a task can change in the face of new tools and&lt;/li&gt;
+&lt;li&gt;The people who invented the old tools we&amp;rsquo;re replacing were not gods, they were just as fallible as us so&lt;/li&gt;
+&lt;li&gt;Writing new tools that learn hard lessons from decades of using the old ones is fine. It&amp;rsquo;s not sacrilege.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;But its killer features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;On rails/opinionated&lt;/strong&gt;: Other prompt customization schemes I&amp;rsquo;ve used have let you do &lt;em&gt;anything&lt;/em&gt;, but you had to know &lt;em&gt;how to do anything&lt;/em&gt;. I can&amp;rsquo;t think of cleverness I want in my prompt, I just want to see which Git branch I&amp;rsquo;m on. We&amp;rsquo;re all doing that. We all want that. &lt;a href=&#34;https://starship.rs/config/#git-branch&#34;&gt;Starship has a way to do that&lt;/a&gt; which isn&amp;rsquo;t brittle bash I have to maintain myself.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multiplatform&lt;/strong&gt;: I have Windows Bash, Windows Powershell, Linux Bash/Zsh, and macOS Bash/Zsh all driven by the same seed config. I can have it show the same shit everywhere. I can use little emblems to let me konw if I&amp;rsquo;m on my Mac, on a Linux machine, if I&amp;rsquo;m on Window and if that&amp;rsquo;s Powershell or Bash all right there.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Nerd Font Dark Horse&lt;/strong&gt;: This system takes advantage of &lt;a href=&#34;https://www.nerdfonts.com/cheat-sheet&#34;&gt;the glyphs&lt;/a&gt; in &lt;a href=&#34;https://www.nerdfonts.com/&#34;&gt;Nerd Fonts&lt;/a&gt; and normalizes abusing them. This adds the additional &amp;ldquo;burden&amp;rdquo; of installing a Nerd Font enabled typeface on all my apps with terminal editors, but that&amp;rsquo;s fine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here it is. All this talk something that doesn&amp;rsquo;t &lt;em&gt;look&lt;/em&gt; substantively different but compunds into &lt;em&gt;feeling&lt;/em&gt; different over the course of the days and weeks I use it:&lt;/p&gt;
+&lt;p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://www.jasonscheirer.com/images/starship/starship.png&#34; alt=&#34;Image&#34; /&gt;
+&lt;/figure&gt;
+
+
+&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/software">software</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
+    </item>
+    
+    <item>
       <title>There and Back Again: My Journey Into (And Out Of) Tailwind</title>
       <link>https://www.jasonscheirer.com/weblog/tailwind/</link>
       <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
