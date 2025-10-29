@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.jasonscheirer.com/weblog/starship/</loc>
-    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2025-10-29T00:08:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2025-10-29T00:08:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/ser-estar/</loc>
+    <lastmod>2025-10-29T00:08:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/writing/</loc>
+    <lastmod>2025-10-29T00:08:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/starship/</loc>
     <lastmod>2025-10-29T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/programming/</loc>
     <lastmod>2025-10-29T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/software/</loc>
-    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2025-10-29T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/css/</loc>
@@ -48,9 +54,6 @@
     <lastmod>2025-05-15T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/kicking-the-tires-on-harper/</loc>
-    <lastmod>2025-05-15T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/writing/</loc>
     <lastmod>2025-05-15T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/the-wrong-conclusion/</loc>
