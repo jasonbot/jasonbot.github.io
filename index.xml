@@ -3402,14 +3402,14 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
     &lt;style type=&#34;text/css&#34;&gt;
       .match-o-matic {
         margin-top: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.25);
+        border: 1px solid var(--borders);
         border-radius: 4px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 4px;
-        background: white;
-        color: black;
+        background: var(--main-color);
+        color: var(--text-color);
       }
 
       .match-o-matic-input-area {
@@ -3425,14 +3425,16 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
         padding: 4px;
         border: none;
         border-radius: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid var(--main-border);
         font-size: xx-large;
         flex-grow: 1;
+        background: var(--main-color);
+        color: var(--text-color);
       }
 
       .match-o-matic-results {
         margin-top: 4px;
-        border: 1px solid rgba(0, 0, 0, 0.125);
+        border: 1px solid var(--main-border);
         border-radius: 4px;
         flex-grow: 1;
         font-size: large;
@@ -3444,7 +3446,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       }
 
       .match-o-matic-results div + div {
-        border-top: 1px solid rgba(0, 0, 0, 0.125);
+        border-top: 1px solid var(--main-border);
       }
 
       .match-o-matic-result {
@@ -4520,7 +4522,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode2s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
