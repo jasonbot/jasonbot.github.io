@@ -6,7 +6,52 @@
     <description>Recent content in Music on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/music/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Nov 2025 08:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/music/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Innioasis Y1 Music Player</title>
+      <link>https://www.jasonscheirer.com/weblog/innioasis-y1/</link>
+      <pubDate>Sat, 15 Nov 2025 08:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/innioasis-y1/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;ve been enjoying standalong MP3 players! The &lt;a href=&#34;https://www.innioasis.com/products/y1&#34;&gt;Innioasis Y1&lt;/a&gt; kept coming across my radar, I like the the form factor, it was $50.&lt;/p&gt;
+&lt;p&gt;What the heck, why not.&lt;/p&gt;
+&lt;h1 id=&#34;and-then&#34;&gt;And Then&lt;/h1&gt;
+&lt;p&gt;The community for this thing is &lt;em&gt;insane&lt;/em&gt;, it&amp;rsquo;s just as active as the people doing weird things with &lt;a href=&#34;https://www.jasonscheirer.com/weblog/rg35xx/&#34;&gt;my RG35XX&lt;/a&gt;. It&amp;rsquo;s really cool seeing so many people doing neat things with such a simple piece of hardware. And like the RG35XX, part of the value proposition is this is a cheap peice of commodity hardware that would not have been possible in this way even 5 years ago, but is now inexpensive enough and flexible enough to be an incredible product for the money.&lt;/p&gt;
+&lt;h1 id=&#34;rockbox&#34;&gt;Rockbox&lt;/h1&gt;
+&lt;p&gt;I saw you could put &lt;a href=&#34;https://github.com/multiwirth/rockbox-y1&#34;&gt;a flavor of Rockbox on the thing&lt;/a&gt; so I did that. The UI out of the box isn&amp;rsquo;t nearly as polished but &lt;a href=&#34;https://github.com/y1-community/Innioasis-Updater&#34;&gt;there&amp;rsquo;s a neat community-supported updater&lt;/a&gt; that goes so far as to install skins for you.&lt;/p&gt;
+&lt;p&gt;Rockbox has the ability to create a play log file, so &lt;a href=&#34;https://www.last.fm/user/jasonbot&#34;&gt;I can scrobble my commute/work listening again&lt;/a&gt;! This is awesome.&lt;/p&gt;
+&lt;h1 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h1&gt;
+&lt;p&gt;Three surprises. Not quite complaint territory but worth knowing about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No external storage. My Shanlings had a TF card slot so I could expand and swap the storage easily. This is internal. 128GB so it won&amp;rsquo;t hold my whole library but it holds everything I care about.&lt;/li&gt;
+&lt;li&gt;No touchscreen. Again, coming from Shanling this took a little bit of getting used to. Pure iPod classic ergonomics, buttons only.&lt;/li&gt;
+&lt;li&gt;Build quality is not super solid. The screen is plastic, not glass, and it scratched almost immediately. You can definitely &amp;ldquo;feel&amp;rdquo; a center of gravity while the majority of the device fgeels light. No metal in its construction. It doesn&amp;rsquo;t feel brittle but by no means is it a luxury experience.&lt;/li&gt;
+&lt;/ul&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
+      
+    </item>
+    
+    <item>
+      <title>The Shanling M0s Media Player</title>
+      <link>https://www.jasonscheirer.com/weblog/shanling-m0s/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/shanling-m0s/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;My &lt;a href=&#34;https://www.jasonscheirer.com/weblog/shanling-q1/&#34;&gt;Shanling Q1 died after a couple of years of heavy use&lt;/a&gt; and I think it was probably fixable with some soldering but I don&amp;rsquo;t have time for that.&lt;/p&gt;
+&lt;p&gt;In a rush, I bought an &lt;a href=&#34;https://en.shanling.com/article-IntroM0s.html&#34;&gt;M0s&lt;/a&gt; not reading the page and thinking it was the higher-end &lt;a href=&#34;https://en.shanling.com/product/429&#34;&gt;M0 Pro&lt;/a&gt;, but ultimately this was not a big deal!&lt;/p&gt;
+&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
+&lt;p&gt;This still works like the Q1: it has a custom proprietary Shanling OS which works pretty well. It does Bluetooth fine, it manages music via TF card the same.&lt;/p&gt;
+&lt;p&gt;The thing I did not realize was how much I&amp;rsquo;d like how small it is, it&amp;rsquo;s a tiny little 1.5inc square that&amp;rsquo;s about half an inch thick and has barely any mass. It just dangles at the end of the end of my headphone cable. It would be very easy to lose if I were more careless.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;In all, it has served me for a year. No complaints.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
+      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
+      
+    </item>
+    
     <item>
       <title>The Shanling Q1 Media Player</title>
       <link>https://www.jasonscheirer.com/weblog/shanling-q1/</link>
