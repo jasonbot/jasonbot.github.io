@@ -162,7 +162,7 @@
     </item>
     
     <item>
-      <title>Vscode</title>
+      <title>Visual Studio Code</title>
       <link>https://www.jasonscheirer.com/tags/vscode/</link>
       <pubDate>Sun, 28 May 2023 08:00:00 -0800</pubDate>
       
@@ -180,12 +180,13 @@
     </item>
     
     <item>
-      <title>Games-by-Jason</title>
+      <title>Video Games I&#39;ve Made</title>
       <link>https://www.jasonscheirer.com/tags/games-by-jason/</link>
       <pubDate>Wed, 07 Sep 2022 00:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/games-by-jason/</guid>
-      <description></description>
+      <description>&lt;p&gt;A collection of video games and video game like prototypes I&amp;rsquo;ve made.&lt;/p&gt;
+</description>
     </item>
     
     <item>
