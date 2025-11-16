@@ -6,7 +6,7 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Nov 2025 08:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Dec 2025 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Innioasis Y1 Music Player</title>
       <link>https://www.jasonscheirer.com/weblog/innioasis-y1/</link>
@@ -217,7 +217,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/chains/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/chains&#34;&gt;GitHub for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/chains&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;It&amp;rsquo;s been six months since I&amp;rsquo;ve done this, but I&amp;rsquo;m finally writing about it!&lt;/p&gt;
 &lt;p&gt;Go &lt;a href=&#34;https://go.dev/blog/range-functions&#34;&gt;recently added proper iterator support&lt;/a&gt; to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a &lt;code&gt;range&lt;/code&gt; to get a stream of values.&lt;/p&gt;
@@ -4531,7 +4531,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
