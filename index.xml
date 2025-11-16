@@ -940,12 +940,12 @@
 &lt;h2 id=&#34;editorsenvironments&#34;&gt;Editors/Environments&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;My muscle memory is &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;, I use it everywhere&lt;/li&gt;
-&lt;li&gt;Most of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;
+&lt;li&gt;I have hit the point of no return and use &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; more than anoy other development tool
 &lt;ul&gt;
-&lt;li&gt;I use LLMs for developing code signficiantly less than other people on the cutting edge of tech. I have the &lt;a href=&#34;https://www.continue.dev/&#34;&gt;Continue plugin&lt;/a&gt; installed at home against local Ollama but use its features quite sparingly.&lt;/li&gt;
+&lt;li&gt;I no longer use LLM code assistance in any measurable amount, I find a lot more value using LLMs as code review tools than code generation tools&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;I am forcing myself to use &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; more too, just because monocultures are a Bad Idea and VSC is a monoculture now&lt;/li&gt;
+&lt;li&gt;Much of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;I like using &lt;a href=&#34;https://ebitengine.org/&#34;&gt;Ebitengine&lt;/a&gt; to make silly 2D games&lt;/li&gt;
 &lt;li&gt;I also (rarely) play around with &lt;a href=&#34;https://www.lexaloffle.com/picotron.php&#34;&gt;Picotron&lt;/a&gt;, &lt;a href=&#34;https://www.lexaloffle.com/pico-8.php&#34;&gt;Pico-8&lt;/a&gt;, &lt;a href=&#34;https://tic80.com/&#34;&gt;TIC-80&lt;/a&gt; and &lt;a href=&#34;https://love2d.org/&#34;&gt;LÖVE&lt;/a&gt; for the same&lt;/li&gt;
 &lt;/ul&gt;
@@ -971,32 +971,32 @@
 &lt;h2 id=&#34;cloud-stuff&#34;&gt;Cloud Stuff&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;In the past, I did &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;At my last job, I learned a little &lt;a href=&#34;https://www.pulumi.com/&#34;&gt;Pulumi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A couple of jobs ago, I learned a little &lt;a href=&#34;https://www.pulumi.com/&#34;&gt;Pulumi&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;At most places of employment, I use &lt;a href=&#34;https://health.aws.amazon.com/health/status&#34;&gt;AWS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;I had to learn &lt;a href=&#34;https://azure.status.microsoft/en-us/status&#34;&gt;Azure&lt;/a&gt; at my last job&lt;/li&gt;
-&lt;li&gt;At home, I use &lt;a href=&#34;https://status.cloud.google.com/&#34;&gt;GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I am in the process of switching my self-hosted stuff over to &lt;a href=&#34;https://fly.io/&#34;&gt;fly.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;At home, I use &lt;a href=&#34;https://status.cloud.google.com/&#34;&gt;GCP&lt;/a&gt; for personal projects&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;this-site&#34;&gt;This Site&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;The theme for this weblog is a fork of &lt;a href=&#34;https://github.com/colorchestra/smol&#34;&gt;smol&lt;/a&gt;, built in &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The theme for this weblog is a no-longer-recognizable fork of &lt;a href=&#34;https://github.com/colorchestra/smol&#34;&gt;smol&lt;/a&gt;, built in &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Hosted on &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; through the magic of &lt;a href=&#34;https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;a CNAME&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href=&#34;https://ohnotype.co/fonts/forevs&#34;&gt;Forevs&lt;/a&gt;, &lt;a href=&#34;https://github.com/Instrument/instrument-sans&#34;&gt;Instrument Sans&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here and not on Google Fonts).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href=&#34;https://ohnotype.co/fonts/forevs&#34;&gt;Forevs&lt;/a&gt;, &lt;a href=&#34;https://github.com/Instrument/instrument-sans&#34;&gt;Instrument Sans&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here with this page and not on Google Fonts).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;productivity&#34;&gt;Productivity&lt;/h1&gt;
 &lt;h2 id=&#34;producing-and-manipulating-visual-artifacts&#34;&gt;Producing and Manipulating Visual Artifacts&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://monodraw.helftone.com/&#34;&gt;Monodraw&lt;/a&gt; for cool text-mode diagrams&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.xara.com/us/photo-graphic-designer/&#34;&gt;Xara Photo and Graphic Designer&lt;/a&gt; as I have muscle memory and it&amp;rsquo;s fast to make drawings in&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.gimp.org/&#34;&gt;The Gimp&lt;/a&gt; for quick raster touchups&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.inkscape.Inkscape&#34;&gt;Inkscape&lt;/a&gt; to touch up SVGs&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://d2lang.com/&#34;&gt;D2&lt;/a&gt; for diagrams as code &amp;ndash; I like it in terms of how clean the language looks, how clean the output looks, and how easy it is to use&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://mermaid.js.org/&#34;&gt;Mermaid&lt;/a&gt; for diagrams extensively because it&amp;rsquo;s everywhere, mark a code block as &lt;code&gt;mermaid&lt;/code&gt; in markdown and you get the rendering for free in things like Obsidian and on Github&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://monodraw.helftone.com/&#34;&gt;Monodraw&lt;/a&gt; for cool text-mode diagrams&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://d2lang.com/&#34;&gt;D2&lt;/a&gt; for diagrams as code &amp;ndash; I like it in terms of how clean the language looks, how clean the output looks, and how easy it is to use&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; comes along for the party, too &amp;ndash; it&amp;rsquo;s old but it gets the job done for a large range of jobs&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;desktop-apps&#34;&gt;Desktop Apps&lt;/h2&gt;
 &lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
 &lt;ul&gt;
+&lt;li&gt;I have &lt;a href=&#34;https://github.com/jasonbot/bootstrap-windows-development-machine&#34;&gt;a script I wrote for work&lt;/a&gt; to boostrap a new Windows machine; it installs and configures most of the tools below&lt;/li&gt;
 &lt;li&gt;I run &lt;a href=&#34;https://github.com/Raphire/Win11Debloat&#34;&gt;Win11Debloat&lt;/a&gt; immediately upon starting on a new Windows desktop machine&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/winget-cli&#34;&gt;Winget&lt;/a&gt; is a command line utility built into the operating system you are sleeping on.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;Windows Terminal&lt;/a&gt; for my terminal emulator&lt;/li&gt;
@@ -4531,7 +4531,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
