@@ -933,7 +933,7 @@
 &lt;/li&gt;
 &lt;li&gt;I now prefer Fedora and Fedoralikes for desktop Linux&lt;/li&gt;
 &lt;li&gt;I usually prefer Debian stable or one of its relatives for servers and Alpine for container base images&lt;/li&gt;
-&lt;li&gt;I use &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;Tailwind&lt;/a&gt; at home for CSS, often tableflipping and reverting to vanilla CSS&lt;/li&gt;
+&lt;li&gt;I use &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;Tailwind&lt;/a&gt; at home for CSS, often &lt;a href=&#34;https://www.jasonscheirer.com/weblog/tailwind/&#34;&gt;tableflipping and reverting to vanilla CSS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;I use &lt;a href=&#34;https://www.solidjs.com/&#34;&gt;Solid&lt;/a&gt; and &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript&#34;&gt;plain old JS&lt;/a&gt; at home, &lt;a href=&#34;https://react.dev/&#34;&gt;React&lt;/a&gt; at work&lt;/li&gt;
 &lt;li&gt;I use &lt;a href=&#34;https://ollama.com/&#34;&gt;Ollama&lt;/a&gt; on Windows, Mac and Linux to locally run LLMs&lt;/li&gt;
 &lt;/ul&gt;
@@ -4531,7 +4531,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode2s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;

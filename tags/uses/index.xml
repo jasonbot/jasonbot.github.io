@@ -30,7 +30,7 @@
 &lt;/li&gt;
 &lt;li&gt;I now prefer Fedora and Fedoralikes for desktop Linux&lt;/li&gt;
 &lt;li&gt;I usually prefer Debian stable or one of its relatives for servers and Alpine for container base images&lt;/li&gt;
-&lt;li&gt;I use &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;Tailwind&lt;/a&gt; at home for CSS, often tableflipping and reverting to vanilla CSS&lt;/li&gt;
+&lt;li&gt;I use &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;Tailwind&lt;/a&gt; at home for CSS, often &lt;a href=&#34;https://www.jasonscheirer.com/weblog/tailwind/&#34;&gt;tableflipping and reverting to vanilla CSS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;I use &lt;a href=&#34;https://www.solidjs.com/&#34;&gt;Solid&lt;/a&gt; and &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript&#34;&gt;plain old JS&lt;/a&gt; at home, &lt;a href=&#34;https://react.dev/&#34;&gt;React&lt;/a&gt; at work&lt;/li&gt;
 &lt;li&gt;I use &lt;a href=&#34;https://ollama.com/&#34;&gt;Ollama&lt;/a&gt; on Windows, Mac and Linux to locally run LLMs&lt;/li&gt;
 &lt;/ul&gt;
