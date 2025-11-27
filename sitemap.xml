@@ -3,15 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2026-11-27T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-21T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/vignettes/</loc>
+    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/life/</loc>
+    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/llm/</loc>
+    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/work/</loc>
+    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
     <lastmod>2025-11-15T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/music/</loc>
-    <lastmod>2025-11-15T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2025-11-15T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/innioasis-y1/</loc>
@@ -27,9 +42,6 @@
     <lastmod>2025-10-29T00:08:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/starship/</loc>
-    <lastmod>2025-10-29T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
     <lastmod>2025-10-29T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/software/</loc>
@@ -80,9 +92,6 @@
     <loc>https://www.jasonscheirer.com/weblog/llms/</loc>
     <lastmod>2025-03-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/tags/llm/</loc>
-    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</loc>
     <lastmod>2025-03-01T00:00:00-08:00</lastmod>
   </url><url>
@@ -108,9 +117,6 @@
     <lastmod>2024-11-20T08:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/minecraft/</loc>
-    <lastmod>2024-11-20T08:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/work/</loc>
     <lastmod>2024-11-20T08:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/linux/</loc>
@@ -247,9 +253,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/trying-out-rectangle/</loc>
     <lastmod>2021-02-08T10:00:00-06:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/life/</loc>
-    <lastmod>2021-02-08T07:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/the-post-office-world/</loc>
     <lastmod>2021-02-08T07:00:00-08:00</lastmod>

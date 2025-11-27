@@ -6,7 +6,67 @@
     <description>Recent content in Llm on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Series of Vignettes From My Childhood and Early Career</title>
+      <link>https://www.jasonscheirer.com/weblog/vignettes/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/vignettes/</guid>
+      <description>&lt;p&gt;A short set of anecdotes, apropos of nothing.&lt;/p&gt;
+&lt;h1 id=&#34;the-death-of-software-engineering-as-a-profession&#34;&gt;The Death of Software Engineering as a Profession&lt;/h1&gt;
+&lt;p&gt;When I was younger, I really liked programming! I loved the sense of accomplishment, I loved the problems solving, I loved sharing what I made with the people around them to both amuse them (with games) and help them with real problems (with applications).&lt;/p&gt;
+&lt;p&gt;One particularly wise adult (somewhere around 1996) took me aside and said, &amp;ldquo;You know, you&amp;rsquo;re lucky you &lt;em&gt;enjoy&lt;/em&gt; programming, because you won&amp;rsquo;t be able to make a living on it in the future. Doing it for love over money is a good idea.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Coding is over, with Object Oriented programming one person who is &lt;em&gt;much smarter than any of us could hope to be&lt;/em&gt; will develop the library just &lt;em&gt;once&lt;/em&gt; and we will all use it gonig forward, forever. Once a problem is solved it never needs solving again.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;In 5 years there&amp;rsquo;s going to be a library of objects, like books on a bookshelf, and every software problem will be solved by business people just snapping the object libraries they need together like LEGOs. They won&amp;rsquo;t need you at all.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;I thought about this advice, and how Software Engineering would be ending by the time I entered school. I realized I had not even thought about my education yet. I was in middle school. Programming was not it, though, I knew that.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m here nearly 30 years later and software continues to pay my bills, despite everything. Open source exists, there are libraries I can use to piece things together to solve all the time. New problem sets not covered by the garden path come up all the time. Clicking the LEGOs together continues to be a hard task. Every time we fix it at one level of abstraction we operate one level higher and the world keeps turning.&lt;/p&gt;
+&lt;p&gt;Whenever I&amp;rsquo;m threatened with a good time and someone proclaims &amp;ldquo;this is it for you&amp;rdquo; all that happens is my job becomes more annoying. Haven&amp;rsquo;t gotten the sweet release of extinction quite yet.&lt;/p&gt;
+&lt;h1 id=&#34;the-death-of-software-engineering-as-a-profession-again&#34;&gt;The Death of Software Engineering as a Profession: Again&lt;/h1&gt;
+&lt;p&gt;In 2000 a coworker took me aside and showed me his brand-new copy of the IntelliJ IDE. &amp;ldquo;It&amp;rsquo;s over for us,&amp;rdquo; he said, &amp;ldquo;this thing makes it so programmers aren&amp;rsquo;t strictly necessary, like one person can operate this tool and they can lay the rest of us off.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;I was pretty awestruck, he got some pretty good autocomplete right in the IDE without having to have a separate Javadocs window open to the side and it gave him feedback before the compile cycle on a bunch of issues.&lt;/p&gt;
+&lt;p&gt;And then he showed me the killer feature &amp;ldquo;that&amp;rsquo;s going to get us all out of a job:&amp;rdquo; the refactoring tools.&lt;/p&gt;
+&lt;p&gt;He then proceeded to show me the tools, easily moving around code to new files, renaming classes across the codebase, all kinds of manual things that would have taken a person a few days to do on their own. It was magical.&lt;/p&gt;
+&lt;p&gt;After some thought I said, &amp;ldquo;that&amp;rsquo;s amazing, but does it write new logic too or does it just move code around?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;He didn&amp;rsquo;t seem fazed by that, and doubled down on the insistence that these powerful tools were our doom.&lt;/p&gt;
+&lt;h1 id=&#34;that-time-i-automated-someone-out-of-a-job&#34;&gt;That Time I Automated Someone Out of a Job&lt;/h1&gt;
+&lt;p&gt;At my first job in High School I was working in an office in a suburban office park with programmers from many different local agencies. One guy I chatted up was a contractor: these people were highly regarded, somewhat feared specialists. The guy in question was working on a multi-year migration of some county health computer system from &lt;a href=&#34;https://en.wikipedia.org/wiki/MUMPS&#34;&gt;MUMPS&lt;/a&gt; to a more modern relational system. He showed me the main family of problems he was solving to show off how smart he was for solving them; they were largely rote problems of migrating table schemas and records in a pretty uniform way. But there were a lot of them, and he was working hard to meet his deadline!&lt;/p&gt;
+&lt;p&gt;I thought about it, and seeking his approval and validation, set out to help him. To show what I could do. I wrote a Python script that could solve the 85% case (it was mostly string manipulation) and even put a little TkInter dialog around it so he could select the files he wanted to migrate visually. It ran great, but he looked a little afraid when I demonstrated it to him:&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;You didn&amp;rsquo;t show this to anyone else, did you?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Nope.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Oh thank God.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;I take it he used my tool because he had a lot more free time to goof off for the remaining six months of his contract. I don&amp;rsquo;t think he told anyone else what he had either, but I&amp;rsquo;m guessing that he had a lot more MUMPS migration contracts lined up when he could finish them in a matter of days.&lt;/p&gt;
+&lt;h1 id=&#34;that-time-i-automated-myself-out-of-a-job&#34;&gt;That Time I Automated Myself Out of a Job&lt;/h1&gt;
+&lt;p&gt;At the same job, I was paid to maintain a series of government agency web sites. One of my main tasks was to keep a list of mental health providers up-to-date on an HTML page and upload it to the server.&lt;/p&gt;
+&lt;p&gt;This process was pretty mechanical: take Excel sheet from inbox, open in Excel, copy Excel table to HTML table.&lt;/p&gt;
+&lt;p&gt;Within a month I had a fully automated workflow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I used Windows Automation to watch my Outlook inbox&lt;/li&gt;
+&lt;li&gt;When an email came in from the person who sent me the Excels it would download it&lt;/li&gt;
+&lt;li&gt;Open the Excel file in excel using Windows Automation&lt;/li&gt;
+&lt;li&gt;Export it to CSV from Excel (the automation did this, I simply watched a ghost remote control an Excel window that opened and closed itself)&lt;/li&gt;
+&lt;li&gt;Run a Python script that would inject that CSV data as an HTML table into the file&lt;/li&gt;
+&lt;li&gt;Run another Python script that would connect to the FTP server and upload the file. It would randomly pause and issue typos so it looked like the FTP session was being operated by a human at a keyboard so nobody thought anything on my plot.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I lived in fear of being found out, and told no one that the thing I was getting paid to do was no longer being done by me.&lt;/p&gt;
+&lt;p&gt;About 9 months later the department in question hired a full-time web developer for $45k/yr to bring their website in-house. I was costing them about $25/hr, probably skating under $2000/yr for my outsourced services. This was clearly not about money.&lt;/p&gt;
+&lt;p&gt;And what I feared did not happen. When I no longer had that work to sustain me my managers just put me on something else.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s always more work.&lt;/p&gt;
+&lt;h1 id=&#34;we-dont-engage-in-theft&#34;&gt;We Don&amp;rsquo;t Engage in Theft&lt;/h1&gt;
+&lt;p&gt;In my last years of undergraduate education and my first couple of years out of college I worked on projects that did some sort of Natural Language Processing tasks. For these we required training data, and the more the better.&lt;/p&gt;
+&lt;p&gt;On that, though, we had responsibilities. We had to make sure the data we had also came with some sort of license or implicit permission. You didn&amp;rsquo;t just steal a pile of PDFs or scoop up a person&amp;rsquo;s web site and put it in your training set. There were ethical constrains, and legal consequences. You acted above-board when training your AI models.&lt;/p&gt;
+&lt;p&gt;There were times we&amp;rsquo;d train models on Wikipedia dumps. They were always comparatively &lt;em&gt;amazing&lt;/em&gt; results when we trained on good, large data like that. Cogent. Interesting. Even a simple Markov chain on Wikipedia looked smart.&lt;/p&gt;
+&lt;p&gt;When we wrote web crawlers, we wrote them to respect &lt;code&gt;robots.txt&lt;/code&gt;. We kept them on local domains. The &lt;code&gt;user-agent&lt;/code&gt; field of the crawlers included our email address, and if an angry webmaster didn&amp;rsquo;t like the way we were crawling them we&amp;rsquo;d fix it. Getting crawled aggressively at once taxed servers and spammed logs so we&amp;rsquo;d space it out to hours or days. If their &lt;code&gt;robots.txt&lt;/code&gt; was missing or malformed and they still didn&amp;rsquo;t want us there, we&amp;rsquo;d block the site from crawling.&lt;/p&gt;
+&lt;p&gt;We made sure we had explicit permission to collect data for our training corpora.&lt;/p&gt;
+&lt;h1 id=&#34;closing&#34;&gt;Closing&lt;/h1&gt;
+&lt;p&gt;This is indeed a set of passive-aggressive jabs on the continuing assault on our senses by the LLM hype lobby.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/llm">llm</category>
+      <category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/life">life</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
+    </item>
+    
     <item>
       <title>A Children&#39;s Treasury of Critiques and Concerns about the Current LLM Hype Cycle</title>
       <link>https://www.jasonscheirer.com/weblog/llms/</link>
