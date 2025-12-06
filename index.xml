@@ -44,7 +44,7 @@
 &lt;/ul&gt;
 &lt;p&gt;And more! And after all this, it happens to let you place rectangles in those windows that are views into the Chromium rendering engine.&lt;/p&gt;
 &lt;p&gt;If an Electron app you&amp;rsquo;re using doesn&amp;rsquo;t &lt;em&gt;feel&lt;/em&gt; mostly native, it&amp;rsquo;s more an indictment of the nature of the people making the app than the framework they&amp;rsquo;re using.&lt;/p&gt;
-&lt;p&gt;The whole point of Electron is to provide a decent, native desktop experience and uses HTML/CSS/Javascript as its core language for user interface and the Nodejs runtime and its ecosystem behind the curtain. Familiar tools, fast development. Development that is only &lt;em&gt;feasible&lt;/em&gt; in many cases.&lt;/p&gt;
+&lt;p&gt;The whole point of Electron is to provide a decent, native desktop experience and uses HTML/CSS/Javascript as its core language for user interface and the Nodejs runtime and its ecosystem behind the curtain. Familiar tools, fast development. In some cases, this development is only &lt;em&gt;feasible&lt;/em&gt; via Electron: when you can reuse half your codebase you&amp;rsquo;re halfway there!&lt;/p&gt;
 &lt;h1 id=&#34;if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron&#34;&gt;If You&amp;rsquo;re Distributing Containerized Apps or Static Binaries You&amp;rsquo;re Just As Guilty of the Original Sin of Electron&lt;/h1&gt;
 &lt;p&gt;We already have &lt;code&gt;libc&lt;/code&gt; back at home. An Electron installation doesn&amp;rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.&lt;/p&gt;
 &lt;p&gt;Electron bundles all that inside itself. It&amp;rsquo;s the equivalent to a static binary that doesn&amp;rsquo;t use the system libc. It&amp;rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system with apt-get and superfluous apps installed as an image base just to host a single node app in a container. You accept batteries included software elsewhere: don&amp;rsquo;t be a hypocrite and complain in this case.&lt;/p&gt;
@@ -4645,7 +4645,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode5s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode12s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
