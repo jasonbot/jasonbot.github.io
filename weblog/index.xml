@@ -8,6 +8,74 @@
     <language>en</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>If Your Electron App is &#34;Just A Browser Wrapper&#34; You&#39;re Doing It Wrong</title>
+      <link>https://www.jasonscheirer.com/weblog/on-electron/</link>
+      <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/on-electron/</guid>
+      <description>&lt;p&gt;Having spent the last 6 months working on &lt;a href=&#34;https://www.notion.com/desktop&#34;&gt;an Electron app full-time&lt;/a&gt;, my Stockholm Syndrome has kicked in and I&amp;rsquo;ve come around to it.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s easy to disparagingly refer to an Electron app as bloated, or a crappy wrapper around a web app. This is easy, reductive thinking that travels well in short-form media like TikTok and Elon Musk&amp;rsquo;s &lt;em&gt;𝕏: The Everything App&lt;/em&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I&amp;rsquo;m going to say this in so many words over an over in here: do you hate Electron out of&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Groupthink,&lt;/li&gt;
+&lt;li&gt;Out of misguided and impractical engineering aesthetics, or&lt;/li&gt;
+&lt;li&gt;Because you would prefer the &amp;ldquo;bad&amp;rdquo; apps you see written in it to not exist at all, over existing but being kind of bad?&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;p&gt;That is, is the framework that allows bad apps to proliferate &lt;em&gt;bad on its own&lt;/em&gt; for enabling bad programmers or &lt;em&gt;good&lt;/em&gt; for enabling &lt;em&gt;skilled and unskilled programmers alike&lt;/em&gt; to participate in software engineering? Or &lt;em&gt;both&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Oh my oh my do I love being ambivalent on everything and I want to pass that along to you.&lt;/p&gt;
+&lt;h1 id=&#34;electron-isnt-just-a-browser-wrapper&#34;&gt;Electron Isn&amp;rsquo;t Just A Browser Wrapper&lt;/h1&gt;
+&lt;p&gt;Aside from wrapping a web page, though, is &lt;a href=&#34;https://www.electronjs.org/docs/latest/api/app&#34;&gt;a whole truckload of stuff&lt;/a&gt; to make a carefully and comprehensively written Electron app &lt;em&gt;actually good&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Window creation and management&lt;/li&gt;
+&lt;li&gt;Menus, you know, like system menus&lt;/li&gt;
+&lt;li&gt;Custom tray icons&lt;/li&gt;
+&lt;li&gt;Dock icon overlays&lt;/li&gt;
+&lt;li&gt;Apple Touchbar customizations (RIP)&lt;/li&gt;
+&lt;li&gt;Opting to run the app on startup&lt;/li&gt;
+&lt;li&gt;Sending crash reports to interested parties&lt;/li&gt;
+&lt;li&gt;Writing additional native code in native languages like C++ and Rust via Node extensions &lt;em&gt;that give better platform-specific runtime characteristics&lt;/em&gt;.
+&lt;ul&gt;
+&lt;li&gt;I can use the native filesystem.&lt;/li&gt;
+&lt;li&gt;I can use native builds of machine learning libraries with hoping you&amp;rsquo;re patient enough to watch them run slower and worse in Webassembly.&lt;/li&gt;
+&lt;li&gt;All of a sudden things that ran slow on your computer or non-privately on some SaaS company&amp;rsquo;s server are happening &lt;em&gt;quickly, efficiently, on your hardware on your desk&lt;/em&gt; with &lt;em&gt;no network round-trips&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And more! And after all this, it happens to let you place rectangles in those windows that are views into the Chromium rendering engine.&lt;/p&gt;
+&lt;p&gt;If an Electron app you&amp;rsquo;re using doesn&amp;rsquo;t &lt;em&gt;feel&lt;/em&gt; mostly native, it&amp;rsquo;s more an indictment of the nature of the people making the app than the framework they&amp;rsquo;re using.&lt;/p&gt;
+&lt;p&gt;The whole point of Electron is to provide a decent, native desktop experience and uses HTML/CSS/Javascript as its core language for user interface and the Nodejs runtime and its ecosystem behind the curtain. Familiar tools, fast development. Development that is only &lt;em&gt;feasible&lt;/em&gt; in many cases.&lt;/p&gt;
+&lt;h1 id=&#34;if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron&#34;&gt;If You&amp;rsquo;re Distributing Containerized Apps or Static Binaries You&amp;rsquo;re Just As Guilty of the Original Sin of Electron&lt;/h1&gt;
+&lt;p&gt;We already have &lt;code&gt;libc&lt;/code&gt; back at home. An Electron installation doesn&amp;rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.&lt;/p&gt;
+&lt;p&gt;Electron bundles all that inside itself. It&amp;rsquo;s the equivalent to a static binary that doesn&amp;rsquo;t use the system libc. It&amp;rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system with apt-get and superfluous apps installed as an image base just to host a single node app in a container. You accept batteries included software elsewhere: don&amp;rsquo;t be a hypocrite and complain in this case.&lt;/p&gt;
+&lt;h2 id=&#34;the-operating-system-webview-is-a-lie-and-a-nightmare-and-probably-worse-than-nothing&#34;&gt;The Operating System Webview is a Lie and a Nightmare and Probably Worse than Nothing&lt;/h2&gt;
+&lt;p&gt;The words in the subheading immediately above about cover it. I was using another webview-based framework (who cares which) for &lt;a href=&#34;https://codeberg.org/jasonbot/ollama-desktop-with-wails&#34;&gt;an app&lt;/a&gt; and I had a pretty cool UX with sidebar tabs that rendered vertically to save space via &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-orientation&#34;&gt;text orientation&lt;/a&gt;. The webviews in 50% of the platforms I tested didn&amp;rsquo;t do this, they rendered the text horizontally, breaking my UI. Flexbox wasn&amp;rsquo;t fully there. Some of the platforms (Linux) didn&amp;rsquo;t even support changing fonts &lt;em&gt;at all&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I now had another variable I had close to zero control over regarding my rendering engine. I now had web technologies, inconsistently applied, that I had to &lt;em&gt;extensively&lt;/em&gt; test on every platform. I could not trust my UI to be a UI.&lt;/p&gt;
+&lt;p&gt;Packaging a rendering engine gives me guarantees of rendering capabilities independent of the operating system&amp;rsquo;s webview. I can&amp;rsquo;t tell a paying customer &amp;ldquo;sorry man that&amp;rsquo;s just the way it is on Windows 10&amp;rdquo; with a straight face.&lt;/p&gt;
+&lt;h1 id=&#34;its-a-way-safer-bet-to-just-use-html-for-ui&#34;&gt;It&amp;rsquo;s a Way Safer Bet to Just Use HTML for UI&lt;/h1&gt;
+&lt;h2 id=&#34;longevity&#34;&gt;Longevity&lt;/h2&gt;
+&lt;p&gt;HTML and Javascript have a long, unbroken 30+ year lineage in which improvements have been additive: never destructive (except maybe the demise of &lt;code&gt;&amp;lt;marquee/&amp;gt;&lt;/code&gt;), and never a full fork (except that now-extinct misadventure into XHTML).&lt;/p&gt;
+&lt;p&gt;The W3C is run by the most bureaucratic, glacially-paced working groups sponsored by the most hatefully pedantic employees at the largest, most inertia-driven tech companies in the world. This means that toy features that are unlikely to have a long lifespan won&amp;rsquo;t get into the working spec. A bunch of orgs all have to agree to implement the feature in their parallel implementations before the feature&amp;rsquo;s really considered usable. None of us is as obstructive as all of us.&lt;/p&gt;
+&lt;p&gt;The only extant UI frameworks I am aware of with the same relative longevity are X11 and Win32, and neither of them have been capable of the degree and pace of modernization that HTML/CSS/JS have had. (I will include QT in a respectable but distant third place here after Win32 and X).&lt;/p&gt;
+&lt;p&gt;I can tell you that picking whatever &amp;ldquo;rapid&amp;rdquo; XAML horror Microsoft is currently pushing is a bad idea! You&amp;rsquo;re going to need specialists who are hard to find to work on it when it is discontinued for the Next XAML Horror.&lt;/p&gt;
+&lt;h2 id=&#34;portability&#34;&gt;Portability&lt;/h2&gt;
+&lt;p&gt;This goes without saying: Chromium runs on every major platform. Most browser engines outside of Chromium are also multiplatform (Firefox, Servo, Ladybird). The part that draws the pixels on the screen draws the pixels the same everywhere. It covers the whole &amp;ldquo;exposing OS native components in a cross platform way,&amp;rdquo; up to and including accessibility mechanisms built on OS-level buttons and text. It&amp;rsquo;s a good way of describing user experience in code that works pretty well on every modern device.&lt;/p&gt;
+&lt;h2 id=&#34;this-is-the-only-realistic-way-you-clowns-are-getting-anything-nice-on-linux&#34;&gt;This is the Only Realistic Way you Clowns are Getting Anything Nice on Linux&lt;/h2&gt;
+&lt;p&gt;As a volunteer open source enthusiast, I can see myself pouring hours of love and care into a Linux-only app that faithfully and elegantly follows the Gnome HIG. I cannot see myself doing this for a paycheck. I am willing to endure that pain for the sake of my art, but not for the sake of closing out issues for customers.&lt;/p&gt;
+&lt;p&gt;Easy ports from Win/Mac to Linux are the most likely way you&amp;rsquo;re going to see your app on Linux, and Electron is probability-wise the most likely way to get there. I can&amp;rsquo;t justify putting more than 1% of my work hours on builds that only reach 1% of our user base. I just can&amp;rsquo;t do that at work. If I can get 75% overlap for Linux by parasitizing my Windows and Mac dev time via Electron, you&amp;rsquo;re more likely to get a Linux app. If it&amp;rsquo;s just another build target with a very small amount, hopefully 1% total, on platform specific issues, you have a chance of seeing it on Linux.&lt;/p&gt;
+&lt;h2 id=&#34;hiring&#34;&gt;Hiring&lt;/h2&gt;
+&lt;p&gt;Large organizations are risk averse. This means they want interchangeable resources to avoid bottlenecks. Humans are resources, just ask your Human Resources department. Being able to pull from the largest possible pool of frontend engineers with no training required is a feature, not a bug.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also an inconsiderate move to trap your engineers in dead-end technologies. If a replaceable frontend engineer has 5 years of fully non-transferable experience on your proprietary frontend, when &lt;em&gt;you&lt;/em&gt; throw them away due to &lt;em&gt;your&lt;/em&gt; idiot budget decisions &lt;em&gt;they&lt;/em&gt; have to write off 5 years of their lives on their resumes. That framework isn&amp;rsquo;t applicable elsewhere. Boo on you, you monsters. Using an industry standard, &amp;ldquo;safe&amp;rdquo; framework is &amp;ldquo;safe&amp;rdquo; for employee and organization both.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Electron is a low risk way for large organizations to add desktop features to something that originated on the web (probably a Node/React boilerplate app that grew past its original purposes, let&amp;rsquo;s not lie). You need to ask yourself the question when you see a bad Electron app: is this better than nothing? Did Electron simply allow the app developers to unleash a usability nightmare on you? Or did it enable them to provide a nice, uniform, &lt;em&gt;native-enough feeling&lt;/em&gt; application that might be bulky and aesthetically unpleasing from a software engineering perspective but is in practice a workable experience?&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/c&#43;&#43;">c&#43;&#43;</category>
+      
+    </item>
+    
+    <item>
       <title>A Series of Vignettes From My Childhood and Early Career</title>
       <link>https://www.jasonscheirer.com/weblog/vignettes/</link>
       <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
@@ -138,8 +206,7 @@
 &lt;p&gt;People who take moral stances often consider themselves to &lt;em&gt;be the good guys&lt;/em&gt;, a quality inherent in themselves, versus being people who happen to strive to &lt;em&gt;do good things&lt;/em&gt;. When you are tautologically good, this is bad! You can do evil but by definition you are &lt;em&gt;doing good because good is what you are&lt;/em&gt;. I see it in this quote:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Conservatism consists of exactly one proposition, to wit: There must be in-groups whom the law protects but does not bind, alongside out-groups whom the law binds but does not protect.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Francis M. Wilhoit&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Francis M. Wilhoit&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Entirely an &amp;ldquo;we are&amp;rdquo; versus &amp;ldquo;you do&amp;rdquo; mentality: &lt;em&gt;the law is meant to protect citizens from harm&lt;/em&gt;. We &lt;em&gt;are&lt;/em&gt; citizens, you &lt;em&gt;are&lt;/em&gt; harm. We do bad but do not run afoul of the law, you do bad and have committed a crime.&lt;/p&gt;
 &lt;p&gt;That is; if you cannot see &lt;em&gt;what you are doing is counter to your identity&lt;/em&gt;, you can be convinced that &lt;em&gt;what you are doing is inconsequential to your identity&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Going from an &lt;em&gt;I am&lt;/em&gt; to an &lt;em&gt;I do&lt;/em&gt; mindset has been a tough lesson for me, but it&amp;rsquo;s been transformative in my worldview. It is, in many ways, tied to a growth mindset versus a fixed mindset: (I am / I am only) and (I do / I can become) being very closely related. I don&amp;rsquo;t &amp;lsquo;consider myself&amp;rsquo; a Javascript Guy, for instance, but if &lt;em&gt;I make a presentation about some Javascript thing I researched and shared&lt;/em&gt; I have done &lt;em&gt;Javascript Guy things&lt;/em&gt;, and I am technically a Javascript guy.&lt;/p&gt;
@@ -156,8 +223,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/starship/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;I have &lt;a href=&#34;https://gist.github.com/jasonbot/26e894be371417ee20b973c0def1d366&#34;&gt;my seed Starship config&lt;/a&gt; up as a Gist.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I have &lt;a href=&#34;https://gist.github.com/jasonbot/26e894be371417ee20b973c0def1d366&#34;&gt;my seed Starship config&lt;/a&gt; up as a Gist.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://starship.rs/&#34;&gt;Starship&lt;/a&gt; is a tool that frustrates me because it seems so bikesheddy and unneeded: a custom prompt manager. We already had shell prompt customization! I blindly install &lt;code&gt;oh-my-*&lt;/code&gt; on new machines for prompt customization! And Starship is written in Rust. People just use Rust to be cute.&lt;/p&gt;
 &lt;p&gt;Then I realize that it&amp;rsquo;s okay to have nice things. The command line environment from the 90s can change. &lt;code&gt;rg&lt;/code&gt; doesn&amp;rsquo;t suck. &lt;code&gt;jq&lt;/code&gt; is right up there with Perl in opaque tools other people do interesting things with and then I steal the interesting things for myself. The &lt;code&gt;lazy*&lt;/code&gt; TUIs don&amp;rsquo;t suck. I mock &lt;a href=&#34;https://textual.textualize.io/&#34;&gt;Textual&lt;/a&gt; and &lt;a href=&#34;https://charm.land/&#34;&gt;Charm&lt;/a&gt; openly and unrepentantly and still hypocritically use and enjoy the tools built with them. The terminal is changing because the people using it have the agency and hubris to use it differently.&lt;/p&gt;
 &lt;p&gt;I can have a growth mindset and accept that&lt;/p&gt;
@@ -248,8 +314,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/chains/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/chains&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/chains&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/chains&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;It&amp;rsquo;s been six months since I&amp;rsquo;ve done this, but I&amp;rsquo;m finally writing about it!&lt;/p&gt;
 &lt;p&gt;Go &lt;a href=&#34;https://go.dev/blog/range-functions&#34;&gt;recently added proper iterator support&lt;/a&gt; to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a &lt;code&gt;range&lt;/code&gt; to get a stream of values.&lt;/p&gt;
 &lt;p&gt;One of the tools in my toolbox that I use in coding interviews and some light data processing work is &lt;a href=&#34;https://docs.python.org/3/library/itertools.html&#34;&gt;Python&amp;rsquo;s itertools&lt;/a&gt;. The nice thing about this library is it gives you a good set of conceptual building blocks to use as a frame around a problem and a fairly clean way to use them. Once you&amp;rsquo;re familiar with, say, &lt;code&gt;combinations&lt;/code&gt; and &lt;code&gt;permutations&lt;/code&gt; you can take a harder problem and decompose it into those recognizable parts and then have a stdlib function that&amp;rsquo;s already bug free and readily available.&lt;/p&gt;
@@ -411,8 +476,8 @@
 &lt;h2 id=&#34;higher-level-chaining&#34;&gt;Higher-Level Chaining&lt;/h2&gt;
 &lt;p&gt;I like to concatenate iterators sometimes; e.g. to process the results of two tasks in a single queue. &lt;code&gt;itertools.chain&lt;/code&gt; works in Python, it was a breeze to write here as well.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;chains&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;FlattenArgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;chains&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;/// Gives you 1, 2, 3, 4, 5, 6
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;/// Gives you 1, 2, 3, 4, 5, 6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Got the base case down.&lt;/p&gt;
 &lt;h2 id=&#34;things-i-never-had-in-itertools-merging-iterators&#34;&gt;Things I Never Had in Itertools: Merging Iterators&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.python.org/3/library/itertools.html#itertools.chain&#34;&gt;&lt;code&gt;itertools.chain&lt;/code&gt; works in a pinch for &amp;ldquo;gluing&amp;rdquo; together iterators in Python&lt;/a&gt;, and that was pretty trivial to write (&lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#Flatten&#34;&gt;I called it &amp;ldquo;Flatten&amp;rdquo;&lt;/a&gt; because the first iteration took an iterator of iterators, thanks to Ruby/Javascript brain, &lt;a href=&#34;https://pkg.go.dev/github.com/jasonbot/chains#FlattenArgs&#34;&gt;then made one that took variadic iterator args as &lt;code&gt;FlattenArgs&lt;/code&gt;&lt;/a&gt; too). Some common use cases I find myself writing a lot just aren&amp;rsquo;t in the stdlib in Python. They generally involve taking many iterators and unifying then in ways dependent on the structure of the iterators themselves; either by length or by value.&lt;/p&gt;
@@ -423,8 +488,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;item3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;RoundRobin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// Equivalent of ...[]int{1, 5, 10, 2, 6, 11, 3, 7, 12, 4, 8, 9}
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// Equivalent of ...[]int{1, 5, 10, 2, 6, 11, 3, 7, 12, 4, 8, 9}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;merging-sorted-streams&#34;&gt;Merging Sorted Streams&lt;/h3&gt;
 &lt;p&gt;Use case: I have 3000 CSVs, each has rows in order of date. The time ranges &lt;em&gt;may&lt;/em&gt; overlap in some cases. I wanted a unified stream of all the rows in order. For that, I wrote &lt;a href=&#34;https://github.com/jasonbot/chains/blob/main/cookbook_test.go&#34;&gt;&lt;code&gt;Merged&lt;/code&gt;&lt;/a&gt;, which is at its core a pull-on-demand heap. Once the smallest value has been pulled off the heap, yield it, then grab the next value from the iterator that provided the value to place on the heap.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;item1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
@@ -433,8 +498,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;expectedSlice&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Merged&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// Equivalent of ...[]int{1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8, 10}
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// Equivalent of ...[]int{1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8, 10}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;my-journey-of-discovery-got-me-using-my-favored-pattern-in-a-more-go-like-way-in-go&#34;&gt;My Journey Of Discovery Got Me Using My Favored Pattern In A More Go-Like Way In Go&lt;/h1&gt;
 &lt;h2 id=&#34;starting-out-the-chain&#34;&gt;Starting Out: The &lt;code&gt;Chain&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;I wanted to be able to chain calls like I can in &lt;em&gt;those other&lt;/em&gt; languages, so the first thing I thought to do was design some sort of struct or interface with various &lt;code&gt;.Map&lt;/code&gt;/&lt;code&gt;.Reduce&lt;/code&gt;/&lt;code&gt;.Filter&lt;/code&gt;/etc methods &amp;ndash; so like&lt;/p&gt;
@@ -489,19 +554,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s&#34;&gt;&amp;#34;E. Honda vs. M. Bison&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Each combination of players without replacement
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;matchups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CombinationsOfLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;regularFighters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Each combination of players without replacement&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;matchups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CombinationsOfLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;regularFighters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;singlePlayerFights&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;matchups&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;names&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;strings&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; vs. &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Trick to get pairwise fights from two lists -- lengthen the one by
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// the number of elements in the other, then cycle.
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// e.g. if you have P1, P2, P3 and B1, B2:
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Cycle --&amp;gt; P1, P2, P3, P1, P2, P3, P1, ...
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Lengthen --&amp;gt; B1, B1, B1, B2, B2, B2
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//      (each boss is repeated number of players times)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;bossMatchups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Trick to get pairwise fights from two lists -- lengthen the one by&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// the number of elements in the other, then cycle.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// e.g. if you have P1, P2, P3 and B1, B2:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Cycle --&amp;gt; P1, P2, P3, P1, P2, P3, P1, ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Lengthen --&amp;gt; B1, B1, B1, B2, B2, B2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//      (each boss is repeated number of players times)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;bossMatchups&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;Cycle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;regularFighters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)),&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;Lengthen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nf&#34;&gt;Each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;bosses&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
@@ -515,8 +580,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Combine all iterators into one
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;allFightsCombined&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FlattenArgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;singlePlayerFights&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bossMatchupFights&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Combine all iterators into one&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;allFightsCombined&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FlattenArgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;singlePlayerFights&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;bossMatchupFights&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;allFights&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ToSlice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;allFightsCombined&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;slices&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Equal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;allFights&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;allExpectedFights&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -577,8 +642,7 @@
 &lt;p&gt;I&amp;rsquo;ve decorated these talking points with some straw men that are usually left implicit when usually presented, but you get the idea.&lt;/p&gt;
 &lt;p&gt;Just because you agree with the problem statement does not mean that the conclusion is correct just because it occurs a few sentences later.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://ludic.mataroa.blog/blog/the-narrative-fallacy/&#34;&gt;Here&amp;rsquo;s an interesting blog post elsewhere&lt;/a&gt; on narratives and being misleading as well.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://ludic.mataroa.blog/blog/the-narrative-fallacy/&#34;&gt;Here&amp;rsquo;s an interesting blog post elsewhere&lt;/a&gt; on narratives and being misleading as well.&lt;/p&gt;&lt;/blockquote&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/writing">writing</category>
       
     </item>
@@ -594,8 +658,7 @@
 &lt;h1 id=&#34;how-llms-are-made&#34;&gt;How LLMs are Made&lt;/h1&gt;
 &lt;p&gt;As an undergraduate and about three years into my post-collegiate life, I did research in what could be considered &amp;ldquo;natural language processing&amp;rdquo; or &amp;ldquo;computational linguistics&amp;rdquo;: I worked on the &lt;a href=&#34;https://link.springer.com/article/10.3758/BF03204766&#34;&gt;HAL Model&lt;/a&gt;, which was an early high-dimensional model for approximating language understanding, and later &lt;a href=&#34;https://dlib.org/dlib/january03/mitchell/01mitchell.html&#34;&gt;a software system employing all kinds of cool cutting-edge language-in-computers techniques&lt;/a&gt; (early Support Vector Machine tooling being one I worked on) and there was one lesson I learned from both:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Better models are good, but better data is &lt;em&gt;better&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Better models are good, but better data is &lt;em&gt;better&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Far and away, the best way to get better results was not to develop a better model, it was to develop toolchains for collecting more and better data. We got good results even with okay models when we fed them Wikipedia. We got bad results even with cutting edge models if we just fed them a couple of emails. Good data was what made these things effective.&lt;/p&gt;
 &lt;p&gt;That said, it paints my experience of the current success of LLMs: they are interesting technology from a modeling perspective, but the more interesting part is &lt;em&gt;all the data that went into making them&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;llms-are-not-sourced-from-above-board-places&#34;&gt;LLMs Are Not Sourced from Above-Board Places&lt;/h2&gt;
@@ -689,8 +752,7 @@
 &lt;h2 id=&#34;every-prior-advancement-in-developer-productivity-followed-a-pattern-entirely-unlike-this-one&#34;&gt;Every Prior Advancement in Developer Productivity Followed a Pattern Entirely Unlike this One&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.threads.net/@benedictevans/post/DG1q-xnuflz&#34;&gt;I don&amp;rsquo;t think an LLM is going to steal my job&lt;/a&gt;. Every change in technology that made developers more productive over the last 50 years has only increased the demand for software, and every productivity boost that was supposed to cut the number of people needed to make and run software has only grown the number of people involved.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Examples:&lt;/strong&gt; your startup probably has more Infra/DevOps engineers than a startup of the equivalent size had Sysadmins in the pre-cloud era. CRUD apps becoming easy to make with better tools led to a Cambrian Explosion of people writing CRUD apps.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Examples:&lt;/strong&gt; your startup probably has more Infra/DevOps engineers than a startup of the equivalent size had Sysadmins in the pre-cloud era. CRUD apps becoming easy to make with better tools led to a Cambrian Explosion of people writing CRUD apps.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Usually improvements to the craft of software engineering have been via &lt;em&gt;better tools and languages&lt;/em&gt;. In the instance of the LLM-assisted coding world, we have given up on the idea of inventing a better programming language and have instead decided we can&amp;rsquo;t do any better and are using non-deterministic macro expansion/copy-paste agents in the form of LLM-enabled development tools.&lt;/p&gt;
 &lt;p&gt;This would be like C never taking off because someone invented a better assembly macro processor, or Python/Ruby/etc never taking off because we never trusted the interpreters to get memory management right on our behalf. We have always come to &lt;em&gt;trust&lt;/em&gt; the abstractions below us, we didn&amp;rsquo;t stop where we were because we didn&amp;rsquo;t think things could be easier.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re just asking an LLM to write more and more code at the same abstraction level, rather than find an appropriate way of expressing these computing concepts in a better way. C compilers wrote mountains of assembly, but did it deterministically and hid the details from us with an abstraction layer. Python interpreters run massive amounts of C under the hood (also deterministically), but as a developer you&amp;rsquo;re shielded from the runtime through abstractions. Decent web frameworks never expose raw TCP sockets to developers. We used to climb the mountain, not make camp halfway up and decide this was high enough.&lt;/p&gt;
@@ -730,11 +792,9 @@
 &lt;p&gt;You may come to the conclusion that yes, LLMs are worth it. That&amp;rsquo;s fine. I just hope you went though a process of thought and introspection and considered the pros and cons of the technology before loudly and enthusiastically adopting them into your life.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://nedbatchelder.com/blog/202503/horseless_intelligence.html&#34;&gt;Here is a similar blog post that shares many of my points&lt;/a&gt;. One particularly resonant quote:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&amp;hellip;I’m more concerned with Dickens-style harms: people losing jobs not because AI can do their work, but because people in charge will think AI can do other people’s work. Harms due to people misunderstanding what AI does and doesn’t do well and misusing it.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&amp;hellip;I’m more concerned with Dickens-style harms: people losing jobs not because AI can do their work, but because people in charge will think AI can do other people’s work. Harms due to people misunderstanding what AI does and doesn’t do well and misusing it.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/jasonbot/weblog/commits/master/content/weblog/llms.md&#34;&gt;Document edit history&lt;/a&gt; &amp;ndash; There may have been changes since you last visited.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jasonbot/weblog/commits/master/content/weblog/llms.md&#34;&gt;Document edit history&lt;/a&gt; &amp;ndash; There may have been changes since you last visited.&lt;/p&gt;&lt;/blockquote&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/llm">llm</category>
       
     </item>
@@ -837,11 +897,9 @@
 &lt;p&gt;Now I&amp;rsquo;m &lt;a href=&#34;https://extensions.gnome.org/extension/6099/paperwm/&#34;&gt;trying out PaperWM&lt;/a&gt;. The concept simplifies and streamlines windows from occupying a fully two dimensional space into something resembling 1.5 dimensions: windows are all arranged side-by-side infinitely, and you just traverse along the line of windows to find what you&amp;rsquo;re looking for.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been using it full time for a week and I&amp;rsquo;m pretty happy with it. Maybe this will stick for a while.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2025-03-12:&lt;/strong&gt; &lt;a href=&#34;https://ersei.net/en/blog/niri&#34;&gt;Here&amp;rsquo;s a fun blog post about Niri&lt;/a&gt;, another window manager inspired by Gnome Paper. I might try that next, though I&amp;rsquo;d have to get swaybar and friends up and running so it may be a test of patience.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update 2025-03-12:&lt;/strong&gt; &lt;a href=&#34;https://ersei.net/en/blog/niri&#34;&gt;Here&amp;rsquo;s a fun blog post about Niri&lt;/a&gt;, another window manager inspired by Gnome Paper. I might try that next, though I&amp;rsquo;d have to get swaybar and friends up and running so it may be a test of patience.&lt;/p&gt;&lt;/blockquote&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
       
     </item>
@@ -869,7 +927,7 @@
         &lt;li&gt;&lt;a href=&#34;#what-does-this-mean&#34;&gt;What does this mean?&lt;/a&gt;&lt;/li&gt;
       &lt;/ol&gt;
     &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#case-study-the-dumbest-possible-person-in-the-room&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#getting-the-data&#34;&gt;Getting the Data&lt;/a&gt;
       &lt;ol&gt;
         &lt;li&gt;&lt;a href=&#34;#a-eulogy-for-wget&#34;&gt;A Eulogy for &lt;code&gt;wget&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -952,8 +1010,7 @@
 &lt;p&gt;This was the hardest thing to get a simple answer for.&lt;/p&gt;
 &lt;p&gt;A typical &lt;a href=&#34;https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation&#34;&gt;vague-as-hell explanation&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;I understand all those words, but in practical terms, what exactly does that mean? Like, specifically?&lt;/p&gt;
 &lt;h2 id=&#34;what-does-this-mean&#34;&gt;What does this mean?&lt;/h2&gt;
 &lt;p&gt;Turns out, &lt;strong&gt;a RAG is just a dirty trick decorated with academic language to seem less dirty to outsiders&lt;/strong&gt;. The long and short of it is the RAG injects extra contextual information into the chatbot to give it more domain-specificity.&lt;/p&gt;
@@ -966,7 +1023,7 @@
 How would you answer the following question:
 What is X?
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it. It&amp;rsquo;s prompt injection with a pretty name. The injection technique may vary in sophistication, but this is what it ultimately boils down to.&lt;/p&gt;
-&lt;h1 id=&#34;case-study-_the-dumbest-possible-person-in-the-room_&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;case-study-the-dumbest-possible-person-in-the-room&#34;&gt;Case Study: &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;On the subject of the goal of &lt;em&gt;non-commercial viability&lt;/em&gt; and my love of making the world worse, not better, I present what I wish to do with a RAG here: take the transcripts of the &lt;a href=&#34;https://spoti.fi/JoeRoganExperience&#34;&gt;Joe Rogan show&lt;/a&gt; and turn a chatbot into a poorly-informed, blubbering idiot.&lt;/p&gt;
 &lt;p&gt;And so is born &lt;em&gt;The Dumbest Possible Person in the Room&lt;/em&gt;: a conspiracy theory addled, misinformed LLM chat that will serve to both enrage you and make you dumber at the same time.&lt;/p&gt;
 &lt;h1 id=&#34;getting-the-data&#34;&gt;Getting the Data&lt;/h1&gt;
@@ -1824,8 +1881,7 @@ Llama: The best press secretary is widely considered to be Katherine Bach, who s
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
 &lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
 &lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
@@ -2258,8 +2314,7 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
 &lt;blockquote&gt;
 &lt;h3 id=&#34;an-aside-making-peace-with-systemd&#34;&gt;An aside: Making Peace with &lt;code&gt;systemd&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;People like to talk shit about &lt;code&gt;systemd&lt;/code&gt;. It&amp;rsquo;s weird, it&amp;rsquo;s disruptive, it tries to do too much.
-First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;
-&lt;/blockquote&gt;
+First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h1 id=&#34;keeping-the-software-running&#34;&gt;Keeping the software running&lt;/h1&gt;
 &lt;h2 id=&#34;operating-environment-on-the-server&#34;&gt;Operating Environment on the Server&lt;/h2&gt;
 &lt;p&gt;I use &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;letsencrypt&lt;/a&gt; for SSL, &lt;a href=&#34;https://cloud.google.com/compute&#34;&gt;GCP for a VM/IP&lt;/a&gt; (Docker would be stupid here), and Nginx as the edge. The conf look like:&lt;/p&gt;
@@ -2564,8 +2619,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;xyz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;
@@ -2780,8 +2834,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/make-a-chromebook-a-developer-machine/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/155005051345/turn-a-chromebook-into-the-ultimate-golangpython&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Ha ha ha just lying the real title should be&lt;/p&gt;
 &lt;h1 id=&#34;turning-a-piece-of-shit-chromebook-into-a-good-enough-development-machine-because-youre-unemployed-and-feel-like-an-ass-trying-to-justify-spending-2000-on-a-god-damned-macbook-so-you-wound-up-buying-a-chromebook-instead&#34;&gt;Turning a Piece of Shit Chromebook into a Good Enough Development Machine Because You&amp;rsquo;re Unemployed and Feel Like An Ass Trying to Justify Spending $2000 on a God Damned Macbook so You Wound Up Buying a Chromebook Instead&lt;/h1&gt;
 &lt;p&gt;Anyway, I&amp;rsquo;m &lt;a href=&#34;http://www.theverge.com/2016/12/8/13887622/yik-yak-layoffs-growth-collapse&#34;&gt;unemployed because of reasons&lt;/a&gt; and figured there were better things to do with the credit limit on my credit card than spend $2000 on a Macbook, so I bought one of the highest rated Chromebooks at my &amp;ldquo;willing to pay this much&amp;rdquo; price point: &lt;a href=&#34;https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/&#34;&gt;the Chromebook C100P&lt;/a&gt;. The stats are as follows:&lt;/p&gt;
@@ -2823,8 +2876,7 @@ First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.c
       
       <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Please note I am contractually prohibited from saying what I &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; like about most of my prior employers so don&amp;rsquo;t expect any negative posts.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco. I&amp;rsquo;ve been here about three months now and this is a list of (some) of the things I like about my new job.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Continuous Integration&lt;/strong&gt;: This is something that I took for granted almost a decade ago at a former employer and haven&amp;rsquo;t had since. When I make a change and push it to GitHub, a set of tests automatically spin up and I can&amp;rsquo;t merge to master until those tests pass. This is good, I have a self-service QA agent where I can iteratively work on an issue and finally do a PR when it&amp;rsquo;s ready.&lt;/p&gt;

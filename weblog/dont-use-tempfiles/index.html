@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1764783194"><link rel="stylesheet" href="/css/fonts.css?rnd=1764783194">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765048431"><link rel="stylesheet" href="/css/fonts.css?rnd=1765048431">
 	
 </head>
 <body>
@@ -102,8 +102,7 @@
 			
 			<div data-pagefind-body>
 				<blockquote>
-<p>This was initially a blog post I wrote on my employer&rsquo;s internal system, but it&rsquo;s interestingly useful and it doesn&rsquo;t contain any trade secrets so I figure I&rsquo;ll share.</p>
-</blockquote>
+<p>This was initially a blog post I wrote on my employer&rsquo;s internal system, but it&rsquo;s interestingly useful and it doesn&rsquo;t contain any trade secrets so I figure I&rsquo;ll share.</p></blockquote>
 <p>A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the <a href="https://docs.python.org/3/library/tempfile.html">tempfile module</a>.</p>
 <p>You very seldom ACTUALLY need to do this. The <a href="https://docs.python.org/3/library/io.html#binary-i-o">BytesIO</a> class follows <a href="https://docs.python.org/3/glossary.html#term-file-object">the exact same protocol</a>, the file protocol, so any API that accepts a &ldquo;file-like object&rdquo; will accept an in-memory piece of information in addition to a file on disk. It&rsquo;s faster, safer, and less ugly.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">xyz</span> <span class="o">=</span> <span class="s1">&#39;/tmp/dingus&#39;</span>

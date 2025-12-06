@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1764783194"><link rel="stylesheet" href="/css/fonts.css?rnd=1764783194">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765048431"><link rel="stylesheet" href="/css/fonts.css?rnd=1765048431">
 	
 </head>
 <body>
@@ -118,7 +118,7 @@
         <li><a href="#what-does-this-mean">What does this mean?</a></li>
       </ol>
     </li>
-    <li><a href="#case-study-_the-dumbest-possible-person-in-the-room_">Case Study: <em>The Dumbest Possible Person in the Room</em></a></li>
+    <li><a href="#case-study-the-dumbest-possible-person-in-the-room">Case Study: <em>The Dumbest Possible Person in the Room</em></a></li>
     <li><a href="#getting-the-data">Getting the Data</a>
       <ol>
         <li><a href="#a-eulogy-for-wget">A Eulogy for <code>wget</code></a></li>
@@ -201,8 +201,7 @@
 <p>This was the hardest thing to get a simple answer for.</p>
 <p>A typical <a href="https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation">vague-as-hell explanation</a>:</p>
 <blockquote>
-<p>Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.</p>
-</blockquote>
+<p>Retrieval-Augmented Generation (RAG) is a two-phase process involving document retrieval and answer formulation by a Large Language Model (LLM). The initial phase utilizes dense embeddings to retrieve documents. This retrieval can be based on a variety of database formats depending on the use case, such as a vector database, summary index, tree index, or keyword table index.</p></blockquote>
 <p>I understand all those words, but in practical terms, what exactly does that mean? Like, specifically?</p>
 <h2 id="what-does-this-mean">What does this mean?</h2>
 <p>Turns out, <strong>a RAG is just a dirty trick decorated with academic language to seem less dirty to outsiders</strong>. The long and short of it is the RAG injects extra contextual information into the chatbot to give it more domain-specificity.</p>
@@ -215,7 +214,7 @@
 How would you answer the following question:
 What is X?
 </code></pre><p>That&rsquo;s it. It&rsquo;s prompt injection with a pretty name. The injection technique may vary in sophistication, but this is what it ultimately boils down to.</p>
-<h1 id="case-study-_the-dumbest-possible-person-in-the-room_">Case Study: <em>The Dumbest Possible Person in the Room</em></h1>
+<h1 id="case-study-the-dumbest-possible-person-in-the-room">Case Study: <em>The Dumbest Possible Person in the Room</em></h1>
 <p>On the subject of the goal of <em>non-commercial viability</em> and my love of making the world worse, not better, I present what I wish to do with a RAG here: take the transcripts of the <a href="https://spoti.fi/JoeRoganExperience">Joe Rogan show</a> and turn a chatbot into a poorly-informed, blubbering idiot.</p>
 <p>And so is born <em>The Dumbest Possible Person in the Room</em>: a conspiracy theory addled, misinformed LLM chat that will serve to both enrage you and make you dumber at the same time.</p>
 <h1 id="getting-the-data">Getting the Data</h1>

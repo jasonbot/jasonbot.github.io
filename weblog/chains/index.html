@@ -22,7 +22,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1764783194"><link rel="stylesheet" href="/css/fonts.css?rnd=1764783194">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765048431"><link rel="stylesheet" href="/css/fonts.css?rnd=1765048431">
 	
 </head>
 <body>
@@ -111,8 +111,7 @@
 			
 			<div data-pagefind-body>
 				<blockquote>
-<p><strong>Top Matter</strong>: <a href="https://codeberg.org/jasonbot/chains">Codeberg for the library</a>, <a href="https://pkg.go.dev/jasonscheirer.com/chains">doc for the library</a>.</p>
-</blockquote>
+<p><strong>Top Matter</strong>: <a href="https://codeberg.org/jasonbot/chains">Codeberg for the library</a>, <a href="https://pkg.go.dev/jasonscheirer.com/chains">doc for the library</a>.</p></blockquote>
 <p>It&rsquo;s been six months since I&rsquo;ve done this, but I&rsquo;m finally writing about it!</p>
 <p>Go <a href="https://go.dev/blog/range-functions">recently added proper iterator support</a> to the language, which is something of an improvement over the prior pattern of spinning up a goroutine and communicating via a channel in a <code>range</code> to get a stream of values.</p>
 <p>One of the tools in my toolbox that I use in coding interviews and some light data processing work is <a href="https://docs.python.org/3/library/itertools.html">Python&rsquo;s itertools</a>. The nice thing about this library is it gives you a good set of conceptual building blocks to use as a frame around a problem and a fairly clean way to use them. Once you&rsquo;re familiar with, say, <code>combinations</code> and <code>permutations</code> you can take a harder problem and decompose it into those recognizable parts and then have a stdlib function that&rsquo;s already bug free and readily available.</p>
@@ -274,8 +273,8 @@
 <h2 id="higher-level-chaining">Higher-Level Chaining</h2>
 <p>I like to concatenate iterators sometimes; e.g. to process the results of two tasks in a single queue. <code>itertools.chain</code> works in Python, it was a breeze to write here as well.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">chains</span><span class="p">.</span><span class="nf">FlattenArgs</span><span class="p">(</span><span class="nx">chains</span><span class="p">.</span><span class="nf">Each</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">/// Gives you 1, 2, 3, 4, 5, 6
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">/// Gives you 1, 2, 3, 4, 5, 6</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Got the base case down.</p>
 <h2 id="things-i-never-had-in-itertools-merging-iterators">Things I Never Had in Itertools: Merging Iterators</h2>
 <p><a href="https://docs.python.org/3/library/itertools.html#itertools.chain"><code>itertools.chain</code> works in a pinch for &ldquo;gluing&rdquo; together iterators in Python</a>, and that was pretty trivial to write (<a href="https://pkg.go.dev/github.com/jasonbot/chains#Flatten">I called it &ldquo;Flatten&rdquo;</a> because the first iteration took an iterator of iterators, thanks to Ruby/Javascript brain, <a href="https://pkg.go.dev/github.com/jasonbot/chains#FlattenArgs">then made one that took variadic iterator args as <code>FlattenArgs</code></a> too). Some common use cases I find myself writing a lot just aren&rsquo;t in the stdlib in Python. They generally involve taking many iterators and unifying then in ways dependent on the structure of the iterators themselves; either by length or by value.</p>
@@ -286,8 +285,8 @@
 </span></span><span class="line"><span class="cl"><span class="nx">item3</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">RoundRobin</span><span class="p">(</span><span class="nf">Each</span><span class="p">(</span><span class="nx">item1</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item2</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item3</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 5, 10, 2, 6, 11, 3, 7, 12, 4, 8, 9}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 5, 10, 2, 6, 11, 3, 7, 12, 4, 8, 9}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="merging-sorted-streams">Merging Sorted Streams</h3>
 <p>Use case: I have 3000 CSVs, each has rows in order of date. The time ranges <em>may</em> overlap in some cases. I wanted a unified stream of all the rows in order. For that, I wrote <a href="https://github.com/jasonbot/chains/blob/main/cookbook_test.go"><code>Merged</code></a>, which is at its core a pull-on-demand heap. Once the smallest value has been pulled off the heap, yield it, then grab the next value from the iterator that provided the value to place on the heap.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">item1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
@@ -296,8 +295,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">expectedSlice</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">Merged</span><span class="p">(</span><span class="nf">Each</span><span class="p">(</span><span class="nx">item1</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item2</span><span class="p">),</span> <span class="nf">Each</span><span class="p">(</span><span class="nx">item3</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8, 10}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Equivalent of ...[]int{1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8, 10}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h1 id="my-journey-of-discovery-got-me-using-my-favored-pattern-in-a-more-go-like-way-in-go">My Journey Of Discovery Got Me Using My Favored Pattern In A More Go-Like Way In Go</h1>
 <h2 id="starting-out-the-chain">Starting Out: The <code>Chain</code></h2>
 <p>I wanted to be able to chain calls like I can in <em>those other</em> languages, so the first thing I thought to do was design some sort of struct or interface with various <code>.Map</code>/<code>.Reduce</code>/<code>.Filter</code>/etc methods &ndash; so like</p>
@@ -352,19 +351,19 @@
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;E. Honda vs. M. Bison&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Each combination of players without replacement
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">matchups</span> <span class="o">:=</span> <span class="nf">CombinationsOfLength</span><span class="p">(</span><span class="nx">regularFighters</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Each combination of players without replacement</span>
+</span></span><span class="line"><span class="cl"><span class="nx">matchups</span> <span class="o">:=</span> <span class="nf">CombinationsOfLength</span><span class="p">(</span><span class="nx">regularFighters</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">singlePlayerFights</span> <span class="o">:=</span> <span class="nf">Map</span><span class="p">(</span><span class="nx">matchups</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">names</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">names</span><span class="p">,</span> <span class="s">&#34; vs. &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Trick to get pairwise fights from two lists -- lengthen the one by
-</span></span></span><span class="line"><span class="cl"><span class="c1">// the number of elements in the other, then cycle.
-</span></span></span><span class="line"><span class="cl"><span class="c1">// e.g. if you have P1, P2, P3 and B1, B2:
-</span></span></span><span class="line"><span class="cl"><span class="c1">// Cycle --&gt; P1, P2, P3, P1, P2, P3, P1, ...
-</span></span></span><span class="line"><span class="cl"><span class="c1">// Lengthen --&gt; B1, B1, B1, B2, B2, B2
-</span></span></span><span class="line"><span class="cl"><span class="c1">//      (each boss is repeated number of players times)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">bossMatchups</span> <span class="o">:=</span> <span class="nf">Zip</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Trick to get pairwise fights from two lists -- lengthen the one by</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// the number of elements in the other, then cycle.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// e.g. if you have P1, P2, P3 and B1, B2:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Cycle --&gt; P1, P2, P3, P1, P2, P3, P1, ...</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Lengthen --&gt; B1, B1, B1, B2, B2, B2</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//      (each boss is repeated number of players times)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">bossMatchups</span> <span class="o">:=</span> <span class="nf">Zip</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">Cycle</span><span class="p">(</span><span class="nf">Each</span><span class="p">(</span><span class="nx">regularFighters</span><span class="p">)),</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">Lengthen</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">Each</span><span class="p">(</span><span class="nx">bosses</span><span class="p">),</span>
@@ -378,8 +377,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Combine all iterators into one
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">allFightsCombined</span> <span class="o">:=</span> <span class="nf">FlattenArgs</span><span class="p">(</span><span class="nx">singlePlayerFights</span><span class="p">,</span> <span class="nx">bossMatchupFights</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Combine all iterators into one</span>
+</span></span><span class="line"><span class="cl"><span class="nx">allFightsCombined</span> <span class="o">:=</span> <span class="nf">FlattenArgs</span><span class="p">(</span><span class="nx">singlePlayerFights</span><span class="p">,</span> <span class="nx">bossMatchupFights</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">allFights</span> <span class="o">:=</span> <span class="nf">ToSlice</span><span class="p">(</span><span class="nx">allFightsCombined</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">!</span><span class="nx">slices</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">allFights</span><span class="p">,</span> <span class="nx">allExpectedFights</span><span class="p">)</span> <span class="p">{</span>

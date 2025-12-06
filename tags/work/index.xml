@@ -6,7 +6,75 @@
     <description>Recent content in Work on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>If Your Electron App is &#34;Just A Browser Wrapper&#34; You&#39;re Doing It Wrong</title>
+      <link>https://www.jasonscheirer.com/weblog/on-electron/</link>
+      <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/on-electron/</guid>
+      <description>&lt;p&gt;Having spent the last 6 months working on &lt;a href=&#34;https://www.notion.com/desktop&#34;&gt;an Electron app full-time&lt;/a&gt;, my Stockholm Syndrome has kicked in and I&amp;rsquo;ve come around to it.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s easy to disparagingly refer to an Electron app as bloated, or a crappy wrapper around a web app. This is easy, reductive thinking that travels well in short-form media like TikTok and Elon Musk&amp;rsquo;s &lt;em&gt;𝕏: The Everything App&lt;/em&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I&amp;rsquo;m going to say this in so many words over an over in here: do you hate Electron out of&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Groupthink,&lt;/li&gt;
+&lt;li&gt;Out of misguided and impractical engineering aesthetics, or&lt;/li&gt;
+&lt;li&gt;Because you would prefer the &amp;ldquo;bad&amp;rdquo; apps you see written in it to not exist at all, over existing but being kind of bad?&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;p&gt;That is, is the framework that allows bad apps to proliferate &lt;em&gt;bad on its own&lt;/em&gt; for enabling bad programmers or &lt;em&gt;good&lt;/em&gt; for enabling &lt;em&gt;skilled and unskilled programmers alike&lt;/em&gt; to participate in software engineering? Or &lt;em&gt;both&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Oh my oh my do I love being ambivalent on everything and I want to pass that along to you.&lt;/p&gt;
+&lt;h1 id=&#34;electron-isnt-just-a-browser-wrapper&#34;&gt;Electron Isn&amp;rsquo;t Just A Browser Wrapper&lt;/h1&gt;
+&lt;p&gt;Aside from wrapping a web page, though, is &lt;a href=&#34;https://www.electronjs.org/docs/latest/api/app&#34;&gt;a whole truckload of stuff&lt;/a&gt; to make a carefully and comprehensively written Electron app &lt;em&gt;actually good&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Window creation and management&lt;/li&gt;
+&lt;li&gt;Menus, you know, like system menus&lt;/li&gt;
+&lt;li&gt;Custom tray icons&lt;/li&gt;
+&lt;li&gt;Dock icon overlays&lt;/li&gt;
+&lt;li&gt;Apple Touchbar customizations (RIP)&lt;/li&gt;
+&lt;li&gt;Opting to run the app on startup&lt;/li&gt;
+&lt;li&gt;Sending crash reports to interested parties&lt;/li&gt;
+&lt;li&gt;Writing additional native code in native languages like C++ and Rust via Node extensions &lt;em&gt;that give better platform-specific runtime characteristics&lt;/em&gt;.
+&lt;ul&gt;
+&lt;li&gt;I can use the native filesystem.&lt;/li&gt;
+&lt;li&gt;I can use native builds of machine learning libraries with hoping you&amp;rsquo;re patient enough to watch them run slower and worse in Webassembly.&lt;/li&gt;
+&lt;li&gt;All of a sudden things that ran slow on your computer or non-privately on some SaaS company&amp;rsquo;s server are happening &lt;em&gt;quickly, efficiently, on your hardware on your desk&lt;/em&gt; with &lt;em&gt;no network round-trips&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And more! And after all this, it happens to let you place rectangles in those windows that are views into the Chromium rendering engine.&lt;/p&gt;
+&lt;p&gt;If an Electron app you&amp;rsquo;re using doesn&amp;rsquo;t &lt;em&gt;feel&lt;/em&gt; mostly native, it&amp;rsquo;s more an indictment of the nature of the people making the app than the framework they&amp;rsquo;re using.&lt;/p&gt;
+&lt;p&gt;The whole point of Electron is to provide a decent, native desktop experience and uses HTML/CSS/Javascript as its core language for user interface and the Nodejs runtime and its ecosystem behind the curtain. Familiar tools, fast development. Development that is only &lt;em&gt;feasible&lt;/em&gt; in many cases.&lt;/p&gt;
+&lt;h1 id=&#34;if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron&#34;&gt;If You&amp;rsquo;re Distributing Containerized Apps or Static Binaries You&amp;rsquo;re Just As Guilty of the Original Sin of Electron&lt;/h1&gt;
+&lt;p&gt;We already have &lt;code&gt;libc&lt;/code&gt; back at home. An Electron installation doesn&amp;rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.&lt;/p&gt;
+&lt;p&gt;Electron bundles all that inside itself. It&amp;rsquo;s the equivalent to a static binary that doesn&amp;rsquo;t use the system libc. It&amp;rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system with apt-get and superfluous apps installed as an image base just to host a single node app in a container. You accept batteries included software elsewhere: don&amp;rsquo;t be a hypocrite and complain in this case.&lt;/p&gt;
+&lt;h2 id=&#34;the-operating-system-webview-is-a-lie-and-a-nightmare-and-probably-worse-than-nothing&#34;&gt;The Operating System Webview is a Lie and a Nightmare and Probably Worse than Nothing&lt;/h2&gt;
+&lt;p&gt;The words in the subheading immediately above about cover it. I was using another webview-based framework (who cares which) for &lt;a href=&#34;https://codeberg.org/jasonbot/ollama-desktop-with-wails&#34;&gt;an app&lt;/a&gt; and I had a pretty cool UX with sidebar tabs that rendered vertically to save space via &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-orientation&#34;&gt;text orientation&lt;/a&gt;. The webviews in 50% of the platforms I tested didn&amp;rsquo;t do this, they rendered the text horizontally, breaking my UI. Flexbox wasn&amp;rsquo;t fully there. Some of the platforms (Linux) didn&amp;rsquo;t even support changing fonts &lt;em&gt;at all&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I now had another variable I had close to zero control over regarding my rendering engine. I now had web technologies, inconsistently applied, that I had to &lt;em&gt;extensively&lt;/em&gt; test on every platform. I could not trust my UI to be a UI.&lt;/p&gt;
+&lt;p&gt;Packaging a rendering engine gives me guarantees of rendering capabilities independent of the operating system&amp;rsquo;s webview. I can&amp;rsquo;t tell a paying customer &amp;ldquo;sorry man that&amp;rsquo;s just the way it is on Windows 10&amp;rdquo; with a straight face.&lt;/p&gt;
+&lt;h1 id=&#34;its-a-way-safer-bet-to-just-use-html-for-ui&#34;&gt;It&amp;rsquo;s a Way Safer Bet to Just Use HTML for UI&lt;/h1&gt;
+&lt;h2 id=&#34;longevity&#34;&gt;Longevity&lt;/h2&gt;
+&lt;p&gt;HTML and Javascript have a long, unbroken 30+ year lineage in which improvements have been additive: never destructive (except maybe the demise of &lt;code&gt;&amp;lt;marquee/&amp;gt;&lt;/code&gt;), and never a full fork (except that now-extinct misadventure into XHTML).&lt;/p&gt;
+&lt;p&gt;The W3C is run by the most bureaucratic, glacially-paced working groups sponsored by the most hatefully pedantic employees at the largest, most inertia-driven tech companies in the world. This means that toy features that are unlikely to have a long lifespan won&amp;rsquo;t get into the working spec. A bunch of orgs all have to agree to implement the feature in their parallel implementations before the feature&amp;rsquo;s really considered usable. None of us is as obstructive as all of us.&lt;/p&gt;
+&lt;p&gt;The only extant UI frameworks I am aware of with the same relative longevity are X11 and Win32, and neither of them have been capable of the degree and pace of modernization that HTML/CSS/JS have had. (I will include QT in a respectable but distant third place here after Win32 and X).&lt;/p&gt;
+&lt;p&gt;I can tell you that picking whatever &amp;ldquo;rapid&amp;rdquo; XAML horror Microsoft is currently pushing is a bad idea! You&amp;rsquo;re going to need specialists who are hard to find to work on it when it is discontinued for the Next XAML Horror.&lt;/p&gt;
+&lt;h2 id=&#34;portability&#34;&gt;Portability&lt;/h2&gt;
+&lt;p&gt;This goes without saying: Chromium runs on every major platform. Most browser engines outside of Chromium are also multiplatform (Firefox, Servo, Ladybird). The part that draws the pixels on the screen draws the pixels the same everywhere. It covers the whole &amp;ldquo;exposing OS native components in a cross platform way,&amp;rdquo; up to and including accessibility mechanisms built on OS-level buttons and text. It&amp;rsquo;s a good way of describing user experience in code that works pretty well on every modern device.&lt;/p&gt;
+&lt;h2 id=&#34;this-is-the-only-realistic-way-you-clowns-are-getting-anything-nice-on-linux&#34;&gt;This is the Only Realistic Way you Clowns are Getting Anything Nice on Linux&lt;/h2&gt;
+&lt;p&gt;As a volunteer open source enthusiast, I can see myself pouring hours of love and care into a Linux-only app that faithfully and elegantly follows the Gnome HIG. I cannot see myself doing this for a paycheck. I am willing to endure that pain for the sake of my art, but not for the sake of closing out issues for customers.&lt;/p&gt;
+&lt;p&gt;Easy ports from Win/Mac to Linux are the most likely way you&amp;rsquo;re going to see your app on Linux, and Electron is probability-wise the most likely way to get there. I can&amp;rsquo;t justify putting more than 1% of my work hours on builds that only reach 1% of our user base. I just can&amp;rsquo;t do that at work. If I can get 75% overlap for Linux by parasitizing my Windows and Mac dev time via Electron, you&amp;rsquo;re more likely to get a Linux app. If it&amp;rsquo;s just another build target with a very small amount, hopefully 1% total, on platform specific issues, you have a chance of seeing it on Linux.&lt;/p&gt;
+&lt;h2 id=&#34;hiring&#34;&gt;Hiring&lt;/h2&gt;
+&lt;p&gt;Large organizations are risk averse. This means they want interchangeable resources to avoid bottlenecks. Humans are resources, just ask your Human Resources department. Being able to pull from the largest possible pool of frontend engineers with no training required is a feature, not a bug.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also an inconsiderate move to trap your engineers in dead-end technologies. If a replaceable frontend engineer has 5 years of fully non-transferable experience on your proprietary frontend, when &lt;em&gt;you&lt;/em&gt; throw them away due to &lt;em&gt;your&lt;/em&gt; idiot budget decisions &lt;em&gt;they&lt;/em&gt; have to write off 5 years of their lives on their resumes. That framework isn&amp;rsquo;t applicable elsewhere. Boo on you, you monsters. Using an industry standard, &amp;ldquo;safe&amp;rdquo; framework is &amp;ldquo;safe&amp;rdquo; for employee and organization both.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Electron is a low risk way for large organizations to add desktop features to something that originated on the web (probably a Node/React boilerplate app that grew past its original purposes, let&amp;rsquo;s not lie). You need to ask yourself the question when you see a bad Electron app: is this better than nothing? Did Electron simply allow the app developers to unleash a usability nightmare on you? Or did it enable them to provide a nice, uniform, &lt;em&gt;native-enough feeling&lt;/em&gt; application that might be bulky and aesthetically unpleasing from a software engineering perspective but is in practice a workable experience?&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/web">web</category>
+      <category domain="https://www.jasonscheirer.com//tags/c&#43;&#43;">c&#43;&#43;</category>
+      
+    </item>
+    
     <item>
       <title>A Series of Vignettes From My Childhood and Early Career</title>
       <link>https://www.jasonscheirer.com/weblog/vignettes/</link>
@@ -298,8 +366,7 @@
       
       <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Please note I am contractually prohibited from saying what I &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; like about most of my prior employers so don&amp;rsquo;t expect any negative posts.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco. I&amp;rsquo;ve been here about three months now and this is a list of (some) of the things I like about my new job.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Continuous Integration&lt;/strong&gt;: This is something that I took for granted almost a decade ago at a former employer and haven&amp;rsquo;t had since. When I make a change and push it to GitHub, a set of tests automatically spin up and I can&amp;rsquo;t merge to master until those tests pass. This is good, I have a self-service QA agent where I can iteratively work on an issue and finally do a PR when it&amp;rsquo;s ready.&lt;/p&gt;

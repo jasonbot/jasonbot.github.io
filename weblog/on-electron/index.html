@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="nosnippet">
+	<title>If Your Electron App is &#34;Just A Browser Wrapper&#34; You&#39;re Doing It Wrong</title>
+    
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="If Your Electron App is &#34;Just A Browser Wrapper&#34; You&#39;re Doing It Wrong" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765048431"><link rel="stylesheet" href="/css/fonts.css?rnd=1765048431">
+	
+</head>
+<body>
+	<div class="everything">
+		<header>
+  <nav>
+        
+
+    <span class="nav-item">
+      
+      <a href="/"><b>Main</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/about/"><b>About</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/uses/"><b>Uses</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/toys/"><b>Toys</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/engineering-virtues/"><b>Virtues</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/"><b>Tags</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/search/"><b>Search</b></a>
+      
+    </span>
+
+    
+  </nav>
+  
+</header>
+
+		
+	<main>
+		<article>
+			<h1 class="page-title" data-pagefind-body>
+				If Your Electron App Is &#34;Just a Browser Wrapper&#34; You&#39;re Doing It Wrong
+			</h1>
+			
+				<div class="byline-etc">
+					
+					<time>2025-12-06</time>
+					
+					
+						<a class="taglink" href="/tags/c&#43;&#43;">c&#43;&#43;</a>
+						
+						<a class="taglink" href="/tags/programming">programming</a>
+						
+						<a class="taglink" href="/tags/web">web</a>
+						
+						<a class="taglink" href="/tags/work">work</a>
+						
+				</div>
+			
+			
+			<div data-pagefind-body>
+				<p>Having spent the last 6 months working on <a href="https://www.notion.com/desktop">an Electron app full-time</a>, my Stockholm Syndrome has kicked in and I&rsquo;ve come around to it.</p>
+<p>It&rsquo;s easy to disparagingly refer to an Electron app as bloated, or a crappy wrapper around a web app. This is easy, reductive thinking that travels well in short-form media like TikTok and Elon Musk&rsquo;s <em>𝕏: The Everything App</em>.</p>
+<blockquote>
+<p>I&rsquo;m going to say this in so many words over an over in here: do you hate Electron out of</p>
+<ol>
+<li>Groupthink,</li>
+<li>Out of misguided and impractical engineering aesthetics, or</li>
+<li>Because you would prefer the &ldquo;bad&rdquo; apps you see written in it to not exist at all, over existing but being kind of bad?</li>
+</ol></blockquote>
+<p>That is, is the framework that allows bad apps to proliferate <em>bad on its own</em> for enabling bad programmers or <em>good</em> for enabling <em>skilled and unskilled programmers alike</em> to participate in software engineering? Or <em>both</em>?</p>
+<p>Oh my oh my do I love being ambivalent on everything and I want to pass that along to you.</p>
+<h1 id="electron-isnt-just-a-browser-wrapper">Electron Isn&rsquo;t Just A Browser Wrapper</h1>
+<p>Aside from wrapping a web page, though, is <a href="https://www.electronjs.org/docs/latest/api/app">a whole truckload of stuff</a> to make a carefully and comprehensively written Electron app <em>actually good</em>:</p>
+<ul>
+<li>Window creation and management</li>
+<li>Menus, you know, like system menus</li>
+<li>Custom tray icons</li>
+<li>Dock icon overlays</li>
+<li>Apple Touchbar customizations (RIP)</li>
+<li>Opting to run the app on startup</li>
+<li>Sending crash reports to interested parties</li>
+<li>Writing additional native code in native languages like C++ and Rust via Node extensions <em>that give better platform-specific runtime characteristics</em>.
+<ul>
+<li>I can use the native filesystem.</li>
+<li>I can use native builds of machine learning libraries with hoping you&rsquo;re patient enough to watch them run slower and worse in Webassembly.</li>
+<li>All of a sudden things that ran slow on your computer or non-privately on some SaaS company&rsquo;s server are happening <em>quickly, efficiently, on your hardware on your desk</em> with <em>no network round-trips</em>.</li>
+</ul>
+</li>
+</ul>
+<p>And more! And after all this, it happens to let you place rectangles in those windows that are views into the Chromium rendering engine.</p>
+<p>If an Electron app you&rsquo;re using doesn&rsquo;t <em>feel</em> mostly native, it&rsquo;s more an indictment of the nature of the people making the app than the framework they&rsquo;re using.</p>
+<p>The whole point of Electron is to provide a decent, native desktop experience and uses HTML/CSS/Javascript as its core language for user interface and the Nodejs runtime and its ecosystem behind the curtain. Familiar tools, fast development. Development that is only <em>feasible</em> in many cases.</p>
+<h1 id="if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron">If You&rsquo;re Distributing Containerized Apps or Static Binaries You&rsquo;re Just As Guilty of the Original Sin of Electron</h1>
+<p>We already have <code>libc</code> back at home. An Electron installation doesn&rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.</p>
+<p>Electron bundles all that inside itself. It&rsquo;s the equivalent to a static binary that doesn&rsquo;t use the system libc. It&rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system with apt-get and superfluous apps installed as an image base just to host a single node app in a container. You accept batteries included software elsewhere: don&rsquo;t be a hypocrite and complain in this case.</p>
+<h2 id="the-operating-system-webview-is-a-lie-and-a-nightmare-and-probably-worse-than-nothing">The Operating System Webview is a Lie and a Nightmare and Probably Worse than Nothing</h2>
+<p>The words in the subheading immediately above about cover it. I was using another webview-based framework (who cares which) for <a href="https://codeberg.org/jasonbot/ollama-desktop-with-wails">an app</a> and I had a pretty cool UX with sidebar tabs that rendered vertically to save space via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-orientation">text orientation</a>. The webviews in 50% of the platforms I tested didn&rsquo;t do this, they rendered the text horizontally, breaking my UI. Flexbox wasn&rsquo;t fully there. Some of the platforms (Linux) didn&rsquo;t even support changing fonts <em>at all</em>.</p>
+<p>I now had another variable I had close to zero control over regarding my rendering engine. I now had web technologies, inconsistently applied, that I had to <em>extensively</em> test on every platform. I could not trust my UI to be a UI.</p>
+<p>Packaging a rendering engine gives me guarantees of rendering capabilities independent of the operating system&rsquo;s webview. I can&rsquo;t tell a paying customer &ldquo;sorry man that&rsquo;s just the way it is on Windows 10&rdquo; with a straight face.</p>
+<h1 id="its-a-way-safer-bet-to-just-use-html-for-ui">It&rsquo;s a Way Safer Bet to Just Use HTML for UI</h1>
+<h2 id="longevity">Longevity</h2>
+<p>HTML and Javascript have a long, unbroken 30+ year lineage in which improvements have been additive: never destructive (except maybe the demise of <code>&lt;marquee/&gt;</code>), and never a full fork (except that now-extinct misadventure into XHTML).</p>
+<p>The W3C is run by the most bureaucratic, glacially-paced working groups sponsored by the most hatefully pedantic employees at the largest, most inertia-driven tech companies in the world. This means that toy features that are unlikely to have a long lifespan won&rsquo;t get into the working spec. A bunch of orgs all have to agree to implement the feature in their parallel implementations before the feature&rsquo;s really considered usable. None of us is as obstructive as all of us.</p>
+<p>The only extant UI frameworks I am aware of with the same relative longevity are X11 and Win32, and neither of them have been capable of the degree and pace of modernization that HTML/CSS/JS have had. (I will include QT in a respectable but distant third place here after Win32 and X).</p>
+<p>I can tell you that picking whatever &ldquo;rapid&rdquo; XAML horror Microsoft is currently pushing is a bad idea! You&rsquo;re going to need specialists who are hard to find to work on it when it is discontinued for the Next XAML Horror.</p>
+<h2 id="portability">Portability</h2>
+<p>This goes without saying: Chromium runs on every major platform. Most browser engines outside of Chromium are also multiplatform (Firefox, Servo, Ladybird). The part that draws the pixels on the screen draws the pixels the same everywhere. It covers the whole &ldquo;exposing OS native components in a cross platform way,&rdquo; up to and including accessibility mechanisms built on OS-level buttons and text. It&rsquo;s a good way of describing user experience in code that works pretty well on every modern device.</p>
+<h2 id="this-is-the-only-realistic-way-you-clowns-are-getting-anything-nice-on-linux">This is the Only Realistic Way you Clowns are Getting Anything Nice on Linux</h2>
+<p>As a volunteer open source enthusiast, I can see myself pouring hours of love and care into a Linux-only app that faithfully and elegantly follows the Gnome HIG. I cannot see myself doing this for a paycheck. I am willing to endure that pain for the sake of my art, but not for the sake of closing out issues for customers.</p>
+<p>Easy ports from Win/Mac to Linux are the most likely way you&rsquo;re going to see your app on Linux, and Electron is probability-wise the most likely way to get there. I can&rsquo;t justify putting more than 1% of my work hours on builds that only reach 1% of our user base. I just can&rsquo;t do that at work. If I can get 75% overlap for Linux by parasitizing my Windows and Mac dev time via Electron, you&rsquo;re more likely to get a Linux app. If it&rsquo;s just another build target with a very small amount, hopefully 1% total, on platform specific issues, you have a chance of seeing it on Linux.</p>
+<h2 id="hiring">Hiring</h2>
+<p>Large organizations are risk averse. This means they want interchangeable resources to avoid bottlenecks. Humans are resources, just ask your Human Resources department. Being able to pull from the largest possible pool of frontend engineers with no training required is a feature, not a bug.</p>
+<p>It&rsquo;s also an inconsiderate move to trap your engineers in dead-end technologies. If a replaceable frontend engineer has 5 years of fully non-transferable experience on your proprietary frontend, when <em>you</em> throw them away due to <em>your</em> idiot budget decisions <em>they</em> have to write off 5 years of their lives on their resumes. That framework isn&rsquo;t applicable elsewhere. Boo on you, you monsters. Using an industry standard, &ldquo;safe&rdquo; framework is &ldquo;safe&rdquo; for employee and organization both.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Electron is a low risk way for large organizations to add desktop features to something that originated on the web (probably a Node/React boilerplate app that grew past its original purposes, let&rsquo;s not lie). You need to ask yourself the question when you see a bad Electron app: is this better than nothing? Did Electron simply allow the app developers to unleash a usability nightmare on you? Or did it enable them to provide a nice, uniform, <em>native-enough feeling</em> application that might be bulky and aesthetically unpleasing from a software engineering perspective but is in practice a workable experience?</p>
+
+			</div>
+		</article>
+	</main>
+
+		
+<footer>
+  <p>
+    &copy; 2025
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
+</footer>
+
+	</div>
+</body>
+</html>
