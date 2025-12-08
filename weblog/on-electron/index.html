@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765158562"><link rel="stylesheet" href="/css/fonts.css?rnd=1765158562">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765158601"><link rel="stylesheet" href="/css/fonts.css?rnd=1765158601">
 	
 </head>
 <body>
@@ -149,7 +149,7 @@
 <p>The RAM column on the task manager is showing how much memory the Electron process has asked the Operating System to put aside for it. Keep in mind, in any operating system released since the 1990s this <em>does not mean there is dedicated hardware RAM allocated to it</em>. The process may have pre-allocated a gig because it anticipates needing it but hasn&rsquo;t yet, and that &ldquo;memory&rdquo; isn&rsquo;t all in RAM anyway: it swaps out into page files on disk when unused! The OS could be managing 4GB for the process but only a few hundred megs of that is being actively accessed in hardware short-term Random Access Memory, the rest being paged out to disk. Operating systems are also clever enough to say &ldquo;you asked for a 2 gig page but haven&rsquo;t touched it yet, so I&rsquo;m not going to allocate it until you do. I just know you have dibs.&rdquo;</p>
 <p>In this regard Electron is being upfront about how much storage it&rsquo;s using and that storage is ephemeral: the task manager app doesn&rsquo;t tell you how much disk space an app has permanently written to disk. It <em>does</em> tell you how much RAM the app is &lsquo;borrowing&rsquo; and will return when it&rsquo;s done.</p>
 <h2 id="more-processes--more-bad-is-just-a-silly-take">&ldquo;More processes&rdquo; = &ldquo;More Bad&rdquo; is Just a Silly Take</h2>
-<p>You may also be angry that Electron has more than one line in Task Manager. &ldquo;What&rsquo;s a worker?&rdquo; you say. &ldquo;Why does it need so many processes?&rdquo;</p>
+<p>You may also be angry that Electron has more than one line in Task Manager. &ldquo;What&rsquo;s an Electron Worker Process?&rdquo; you say. &ldquo;Why does it need so many?&rdquo;</p>
 <p>Again, weird take and I think it&rsquo;s just surface-level &ldquo;too many lines on the UI&rdquo; type knee-jerk reaction. Processes are for safety! Two blocks of code are isolated from each other as separate processes so if one goes down the other does not. Electron has this because Chromium has this because some web developers are maniacs and write cod that take down the entire browser, so now the blast radius is limited to a single browser tab.</p>
 <p>Modern operating systems, again, are excellent at handling large numbers of processes. It&rsquo;s a perfectly valid bit of software engineering to have child processes. Processes are not your enemy.</p>
 <h1 id="its-a-way-safer-bet-to-just-use-html-for-ui">It&rsquo;s a Way Safer Bet to Just Use HTML for UI</h1>
