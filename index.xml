@@ -75,7 +75,7 @@
 &lt;p&gt;Large organizations are risk averse. This means they want interchangeable resources to avoid bottlenecks. Humans are resources, just ask your Human Resources department. Being able to pull from the largest possible pool of frontend engineers with no training required is a feature, not a bug.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s also an inconsiderate move to trap your engineers in dead-end technologies. If a replaceable frontend engineer has 5 years of fully non-transferable experience on your proprietary frontend, when &lt;em&gt;you&lt;/em&gt; throw them away due to &lt;em&gt;your&lt;/em&gt; idiot budget decisions &lt;em&gt;they&lt;/em&gt; have to write off 5 years of their lives on their resumes. That framework isn&amp;rsquo;t applicable elsewhere. Boo on you, you monsters. Using an industry standard, &amp;ldquo;safe&amp;rdquo; framework is &amp;ldquo;safe&amp;rdquo; for employee and organization both.&lt;/p&gt;
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;Electron is a low risk way for large organizations to add desktop features to something that originated on the web (probably a Node/React boilerplate app that grew past its original purposes, let&amp;rsquo;s not lie). You need to ask yourself the question when you see a bad Electron app: is this better than nothing? Did Electron simply allow the app developers to unleash a usability nightmare on you? Or did it enable them to provide a nice, uniform, &lt;em&gt;native-enough feeling&lt;/em&gt; application that might be bulky and aesthetically unpleasing from a software engineering perspective but is in practice a workable experience?&lt;/p&gt;
+&lt;p&gt;Electron is a low risk way for large organizations to add desktop features to something that originated on the web (probably a Node/React boilerplate app that grew past its original purposes, let&amp;rsquo;s not lie). You need to ask yourself the question when you see a bad Electron app: is this better than nothing? Didn&amp;rsquo;t Electron simply allow the app developers to unleash a usability nightmare on you? Didn&amp;rsquo;t it enable them to provide a nice, uniform, &lt;em&gt;native-enough feeling&lt;/em&gt; application that might be bulky and aesthetically unpleasing from a software engineering perspective but is in practice a workable experience?&lt;/p&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/work">work</category>
       <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
       <category domain="https://www.jasonscheirer.com//tags/web">web</category>
@@ -4653,7 +4653,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode16s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode18s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
