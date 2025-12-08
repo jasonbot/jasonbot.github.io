@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765158481"><link rel="stylesheet" href="/css/fonts.css?rnd=1765158481">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765158539"><link rel="stylesheet" href="/css/fonts.css?rnd=1765158539">
 	
 </head>
 <body>
@@ -116,10 +116,11 @@
 </ol></blockquote>
 <p>That is, is the framework that allows bad apps to proliferate <em>bad on its own</em> for enabling bad programmers or <em>good</em> for enabling <em>skilled and unskilled programmers alike</em> to participate in software engineering? Or <em>both</em>?</p>
 <p>Oh my oh my do I love being ambivalent on everything and I want to pass that along to you.</p>
-<h1 id="if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron-bloat">If You&rsquo;re Distributing Containerized Apps or Static Binaries You&rsquo;re Just As Guilty of the Original Sin of Electron Bloat</h1>
+<h1 id="bloat-is-in-the-eye-of-the-beholder">Bloat is in the Eye of the Beholder</h1>
+<h2 id="if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron-bloat">If You&rsquo;re Distributing Containerized Apps or Static Binaries You&rsquo;re Just As Guilty of the Original Sin of Electron Bloat</h2>
 <p>We already have <code>libc</code> back at home. An Electron installation doesn&rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.</p>
 <p>Electron bundles all that inside itself. It&rsquo;s the equivalent to a static binary that doesn&rsquo;t use the system libc. It&rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system used as an image base just to host a single web app process in a container. You accept batteries included software elsewhere: don&rsquo;t be a hypocrite and complain in this case.</p>
-<h1 id="are-you-sure-youre-reading-the-task-manager-correctly">Are You Sure You&rsquo;re Reading the Task Manager Correctly?</h1>
+<h2 id="are-you-sure-youre-reading-the-task-manager-correctly">Are You Sure You&rsquo;re Reading the Task Manager Correctly?</h2>
 <p>The RAM column on the task manager is showing how much memory the Electron process has asked the Operating System to put aside for it. Keep in mind, in any operating system released since the 1990s this <em>does not mean there is dedicated hardware RAM allocated to it</em>. The process may have pre-allocated a gig because it anticipates needing it but hasn&rsquo;t yet, and that &ldquo;memory&rdquo; isn&rsquo;t all in RAM anyway: it swaps out into page files on disk when unused! The OS could be managing 4GB for the process but only a few hundred megs of that is being actively accessed in hardware short-term Random Access Memory, the rest being paged out to disk. Operating systems are also clever enough to say &ldquo;you asked for a 2 gig page but haven&rsquo;t touched it yet, so I&rsquo;m not going to allocate it until you do. I just know you have dibs.&rdquo;</p>
 <p>In this regard Electron is being upfront about how much storage it&rsquo;s using and that storage is ephemeral: the task manager app doesn&rsquo;t tell you how much disk space an app has permanently written to disk. It <em>does</em> tell you how much RAM the app is &lsquo;borrowing&rsquo; and will return when it&rsquo;s done.</p>
 <h2 id="more-processes--more-bad-is-just-a-silly-take">&ldquo;More processes&rdquo; = &ldquo;More Bad&rdquo; is Just a Silly Take</h2>
