@@ -58,7 +58,7 @@
 &lt;p&gt;In this regard Electron is being upfront about how much storage it&amp;rsquo;s using and that storage is ephemeral: the task manager app doesn&amp;rsquo;t tell you how much disk space an app has permanently written to disk. It &lt;em&gt;does&lt;/em&gt; tell you how much RAM the app is &amp;lsquo;borrowing&amp;rsquo; and will return when it&amp;rsquo;s done.&lt;/p&gt;
 &lt;h2 id=&#34;more-processes--more-bad-is-just-a-silly-take&#34;&gt;&amp;ldquo;More processes&amp;rdquo; = &amp;ldquo;More Bad&amp;rdquo; is Just a Silly Take&lt;/h2&gt;
 &lt;p&gt;You may also be angry that Electron has more than one line in Task Manager. &amp;ldquo;What&amp;rsquo;s an Electron Worker Process?&amp;rdquo; you say. &amp;ldquo;Why does it need so many?&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Again, weird take and I think it&amp;rsquo;s just surface-level &amp;ldquo;too many lines on the UI&amp;rdquo; type knee-jerk reaction. Processes are for safety! Two blocks of code are isolated from each other as separate processes so if one goes down the other does not. Electron has this because Chromium has this because some web developers are maniacs and write cod that take down the entire browser, so now the blast radius is limited to a single browser tab.&lt;/p&gt;
+&lt;p&gt;Again, weird take and I think it&amp;rsquo;s just surface-level &amp;ldquo;too many lines on the UI&amp;rdquo; type knee-jerk reaction. Processes are for safety! Two blocks of code are isolated from each other as separate processes so if one goes down the other does not. Electron has this because Chromium has this because some web developers are maniacs and write code that take down the entire browser, so now the blast radius is limited to a single browser tab.&lt;/p&gt;
 &lt;p&gt;Modern operating systems, again, are excellent at handling large numbers of processes. It&amp;rsquo;s a perfectly valid bit of software engineering to have child processes. Processes are not your enemy.&lt;/p&gt;
 &lt;h1 id=&#34;its-a-way-safer-bet-to-just-use-html-for-ui&#34;&gt;It&amp;rsquo;s a Way Safer Bet to Just Use HTML for UI&lt;/h1&gt;
 &lt;h2 id=&#34;longevity&#34;&gt;Longevity&lt;/h2&gt;
@@ -4653,7 +4653,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode19s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode16s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
