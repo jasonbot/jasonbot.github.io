@@ -33,7 +33,7 @@
 &lt;h2 id=&#34;more-processes--more-bad-is-just-a-silly-take&#34;&gt;&amp;ldquo;More processes&amp;rdquo; = &amp;ldquo;More Bad&amp;rdquo; is Just a Silly Take&lt;/h2&gt;
 &lt;p&gt;You may also be angry that Electron has more than one line in Task Manager. &amp;ldquo;What&amp;rsquo;s a worker?&amp;rdquo; you say. &amp;ldquo;Why does it need so many processes?&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Again, weird take and I think it&amp;rsquo;s just surface-level &amp;ldquo;too many lines on the UI&amp;rdquo; type knee-jerk reaction. Processes are for safety! Two blocks of code are isolated from each other as separate processes so if one goes down the other does not. Electron has this because Chromium has this because some web developers are maniacs and write cod that take down the entire browser, so now the blast radius is limited to a single browser tab.&lt;/p&gt;
-&lt;p&gt;Modern operating systems, again, are very good at handling large numbers of processes. It&amp;rsquo;s a perfectly valid bit of software engineering to have child processes. Processes are not your enemy.&lt;/p&gt;
+&lt;p&gt;Modern operating systems, again, are excellent at handling large numbers of processes. It&amp;rsquo;s a perfectly valid bit of software engineering to have child processes. Processes are not your enemy.&lt;/p&gt;
 &lt;h1 id=&#34;electron-isnt-just-a-browser-wrapper&#34;&gt;Electron Isn&amp;rsquo;t Just A Browser Wrapper&lt;/h1&gt;
 &lt;p&gt;Aside from wrapping a web page, though, is &lt;a href=&#34;https://www.electronjs.org/docs/latest/api/app&#34;&gt;a whole truckload of stuff&lt;/a&gt; to make a carefully and comprehensively written Electron app &lt;em&gt;actually good&lt;/em&gt;:&lt;/p&gt;
 &lt;ul&gt;
