@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765049701"><link rel="stylesheet" href="/css/fonts.css?rnd=1765049701">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765158418"><link rel="stylesheet" href="/css/fonts.css?rnd=1765158418">
 	
 </head>
 <body>
@@ -116,6 +116,16 @@
 </ol></blockquote>
 <p>That is, is the framework that allows bad apps to proliferate <em>bad on its own</em> for enabling bad programmers or <em>good</em> for enabling <em>skilled and unskilled programmers alike</em> to participate in software engineering? Or <em>both</em>?</p>
 <p>Oh my oh my do I love being ambivalent on everything and I want to pass that along to you.</p>
+<h1 id="if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron-bloat">If You&rsquo;re Distributing Containerized Apps or Static Binaries You&rsquo;re Just As Guilty of the Original Sin of Electron Bloat</h1>
+<p>We already have <code>libc</code> back at home. An Electron installation doesn&rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.</p>
+<p>Electron bundles all that inside itself. It&rsquo;s the equivalent to a static binary that doesn&rsquo;t use the system libc. It&rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system used as an image base just to host a single web app process in a container. You accept batteries included software elsewhere: don&rsquo;t be a hypocrite and complain in this case.</p>
+<h1 id="are-you-sure-youre-reading-the-task-manager-correctly">Are You Sure You&rsquo;re Reading the Task Manager Correctly?</h1>
+<p>The RAM column on the task manager is showing how much memory the Electron process has asked the Operating System to put aside for it. Keep in mind, in any operating system released since the 1990s this <em>does not mean there is dedicated hardware RAM allocated to it</em>. The process may have pre-allocated a gig because it anticipates needing it but hasn&rsquo;t yet, and that &ldquo;memory&rdquo; isn&rsquo;t all in RAM anyway: it swaps out into page files on disk when unused! The OS could be managing 4GB for the process but only a few hundred megs of that is being actively accessed in hardware short-term Random Access Memory, the rest being paged out to disk. Operating systems are also clever enough to say &ldquo;you asked for a 2 gig page but haven&rsquo;t touched it yet, so I&rsquo;m not going to allocate it until you do. I just know you have dibs.&rdquo;</p>
+<p>In this regard Electron is being upfront about how much storage it&rsquo;s using and that storage is ephemeral: the task manager app doesn&rsquo;t tell you how much disk space an app has permanently written to disk. It <em>does</em> tell you how much RAM the app is &lsquo;borrowing&rsquo; and will return when it&rsquo;s done.</p>
+<h2 id="more-processes--more-bad-is-just-a-silly-take">&ldquo;More processes&rdquo; = &ldquo;More Bad&rdquo; is Just a Silly Take</h2>
+<p>You may also be angry that Electron has more than one line in Task Manager. &ldquo;What&rsquo;s a worker?&rdquo; you say. &ldquo;Why does it need so many processes?&rdquo;</p>
+<p>Again, weird take and I think it&rsquo;s just surface-level &ldquo;too many lines on the UI&rdquo; type knee-jerk reaction. Processes are for safety! Two blocks of code are isolated from each other as separate processes so if one goes down the other does not. Electron has this because Chromium has this because some web developers are maniacs and write cod that take down the entire browser, so now the blast radius is limited to a single browser tab.</p>
+<p>Modern operating systems, again, are very good at handling large numbers of processes. It&rsquo;s a perfectly valid bit of software engineering to have child processes. Processes are not your enemy.</p>
 <h1 id="electron-isnt-just-a-browser-wrapper">Electron Isn&rsquo;t Just A Browser Wrapper</h1>
 <p>Aside from wrapping a web page, though, is <a href="https://www.electronjs.org/docs/latest/api/app">a whole truckload of stuff</a> to make a carefully and comprehensively written Electron app <em>actually good</em>:</p>
 <ul>
@@ -129,17 +139,14 @@
 <li>Writing additional native code in native languages like C++ and Rust via Node extensions <em>that give better platform-specific runtime characteristics</em>.
 <ul>
 <li>I can use the native filesystem.</li>
-<li>I can use native builds of machine learning libraries with hoping you&rsquo;re patient enough to watch them run slower and worse in Webassembly.</li>
-<li>All of a sudden things that ran slow on your computer or non-privately on some SaaS company&rsquo;s server are happening <em>quickly, efficiently, on your hardware on your desk</em> with <em>no network round-trips</em>.</li>
+<li>I can use native builds of machine learning libraries versus hoping you&rsquo;re patient enough to watch them run slower and worse in Webassembly.</li>
+<li>All of a sudden things that ran slow on your computer or non-privately on some SaaS company&rsquo;s server are happening quickly and efficiently <em>on your hardware</em> on <em>your desk</em> with <em>no network round-trips</em>.</li>
 </ul>
 </li>
 </ul>
 <p>And more! And after all this, it happens to let you place rectangles in those windows that are views into the Chromium rendering engine.</p>
 <p>If an Electron app you&rsquo;re using doesn&rsquo;t <em>feel</em> mostly native, it&rsquo;s more an indictment of the nature of the people making the app than the framework they&rsquo;re using.</p>
 <p>The whole point of Electron is to provide a decent, native desktop experience and uses HTML/CSS/Javascript as its core language for user interface and the Nodejs runtime and its ecosystem behind the curtain. Familiar tools, fast development. In some cases, this development is only <em>feasible</em> via Electron: when you can reuse half your codebase you&rsquo;re halfway there!</p>
-<h1 id="if-youre-distributing-containerized-apps-or-static-binaries-youre-just-as-guilty-of-the-original-sin-of-electron">If You&rsquo;re Distributing Containerized Apps or Static Binaries You&rsquo;re Just As Guilty of the Original Sin of Electron</h1>
-<p>We already have <code>libc</code> back at home. An Electron installation doesn&rsquo;t use system libraries. This is a conscious choice. An Electron app comes batteries included. You can afford 250 megs of HD space for an app you use daily, you disk cheapskate.</p>
-<p>Electron bundles all that inside itself. It&rsquo;s the equivalent to a static binary that doesn&rsquo;t use the system libc. It&rsquo;s the equivalent to a full-blown, dozen-gigabyte Ubuntu system with apt-get and superfluous apps installed as an image base just to host a single node app in a container. You accept batteries included software elsewhere: don&rsquo;t be a hypocrite and complain in this case.</p>
 <h2 id="the-operating-system-webview-is-a-lie-and-a-nightmare-and-probably-worse-than-nothing">The Operating System Webview is a Lie and a Nightmare and Probably Worse than Nothing</h2>
 <p>The words in the subheading immediately above about cover it. I was using another webview-based framework (who cares which) for <a href="https://codeberg.org/jasonbot/ollama-desktop-with-wails">an app</a> and I had a pretty cool UX with sidebar tabs that rendered vertically to save space via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-orientation">text orientation</a>. The webviews in 50% of the platforms I tested didn&rsquo;t do this, they rendered the text horizontally, breaking my UI. Flexbox wasn&rsquo;t fully there. Some of the platforms (Linux) didn&rsquo;t even support changing fonts <em>at all</em>.</p>
 <p>I now had another variable I had close to zero control over regarding my rendering engine. I now had web technologies, inconsistently applied, that I had to <em>extensively</em> test on every platform. I could not trust my UI to be a UI.</p>
