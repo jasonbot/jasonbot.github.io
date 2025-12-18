@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1765158815"><link rel="stylesheet" href="/css/fonts.css?rnd=1765158815">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1766017679"><link rel="stylesheet" href="/css/fonts.css?rnd=1766017679">
 	
 </head>
 <body>
@@ -90,7 +90,7 @@
 			
 				<div class="byline-etc">
 					
-					<time>2022-09-15</time>
+					<time>2022-08-29</time>
 					
 					
 						<a class="taglink" href="/tags/programming">programming</a>
@@ -101,7 +101,258 @@
 			
 			
 			<div data-pagefind-body>
-				<p>I wrote a blog post <a href="https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code">that is now on my employer&rsquo;s engineering blog</a>. I used my normal Markdown/Hugo/Github flow to author and edit it, so if you want to see the revision history <a href="https://github.com/jasonbot/weblog/commits/master/content/weblog/new-features-better-code.md">it&rsquo;s right here</a>.</p>
+				<blockquote>
+<p>I wrote a blog post <a href="https://web.archive.org/web/20250426184137/https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code">that is now on my employer&rsquo;s engineering blog</a> (never mind, it&rsquo;s gone).</p>
+<p>Put the body here again since they clobbered the old blog with actual engineering posts to AI garbage.</p></blockquote>
+<h1 id="introduction">Introduction</h1>
+<p>In the time I&rsquo;ve been at EasyPost, we&rsquo;ve been putting continuous effort into making sure our code stays up-to-date to make sure we keep ahead of potential security and support issues, as well as to make our code easier to read, write and maintain as the Python language continues to mature.</p>
+<h1 id="black">Black</h1>
+<p>The <a href="https://black.readthedocs.io/en/stable/">Black code formatter</a> is a few years old now and <a href="https://github.com/psf/black">officially hosted by the PSF</a>. It follows the vein of <a href="https://go.dev/blog/gofmt">Gofmt</a> (or, to a lesser degree, <a href="https://prettier.io/docs/en/index.html">Prettier</a>) by being &ldquo;opinionated&rdquo; and having a reasonable set of defaults and few, if any, knobs that can be tweaked.</p>
+<p>This has two immediately obvious advantages:</p>
+<ol>
+<li>It silences non-constructive, bikesheddy, purely opinion-based code style comments</li>
+<li>Since everything is uniformly formatted, diffs will be entirely <em>semantic</em> and not <em>syntactic</em>, meaning diffs are about how the code&rsquo;s meaning has changed and not how the code&rsquo;s looks have changed.</li>
+</ol>
+<p>We use Makefiles for most of our heavy lifting in the build-and-deploy process, so adding a mypy step in our services is pretty easy:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c">## checkblack - Run black checks
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nf">checkblack</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        venv/bin/black --check --diff <span class="k">$(</span>SERVICENAME<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">## black - Run the black formatter against the codebase
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nf">black</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        ./venv/bin/black <span class="k">$(</span>SERVICENAME<span class="k">)</span>
+</span></span></code></pre></div><h1 id="mypy">MyPy</h1>
+<blockquote>
+<p>&ldquo;The standard library is where modules go to die&rdquo;</p>
+<p>Kenneth Reitz</p></blockquote>
+<p>MyPy is a tool used to analyze Python source and identify type errors/potential errors using type hints. While type hinting is largely built into the standard library/language spec, the actual enforcement of it is done by an external tool at build time. Why an external tool? Because Python typing is a work in progress still being iterated on, and having it as a core part of the language would slow down its development.</p>
+<p>To enforce MyPy in test/lint steps, it&rsquo;s Makefiles to the rescue once more:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="c">## checkstatic - Run static checks
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nf">checkstatic</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        venv/bin/mypy <span class="k">$(</span>SERVICENAME<span class="k">)</span>
+</span></span></code></pre></div><p>Then commonly-used build targets like make test can include these steps as dependencies.</p>
+<h1 id="continuous-integration">Continuous Integration</h1>
+<p>Both Black and Mypy analysis is done at EasyPost during the lint step in our Continuous Integration process, so no code that fails automated style/type checks can get merged into the main branch.</p>
+<h1 id="type-hinting">Type Hinting</h1>
+<p>The road to formal typing in Python started out with the <a href="https://peps.python.org/pep-3119/">Abstract Base Class effort</a> many years ago and has progressed since then. ABCs started out as a way of formally defining collections of duck-typed methods as belonging to a specific &lsquo;protocol&rsquo;, like a map or an array or an iterator, and went from there. In this regard ABCs are very similar to Go&rsquo;s Interfaces.</p>
+<p><a href="https://peps.python.org/pep-0484/">Type hinting</a> lets you incrementally update your code to enforce &ldquo;good&rdquo; data goes into it and avoids boneheaded errors that other languages don&rsquo;t let through by default. The good thing about incremental is it&rsquo;s incremental, meaning you don&rsquo;t have to go all-in at once but instead gradually get it right.</p>
+<p>I cannot emphasize how much of a good idea this is: you still get the flexibility and speed of writing fluent Python when doing exploratory coding, and when your design solidifies you can add type hints to give confidence about the code at the pace you wish to work at. You do not have to go all or nothing.</p>
+<p>In C++, by the time you get to your <code>main</code> function, because everything is explicitly typed and determined at compile time, you can get away with declaring most of your variables&rsquo; types as <code>auto</code> (fight me). Similarly in Python, if your <em>library</em> code is well typed, your <em>business logic</em> that consumes it can have sparse (if any) type declarations and will still be safe since it can derive types from the code it&rsquo;s calling.</p>
+<p>The basics of type hinting are easy. When you do a variable assignment, you can decorate it with a type:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span>       <span class="c1"># Old and busted</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span>  <span class="c1"># New hotness</span>
+</span></span></code></pre></div><p>Function definitions can mark up what they expect and return:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  <span class="c1"># Takes an int, returns an int</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span></code></pre></div><p>Context managers use the comments to mark what the context manager gives you:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="c1"># See also: typing.IO, typing.TextIO</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;hello.txt&#39;, &#34;</span><span class="sa">rb</span><span class="s2">&#34;) as input_handle: # type: T.BinaryIO</span>
+</span></span><span class="line"><span class="cl">    <span class="n">do_something_interesting</span><span class="p">(</span><span class="n">input_handle</span><span class="p">)</span>
+</span></span></code></pre></div><p>Custom types work as expected:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyCustomType</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">:</span> <span class="n">MyCustomType</span> <span class="o">=</span> <span class="n">MyCustomType</span><span class="p">()</span>
+</span></span></code></pre></div><p>If something can be multiple types, you can use a Union. Python 3.10 has a nicer syntax for it with the pipe operator.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">my_numeric</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>              <span class="c1"># Or could be 5.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_numeric_in_python_3_10_plus</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Moving toward this</span>
+</span></span></code></pre></div><p>For anything, use <code>Any</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">my_wildcard</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># THERE ARE NO RULES HERE DUDE</span>
+</span></span></code></pre></div><p>Not a great idea to litter your code with <code>Any</code> as it kind of violates the spirit of adding type annotations to your code, but it can be useful in an incremental process as you introduce types to your codebase.</p>
+<p>Special case if you want something to be a value or None: you mark as <code>Optional</code> or union the type with <code>None</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">my_potentially_none</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Hi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_potentially_none_3_10_plus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&#34;Hi&#34;</span>
+</span></span></code></pre></div><p>Passing an Optional to a function that doesn’t expect None causes mypy to produce an error:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">T</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_value</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fn</span><span class="p">(</span><span class="n">my_value</span><span class="p">)</span>
+</span></span></code></pre></div><p>Produces:</p>
+<p><code>error: Argument 1 to &quot;fn&quot; has incompatible type &quot;Optional[str]&quot;; expected &quot;str&quot;</code></p>
+<p>You sometimes have to explicitly mark a variable with <code>cast</code> so that MyPy knows you’re explicitly using one type over the other:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">my_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fn</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">my_value</span><span class="p">))</span>  <span class="c1"># Now we know for sure it&#39;s not None</span>
+</span></span></code></pre></div><p>If you want to use Tuple as a type of Frozen List, you can’t just do this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">my_tuple</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span></code></pre></div><p>Produces:</p>
+<p><code>error: Incompatible types in assignment (expression has type &quot;Tuple[int, int, int, int]&quot;, variable has type &quot;Tuple[int]&quot;)</code></p>
+<p>Here, Mypy assumes a tuple of length 1 with a single <code>int</code>. You use this syntax with <code>Ellipsis</code> to say it&rsquo;s an arbitrary number of entries in the tuple:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">my_tuple</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span></code></pre></div><p>For the sake of brevity I will not get into <a href="https://docs.python.org/3/library/typing.html#typing.TypeVar"><code>TypeVar</code>s</a>, <a href="https://docs.python.org/3/library/typing.html#typing.Protocol"><code>Protocol</code>s</a>, or other recent improvements like <a href="https://docs.python.org/3/library/typing.html#typing.ParamSpec"><code>ParamSpec</code>s</a> or <a href="https://peps.python.org/pep-0646/"><code>Variadics</code></a> (the latter of which excited me the most). The system for Python typing is a work-in-progress and with each new version of the language gets slightly better and more complete. It&rsquo;s not as good as the type systems in other languages, but it&rsquo;s good enough for industrial programming.</p>
+<h1 id="dataclasses">Dataclasses</h1>
+<p>Data structures of any complexity have been a pain point for about as long as Python has been around. From the ancient days of <a href="https://zopeschema.readthedocs.io/en/latest/">zope.schema</a> to more modern libraries like <a href="https://marshmallow.readthedocs.io/en/stable/">marshmallow</a>, <a href="https://schematics.readthedocs.io/en/latest/">schematics</a>, and <a href="https://docs.pylonsproject.org/projects/colander/en/latest/">colander</a>, the problem has a panoply of &lsquo;solutions,&rsquo; each with their own individual quirks.</p>
+<p>Dataclasses exist in the standard library. That&rsquo;s a huge plus because they don&rsquo;t require a third party library, tiny time bombs hiding away in your <code>requirements.txt</code> just waiting to introduce random CVEs at inopportune moments. Dataclasses are just enough data model for a lot of use cases.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dataclasses</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclasses.dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">PocketMonster</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># If a PocketMonster is instantiated without hit_points</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># specified, it will default to 4.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">hit_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span></code></pre></div><p>As a bonus, you can make them immutable to employ some basic tenets of functional programming (and enhance testing):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dataclasses</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclasses.dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Pet</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_cat</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;Spots&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Your new name is Ham Sandwich. I&#39;m a cruel owner.</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_cat</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Ham Sandwich&#34;</span>
+</span></span></code></pre></div><p>Produces:</p>
+<p><code>dataclasses.FrozenInstanceError: cannot assign to field 'name'</code></p>
+<p>This solves the problem of data provenance as well. One antipattern we have been attempting to get rid of from our codebase are functions like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">do_something_to_a_dict</span><span class="p">(</span><span class="n">data_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># Mutate (or don&#39;t) in-place the data passed in</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;some_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;some_other_key&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">data_from_the_internet</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;other_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;other_key&#39;</span><span class="p">])</span>
+</span></span></code></pre></div><p>When a dictionary (which in Python is a bag of key/value anythings) starts to get changed willy-nilly over the course of its lifetime it gets <em>really hard to tell</em> just <em>where</em> and <em>when</em> a specific piece of data in the dictionary was created/modified.</p>
+<p>So how do we go about mutating data <em>as needed</em>? One of two patterns:</p>
+<ol>
+<li>
+<p>In place with a <code>@property</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="nd">@dataclasses.dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Pet</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">what_you_say_to_get_its_attention</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;!!!&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Generating a copy using <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.replace">the <code>.replace</code> method</a>, which also encourages the pattern of making sure you know <em>where</em> your data came from by explicitly storing new copies:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">louden_my_pet</span><span class="p">(</span><span class="n">my_pet</span><span class="p">:</span> <span class="n">Pet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pet</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">my_pet</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">my_pet</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;!!!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_cat</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;Spots&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_loud_cat</span> <span class="o">=</span> <span class="n">louden_my_pet</span><span class="p">(</span><span class="n">my_cat</span><span class="p">)</span>  <span class="c1"># SPOTS!!! came from Spots and is distinct</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>Adding an equality operator and using hashable field types makes your dataclass usable in hashed containers (<code>dict</code>/<code>set</code>):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dataclasses</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclasses.dataclass</span><span class="p">(</span><span class="n">eq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">PairOfItems</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">left</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">  <span class="n">right</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">directed_graph_with_node_descriptions</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">PairOfItems</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PairOfItems</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="s2">&#34;b&#34;</span><span class="p">):</span> <span class="s2">&#34;A to B&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PairOfItems</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="s2">&#34;c&#34;</span><span class="p">):</span> <span class="s2">&#34;B to C&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PairOfItems</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="s2">&#34;d&#34;</span><span class="p">):</span> <span class="s2">&#34;A to D&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In general, it&rsquo;s easier to reason about code that generates new data than it is code that mutates data. Dataclasses and type hints help enforce this.</p>
+<p>Getting JSON from a dataclass is relatively easy, assuming you have no exotic data types:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="n">my_pet</span><span class="p">))</span>
+</span></span></code></pre></div><h2 id="moving-to-dataclasses-from-namedtuples">Moving to Dataclasses from Namedtuples</h2>
+<p>There is <a href="https://docs.python.org/3/library/typing.html#typing.NamedTuple">a typed version of <code>namedtuple</code> in the standard library</a> you can use, with basic usage very similar to dataclasses, as an intermediate step toward using full dataclasses (e.g. if you have code that uses tuple unpacking syntax that you can&rsquo;t refactor yet).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Manifest</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">NamedTuple</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xml</span><span class="p">:</span> <span class="nb">bytes</span>
+</span></span><span class="line"><span class="cl">    <span class="n">records_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">filename</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">records_to_mark</span> <span class="o">=</span> <span class="n">Manifest</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;text.xml&#39;</span><span class="p">,</span> <span class="n">xml</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&lt;xml /&gt;&#39;</span><span class="p">,</span> <span class="n">record_ids</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># type: str, bytes, T.List[int]</span>
+</span></span></code></pre></div><h2 id="additional-levels-of-sophistication-validation-with-pydantic">Additional Levels of Sophistication: Validation with Pydantic</h2>
+<p>Type hints are just that, hints, in Python. Using dataclasses with typed fields doesn&rsquo;t enforce types going in, nor does it do any sort of data validation. If you reach the stage where this is needed, the Pydantic library has <a href="https://pydantic-docs.helpmanual.io/usage/dataclasses/">a drop-in replacement for dataclasses</a> that gives you all the type coercion and data validation Pydantic offers on its native data structures. To get started, you can get pretty far with a <code>s/@dataclasses.dataclass/@pydantic.dataclasses.dataclass/</code> search-and-replace on your codebase.</p>
+<p>You then have access to <a href="https://pydantic-docs.helpmanual.io/usage/validators/#dataclass-validators">Pydantic data validation</a> as well:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="nd">@dataclasses.dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LoudPet</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">v</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;!!!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_cat</span> <span class="o">=</span> <span class="n">LoudPet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;Spots II: Son of Spots&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Produces:</p>
+<p><code>LoudPet(name='SPOTS II: SON OF SPOTS!!!')</code></p>
+<h2 id="better-json-round-tripping-for-free-with-pydantic">Better JSON Round-Tripping for &ldquo;Free&rdquo; With Pydantic</h2>
+<p>We deal with APIs and our bread-and-butter is writing HTTP-based, RESTful services. This means a large part of what we do is translating data models to/from JSON as they interchange between various systems written in various languages and frameworks.</p>
+<p>By moving to Pydantic, we get type coercion in our data structures, so for fields that are <code>datetime</code>s or <code>UUID</code>s coming from a JSON struct (where they are usually downcast to string) it will do the right thing and coerce to those types, unlike plain dataclasses.</p>
+<p>Pydantic also has <a href="https://pydantic-docs.helpmanual.io/usage/dataclasses/#json-dumping">a default JSON encoder</a> that will attempt to do the right thing with some common datatypes (looking at <code>datetime</code> and <code>uuid</code> again). You might still need to write your own encoder to handle your own datatypes, but you can base it on pydantic&rsquo;s as a starting point.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydantic.json</span> <span class="kn">import</span> <span class="n">pydantic_encoder</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">return_json</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">my_pet</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">pydantic_encoder</span><span class="p">)</span>
+</span></span></code></pre></div><h1 id="enumerations">Enumerations</h1>
+<p>Related to Dataclasses are <a href="https://docs.python.org/3/library/enum.html">proper enumeration support in the Python Standard Library</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ManifestState</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Standard JIT unmanifested shipment</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UNMANIFESTED</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Standard JIT manifested shipment</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MANIFESTED</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Shipment has some error to signal the manifester to ignore</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ERROR</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span></code></pre></div><p>This means you can use <code>ManifestState.MANIFESTED.value</code> instead of a literal value, and you can group your constants into a single namespace. It also has nice validation like making sure the same constant isn&rsquo;t reused and adding auto-incrementing values for int values so you don&rsquo;t have to do it manually.</p>
+<h1 id="putting-it-all-together">Putting it All Together</h1>
+<p>Imagine the following set of endpoints:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Endpoint</th>
+          <th>Function</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/shipment</code></td>
+          <td>Create a new shipment object</td>
+      </tr>
+      <tr>
+          <td><code>/shipment/:id</code></td>
+          <td>Fetch a shipment object by ID</td>
+      </tr>
+  </tbody>
+</table>
+<p>We can model a <code>Shipment</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Address</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">recipient</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line1</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">zip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">city</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">country</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ShipmentState</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NEW</span> <span class="o">=</span> <span class="s2">&#34;New Shipment&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">IN_TRANSIT</span> <span class="o">=</span> <span class="s2">&#34;In Transit&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DELIVERED</span> <span class="o">=</span> <span class="s2">&#34;Delivered&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RETURNED</span> <span class="o">=</span> <span class="s2">&#34;Returned&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&#34;Error&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Shipment</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">   <span class="n">from_address</span><span class="p">:</span> <span class="n">Address</span>
+</span></span><span class="line"><span class="cl">   <span class="n">to_address</span><span class="p">:</span> <span class="n">Address</span>
+</span></span><span class="line"><span class="cl">   <span class="n">weight_in_ounces</span><span class="p">:</span> <span class="nb">int</span>
+</span></span><span class="line"><span class="cl">   <span class="n">state</span><span class="p">:</span> <span class="n">ShipmentState</span> <span class="o">=</span> <span class="n">ShipmentState</span><span class="o">.</span><span class="n">NEW</span>
+</span></span></code></pre></div><p>And then <code>POST</code> to an endpoint:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="nd">@post</span><span class="p">(</span><span class="s1">&#39;/shipment&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">create_shipment</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Validation, safety, etc left as an exercise for the reader</span>
+</span></span><span class="line"><span class="cl">    <span class="n">new_shipment</span> <span class="o">=</span> <span class="n">Shipment</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shipment_id</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span> <span class="o">=</span> <span class="n">database_module</span><span class="o">.</span><span class="n">create_shipment</span><span class="p">(</span><span class="n">new_shipment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">shipment_id</span><span class="p">},</span> <span class="n">default</span><span class="o">=</span><span class="n">pydantic_encoder</span><span class="p">)</span>
+</span></span></code></pre></div><p>And to fetch:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">validate_arguments</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@get</span><span class="p">(</span><span class="s1">&#39;/shipment/</span><span class="si">{shipment_id}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@validate_arguments</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_shipment</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">shipment_id</span><span class="p">:</span> <span class="n">UUID</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 404s, authentication, etc left as an exercise for the reader</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shipment_object</span><span class="p">:</span> <span class="n">Shipment</span> <span class="o">=</span> <span class="n">database_module</span><span class="o">.</span><span class="n">get_shipment</span><span class="p">(</span><span class="n">new_shipment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="n">shipment_object</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="n">pydantic_encoder</span><span class="p">)</span>
+</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>The Python language is still progressing and improving. Recent versions have added plenty of value, both in terms of new functionality and improved behavior on existing functionality. Using these new features can make code cleaner, easier to read, easier to be confident about, and generally less painful to maintain.</p>
 
 			</div>
 		</article>
