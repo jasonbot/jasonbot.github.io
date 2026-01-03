@@ -6,7 +6,23 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 06 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Engineering Virtues</title>
+      <link>https://www.jasonscheirer.com/tags/virtues/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/virtues/</guid>
+      <description>&lt;p&gt;This is a series I am writing based on my experience as a software engineer. In
+this are a list of things that I hold important in myself and others as a
+software engineer, mostly vis-a-vis being an individual contributor interfacing
+with engineering management, product teams, and supporting organizations.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m trying to write things that are useful that you probably would not find in any
+conventional book of professional advice. Use this as a cheeky supplement to
+other career guides you may use.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;</title>
       <link>https://www.jasonscheirer.com/tags/c&#43;&#43;/</link>
@@ -114,22 +130,6 @@
       
       <guid>https://www.jasonscheirer.com/tags/html/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Engineering Virtues</title>
-      <link>https://www.jasonscheirer.com/tags/virtues/</link>
-      <pubDate>Tue, 22 Jul 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/virtues/</guid>
-      <description>&lt;p&gt;This is a series I am writing based on my experience as a software engineer. In
-this are a list of things that I hold important in myself and others as a
-software engineer, mostly vis-a-vis being an individual contributor interfacing
-with engineering management, product teams, and supporting organizations.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m trying to write things that are useful that you probably would not find in any
-conventional book of professional advice. Use this as a cheeky supplement to
-other career guides you may use.&lt;/p&gt;
-</description>
     </item>
     
     <item>

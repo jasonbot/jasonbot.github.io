@@ -3,7 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2025-12-21T00:00:00-08:00</lastmod>
+    <lastmod>2026-02-08T06:25:45-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/virtues/</loc>
+    <lastmod>2026-01-03T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</loc>
+    <lastmod>2026-01-03T00:00:00-08:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2026-01-03T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/c&#43;&#43;/</loc>
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
@@ -12,9 +21,6 @@
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2025-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/web/</loc>
@@ -64,9 +70,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/tailwind/</loc>
     <lastmod>2025-07-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/virtues/</loc>
-    <lastmod>2025-07-22T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</loc>
     <lastmod>2025-07-22T00:00:00-08:00</lastmod>
