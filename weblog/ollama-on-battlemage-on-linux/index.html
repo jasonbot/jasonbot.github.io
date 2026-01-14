@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="nosnippet">
+	<title>Ollama on Fedora Linux on a Battlemage GPU</title>
+    
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Ollama on Fedora Linux on a Battlemage GPU" />
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1768419339"><link rel="stylesheet" href="/css/fonts.css?rnd=1768419339">
+	
+</head>
+<body>
+	<div class="everything">
+		<header>
+  <nav>
+        
+
+    <span class="nav-item">
+      
+      <a href="/"><b>Main</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/about/"><b>About</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/uses/"><b>Uses</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/toys/"><b>Toys</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/virtues/"><b>Virtues</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/tags/"><b>Tags</b></a>
+      
+    </span>
+
+      
+
+    <span class="nav-item">
+      
+      <a href="/search/"><b>Search</b></a>
+      
+    </span>
+
+    
+  </nav>
+  
+</header>
+
+		
+	<main>
+		<article>
+			<h1 class="page-title" data-pagefind-body>
+				Ollama on Fedora Linux on a Battlemage GPU
+			</h1>
+			
+				<div class="byline-etc">
+					
+					<time>2026-01-14</time>
+					
+					
+						<a class="taglink" href="/tags/linux">linux</a>
+						
+						<a class="taglink" href="/tags/llm">llm</a>
+						
+				</div>
+			
+			
+			<div data-pagefind-body>
+				<p>My motherboard was dying and <a href="https://nobaraproject.org/">the Nobara project</a> hates old GPUs, so I recently upgraded my middle-tier 2020 Prebuilt Costco Gaming PC for a middle-tier late 2025 Hand-Built Gaming PC!</p>
+<p>I mostly went with a pre-picked set of options that Newegg had suggested, removing the storage and RAM (I had just bought 64 GB of DDR ram in August and replaced my SSD in November). In all, new Case/Cooling unit/Power Supply/CPU/GPU/Motherboard cost about $750. If I were less lazy I could have saved more money scavenging i.e. the old power supply.</p>
+<p>Part of that was an <a href="https://www.intel.com/content/www/us/en/products/docs/discrete-gpus/arc/desktop/b-series/overview.html">Intel Arc B580 GPU</a>! It&rsquo;s weird because the drivers <em>are baked into the kernel</em>. No extra steps to take. Creepy! It&rsquo;s also weird because it&rsquo;s <em>new</em>: there&rsquo;s stuff that it can&rsquo;t quite do yet unlike the ubiquitous yet painful NVidia ecosystem.</p>
+<p>First, after doing some digging in a random Reddit thread I can no longer find, I found I had to remove some intel-related packages:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo dnf remove intel-gmmlib intel-media-driver
+</span></span></code></pre></div><p>Then the GPU could run without crashing apps that tried to use it to make triangles go. Gotta remove your Intel software to run your Intel hardware. It&rsquo;s not your place to expect the world to make sense.</p>
+<p>I tested Steam a bit after removing these packages and I could play games! Hooray!</p>
+<p>I had to use Flatseal to apply these two env vars to Flatpak apps, otherwise Gnome apps flickered and artifacted pretty badly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">GSK_RENDERER</span><span class="o">=</span>cairo
+</span></span><span class="line"><span class="cl"><span class="nv">FLATPAK_GL_DRIVERS</span><span class="o">=</span>host
+</span></span></code></pre></div><p>Notably, non-Flatpak Gnome apps were fine, so there&rsquo;s probably some other Flatseal hole I can poke open to make them work right.</p>
+<p>Then I installed Ollama via its normal <a href="https://ollama.com/download/linux">&ldquo;pipe this curl to bash, trust us&rdquo; flow</a> on Linux and it installed. It became very clear very fast, though, that the GPU was not generating my tokens!</p>
+<p>I found <a href="https://github.com/intel/ipex-llm/blob/main/docs/mddocs/Quickstart/ollama_quickstart.md">Intel has IPEX builds of Ollama</a>, but the dailies stopped a year ago and the last built version doesn&rsquo;t support newer model GGUFs.</p>
+<p>Ollama <a href="https://docs.ollama.com/gpu#vulkan-gpu-support"><em>has</em> Vulkan support as of pretty recently, but it&rsquo;s experimental</a>. Let&rsquo;s do that!</p>
+<p>Grab Go and the Vulkan dev stuff:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo dnf install golang glslc vulkan-headers vulkan-loader-devel vulkan-sdk intel-compute-runtime oneapi-level-zero mesa-vulkan-devel
+</span></span></code></pre></div><p>I ran <code>sudo chsh ollama</code> and changed the shell to <code>zsh</code> (it was <code>/bin/false</code>) so I could log in. Then as <code>sudo su ollama</code> to assume <code>ollama</code> the ollama user, cloned the repo, and built ollama.</p>
+<pre tabindex="0"><code>cd /usr/share/ollama/
+git clone https://github.com/ollama/ollama.git
+cd ollama
+cmake --preset Vulkan .
+cmake --build . --parallel --preset Vulkan
+go build -o ./ollama .
+</code></pre><p>My <code>/etc/systemd/system/ollama.service</code> now looks like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[Unit]</span>
+</span></span><span class="line"><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">Ollama Service</span>
+</span></span><span class="line"><span class="cl"><span class="na">After</span><span class="o">=</span><span class="s">network-online.target</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Service]</span>
+</span></span><span class="line"><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/share/ollama/ollama/ollama serve</span>
+</span></span><span class="line"><span class="cl"><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/usr/share/ollama/ollama</span>
+</span></span><span class="line"><span class="cl"><span class="na">User</span><span class="o">=</span><span class="s">ollama</span>
+</span></span><span class="line"><span class="cl"><span class="na">Group</span><span class="o">=</span><span class="s">ollama</span>
+</span></span><span class="line"><span class="cl"><span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+</span></span><span class="line"><span class="cl"><span class="na">RestartSec</span><span class="o">=</span><span class="s">3</span>
+</span></span><span class="line"><span class="cl"><span class="na">Environment</span><span class="o">=</span><span class="s">&#34;OLLAMA_VULKAN=1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">Environment</span><span class="o">=</span><span class="s">&#34;OLLAMA_CONTEXT_LENGTH=262144&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">Environment</span><span class="o">=</span><span class="s">&#34;OLLAMA_NUM_GPU=999&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
+</span></span><span class="line"><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
+</span></span></code></pre></div><p>I then bumped the service:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl stop ollama
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> ollama
+</span></span><span class="line"><span class="cl">sudo systemctl start ollama
+</span></span></code></pre></div><p>According to <code>journalctl -f -u ollama.service</code> it worked!</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.898-08:00 level=INFO source=runner.go:67 msg=&#34;discovering available GPUs...&#34;
+Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.899-08:00 level=INFO source=server.go:429 msg=&#34;starting runner&#34; cmd=&#34;/usr/share/ollama/ollama/ollama runner --ollama-engine --port 36587&#34;
+Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.965-08:00 level=INFO source=types.go:42 msg=&#34;inference compute&#34; id=86800be2-0000-0000-0300-000000000000 filter_id=&#34;&#34; library=Vulkan compute=0.0 name=Vulkan0 description=&#34;Intel(R) Arc(tm) B580 Graphics (BMG G21)&#34; libdirs=ollama driver=0.0 pci_id=0000:03:00.0 type=discrete total=&#34;11.9 GiB&#34; available=&#34;9.0 GiB&#34;
+Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.965-08:00 level=INFO source=routes.go:1708 msg=&#34;entering low vram mode&#34; &#34;total vram&#34;=&#34;11.9 GiB&#34; threshold=&#34;20.0 GiB&#34;
+</code></pre><p>Seeing that Vulkan GPU was signal, and I confirmed I was generating tokens faster now! Hell yeah!</p>
+<p>There are better ways to do this! <code>/usr/local/bin/ollama</code> still points at the non-Vulkan version so if you start <code>ollama serve</code> via that, no GPU! It&rsquo;s probably cleaner to use a containerized build! Now the <code>ollama</code> user is a security issue (I changed the shell back to <code>false</code> at least).</p>
+<p>But it all runs now with my various band-aids, and I present this assemblage of internet treasure hunting all in one place for you.</p>
+
+			</div>
+		</article>
+	</main>
+
+		
+<footer>
+  <p>
+    &copy; 2026
+    <a href="https://www.jasonscheirer.com/"
+      ><b
+        >Jason Scheirer</b
+      ></a
+    >.
+  </p>
+</footer>
+
+	</div>
+</body>
+</html>

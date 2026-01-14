@@ -8,6 +8,71 @@
     <language>en</language>
     <lastBuildDate>Sat, 04 Jan 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.jasonscheirer.com/weblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Ollama on Fedora Linux on a Battlemage GPU</title>
+      <link>https://www.jasonscheirer.com/weblog/ollama-on-battlemage-on-linux/</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/ollama-on-battlemage-on-linux/</guid>
+      <description>&lt;p&gt;My motherboard was dying and &lt;a href=&#34;https://nobaraproject.org/&#34;&gt;the Nobara project&lt;/a&gt; hates old GPUs, so I recently upgraded my middle-tier 2020 Prebuilt Costco Gaming PC for a middle-tier late 2025 Hand-Built Gaming PC!&lt;/p&gt;
+&lt;p&gt;I mostly went with a pre-picked set of options that Newegg had suggested, removing the storage and RAM (I had just bought 64 GB of DDR ram in August and replaced my SSD in November). In all, new Case/Cooling unit/Power Supply/CPU/GPU/Motherboard cost about $750. If I were less lazy I could have saved more money scavenging i.e. the old power supply.&lt;/p&gt;
+&lt;p&gt;Part of that was an &lt;a href=&#34;https://www.intel.com/content/www/us/en/products/docs/discrete-gpus/arc/desktop/b-series/overview.html&#34;&gt;Intel Arc B580 GPU&lt;/a&gt;! It&amp;rsquo;s weird because the drivers &lt;em&gt;are baked into the kernel&lt;/em&gt;. No extra steps to take. Creepy! It&amp;rsquo;s also weird because it&amp;rsquo;s &lt;em&gt;new&lt;/em&gt;: there&amp;rsquo;s stuff that it can&amp;rsquo;t quite do yet unlike the ubiquitous yet painful NVidia ecosystem.&lt;/p&gt;
+&lt;p&gt;First, after doing some digging in a random Reddit thread I can no longer find, I found I had to remove some intel-related packages:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dnf remove intel-gmmlib intel-media-driver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then the GPU could run without crashing apps that tried to use it to make triangles go. Gotta remove your Intel software to run your Intel hardware. It&amp;rsquo;s not your place to expect the world to make sense.&lt;/p&gt;
+&lt;p&gt;I tested Steam a bit after removing these packages and I could play games! Hooray!&lt;/p&gt;
+&lt;p&gt;I had to use Flatseal to apply these two env vars to Flatpak apps, otherwise Gnome apps flickered and artifacted pretty badly:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;GSK_RENDERER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;cairo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;FLATPAK_GL_DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;host
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Notably, non-Flatpak Gnome apps were fine, so there&amp;rsquo;s probably some other Flatseal hole I can poke open to make them work right.&lt;/p&gt;
+&lt;p&gt;Then I installed Ollama via its normal &lt;a href=&#34;https://ollama.com/download/linux&#34;&gt;&amp;ldquo;pipe this curl to bash, trust us&amp;rdquo; flow&lt;/a&gt; on Linux and it installed. It became very clear very fast, though, that the GPU was not generating my tokens!&lt;/p&gt;
+&lt;p&gt;I found &lt;a href=&#34;https://github.com/intel/ipex-llm/blob/main/docs/mddocs/Quickstart/ollama_quickstart.md&#34;&gt;Intel has IPEX builds of Ollama&lt;/a&gt;, but the dailies stopped a year ago and the last built version doesn&amp;rsquo;t support newer model GGUFs.&lt;/p&gt;
+&lt;p&gt;Ollama &lt;a href=&#34;https://docs.ollama.com/gpu#vulkan-gpu-support&#34;&gt;&lt;em&gt;has&lt;/em&gt; Vulkan support as of pretty recently, but it&amp;rsquo;s experimental&lt;/a&gt;. Let&amp;rsquo;s do that!&lt;/p&gt;
+&lt;p&gt;Grab Go and the Vulkan dev stuff:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dnf install golang glslc vulkan-headers vulkan-loader-devel vulkan-sdk intel-compute-runtime oneapi-level-zero mesa-vulkan-devel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I ran &lt;code&gt;sudo chsh ollama&lt;/code&gt; and changed the shell to &lt;code&gt;zsh&lt;/code&gt; (it was &lt;code&gt;/bin/false&lt;/code&gt;) so I could log in. Then as &lt;code&gt;sudo su ollama&lt;/code&gt; to assume &lt;code&gt;ollama&lt;/code&gt; the ollama user, cloned the repo, and built ollama.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd /usr/share/ollama/
+git clone https://github.com/ollama/ollama.git
+cd ollama
+cmake --preset Vulkan .
+cmake --build . --parallel --preset Vulkan
+go build -o ./ollama .
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;My &lt;code&gt;/etc/systemd/system/ollama.service&lt;/code&gt; now looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Ollama Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;After&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;network-online.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecStart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/share/ollama/ollama/ollama serve&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/usr/share/ollama/ollama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;ollama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Group&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;ollama&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Restart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;RestartSec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OLLAMA_VULKAN=1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OLLAMA_CONTEXT_LENGTH=262144&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;OLLAMA_NUM_GPU=999&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;WantedBy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;default.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I then bumped the service:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl daemon-reload
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl stop ollama
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; ollama
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start ollama
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;According to &lt;code&gt;journalctl -f -u ollama.service&lt;/code&gt; it worked!&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.898-08:00 level=INFO source=runner.go:67 msg=&amp;#34;discovering available GPUs...&amp;#34;
+Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.899-08:00 level=INFO source=server.go:429 msg=&amp;#34;starting runner&amp;#34; cmd=&amp;#34;/usr/share/ollama/ollama/ollama runner --ollama-engine --port 36587&amp;#34;
+Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.965-08:00 level=INFO source=types.go:42 msg=&amp;#34;inference compute&amp;#34; id=86800be2-0000-0000-0300-000000000000 filter_id=&amp;#34;&amp;#34; library=Vulkan compute=0.0 name=Vulkan0 description=&amp;#34;Intel(R) Arc(tm) B580 Graphics (BMG G21)&amp;#34; libdirs=ollama driver=0.0 pci_id=0000:03:00.0 type=discrete total=&amp;#34;11.9 GiB&amp;#34; available=&amp;#34;9.0 GiB&amp;#34;
+Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.965-08:00 level=INFO source=routes.go:1708 msg=&amp;#34;entering low vram mode&amp;#34; &amp;#34;total vram&amp;#34;=&amp;#34;11.9 GiB&amp;#34; threshold=&amp;#34;20.0 GiB&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Seeing that Vulkan GPU was signal, and I confirmed I was generating tokens faster now! Hell yeah!&lt;/p&gt;
+&lt;p&gt;There are better ways to do this! &lt;code&gt;/usr/local/bin/ollama&lt;/code&gt; still points at the non-Vulkan version so if you start &lt;code&gt;ollama serve&lt;/code&gt; via that, no GPU! It&amp;rsquo;s probably cleaner to use a containerized build! Now the &lt;code&gt;ollama&lt;/code&gt; user is a security issue (I changed the shell back to &lt;code&gt;false&lt;/code&gt; at least).&lt;/p&gt;
+&lt;p&gt;But it all runs now with my various band-aids, and I present this assemblage of internet treasure hunting all in one place for you.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/llm">llm</category>
+      <category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      
+    </item>
+    
+    <item>
       <title>If Your Electron App is &#34;Just A Browser Wrapper&#34; You&#39;re Doing It Wrong</title>
       <link>https://www.jasonscheirer.com/weblog/on-electron/</link>
       <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
