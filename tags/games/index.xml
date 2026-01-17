@@ -6,7 +6,21 @@
     <description>Recent content in Games on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Nov 2024 08:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jan 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Steam on non-Conventional Desktops (Niri)</title>
+      <link>https://www.jasonscheirer.com/weblog/steam-on-non-conventional-desktops/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/steam-on-non-conventional-desktops/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m trying out &lt;a href=&#34;https://yalter.github.io/niri/&#34;&gt;Niri&lt;/a&gt;! You know how I &lt;a href=&#34;https://www.jasonscheirer.com/engineering-virtues/the-defaults/&#34;&gt;encourage getting used to the defaults&lt;/a&gt;? Well &lt;a href=&#34;https://github.com/jasonbot/dotfiles/tree/master/linux/_config/niri&#34;&gt;I&amp;rsquo;m not following my own advice&lt;/a&gt;! I&amp;rsquo;m using it with &lt;a href=&#34;https://github.com/jasonbot/dotfiles/tree/master/linux/_config/DankMaterialShell&#34;&gt;Dank Shell&lt;/a&gt; too, &lt;a href=&#34;https://github.com/jasonbot/dotfiles/tree/master/linux/_config/DankMaterialShell&#34;&gt;also ignoring my own advice&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Anyhow! One liner! If Steam isn&amp;rsquo;t working do this: edit &lt;code&gt;/usr/share/applications/steam.desktop&lt;/code&gt; and change the &lt;code&gt;Exec=&lt;/code&gt; line to this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;bash -c &amp;#34;wl-copy --clear &amp;amp;&amp;amp; /usr/bin/steam -system-composer %U&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/games">games</category>
+      <category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
+      
+    </item>
+    
     <item>
       <title>Classicube at Work</title>
       <link>https://www.jasonscheirer.com/weblog/playing-classicube-at-work/</link>
