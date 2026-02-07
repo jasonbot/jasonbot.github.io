@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MSIX packaging on Jason Scheirer</title>
+    <link>https://www.jasonscheirer.com/tags/msix/</link>
+    <description>Recent content in MSIX packaging on Jason Scheirer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 05 Feb 2026 12:00:00 -0700</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/msix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>So You Want to Make an MSIX?</title>
+      <link>https://www.jasonscheirer.com/so-you-want-to-make-an-msix/</link>
+      <pubDate>Thu, 05 Feb 2026 12:00:00 -0700</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/so-you-want-to-make-an-msix/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve spend the first just-under-a-year &lt;a href=&#34;https://www.notion.com/desktop&#34;&gt;at Notion working on the desktop team&lt;/a&gt;. I was hired, strangely enough, as a &amp;ldquo;Windows guy&amp;rdquo; after over a decade of absence from the platform.&lt;/p&gt;
+&lt;p&gt;The largest single deliverable in this time &lt;em&gt;by far&lt;/em&gt; has been providing &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/msix/overview&#34;&gt;an MSIX packaged Windows distribution&lt;/a&gt; for the main Desktop product.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/msix">msix</category>
+      
+    </item>
+    
+  </channel>
+</rss>
