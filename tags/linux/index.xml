@@ -98,9 +98,11 @@ Jan 14 11:16:55 nobara ollama[468214]: time=2026-01-14T11:16:55.965-08:00 level=
 &lt;p&gt;Now I&amp;rsquo;m &lt;a href=&#34;https://extensions.gnome.org/extension/6099/paperwm/&#34;&gt;trying out PaperWM&lt;/a&gt;. The concept simplifies and streamlines windows from occupying a fully two dimensional space into something resembling 1.5 dimensions: windows are all arranged side-by-side infinitely, and you just traverse along the line of windows to find what you&amp;rsquo;re looking for.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been using it full time for a week and I&amp;rsquo;m pretty happy with it. Maybe this will stick for a while.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update 2024-11-22:&lt;/strong&gt; PaperWM hard crashes when I launch games that try to switch to fullscreen from Steam. Back to the drawing board!&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2025-03-12:&lt;/strong&gt; &lt;a href=&#34;https://ersei.net/en/blog/niri&#34;&gt;Here&amp;rsquo;s a fun blog post about Niri&lt;/a&gt;, another window manager inspired by Gnome Paper. I might try that next, though I&amp;rsquo;d have to get swaybar and friends up and running so it may be a test of patience.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update 2025-03-12:&lt;/strong&gt; &lt;a href=&#34;https://ersei.net/en/blog/niri&#34;&gt;Here&amp;rsquo;s a fun blog post about Niri&lt;/a&gt;, another window manager inspired by Gnome Paper. I might try that next, though I&amp;rsquo;d have to get swaybar and friends up and running so it may be a test of patience.&lt;/p&gt;
+&lt;/blockquote&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/linux">linux</category>
       
     </item>

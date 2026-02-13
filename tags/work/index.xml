@@ -21,7 +21,8 @@
 &lt;li&gt;Groupthink,&lt;/li&gt;
 &lt;li&gt;Out of misguided and impractical engineering aesthetics, or&lt;/li&gt;
 &lt;li&gt;Because you would prefer the &amp;ldquo;bad&amp;rdquo; apps you see written in it to not exist at all, over existing but being &amp;lsquo;bad&amp;rsquo; to you?&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;That is, is the framework that allows bad apps to proliferate &lt;em&gt;bad on its own&lt;/em&gt; for enabling bad programmers or &lt;em&gt;good&lt;/em&gt; for enabling &lt;em&gt;skilled and unskilled programmers alike&lt;/em&gt; to participate in software engineering? Or &lt;em&gt;both&lt;/em&gt;?&lt;/p&gt;
 &lt;p&gt;Oh my oh my do I love being ambivalent on everything and I want to pass that along to you.&lt;/p&gt;
 &lt;h1 id=&#34;electron-isnt-just-a-browser-wrapper&#34;&gt;Electron Isn&amp;rsquo;t Just A Browser Wrapper&lt;/h1&gt;
@@ -374,7 +375,8 @@
       
       <guid>https://www.jasonscheirer.com/weblog/things-i-like-about-my-new-job/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://jason.cleanstick.net/post/118755320730/things-i-like-about-my-new-job&#34;&gt;a recycled post from my tumblr weblog&lt;/a&gt;. I&amp;rsquo;ve since had three other jobs, but a lot of what I like still rings true 5 years later in 2020.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Please note I am contractually prohibited from saying what I &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; like about most of my prior employers so don&amp;rsquo;t expect any negative posts.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve gone from developer at a large software corporation in the suburbs of Southern California to being a developer at a startup in SoMa in San Francisco. I&amp;rsquo;ve been here about three months now and this is a list of (some) of the things I like about my new job.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Continuous Integration&lt;/strong&gt;: This is something that I took for granted almost a decade ago at a former employer and haven&amp;rsquo;t had since. When I make a change and push it to GitHub, a set of tests automatically spin up and I can&amp;rsquo;t merge to master until those tests pass. This is good, I have a self-service QA agent where I can iteratively work on an issue and finally do a PR when it&amp;rsquo;s ready.&lt;/p&gt;

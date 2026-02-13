@@ -14,7 +14,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Every deviation from default is slowing you down from getting started and making it harder to help others.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Every deviation from default is slowing you down from getting started and making it harder to help others.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I use about 5 distinct laptops/desktops on an average day, not to mention the VMs within them and other machines I shell into. Having a consistent experience is useful, but equally important is my ability to roll with the punches and get productive on a new computer without much ceremony.&lt;/p&gt;
 &lt;p&gt;One thing I do to cope with this is &lt;a href=&#34;https://github.com/jasonbot/dotfiles&#34;&gt;a dotfiles repo with a dead-simple installation method&lt;/a&gt;, but also note how conservative it is. No huge vim plugin setup. Very minimal tmux config (which is still bad, and I&amp;rsquo;ll explain why later). Not a lot going on.&lt;/p&gt;
 &lt;p&gt;Moving from the defaults to a custom setup might make you more effective in the immediate term, but it makes it harder long-term. You have additional complexity in terms of packages installed, keymaps, etc. that you need to reproduce regularly on every system you use.&lt;/p&gt;
@@ -33,7 +34,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;For the 500 lines of boilerplate, &lt;em&gt;what are the five truly interesting lines that solve the problem&lt;/em&gt;?&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;For the 500 lines of boilerplate, &lt;em&gt;what are the five truly interesting lines that solve the problem&lt;/em&gt;?&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;In the course of my problem solving, &lt;em&gt;especially&lt;/em&gt; when I am solving a problem I think &lt;a href=&#34;../this-shouldnt-be-hard/&#34;&gt;shouldn&amp;rsquo;t be hard&lt;/a&gt;, I think back to the essential &lt;em&gt;core&lt;/em&gt; of the problem&lt;/p&gt;
 &lt;p&gt;Typically a fix is a couple of API calls or a single clever data structure.&lt;/p&gt;
 &lt;p&gt;As a consequence of this, I typically annotate my Pull Requests with an annotated &amp;ldquo;this is the interesting part&amp;rdquo; section. I recommend this approach: you are asking your reviewers for special attention on the original thoughts, and signaling the other code you had to write is something you do not feel is important, and are far more open to nitpicking on (versus thoughful review).&lt;/p&gt;
@@ -49,7 +51,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;As you are working your way to the goal, you should be able to be clearminded about how you aim on getting there and when you are slowed down for silly reasons do not accept them as excuses. Say to yourself, &amp;ldquo;I know what I need to do, it shouldn&amp;rsquo;t be this hard.&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;As you are working your way to the goal, you should be able to be clearminded about how you aim on getting there and when you are slowed down for silly reasons do not accept them as excuses. Say to yourself, &amp;ldquo;I know what I need to do, it shouldn&amp;rsquo;t be this hard.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Overall, you should be working toward writing functional code that achieves a goal.&lt;/p&gt;
 &lt;p&gt;Oftentimes we get stuck on the actual specifics of a task: how do we set up the branch, how the dev environment gets up and running, etc.&lt;/p&gt;
 &lt;p&gt;These are obstacles. Keep your eyes on the prize. If you can imagine a problem, if you have a clear vision for how to do it, this is all that matters. Process and tools are a means to the goal, not necessarily a requisite of getting to it.&lt;/p&gt;
@@ -72,7 +75,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;You should be familiar enough with your tools to be able list critical things about them, even though they&amp;rsquo;re what you still choose to use every day.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;You should be familiar enough with your tools to be able list critical things about them, even though they&amp;rsquo;re what you still choose to use every day.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;The title &lt;em&gt;Hate What You Know&lt;/em&gt; is admittedly vague, I know! There are a handful of directions I&amp;rsquo;ll go with it, bear with me. And at least to some extent I don&amp;rsquo;t mean &amp;ldquo;hate,&amp;rdquo; I just mean &amp;ldquo;know well.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m an advocate of being a craftsperson out of anger. Do things because they need doing and dammit, you can&amp;rsquo;t live in a world where this problem isn&amp;rsquo;t solved anymore.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll make a deliberately outrageous claim: doing something out of need is craft, doing something out of compulsion is art. A craftsman makes a work because they see something missing in the world. An artist makes a work because they see something of a possibility in the world. Professionally, at least, you&amp;rsquo;re hopefully operating in the former camp. In the latter, you&amp;rsquo;re either outrageously lucky doing what you love in a place of psychological safety or secretly pissing everyone off around you by being a perfectionist primadonna.&lt;/p&gt;
@@ -95,7 +99,8 @@
 &lt;ul&gt;
 &lt;li&gt;In what ways was it easier?&lt;/li&gt;
 &lt;li&gt;In what ways was it harder?&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;The contrast should give you a wider perspective on how your preferred way of getting things done could be better. I&amp;rsquo;ve gone in a full circle with CSS frameworks recently: I forced myself to use Tailwind until I liked it, then at work I had to use Sass. Sass sucks in a lot of ways that Tailwind doesn&amp;rsquo;t. The converse is true, too. But knowing how other people solved the same problem, you can recognize the clumsy parts of other approaches and take the good parts of one and try to apply them to the other.&lt;/p&gt;
 &lt;p&gt;And the conclusion to this, of course, was me becoming better at vanilla CSS, because the world should not make sense.&lt;/p&gt;
 &lt;h1 id=&#34;you-should-be-aware-of-your-tools-and-how-you-could-do-better-by-them&#34;&gt;You Should Be Aware of Your Tools and How You Could do Better by Them&lt;/h1&gt;
@@ -133,7 +138,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;You like &lt;a href=&#34;../little-treats/&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;You like &lt;a href=&#34;../little-treats/&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Sometimes this is called &lt;a href=&#34;https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics&#34;&gt;the hairy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham&#39;s_Law%22&#34;&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
 &lt;p&gt;Some examples I&amp;rsquo;ve used over the years:&lt;/p&gt;
 &lt;ul&gt;
@@ -152,7 +158,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/little-treats/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Palate cleanser tasks are morale boosts&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Palate cleanser tasks are morale boosts&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I&amp;rsquo;ve found that my productivity varies wildly based on the time of year, the phase of the moon, my mental state, the quality of my morning shower thought session, and &lt;strong&gt;how enthusiastic I am about what I&amp;rsquo;m working on&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;I like to give myself &amp;ldquo;little treat&amp;rdquo; issues occasionally to keep my motivation up: issues I pick up outside of the product backlog that are quick to fix, fun to do, and give me little dopamine hits.&lt;/p&gt;
 &lt;p&gt;These keep my average motivation level up, give me a chance to remember why I&amp;rsquo;m a software engineer, and don&amp;rsquo;t really eat into the time I already have budgeted to work on other stuff: I&amp;rsquo;m highly motivated to get it done, so I do it quickly and enthusiastically and it doesn&amp;rsquo;t make my slog work any slower to deliver.&lt;/p&gt;
@@ -168,7 +175,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Over the course of your job, you are going to need to operate outside of the range of your defined permissions and responsibilities.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Over the course of your job, you are going to need to operate outside of the range of your defined permissions and responsibilities.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;You should do this &lt;em&gt;sparingly&lt;/em&gt; and &lt;em&gt;secretly&lt;/em&gt;. You should be able to operate outside of the system when you need to, and you need to know how to do it in non-obvious ways so you don&amp;rsquo;t get your escape hatches taken away from you.&lt;/p&gt;
 &lt;p&gt;Some benign examples of this:&lt;/p&gt;
 &lt;ul&gt;
@@ -188,7 +196,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Nobody should have to &lt;em&gt;ask&lt;/em&gt; what you&amp;rsquo;re working on. You should leave an obvious, loud trail. Encourage this pattern in others.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Nobody should have to &lt;em&gt;ask&lt;/em&gt; what you&amp;rsquo;re working on. You should leave an obvious, loud trail. Encourage this pattern in others.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;One thing that is important to me as an engineer that I don&amp;rsquo;t think I&amp;rsquo;ve seen put in writing is something I have distilled into the term &lt;em&gt;passively transparent&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;It should be obvious to the people in leadership what is motivating you to work and what you are working on (transparency), and it should not require an on-demand effort on your part to communicate this to them (passive access).&lt;/p&gt;
 &lt;p&gt;You should be transparent for the reason that you are setting a baseline of what you are expecting to share with your manager: if they feel like you aren&amp;rsquo;t giving good status it gives them tacit permission to ask &lt;em&gt;too many questions&lt;/em&gt; or &lt;em&gt;questions that are inappropriately deep&lt;/em&gt;. Calibrate the level of communication by setting it yourself: keep your management at an arm&amp;rsquo;s length in how they use your time and attention. &amp;ldquo;I refer you to this query on GitHub, which you may access at any time&amp;rdquo; when someone asks about your deliverables should be a response you aspire for and your leadership accepts.&lt;/p&gt;
@@ -242,7 +251,8 @@
       
       <guid>https://www.jasonscheirer.com/engineering-virtues/be-an-iceberg/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Be overprepared.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Be overprepared.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;
 &lt;figure&gt;
   &lt;img src=&#34;https://www.jasonscheirer.com/images/passively-transparent/iceberg.svg&#34; alt=&#34;Iceberg&#34; /&gt;
@@ -254,7 +264,8 @@
 &lt;p&gt;Do not operate at 100% capacity at all times, aim to operate at 80% so that when you &lt;em&gt;really&lt;/em&gt; need to you can crank up your productivity in a sustainable way.&lt;/p&gt;
 &lt;p&gt;Always have a strategic reserve of competence.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;This is not an advocacy of actual laziness, it is pace-setting to prevent burn out and preparation to in anticipation of future needs.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This is not an advocacy of actual laziness, it is pace-setting to prevent burn out and preparation to in anticipation of future needs.&lt;/p&gt;
+&lt;/blockquote&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
       
     </item>

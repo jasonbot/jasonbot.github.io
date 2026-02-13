@@ -137,7 +137,8 @@
       <guid>https://www.jasonscheirer.com/weblog/new-features-better-code/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;I wrote a blog post &lt;a href=&#34;https://web.archive.org/web/20250426184137/https://www.easypost.com/blog/2022-09-14-modern-python-new-features-better-code&#34;&gt;that is now on my employer&amp;rsquo;s engineering blog&lt;/a&gt; (never mind, it&amp;rsquo;s gone).&lt;/p&gt;
-&lt;p&gt;Put the body here again since they clobbered the old blog with actual engineering posts to AI garbage.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Put the body here again since they clobbered the old blog with actual engineering posts to AI garbage.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;In the time I&amp;rsquo;ve been at EasyPost, we&amp;rsquo;ve been putting continuous effort into making sure our code stays up-to-date to make sure we keep ahead of potential security and support issues, as well as to make our code easier to read, write and maintain as the Python language continues to mature.&lt;/p&gt;
 &lt;h1 id=&#34;black&#34;&gt;Black&lt;/h1&gt;
@@ -158,7 +159,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;mypy&#34;&gt;MyPy&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;The standard library is where modules go to die&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Kenneth Reitz&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Kenneth Reitz&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;MyPy is a tool used to analyze Python source and identify type errors/potential errors using type hints. While type hinting is largely built into the standard library/language spec, the actual enforcement of it is done by an external tool at build time. Why an external tool? Because Python typing is a work in progress still being iterated on, and having it as a core part of the language would slow down its development.&lt;/p&gt;
 &lt;p&gt;To enforce MyPy in test/lint steps, it&amp;rsquo;s Makefiles to the rescue once more:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;## checkstatic - Run static checks
@@ -507,7 +509,8 @@
       
       <guid>https://www.jasonscheirer.com/weblog/understanding-async-programming-from-fundamentals/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This was inspired by a short chat I had with a coworker, trying to give a simple, 15 minute explanation of something that took me a decade to wrap my head around due to poor teaching resources online.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Async programming in modern &amp;ldquo;industrial&amp;rdquo; languages is shrouded in magic, abstractions, and years of atrocious decisions (looking at you, Javascript/Python). Most tutorials start out with &amp;ldquo;just mark your function &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; it and use these magic incantations and you&amp;rsquo;re good to go!&amp;rdquo; without explaining the underlying concepts that were built up&lt;/p&gt;
 &lt;h2 id=&#34;async-is-mostly-only-good-for-things-with-long-unpredictable-waits&#34;&gt;Async is (mostly) only good for things with long, unpredictable waits&lt;/h2&gt;
 &lt;p&gt;What has long, unpredictable wait times? Anything I/O bound, &lt;em&gt;especially&lt;/em&gt; network traffic. CPU bound tasks were solved long ago with several approaches, namely threading and SIMD instruction data sets. I/O can still bring a multithreaded application to its knees.&lt;/p&gt;
@@ -803,7 +806,8 @@ That is, instead of &lt;code&gt;socket.wait()&lt;/code&gt; we could call &lt;cod
       
       <guid>https://www.jasonscheirer.com/weblog/dont-use-tempfiles/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This was initially a blog post I wrote on my employer&amp;rsquo;s internal system, but it&amp;rsquo;s interestingly useful and it doesn&amp;rsquo;t contain any trade secrets so I figure I&amp;rsquo;ll share.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;A common pattern that seems obvious when you need to shuttle data around in file form is to use a temporary file against the filesystem using the &lt;a href=&#34;https://docs.python.org/3/library/tempfile.html&#34;&gt;tempfile module&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You very seldom ACTUALLY need to do this. The &lt;a href=&#34;https://docs.python.org/3/library/io.html#binary-i-o&#34;&gt;BytesIO&lt;/a&gt; class follows &lt;a href=&#34;https://docs.python.org/3/glossary.html#term-file-object&#34;&gt;the exact same protocol&lt;/a&gt;, the file protocol, so any API that accepts a &amp;ldquo;file-like object&amp;rdquo; will accept an in-memory piece of information in addition to a file on disk. It&amp;rsquo;s faster, safer, and less ugly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;xyz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/dingus&amp;#39;&lt;/span&gt;

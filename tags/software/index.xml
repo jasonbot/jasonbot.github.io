@@ -14,7 +14,8 @@
       
       <guid>https://www.jasonscheirer.com/weblog/starship/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;I have &lt;a href=&#34;https://gist.github.com/jasonbot/26e894be371417ee20b973c0def1d366&#34;&gt;my seed Starship config&lt;/a&gt; up as a Gist.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I have &lt;a href=&#34;https://gist.github.com/jasonbot/26e894be371417ee20b973c0def1d366&#34;&gt;my seed Starship config&lt;/a&gt; up as a Gist.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://starship.rs/&#34;&gt;Starship&lt;/a&gt; is a tool that frustrates me because it seems so bikesheddy and unneeded: a custom prompt manager. We already had shell prompt customization! I blindly install &lt;code&gt;oh-my-*&lt;/code&gt; on new machines for prompt customization! And Starship is written in Rust. People just use Rust to be cute.&lt;/p&gt;
 &lt;p&gt;Then I realize that it&amp;rsquo;s okay to have nice things. The command line environment from the 90s can change. &lt;code&gt;rg&lt;/code&gt; doesn&amp;rsquo;t suck. &lt;code&gt;jq&lt;/code&gt; is right up there with Perl in opaque tools other people do interesting things with and then I steal the interesting things for myself. The &lt;code&gt;lazy*&lt;/code&gt; TUIs don&amp;rsquo;t suck. I mock &lt;a href=&#34;https://textual.textualize.io/&#34;&gt;Textual&lt;/a&gt; and &lt;a href=&#34;https://charm.land/&#34;&gt;Charm&lt;/a&gt; openly and unrepentantly and still hypocritically use and enjoy the tools built with them. The terminal is changing because the people using it have the agency and hubris to use it differently.&lt;/p&gt;
 &lt;p&gt;I can have a growth mindset and accept that&lt;/p&gt;
@@ -147,7 +148,8 @@
 &lt;blockquote&gt;
 &lt;h3 id=&#34;an-aside-making-peace-with-systemd&#34;&gt;An aside: Making Peace with &lt;code&gt;systemd&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;People like to talk shit about &lt;code&gt;systemd&lt;/code&gt;. It&amp;rsquo;s weird, it&amp;rsquo;s disruptive, it tries to do too much.
-First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;&lt;/blockquote&gt;
+First off, at least it&amp;rsquo;s not &lt;a href=&#34;https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html&#34;&gt;launchd&lt;/a&gt;, and second, this is a project for my entertainment and I find it fun to do interesting things despite the environment I&amp;rsquo;m running in.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;keeping-the-software-running&#34;&gt;Keeping the software running&lt;/h1&gt;
 &lt;h2 id=&#34;operating-environment-on-the-server&#34;&gt;Operating Environment on the Server&lt;/h2&gt;
 &lt;p&gt;I use &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;letsencrypt&lt;/a&gt; for SSL, &lt;a href=&#34;https://cloud.google.com/compute&#34;&gt;GCP for a VM/IP&lt;/a&gt; (Docker would be stupid here), and Nginx as the edge. The conf look like:&lt;/p&gt;
