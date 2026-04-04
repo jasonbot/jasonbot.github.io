@@ -19,7 +19,7 @@
 &lt;p&gt;I&amp;rsquo;ve forked &lt;a href=&#34;https://github.com/leaanthony/webview2runtime&#34;&gt;Lea Anthony&amp;rsquo;s library&lt;/a&gt; that eventually &lt;a href=&#34;https://github.com/wailsapp/wails/tree/b748b4625724b36f406d17987335805a83751093/v2/internal/webview2runtime&#34;&gt;made its way into core Wails&lt;/a&gt; for two reasons:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;I want it in Wails 3 and it&amp;rsquo;s not there&lt;/li&gt;
-&lt;li&gt;I want to shave a meg off the binary size by not providing the embdded installer exe&lt;/li&gt;
+&lt;li&gt;I want to shave a meg off the binary size by not providing the embedded installer exe&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;So here we are.&lt;/p&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
