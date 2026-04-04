@@ -6,7 +6,27 @@
     <description>Recent content in Jason Scheirer on the Internet on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Webview Installer</title>
+      <link>https://www.jasonscheirer.com/weblog/webview-installer/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/weblog/webview-installer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/webview-installer&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/webview-installer&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ve forked &lt;a href=&#34;https://github.com/leaanthony/webview2runtime&#34;&gt;Lea Anthony&amp;rsquo;s library&lt;/a&gt; that eventually &lt;a href=&#34;https://github.com/wailsapp/wails/tree/b748b4625724b36f406d17987335805a83751093/v2/internal/webview2runtime&#34;&gt;made its way into core Wails&lt;/a&gt; for two reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I want it in Wials 3 and it&amp;rsquo;s not there&lt;/li&gt;
+&lt;li&gt;I want to shave a meg off the binary size by not providing the embdded installer exe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So here we are.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      
+    </item>
+    
     <item>
       <title>Eleven Years in the Bay Area</title>
       <link>https://www.jasonscheirer.com/weblog/eleven-years-in-the-bay/</link>
@@ -5057,7 +5077,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode6s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
