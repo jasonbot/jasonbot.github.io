@@ -13,7 +13,7 @@
 	
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1775427423"><link rel="stylesheet" href="/css/fonts.css?rnd=1775427423">
+	<link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1775428029"><link rel="stylesheet" href="/css/fonts.css?rnd=1775428029">
 	
 </head>
 <body>
@@ -127,7 +127,7 @@
 </span></span></code></pre></div><p>and <em>force</em> users to call it like <code>do_my_task(client=self.client, schema_dataclass=DataSchema, callback=self.done)</code>, it overall makes code more easy to skim through.</p>
 <h2 id="async">Async</h2>
 <p>Long ago I spent entirely too long fighting with <a href="https://twisted.org/">Twisted</a> (and writing more boilerplate than substance) and became convinced that asynchronous programming, though its improved performance on I/O bound tasks (that is, every task you&rsquo;d realistically expect to see in a professional setting) outweigh the pain caused by writing them (allegedly).</p>
-<p>I was always a big fan of the <a href="http://www.gevent.org/">gevent</a> library because it let you write async code that looked like syncronous code. Like a decent language like Go or Java let you do.</p>
+<p>I was always a big fan of the <a href="http://www.gevent.org/">gevent</a> library because it let you write async code that looked like synchronous code. Like a decent language like Go or Java let you do.</p>
 <p>Instead, Python has fallen prey to the nasty <a href="https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/">colored functions</a> bug and added, almost identically, Javascript&rsquo;s approach to async. Booo. It even <a href="https://peps.python.org/pep-0492/">abuses the iterator protocol</a> to achieve its dark ends.</p>
 <p>However, this <em>is</em> built into the standard library and I am reluctantly starting to accept it and write code for it. <a href="https://www.tornadoweb.org/en/stable/">Tornado</a> is fine, I guess.</p>
 <h2 id="structural-pattern-matching">Structural Pattern Matching</h2>
