@@ -6,7 +6,23 @@
     <description>Recent content in Programming on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Saddle Creek: Add Out-of-Band Metadata to PE Executables</title>
+      <link>https://www.jasonscheirer.com/saddlecreek/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 -0800</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/saddlecreek/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/saddlecreek&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/saddlecreek&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I took the one part of the suttered &lt;a href=&#34;https://github.com/google/omaha&#34;&gt;Omaha open source project by Google&lt;/a&gt; and i&amp;rsquo;m making it a library I can consume elsewhere. That is all.&lt;/p&gt;
+</description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
+      <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
+      <category domain="https://www.jasonscheirer.com//tags/windows">windows</category>
+      
+    </item>
+    
     <item>
       <title>Golang Webview Installer for Wails 3</title>
       <link>https://www.jasonscheirer.com/webview-installer/</link>
