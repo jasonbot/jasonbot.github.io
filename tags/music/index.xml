@@ -1,72 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Music on Jason Scheirer</title>
-    <link>https://www.jasonscheirer.com/tags/music/</link>
-    <description>Recent content in Music on Jason Scheirer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 15 Nov 2025 08:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/music/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Innioasis Y1 Music Player</title>
-      <link>https://www.jasonscheirer.com/weblog/innioasis-y1/</link>
-      <pubDate>Sat, 15 Nov 2025 08:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/weblog/innioasis-y1/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;ve been enjoying standalone MP3 players lately! The &lt;a href=&#34;https://www.innioasis.com/products/y1&#34;&gt;Innioasis Y1&lt;/a&gt; kept coming across my radar, I like the form factor, it was $50.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Music on Jason Scheirer</title><link>https://www.jasonscheirer.com/tags/music/</link><description>Recent content in Music on Jason Scheirer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 15 Nov 2025 08:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/music/index.xml" rel="self" type="application/rss+xml"/><item><title>The Innioasis Y1 Music Player</title><link>https://www.jasonscheirer.com/weblog/innioasis-y1/</link><pubDate>Sat, 15 Nov 2025 08:00:00 +0000</pubDate><guid>https://www.jasonscheirer.com/weblog/innioasis-y1/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;ve been enjoying standalone MP3 players lately! The &lt;a href="https://www.innioasis.com/products/y1"&gt;Innioasis Y1&lt;/a&gt; kept coming across my radar, I like the form factor, it was $50.&lt;/p&gt;
 &lt;p&gt;What the heck, why not.&lt;/p&gt;
-&lt;h1 id=&#34;and-then&#34;&gt;And Then&lt;/h1&gt;
-&lt;p&gt;The community for this thing is &lt;em&gt;insane&lt;/em&gt;, it&amp;rsquo;s just as active as the people doing weird things with &lt;a href=&#34;https://www.jasonscheirer.com/weblog/rg35xx/&#34;&gt;my RG35XX&lt;/a&gt;. It&amp;rsquo;s really cool seeing so many people doing neat things with such a simple piece of hardware. And like the RG35XX, part of the value proposition is this is a cheap piece of commodity hardware that would not have been possible in this way even 5 years ago, but is now inexpensive enough and flexible enough to be an incredible product for the money.&lt;/p&gt;
-&lt;h1 id=&#34;rockbox&#34;&gt;Rockbox&lt;/h1&gt;
-&lt;p&gt;I saw you could put &lt;a href=&#34;https://github.com/rockbox-y1/rockbox&#34;&gt;a flavor of Rockbox on the thing&lt;/a&gt; so I did that. The UI out of the box isn&amp;rsquo;t nearly as polished but &lt;a href=&#34;https://github.com/y1-community/Innioasis-Updater&#34;&gt;there&amp;rsquo;s a neat community-supported updater&lt;/a&gt; that goes so far as to install skins for you. I&amp;rsquo;m currently using &lt;a href=&#34;https://codeberg.org/joelchrono/AdwaitaPod-Arcticons-rockbox-360p&#34;&gt;another Adwaita adaptation I found on the y1 subreddit&lt;/a&gt; which handles CJK correctly, which turns out to be important to me.&lt;/p&gt;
-&lt;p&gt;Rockbox has the ability to create a play log file, so &lt;a href=&#34;https://www.last.fm/user/jasonbot&#34;&gt;I can scrobble my commute/work listening again&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;I use the &lt;a href=&#34;https://www.rockbox.org/wiki/LastFMLog&#34;&gt;LastFMLog plugin&lt;/a&gt; to manually create a &lt;code&gt;.scrobbler.log&lt;/code&gt; file, then use &lt;a href=&#34;https://github.com/jeselnik/rb-scrobbler&#34;&gt;rb-scrobbler&lt;/a&gt; to upload it. It&amp;rsquo;s a manual process I only do every week or so, but it&amp;rsquo;s okay.&lt;/p&gt;
+&lt;h1 id="and-then"&gt;And Then&lt;/h1&gt;
+&lt;p&gt;The community for this thing is &lt;em&gt;insane&lt;/em&gt;, it&amp;rsquo;s just as active as the people doing weird things with &lt;a href="https://www.jasonscheirer.com/weblog/rg35xx/"&gt;my RG35XX&lt;/a&gt;. It&amp;rsquo;s really cool seeing so many people doing neat things with such a simple piece of hardware. And like the RG35XX, part of the value proposition is this is a cheap piece of commodity hardware that would not have been possible in this way even 5 years ago, but is now inexpensive enough and flexible enough to be an incredible product for the money.&lt;/p&gt;
+&lt;h1 id="rockbox"&gt;Rockbox&lt;/h1&gt;
+&lt;p&gt;I saw you could put &lt;a href="https://github.com/rockbox-y1/rockbox"&gt;a flavor of Rockbox on the thing&lt;/a&gt; so I did that. The UI out of the box isn&amp;rsquo;t nearly as polished but &lt;a href="https://github.com/y1-community/Innioasis-Updater"&gt;there&amp;rsquo;s a neat community-supported updater&lt;/a&gt; that goes so far as to install skins for you. I&amp;rsquo;m currently using &lt;a href="https://codeberg.org/joelchrono/AdwaitaPod-Arcticons-rockbox-360p"&gt;another Adwaita adaptation I found on the y1 subreddit&lt;/a&gt; which handles CJK correctly, which turns out to be important to me.&lt;/p&gt;
+&lt;p&gt;Rockbox has the ability to create a play log file, so &lt;a href="https://www.last.fm/user/jasonbot"&gt;I can scrobble my commute/work listening again&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;I use the &lt;a href="https://www.rockbox.org/wiki/LastFMLog"&gt;LastFMLog plugin&lt;/a&gt; to manually create a &lt;code&gt;.scrobbler.log&lt;/code&gt; file, then use &lt;a href="https://github.com/jeselnik/rb-scrobbler"&gt;rb-scrobbler&lt;/a&gt; to upload it. It&amp;rsquo;s a manual process I only do every week or so, but it&amp;rsquo;s okay.&lt;/p&gt;
 &lt;p&gt;This is awesome.&lt;/p&gt;
-&lt;h1 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h1&gt;
+&lt;h1 id="final-thoughts"&gt;Final Thoughts&lt;/h1&gt;
 &lt;p&gt;Three surprises. Not quite complaint territory but worth knowing about:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;No external storage. My Shanlings had a TF card slot so I could expand and swap the storage easily. This is internal. 128GB so it won&amp;rsquo;t hold my whole library but it holds everything I care about.&lt;/li&gt;
 &lt;li&gt;No touchscreen. Again, coming from Shanling this took a little bit of getting used to. Pure iPod classic ergonomics, buttons only.&lt;/li&gt;
 &lt;li&gt;Build quality is not super solid. The screen is plastic, not glass, and it scratched almost immediately. You can definitely &amp;ldquo;feel&amp;rdquo; a center of gravity while the majority of the device fgeels light. No metal in its construction. It doesn&amp;rsquo;t feel brittle but by no means is it a luxury experience.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This thing is a lot of fun to use, though! The novelty will eventually wear off but it feels good to have something iPod shaped in my life again.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
-      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
-      
-    </item>
-    
-    <item>
-      <title>The Shanling M0s Music Player</title>
-      <link>https://www.jasonscheirer.com/weblog/shanling-m0s/</link>
-      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/weblog/shanling-m0s/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;My &lt;a href=&#34;https://www.jasonscheirer.com/weblog/shanling-q1/&#34;&gt;Shanling Q1 died after a couple of years of heavy use&lt;/a&gt; and I think it was probably fixable with some soldering but I don&amp;rsquo;t have time for that.&lt;/p&gt;
-&lt;p&gt;In a rush, I bought an &lt;a href=&#34;https://en.shanling.com/article-IntroM0s.html&#34;&gt;M0s&lt;/a&gt; not reading the page and thinking it was the higher-end &lt;a href=&#34;https://en.shanling.com/product/429&#34;&gt;M0 Pro&lt;/a&gt;, but ultimately this was not a big deal!&lt;/p&gt;
-&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
+&lt;p&gt;This thing is a lot of fun to use, though! The novelty will eventually wear off but it feels good to have something iPod shaped in my life again.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category><category domain="https://www.jasonscheirer.com//tags/music">music</category></item><item><title>The Shanling M0s Music Player</title><link>https://www.jasonscheirer.com/weblog/shanling-m0s/</link><pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate><guid>https://www.jasonscheirer.com/weblog/shanling-m0s/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;My &lt;a href="https://www.jasonscheirer.com/weblog/shanling-q1/"&gt;Shanling Q1 died after a couple of years of heavy use&lt;/a&gt; and I think it was probably fixable with some soldering but I don&amp;rsquo;t have time for that.&lt;/p&gt;
+&lt;p&gt;In a rush, I bought an &lt;a href="https://en.shanling.com/article-IntroM0s.html"&gt;M0s&lt;/a&gt; not reading the page and thinking it was the higher-end &lt;a href="https://en.shanling.com/product/429"&gt;M0 Pro&lt;/a&gt;, but ultimately this was not a big deal!&lt;/p&gt;
+&lt;h1 id="usage"&gt;Usage&lt;/h1&gt;
 &lt;p&gt;This still works like the Q1: it has a custom proprietary Shanling OS which works pretty well. It does Bluetooth fine, it manages music via TF card the same.&lt;/p&gt;
 &lt;p&gt;The thing I did not realize was how much I&amp;rsquo;d like how small it is, it&amp;rsquo;s a tiny little 1.5inc square that&amp;rsquo;s about half an inch thick and has barely any mass. It just dangles at the end of the end of my headphone cable. It would be very easy to lose if I were more careless.&lt;/p&gt;
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;In all, it has served me for a year. No complaints.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
-      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
-      
-    </item>
-    
-    <item>
-      <title>The Shanling Q1 Music Player</title>
-      <link>https://www.jasonscheirer.com/weblog/shanling-q1/</link>
-      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/weblog/shanling-q1/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;In all, it has served me for a year. No complaints.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category><category domain="https://www.jasonscheirer.com//tags/music">music</category></item><item><title>The Shanling Q1 Music Player</title><link>https://www.jasonscheirer.com/weblog/shanling-q1/</link><pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate><guid>https://www.jasonscheirer.com/weblog/shanling-q1/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;A while ago I was bored with the Mechanical Keyboard rabbit hole and started looking into other, equally strange rabbit holes to dive into. At around the same time I hit my iPod Classic&amp;rsquo;s 160GB limit. I&amp;rsquo;m not yet ready to hack it up to have bigger storage: I plan to keep it in working &amp;ldquo;original&amp;rdquo; condition as it may find a better home in the future with some collector who is better at soldering than I.&lt;/p&gt;
 &lt;p&gt;So I started looking around at the current landscape of stand-alone MP3 players in 2019 and that was a fun few weeks of nerd obsession.&lt;/p&gt;
 &lt;p&gt;I loved my iPod back before it was &amp;lsquo;Classic&amp;rsquo; because it Just Worked, didn&amp;rsquo;t need a network connection, and could hold my entire music library. I started commuting on BART again and I&amp;rsquo;m underground a lot, so anything that needs a network connection is right out. I also wanted my full library at my fingertips. And usably so.&lt;/p&gt;
-&lt;p&gt;I did think about getting a hacked iPod Classic with a TF slot or a terabyte sdd or maybe get all &lt;a href=&#34;https://www.theverge.com/22238668/microsoft-zune-fans-mp3-music-player-subreddit&#34;&gt;ahistoric and pretend I ever liked the Zune before its unfortunate demise&lt;/a&gt; and get one of those hacked up with modern storage instead but that kind of spending gets me yelled at come Credit Card Balance Day.&lt;/p&gt;
-&lt;p&gt;I Kickstarted &lt;a href=&#34;https://www.kickstarter.com/projects/shanlingaudio/shanling-q1-retro-styled-portable-hi-fi-music-player&#34;&gt;the Shanling Q1&lt;/a&gt;, which cost me $89 at the time (now it retails for anywhere from $100-150, so yay me I guess). I picked it because it looked reasonable, was powered by a TF Card, and was cheap enough that it could fly under the radar on our credit card statement.&lt;/p&gt;
+&lt;p&gt;I did think about getting a hacked iPod Classic with a TF slot or a terabyte sdd or maybe get all &lt;a href="https://www.theverge.com/22238668/microsoft-zune-fans-mp3-music-player-subreddit"&gt;ahistoric and pretend I ever liked the Zune before its unfortunate demise&lt;/a&gt; and get one of those hacked up with modern storage instead but that kind of spending gets me yelled at come Credit Card Balance Day.&lt;/p&gt;
+&lt;p&gt;I Kickstarted &lt;a href="https://www.kickstarter.com/projects/shanlingaudio/shanling-q1-retro-styled-portable-hi-fi-music-player"&gt;the Shanling Q1&lt;/a&gt;, which cost me $89 at the time (now it retails for anywhere from $100-150, so yay me I guess). I picked it because it looked reasonable, was powered by a TF Card, and was cheap enough that it could fly under the radar on our credit card statement.&lt;/p&gt;
 &lt;p&gt;It advertises:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A premium DAC for audiophiles&lt;/li&gt;
@@ -77,11 +38,11 @@
 &lt;li&gt;Bluetooth (so you can play your music from ) &amp;ndash; &lt;em&gt;I did not know this worked well, or I would have just paired my work laptop to the Q1 and played all audio through it. Whoops&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I left the player at my office desk when the world ended last March, and didn&amp;rsquo;t pick it up and bring it home until November, but then it just got thrown in a bag with the rest of the contents of my drawers and then unceremoniously stored in a box in my garage.&lt;/p&gt;
-&lt;h1 id=&#34;my-music-library&#34;&gt;My Music Library&lt;/h1&gt;
+&lt;h1 id="my-music-library"&gt;My Music Library&lt;/h1&gt;
 &lt;p&gt;I still organize my Music library in Apple Music, which seems to be the only thing that can sensibly handle large volumes of audio files in a usable manner. I still buy digital albums outright (I no longer have a working optical drive in my household) and either download or convert them to open formats (MP3 or FLAC). Bandcamp and Amazon Music are my primary sources for purchase.&lt;/p&gt;
-&lt;p&gt;I do backups via rsync to a &lt;a href=&#34;https://volumio.org/&#34;&gt;Volumio&lt;/a&gt; instance in another room, which I use more as an Airdrop/DLNA audio sink as it&amp;rsquo;s connected to speakers. I didn&amp;rsquo;t really ever play music directly &lt;em&gt;from&lt;/em&gt; it, but if I ever wanted to, oh boy could I.&lt;/p&gt;
+&lt;p&gt;I do backups via rsync to a &lt;a href="https://volumio.org/"&gt;Volumio&lt;/a&gt; instance in another room, which I use more as an Airdrop/DLNA audio sink as it&amp;rsquo;s connected to speakers. I didn&amp;rsquo;t really ever play music directly &lt;em&gt;from&lt;/em&gt; it, but if I ever wanted to, oh boy could I.&lt;/p&gt;
 &lt;p&gt;For &amp;ldquo;off site&amp;rdquo; backup I rsync to another TF card which I used to take to work.&lt;/p&gt;
-&lt;h1 id=&#34;using-it-at-first&#34;&gt;Using It At First&lt;/h1&gt;
+&lt;h1 id="using-it-at-first"&gt;Using It At First&lt;/h1&gt;
 &lt;p&gt;I initially would pop my &amp;ldquo;off site&amp;rdquo; TF card into the player when I got into the office, but I found the ergonomics of dealing with a separate device that:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;did not play computer audio along with it&lt;/li&gt;
@@ -90,9 +51,9 @@
 &lt;/ol&gt;
 &lt;p&gt;was too troublesome so I eventually just started mounting the TF card on my work laptop at work (plugged into my USB-C desktop hub). I would then drag the mount onto Apple Music on my work laptop to add the files to the library, being careful to make sure Consolidate Library was turned off so it would leave the files in place. I would do this manually every so often; my cadence was about once a month.&lt;/p&gt;
 &lt;p&gt;This process was annoying enough that I didn&amp;rsquo;t do it much, it wasn&amp;rsquo;t super appropriate for work. So it went into the desk drawer.&lt;/p&gt;
-&lt;h1 id=&#34;an-update-makes-it-more-useful&#34;&gt;An Update Makes it More Useful&lt;/h1&gt;
+&lt;h1 id="an-update-makes-it-more-useful"&gt;An Update Makes it More Useful&lt;/h1&gt;
 &lt;p&gt;I found the player a month or two ago and brought it inside, and my kid used it as a toy pretend phone in his room. At some point when he was at home when me and my wife were working, I realized he lived in the living room most of the day, 3 feet away from my wife&amp;rsquo;s desk. This was because the TV was there, and toddler screams and YouTube don&amp;rsquo;t gel well with conference calls.&lt;/p&gt;
-&lt;p&gt;I first set up the Chromebook with YouTube in his room, and saw the Q1, and thought that would be a nice little thing to put Baby Shark and junk on for him for when he could read. I put the thing on the charger overnight and turned it back on. It has been a full year and a half since I acquired the thing, so I went to see if there were any firmware updates. &lt;a href=&#34;http://en.shanling.com/download/68&#34;&gt;I found there were on the official page&lt;/a&gt;, but that web site was in concerningly rapid decay and I was afraid I would never be able to get the thing up to current. Thankfully, Google indexed a Facebook thread that linked to &lt;a href=&#34;http://en.shanling.com/article-Q1-V20.html&#34;&gt;another post on their site&lt;/a&gt; that offered a Google Drive download of the firmware, so I was back in business.&lt;/p&gt;
+&lt;p&gt;I first set up the Chromebook with YouTube in his room, and saw the Q1, and thought that would be a nice little thing to put Baby Shark and junk on for him for when he could read. I put the thing on the charger overnight and turned it back on. It has been a full year and a half since I acquired the thing, so I went to see if there were any firmware updates. &lt;a href="http://en.shanling.com/download/68"&gt;I found there were on the official page&lt;/a&gt;, but that web site was in concerningly rapid decay and I was afraid I would never be able to get the thing up to current. Thankfully, Google indexed a Facebook thread that linked to &lt;a href="http://en.shanling.com/article-Q1-V20.html"&gt;another post on their site&lt;/a&gt; that offered a Google Drive download of the firmware, so I was back in business.&lt;/p&gt;
 &lt;p&gt;The update offered a bunch of really neat functionality, some of which were improvements over capabilities I never knew it previously had:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;WiFi (it has a wifi card?)&lt;/li&gt;
@@ -106,15 +67,8 @@
 &lt;li&gt;My iPhone easily paired to the device via Bluetooth as an audio sink, which drove me nuts because I was unaware of this prior&lt;/li&gt;
 &lt;li&gt;It showed up as an Airplay target on my laptop after joining WiFi, which was also infuriating because it made this device &lt;em&gt;so damn much more useful&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;18-months-later-this-is-good&#34;&gt;18 Months Later, This is Good&lt;/h1&gt;
+&lt;h1 id="18-months-later-this-is-good"&gt;18 Months Later, This is Good&lt;/h1&gt;
 &lt;p&gt;So this piece of hardware I bought more-or-less on impulse to sate my desire for a standalone MP3 player that worked at least as well as an iPod Classic is finally at the point where it is fulfilling that desire.&lt;/p&gt;
 &lt;p&gt;This device works as my wandering &amp;ldquo;off site&amp;rdquo; backup now as it still shows up as &lt;code&gt;/Media/Music&lt;/code&gt; on my Mac so my rsync script just works, so it&amp;rsquo;s the living TF adapter/music player for one of my backups.&lt;/p&gt;
 &lt;p&gt;Anyway, they&amp;rsquo;re expensive now and I don&amp;rsquo;t know if I $125 love the thing, but it&amp;rsquo;s a nice piece of compact hardware to put on the pile.&lt;/p&gt;
-&lt;p&gt;And I&amp;rsquo;d recommend nerds check out check out the standalone MP3 player market. They still exist, they have nice, incremental improvements over older players, and are mainly targets to audiophiles which forces them to include features and a build quality that are above what you&amp;rsquo;d see in commodity consumer level players, were that still a market.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category>
-      <category domain="https://www.jasonscheirer.com//tags/music">music</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;And I&amp;rsquo;d recommend nerds check out check out the standalone MP3 player market. They still exist, they have nice, incremental improvements over older players, and are mainly targets to audiophiles which forces them to include features and a build quality that are above what you&amp;rsquo;d see in commodity consumer level players, were that still a market.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/hardware">hardware</category><category domain="https://www.jasonscheirer.com//tags/music">music</category></item></channel></rss>

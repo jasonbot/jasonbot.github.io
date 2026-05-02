@@ -1,56 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Engineering Virtues on Jason Scheirer</title>
-    <link>https://www.jasonscheirer.com/tags/virtues/</link>
-    <description>Recent content in Engineering Virtues on Jason Scheirer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/virtues/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Learn To Live With The Defaults</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</guid>
-      <description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Engineering Virtues on Jason Scheirer</title><link>https://www.jasonscheirer.com/tags/virtues/</link><description>Recent content in Engineering Virtues on Jason Scheirer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 03 Jan 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/virtues/index.xml" rel="self" type="application/rss+xml"/><item><title>Learn To Live With The Defaults</title><link>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</link><pubDate>Sat, 03 Jan 2026 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Every deviation from default is slowing you down from getting started and making it harder to help others.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;I use about 5 distinct laptops/desktops on an average day, not to mention the VMs within them and other machines I shell into. Having a consistent experience is useful, but equally important is my ability to roll with the punches and get productive on a new computer without much ceremony.&lt;/p&gt;
-&lt;p&gt;One thing I do to cope with this is &lt;a href=&#34;https://github.com/jasonbot/dotfiles&#34;&gt;a dotfiles repo with a dead-simple installation method&lt;/a&gt;, but also note how conservative it is. No huge vim plugin setup. Very minimal tmux config (which is still bad, and I&amp;rsquo;ll explain why later). Not a lot going on.&lt;/p&gt;
+&lt;p&gt;One thing I do to cope with this is &lt;a href="https://github.com/jasonbot/dotfiles"&gt;a dotfiles repo with a dead-simple installation method&lt;/a&gt;, but also note how conservative it is. No huge vim plugin setup. Very minimal tmux config (which is still bad, and I&amp;rsquo;ll explain why later). Not a lot going on.&lt;/p&gt;
 &lt;p&gt;Moving from the defaults to a custom setup might make you more effective in the immediate term, but it makes it harder long-term. You have additional complexity in terms of packages installed, keymaps, etc. that you need to reproduce regularly on every system you use.&lt;/p&gt;
-&lt;p&gt;As I complained about in &lt;a href=&#34;https://www.jasonscheirer.com/weblog/framework-syndrome/&#34;&gt;Framework Syndrome&lt;/a&gt;, flexible software just moves the problem along, it does not solve the problem. Having a tool that&amp;rsquo;s flexible enough to get out of the way so that you can solve the problem yourself is double-edged: it does not provide the solution you want, it provides an environment to implement your solution. This seems to mean that everyone new to the software will not see it as useful as it seems to you, right? To them it&amp;rsquo;s a blank slate, and is only useful with significant customization.&lt;/p&gt;
+&lt;p&gt;As I complained about in &lt;a href="https://www.jasonscheirer.com/weblog/framework-syndrome/"&gt;Framework Syndrome&lt;/a&gt;, flexible software just moves the problem along, it does not solve the problem. Having a tool that&amp;rsquo;s flexible enough to get out of the way so that you can solve the problem yourself is double-edged: it does not provide the solution you want, it provides an environment to implement your solution. This seems to mean that everyone new to the software will not see it as useful as it seems to you, right? To them it&amp;rsquo;s a blank slate, and is only useful with significant customization.&lt;/p&gt;
 &lt;p&gt;This also affects teachability! With your hyper-customized setup you can&amp;rsquo;t be as effective a mentor or guide. One thing that makes it harder for me to advocate tmux to new devs is that I use one thing sightly idiomatically: coming from the older tool screen means I remap Ctl-B to Ctl-A for consistency. This has bitten me many a time!&lt;/p&gt;
 &lt;p&gt;One example: Once I had set up a shared VM at work and had long-running tasks in tmux that my teammates could check in on. The entire setup was stymied by the fact that nobody but me could use tmux due to &lt;em&gt;that one customization&lt;/em&gt; I had set up.&lt;/p&gt;
-&lt;p&gt;Learn to lean in and be as functional as possible with the default setup. A kitted-out vim is great but learn the basics as muscle memory. Prefer tools with good defaults over good enough tools with the flexibility to make them as good as the ones with good defaults.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Here&#39;s The Interesting Part</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</link>
-      <pubDate>Tue, 22 Jul 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;Learn to lean in and be as functional as possible with the default setup. A kitted-out vim is great but learn the basics as muscle memory. Prefer tools with good defaults over good enough tools with the flexibility to make them as good as the ones with good defaults.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>Here's The Interesting Part</title><link>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</link><pubDate>Tue, 22 Jul 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/the-interesting-part/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;For the 500 lines of boilerplate, &lt;em&gt;what are the five truly interesting lines that solve the problem&lt;/em&gt;?&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In the course of my problem solving, &lt;em&gt;especially&lt;/em&gt; when I am solving a problem I think &lt;a href=&#34;../this-shouldnt-be-hard/&#34;&gt;shouldn&amp;rsquo;t be hard&lt;/a&gt;, I think back to the essential &lt;em&gt;core&lt;/em&gt; of the problem&lt;/p&gt;
+&lt;p&gt;In the course of my problem solving, &lt;em&gt;especially&lt;/em&gt; when I am solving a problem I think &lt;a href="../this-shouldnt-be-hard/"&gt;shouldn&amp;rsquo;t be hard&lt;/a&gt;, I think back to the essential &lt;em&gt;core&lt;/em&gt; of the problem&lt;/p&gt;
 &lt;p&gt;Typically a fix is a couple of API calls or a single clever data structure.&lt;/p&gt;
 &lt;p&gt;As a consequence of this, I typically annotate my Pull Requests with an annotated &amp;ldquo;this is the interesting part&amp;rdquo; section. I recommend this approach: you are asking your reviewers for special attention on the original thoughts, and signaling the other code you had to write is something you do not feel is important, and are far more open to nitpicking on (versus thoughful review).&lt;/p&gt;
-&lt;p&gt;Pair this with &lt;em&gt;This Shouldn&amp;rsquo;t Be Hard&lt;/em&gt;: You just need those five lines of beauty and then you need to do the 500 lines of ceremony to make them real.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>This Shouldn&#39;t Be Hard</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;Pair this with &lt;em&gt;This Shouldn&amp;rsquo;t Be Hard&lt;/em&gt;: You just need those five lines of beauty and then you need to do the 500 lines of ceremony to make them real.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>This Shouldn't Be Hard</title><link>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</link><pubDate>Mon, 21 Jul 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/this-shouldnt-be-hard/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;As you are working your way to the goal, you should be able to be clearminded about how you aim on getting there and when you are slowed down for silly reasons do not accept them as excuses. Say to yourself, &amp;ldquo;I know what I need to do, it shouldn&amp;rsquo;t be this hard.&amp;rdquo;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Overall, you should be working toward writing functional code that achieves a goal.&lt;/p&gt;
@@ -61,29 +24,18 @@
 &lt;li&gt;Document and work around pain points, make sure they do not remain painful for long.&lt;/li&gt;
 &lt;li&gt;Can you make them less painful via changing the broken parts?&lt;/li&gt;
 &lt;li&gt;Can you make them less painful via &amp;ldquo;sharpening your tools;&amp;rdquo; i.e. getting better at working with the system via practice?&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../you-need-to-break-the-rules/&#34;&gt;Break the rules&lt;/a&gt; if the process gets in your way: you have a goal and it is not your goal to get stopped by the journey.&lt;/li&gt;
+&lt;li&gt;&lt;a href="../you-need-to-break-the-rules/"&gt;Break the rules&lt;/a&gt; if the process gets in your way: you have a goal and it is not your goal to get stopped by the journey.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Always stop and think to yourself: I know how to solve this, &lt;em&gt;it shouldn&amp;rsquo;t be hard to get that solution out into the world&lt;/em&gt;. Treat each hindrance with the utmost of contempt.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Hate What You Know</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</link>
-      <pubDate>Sat, 17 May 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;Always stop and think to yourself: I know how to solve this, &lt;em&gt;it shouldn&amp;rsquo;t be hard to get that solution out into the world&lt;/em&gt;. Treat each hindrance with the utmost of contempt.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>Hate What You Know</title><link>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</link><pubDate>Sat, 17 May 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/hate-what-you-know/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;You should be familiar enough with your tools to be able list critical things about them, even though they&amp;rsquo;re what you still choose to use every day.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The title &lt;em&gt;Hate What You Know&lt;/em&gt; is admittedly vague, I know! There are a handful of directions I&amp;rsquo;ll go with it, bear with me. And at least to some extent I don&amp;rsquo;t mean &amp;ldquo;hate,&amp;rdquo; I just mean &amp;ldquo;know well.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m an advocate of being a craftsperson out of anger. Do things because they need doing and dammit, you can&amp;rsquo;t live in a world where this problem isn&amp;rsquo;t solved anymore.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll make a deliberately outrageous claim: doing something out of need is craft, doing something out of compulsion is art. A craftsman makes a work because they see something missing in the world. An artist makes a work because they see something of a possibility in the world. Professionally, at least, you&amp;rsquo;re hopefully operating in the former camp. In the latter, you&amp;rsquo;re either outrageously lucky doing what you love in a place of psychological safety or secretly pissing everyone off around you by being a perfectionist primadonna.&lt;/p&gt;
-&lt;h1 id=&#34;the-opposite-of-hate-is-not-love-its-indifference&#34;&gt;The Opposite of Hate is not Love, It&amp;rsquo;s Indifference&lt;/h1&gt;
+&lt;h1 id="the-opposite-of-hate-is-not-love-its-indifference"&gt;The Opposite of Hate is not Love, It&amp;rsquo;s Indifference&lt;/h1&gt;
 &lt;p&gt;Hate is a strong feeling that can only really be fostered from a sense of strongly personal experience with a topic, person, or a tool.&lt;/p&gt;
 &lt;p&gt;To truly hate a tool, that means you understand it intimately. To understand it intimately means you can use it well.&lt;/p&gt;
-&lt;h2 id=&#34;you-cant-truly-hate-what-you-dont-understand&#34;&gt;You Can&amp;rsquo;t Truly Hate What You Don&amp;rsquo;t Understand&lt;/h2&gt;
+&lt;h2 id="you-cant-truly-hate-what-you-dont-understand"&gt;You Can&amp;rsquo;t Truly Hate What You Don&amp;rsquo;t Understand&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s easy to dismiss a technology based on a pro/con list or based on some surface feature. &amp;ldquo;I could never use Python,&amp;rdquo; developers say, &amp;ldquo;the indentation-based syntax feels too weird.&amp;rdquo; After a month of actually using Python, a surface judgment like that probably goes away, overshadowed by actual deeper issues with the language. There&amp;rsquo;s plenty of worse things down the line once you&amp;rsquo;re familiar with the system. I&amp;rsquo;ve seen the same said about Go and its (lack of) solid OOP principles. Once you&amp;rsquo;ve used Go and you&amp;rsquo;ve gotten things done, there&amp;rsquo;s a whole new world you discover: how to live without that core thing, and brand new things to dislike but tolerate further down.&lt;/p&gt;
 &lt;p&gt;In this, &lt;em&gt;actually using a tool&lt;/em&gt; gives you &lt;em&gt;real things to dislike&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;An analogy I like to give when discussing this: imagine two people, a person who cut you off in line at the bank and a close relative who happens to be a tremendous fuckup.&lt;/p&gt;
@@ -91,7 +43,7 @@
 &lt;p&gt;Then think about a loved one, a close relative. You grew up with them. You watched the process of them developing as a person alongside you. You love this person. Now, this person may be something of a fuckup: they&amp;rsquo;ve been in and out of jail, they do things you know are bad for them, they continue to hurt themselves, with &lt;em&gt;you&lt;/em&gt; as collateral damage. Last time they stayed at your place you came home and they&amp;rsquo;d sold your TV. More often than not, they &lt;em&gt;hurt&lt;/em&gt; you. But you remember the good times. You have a history. This is a fully developed human being and a core character in your life. Their rate of wronging you isn&amp;rsquo;t close to 100%, but the &lt;em&gt;number&lt;/em&gt; of times they&amp;rsquo;ve wronged you dwarfs that stranger at the bank.&lt;/p&gt;
 &lt;p&gt;You should hate this person with the same intensity as that person at the bank, maybe more. But you don&amp;rsquo;t, it&amp;rsquo;s more nuanced because of your shared experience.&lt;/p&gt;
 &lt;p&gt;You should aspire to withhold loud, public judgment of a technology until you can look at it with a &amp;ldquo;well, sure, but&amp;hellip;&amp;rdquo; and a long wistful sigh.&lt;/p&gt;
-&lt;h1 id=&#34;you-should-be-aware-of-your-tools-and-how-they-could-do-better-by-you&#34;&gt;You Should Be Aware of Your Tools and How they Could do Better by You&lt;/h1&gt;
+&lt;h1 id="you-should-be-aware-of-your-tools-and-how-they-could-do-better-by-you"&gt;You Should Be Aware of Your Tools and How they Could do Better by You&lt;/h1&gt;
 &lt;p&gt;Hate, as opposed to love, comes with a much different place of origin when setting expectations: you presume the worst rather than the best when approaching it. This sets you up for disillusionment when the thing you can see no wrong in eventually fails you in some way. Never meet your heroes. Heck, never watch a hero on a bad day.&lt;/p&gt;
 &lt;p&gt;You should look for ways to hate your tools. By this, I mean the following:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -103,7 +55,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;The contrast should give you a wider perspective on how your preferred way of getting things done could be better. I&amp;rsquo;ve gone in a full circle with CSS frameworks recently: I forced myself to use Tailwind until I liked it, then at work I had to use Sass. Sass sucks in a lot of ways that Tailwind doesn&amp;rsquo;t. The converse is true, too. But knowing how other people solved the same problem, you can recognize the clumsy parts of other approaches and take the good parts of one and try to apply them to the other.&lt;/p&gt;
 &lt;p&gt;And the conclusion to this, of course, was me becoming better at vanilla CSS, because the world should not make sense.&lt;/p&gt;
-&lt;h1 id=&#34;you-should-be-aware-of-your-tools-and-how-you-could-do-better-by-them&#34;&gt;You Should Be Aware of Your Tools and How You Could do Better by Them&lt;/h1&gt;
+&lt;h1 id="you-should-be-aware-of-your-tools-and-how-you-could-do-better-by-them"&gt;You Should Be Aware of Your Tools and How You Could do Better by Them&lt;/h1&gt;
 &lt;p&gt;Again with the not-quite-hatred talk:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Are you growing in your use of the tool?&lt;/li&gt;
@@ -125,56 +77,23 @@
 &lt;/li&gt;
 &lt;li&gt;After you&amp;rsquo;ve outgrown it, can you still advocate it to others who are earlier in their journey?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;anyhoo&#34;&gt;Anyhoo&lt;/h1&gt;
-&lt;p&gt;I suppose I should write a conclusion. Here it is. No more words.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Throw your Team a Bone</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</link>
-      <pubDate>Fri, 14 Mar 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;You like &lt;a href=&#34;../little-treats/&#34;&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
+&lt;h1 id="anyhoo"&gt;Anyhoo&lt;/h1&gt;
+&lt;p&gt;I suppose I should write a conclusion. Here it is. No more words.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>Throw your Team a Bone</title><link>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</link><pubDate>Fri, 14 Mar 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/throw-them-a-bone/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;You like &lt;a href="../little-treats/"&gt;little treats&lt;/a&gt;, so do other people! Sometimes you gotta give your peers something to make them feel good too.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Sometimes this is called &lt;a href=&#34;https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics&#34;&gt;the hairy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham&#39;s_Law%22&#34;&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
+&lt;p&gt;Sometimes this is called &lt;a href="https://www.theguardian.com/lifeandstyle/2013/nov/23/change-your-life-hairy-arm-tactics"&gt;the hairy arm technique&lt;/a&gt;, sometimes it&amp;rsquo;s a manifestation of &lt;a href="https://en.wikipedia.org/wiki/Ward_Cunningham#%22Cunningham's_Law%22"&gt;Cunningham&amp;rsquo;s Law&lt;/a&gt;. What you do is this: present something obviously wrong or easily correctable when you make a presentation. This lets the other person feel smart (&amp;ldquo;you need to fix this broken thing that you made broken&amp;rdquo;) and changes the focus of the argument so that you get the nitpicking out of the way early and the uneeded but inevitable stage where it happens doesn&amp;rsquo;t derail the conversation when discussing actual work.&lt;/p&gt;
 &lt;p&gt;Some examples I&amp;rsquo;ve used over the years:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Name a new source file slightly wrong in the PR. You&amp;rsquo;ll be asked to correct the name and then you won&amp;rsquo;t have to have a long conversation where you get the reviewer up-to-speed about the logic of the method that you spent a week thinking through, they&amp;rsquo;re satisfied with the feedback they&amp;rsquo;ve given and do not feel obligated to go further.&lt;/li&gt;
 &lt;li&gt;Just ship a new UI without being provided a design. You&amp;rsquo;ll get some minor markup corrections but you don&amp;rsquo;t have to go through a lengthy planning phase.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Just a suggestion!&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Give Yourself Little Treats Sometimes</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/little-treats/</link>
-      <pubDate>Wed, 05 Mar 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/little-treats/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;Just a suggestion!&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>Give Yourself Little Treats Sometimes</title><link>https://www.jasonscheirer.com/engineering-virtues/little-treats/</link><pubDate>Wed, 05 Mar 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/little-treats/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Palate cleanser tasks are morale boosts&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;I&amp;rsquo;ve found that my productivity varies wildly based on the time of year, the phase of the moon, my mental state, the quality of my morning shower thought session, and &lt;strong&gt;how enthusiastic I am about what I&amp;rsquo;m working on&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;I like to give myself &amp;ldquo;little treat&amp;rdquo; issues occasionally to keep my motivation up: issues I pick up outside of the product backlog that are quick to fix, fun to do, and give me little dopamine hits.&lt;/p&gt;
 &lt;p&gt;These keep my average motivation level up, give me a chance to remember why I&amp;rsquo;m a software engineer, and don&amp;rsquo;t really eat into the time I already have budgeted to work on other stuff: I&amp;rsquo;m highly motivated to get it done, so I do it quickly and enthusiastically and it doesn&amp;rsquo;t make my slog work any slower to deliver.&lt;/p&gt;
-&lt;p&gt;Give yourself treats. Side projects. Little tweaks. Fun stuff.&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>You Need to Break the Rules</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</link>
-      <pubDate>Sat, 01 Mar 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;Give yourself treats. Side projects. Little tweaks. Fun stuff.&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>You Need to Break the Rules</title><link>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</link><pubDate>Sat, 01 Mar 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/you-need-to-break-the-rules/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Over the course of your job, you are going to need to operate outside of the range of your defined permissions and responsibilities.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;You should do this &lt;em&gt;sparingly&lt;/em&gt; and &lt;em&gt;secretly&lt;/em&gt;. You should be able to operate outside of the system when you need to, and you need to know how to do it in non-obvious ways so you don&amp;rsquo;t get your escape hatches taken away from you.&lt;/p&gt;
@@ -184,18 +103,7 @@
 &lt;li&gt;Knowing a backdoor for read-only access to the prod database&lt;/li&gt;
 &lt;li&gt;Being buddies with the devops team and being able to spin up new infra outside of roadmaps and plans&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Operating 100% within the rules is career death: you will not be able to move the needle if you spend all of your effort coloring within the lines. Rule following or not, you will be laid off when things get bad. Nobody gets promoted for good behavior, they get promoted for being well-liked. Alternately, judicious application of breaking the rules, if the results are good, will not result in you losing your job (unless you are not popular).&lt;/p&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Passively Transparent</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</link>
-      <pubDate>Fri, 28 Feb 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;Operating 100% within the rules is career death: you will not be able to move the needle if you spend all of your effort coloring within the lines. Rule following or not, you will be laid off when things get bad. Nobody gets promoted for good behavior, they get promoted for being well-liked. Alternately, judicious application of breaking the rules, if the results are good, will not result in you losing your job (unless you are not popular).&lt;/p&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>Passively Transparent</title><link>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</link><pubDate>Fri, 28 Feb 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/passively-transparent/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Nobody should have to &lt;em&gt;ask&lt;/em&gt; what you&amp;rsquo;re working on. You should leave an obvious, loud trail. Encourage this pattern in others.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;One thing that is important to me as an engineer that I don&amp;rsquo;t think I&amp;rsquo;ve seen put in writing is something I have distilled into the term &lt;em&gt;passively transparent&lt;/em&gt;.&lt;/p&gt;
@@ -203,7 +111,7 @@
 &lt;p&gt;You should be transparent for the reason that you are setting a baseline of what you are expecting to share with your manager: if they feel like you aren&amp;rsquo;t giving good status it gives them tacit permission to ask &lt;em&gt;too many questions&lt;/em&gt; or &lt;em&gt;questions that are inappropriately deep&lt;/em&gt;. Calibrate the level of communication by setting it yourself: keep your management at an arm&amp;rsquo;s length in how they use your time and attention. &amp;ldquo;I refer you to this query on GitHub, which you may access at any time&amp;rdquo; when someone asks about your deliverables should be a response you aspire for and your leadership accepts.&lt;/p&gt;
 &lt;p&gt;You should be passively available for the reason that you are setting a baseline of when and how you are making yourself available to your manager: you, as my lead, should not have to wait for things to escalate to me openly broadcasting a crisis state before reaching out. You should also be able to do a pulse check without requiring my intervention. My time is precious, and I should not be forced to choose &lt;em&gt;which&lt;/em&gt; time I give to you via a scheduled 1:1 if I can choose to give you &lt;em&gt;the time that matters, when I have it&lt;/em&gt; to share progress.&lt;/p&gt;
 &lt;p&gt;A lot of the agile software movement and its offshoots attempt to codify and formalize processes of behavior that boil down to expressing these values:&lt;/p&gt;
-&lt;h1 id=&#34;keep-track-of-what-you-are-working-on&#34;&gt;Keep Track Of What You Are Working On&lt;/h1&gt;
+&lt;h1 id="keep-track-of-what-you-are-working-on"&gt;Keep Track Of What You Are Working On&lt;/h1&gt;
 &lt;p&gt;If a manager or peer wants to see what you are working on, they shouldn&amp;rsquo;t have to ask for a status update: they should be able to figure it out on their own at any time on demand.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Open a draft PR the &lt;em&gt;second&lt;/em&gt; you begin coding, push to it regularly. Hourly, during a standard working day, if you can.&lt;/li&gt;
@@ -220,55 +128,36 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;share-what-you-are-doing-with-others&#34;&gt;Share What You Are Doing With Others&lt;/h1&gt;
+&lt;h1 id="share-what-you-are-doing-with-others"&gt;Share What You Are Doing With Others&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Set permissions by default to &lt;em&gt;commenter&lt;/em&gt; or &lt;em&gt;editor&lt;/em&gt; on every document and web site you start.&lt;/li&gt;
 &lt;li&gt;Assume if someone is curious enough to want to know something that they are a stakeholder, whether they like it or not. Let them know. Pull them in.&lt;/li&gt;
 &lt;li&gt;Share everything: use public Slack channels. Private channels and DMs are for shit talking and performance reviews, not for day-to-day work.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;dont-let-when-something-happens-influence-how-and-why-it-happens-too-much&#34;&gt;Don&amp;rsquo;t Let &lt;em&gt;When&lt;/em&gt; Something Happens Influence &lt;em&gt;How&lt;/em&gt; And &lt;em&gt;Why&lt;/em&gt; It Happens Too Much&lt;/h1&gt;
+&lt;h1 id="dont-let-when-something-happens-influence-how-and-why-it-happens-too-much"&gt;Don&amp;rsquo;t Let &lt;em&gt;When&lt;/em&gt; Something Happens Influence &lt;em&gt;How&lt;/em&gt; And &lt;em&gt;Why&lt;/em&gt; It Happens Too Much&lt;/h1&gt;
 &lt;p&gt;This is something that has always mattered to me, doubly so with the forced async-by-default working world inflicted on us by the pandemic years and working with multi-time-zone teams.&lt;/p&gt;
 &lt;p&gt;Make decisions (choose one end, these are opposite ends of a continuum):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;As quickly as possible with minimal consensus but easy to change course on&lt;/li&gt;
 &lt;li&gt;As late as possible with as long as reasonable to get input on&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;encourage-this-behavior-in-others&#34;&gt;Encourage This Behavior In Others&lt;/h1&gt;
+&lt;h1 id="encourage-this-behavior-in-others"&gt;Encourage This Behavior In Others&lt;/h1&gt;
 &lt;p&gt;One way to promote this way of working is to practice it yourself: when working in a team, engage with your peers with the assumption that they are working in a passively transparent manner themselves.&lt;/p&gt;
 &lt;p&gt;Quick, no-expectations messages on Slack can do wonders in a non-forceful way by gently framing your working style as conventional:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;I was reading your draft PR, looks good&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;&amp;ldquo;Is there a Jira queue I&amp;rsquo;m not watching where you&amp;rsquo;re doing daily updates?&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-    <item>
-      <title>Be An Iceberg</title>
-      <link>https://www.jasonscheirer.com/engineering-virtues/be-an-iceberg/</link>
-      <pubDate>Sat, 01 Feb 2025 00:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/engineering-virtues/be-an-iceberg/</guid>
-      <description>&lt;blockquote&gt;
+&lt;/ul&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item><item><title>Be An Iceberg</title><link>https://www.jasonscheirer.com/engineering-virtues/be-an-iceberg/</link><pubDate>Sat, 01 Feb 2025 00:00:00 -0800</pubDate><guid>https://www.jasonscheirer.com/engineering-virtues/be-an-iceberg/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Be overprepared.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;https://www.jasonscheirer.com/images/passively-transparent/iceberg.svg&#34; alt=&#34;Iceberg&#34; /&gt;
+&lt;img src="https://www.jasonscheirer.com/images/passively-transparent/iceberg.svg" alt="Iceberg" /&gt;
 &lt;/figure&gt;
-
-
 &lt;/p&gt;
 &lt;p&gt;As the phrase goes, &lt;em&gt;don&amp;rsquo;t let your mouth write checks your ass can&amp;rsquo;t cash&lt;/em&gt;. Send along curated information that is a good summary of what you are doing, but be able to support it with research, opinion, or buy-in when pushed. Reveal enough to convey that you are a force, but do not reveal &lt;em&gt;everything&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Do not operate at 100% capacity at all times, aim to operate at 80% so that when you &lt;em&gt;really&lt;/em&gt; need to you can crank up your productivity in a sustainable way.&lt;/p&gt;
 &lt;p&gt;Always have a strategic reserve of competence.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This is not an advocacy of actual laziness, it is pace-setting to prevent burn out and preparation to in anticipation of future needs.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+&lt;/blockquote&gt;</description><category domain="https://www.jasonscheirer.com//tags/virtues">virtues</category></item></channel></rss>

@@ -1,23 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Uses on Jason Scheirer</title>
-    <link>https://www.jasonscheirer.com/tags/uses/</link>
-    <description>Recent content in Uses on Jason Scheirer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/uses/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Tools I Use to Live My Glamorous Life</title>
-      <link>https://www.jasonscheirer.com/uses/</link>
-      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/uses/</guid>
-      <description>&lt;h1 id=&#34;development&#34;&gt;Development&lt;/h1&gt;
-&lt;h2 id=&#34;languagestechnologies&#34;&gt;Languages/Technologies&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Uses on Jason Scheirer</title><link>https://www.jasonscheirer.com/tags/uses/</link><description>Recent content in Uses on Jason Scheirer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/uses/index.xml" rel="self" type="application/rss+xml"/><item><title>Tools I Use to Live My Glamorous Life</title><link>https://www.jasonscheirer.com/uses/</link><pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate><guid>https://www.jasonscheirer.com/uses/</guid><description>&lt;h1 id="development"&gt;Development&lt;/h1&gt;
+&lt;h2 id="languagestechnologies"&gt;Languages/Technologies&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;I am primarily a Python expert (25 years!)&lt;/li&gt;
-&lt;li&gt;I am primarily a &lt;a href=&#34;https://github.com/fastapi/fastapi&#34;&gt;FastAPI&lt;/a&gt; user, and I am better than average at doing async programming (which sucks and is bad, but it&amp;rsquo;s fun to do bad things)&lt;/li&gt;
+&lt;li&gt;I am primarily a &lt;a href="https://github.com/fastapi/fastapi"&gt;FastAPI&lt;/a&gt; user, and I am better than average at doing async programming (which sucks and is bad, but it&amp;rsquo;s fun to do bad things)&lt;/li&gt;
 &lt;li&gt;I primarily choose Postgres as my database&lt;/li&gt;
 &lt;li&gt;I do most of my personal dev projects in Go&lt;/li&gt;
 &lt;li&gt;Over the last 3-5 years, Typescript has become the dominant language I use at work&lt;/li&gt;
@@ -30,137 +15,131 @@
 &lt;/li&gt;
 &lt;li&gt;I now prefer Fedora and Fedoralikes for desktop Linux&lt;/li&gt;
 &lt;li&gt;I usually prefer Debian stable or one of its relatives for servers and Alpine for container base images&lt;/li&gt;
-&lt;li&gt;I use &lt;a href=&#34;https://tailwindcss.com/&#34;&gt;Tailwind&lt;/a&gt; at home for CSS, often &lt;a href=&#34;https://www.jasonscheirer.com/weblog/tailwind/&#34;&gt;tableflipping and reverting to vanilla CSS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I use &lt;a href=&#34;https://www.solidjs.com/&#34;&gt;Solid&lt;/a&gt; and &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript&#34;&gt;plain old JS&lt;/a&gt; at home, &lt;a href=&#34;https://react.dev/&#34;&gt;React&lt;/a&gt; at work&lt;/li&gt;
-&lt;li&gt;I use &lt;a href=&#34;https://ollama.com/&#34;&gt;Ollama&lt;/a&gt; on Windows, Mac and Linux to locally run LLMs&lt;/li&gt;
+&lt;li&gt;I use &lt;a href="https://tailwindcss.com/"&gt;Tailwind&lt;/a&gt; at home for CSS, often &lt;a href="https://www.jasonscheirer.com/weblog/tailwind/"&gt;tableflipping and reverting to vanilla CSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I use &lt;a href="https://www.solidjs.com/"&gt;Solid&lt;/a&gt; and &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"&gt;plain old JS&lt;/a&gt; at home, &lt;a href="https://react.dev/"&gt;React&lt;/a&gt; at work&lt;/li&gt;
+&lt;li&gt;I use &lt;a href="https://ollama.com/"&gt;Ollama&lt;/a&gt; on Windows, Mac and Linux to locally run LLMs&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;editorsenvironments&#34;&gt;Editors/Environments&lt;/h2&gt;
+&lt;h2 id="editorsenvironments"&gt;Editors/Environments&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;My muscle memory is &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;, I use it everywhere&lt;/li&gt;
-&lt;li&gt;I have hit the point of no return and use &lt;a href=&#34;https://zed.dev/&#34;&gt;Zed&lt;/a&gt; more than any other development tool
+&lt;li&gt;My muscle memory is &lt;a href="https://www.vim.org/"&gt;Vim&lt;/a&gt;, I use it everywhere&lt;/li&gt;
+&lt;li&gt;I have hit the point of no return and use &lt;a href="https://zed.dev/"&gt;Zed&lt;/a&gt; more than any other development tool
 &lt;ul&gt;
 &lt;li&gt;I no longer use LLM code assistance in any measurable amount, I find a lot more value using LLMs as code review tools than code generation tools&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Much of my polyglot development is via &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I like using &lt;a href=&#34;https://ebitengine.org/&#34;&gt;Ebitengine&lt;/a&gt; to make silly 2D games&lt;/li&gt;
-&lt;li&gt;I also (rarely) play around with &lt;a href=&#34;https://www.lexaloffle.com/picotron.php&#34;&gt;Picotron&lt;/a&gt;, &lt;a href=&#34;https://www.lexaloffle.com/pico-8.php&#34;&gt;Pico-8&lt;/a&gt;, &lt;a href=&#34;https://tic80.com/&#34;&gt;TIC-80&lt;/a&gt; and &lt;a href=&#34;https://love2d.org/&#34;&gt;LÖVE&lt;/a&gt; for the same&lt;/li&gt;
+&lt;li&gt;Much of my polyglot development is via &lt;a href="https://code.visualstudio.com/"&gt;VS Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I like using &lt;a href="https://ebitengine.org/"&gt;Ebitengine&lt;/a&gt; to make silly 2D games&lt;/li&gt;
+&lt;li&gt;I also (rarely) play around with &lt;a href="https://www.lexaloffle.com/picotron.php"&gt;Picotron&lt;/a&gt;, &lt;a href="https://www.lexaloffle.com/pico-8.php"&gt;Pico-8&lt;/a&gt;, &lt;a href="https://tic80.com/"&gt;TIC-80&lt;/a&gt; and &lt;a href="https://love2d.org/"&gt;LÖVE&lt;/a&gt; for the same&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;command-line&#34;&gt;Command line&lt;/h2&gt;
+&lt;h2 id="command-line"&gt;Command line&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/jasonbot/dotfiles&#34;&gt;Here is the bootstrap set of dotfiles I use&lt;/a&gt; on new computers&lt;/li&gt;
-&lt;li&gt;On Windows, &lt;a href=&#34;https://github.com/jasonbot/bootstrap-windows-development-machine&#34;&gt;I&amp;rsquo;m doing the same thing but different&lt;/a&gt; with setting up a new machine.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/jasonbot/dotfiles"&gt;Here is the bootstrap set of dotfiles I use&lt;/a&gt; on new computers&lt;/li&gt;
+&lt;li&gt;On Windows, &lt;a href="https://github.com/jasonbot/bootstrap-windows-development-machine"&gt;I&amp;rsquo;m doing the same thing but different&lt;/a&gt; with setting up a new machine.&lt;/li&gt;
 &lt;li&gt;I use zsh and bash almost equally, though I think I have more zsh machines now&lt;/li&gt;
-&lt;li&gt;I usually start out with &lt;a href=&#34;https://ohmyz.sh/&#34;&gt;oh-my-zsh&lt;/a&gt; or &lt;a href=&#34;https://github.com/ohmybash/oh-my-bash&#34;&gt;oh-my-bash&lt;/a&gt; on new systems&lt;/li&gt;
-&lt;li&gt;I use &lt;a href=&#34;https://github.com/nvm-sh/nvm&#34;&gt;nvm&lt;/a&gt;, &lt;a href=&#34;https://github.com/rbenv/rbenv&#34;&gt;rbenv&lt;/a&gt;, and &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt; to manage node/ruby/python installs &amp;ndash; I can&amp;rsquo;t get the hang of &lt;a href=&#34;https://github.com/astral-sh/uv&#34;&gt;uv&lt;/a&gt; but that looks like the future at this point for Python.&lt;/li&gt;
-&lt;li&gt;I use &lt;code&gt;grep&lt;/code&gt;, &lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;&lt;code&gt;rg&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34;&gt;&lt;code&gt;ag&lt;/code&gt;&lt;/a&gt; in descending order of frequency&lt;/li&gt;
-&lt;li&gt;I like &lt;a href=&#34;https://github.com/dandavison/delta&#34;&gt;git-delta&lt;/a&gt; for command line diffing&lt;/li&gt;
-&lt;li&gt;I like &lt;a href=&#34;https://github.com/jesseduffield/lazygit&#34;&gt;lazygit&lt;/a&gt; for some easy to explain but harder to do than necessary git operations. Sometimes a GUI (or a TUI) is nice! Not everything has to be commands or code!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/jesseduffield/lazydocker&#34;&gt;lazydocker&lt;/a&gt; loads a hell of a lot faster than any other offering for looking at running containers in a reasonably high level way&lt;/li&gt;
+&lt;li&gt;I usually start out with &lt;a href="https://ohmyz.sh/"&gt;oh-my-zsh&lt;/a&gt; or &lt;a href="https://github.com/ohmybash/oh-my-bash"&gt;oh-my-bash&lt;/a&gt; on new systems&lt;/li&gt;
+&lt;li&gt;I use &lt;a href="https://github.com/nvm-sh/nvm"&gt;nvm&lt;/a&gt;, &lt;a href="https://github.com/rbenv/rbenv"&gt;rbenv&lt;/a&gt;, and &lt;a href="https://github.com/pyenv/pyenv"&gt;pyenv&lt;/a&gt; to manage node/ruby/python installs &amp;ndash; I can&amp;rsquo;t get the hang of &lt;a href="https://github.com/astral-sh/uv"&gt;uv&lt;/a&gt; but that looks like the future at this point for Python.&lt;/li&gt;
+&lt;li&gt;I use &lt;code&gt;grep&lt;/code&gt;, &lt;a href="https://github.com/BurntSushi/ripgrep"&gt;&lt;code&gt;rg&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://github.com/ggreer/the_silver_searcher"&gt;&lt;code&gt;ag&lt;/code&gt;&lt;/a&gt; in descending order of frequency&lt;/li&gt;
+&lt;li&gt;I like &lt;a href="https://github.com/dandavison/delta"&gt;git-delta&lt;/a&gt; for command line diffing&lt;/li&gt;
+&lt;li&gt;I like &lt;a href="https://github.com/jesseduffield/lazygit"&gt;lazygit&lt;/a&gt; for some easy to explain but harder to do than necessary git operations. Sometimes a GUI (or a TUI) is nice! Not everything has to be commands or code!&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/jesseduffield/lazydocker"&gt;lazydocker&lt;/a&gt; loads a hell of a lot faster than any other offering for looking at running containers in a reasonably high level way&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;it-came-from-userspace&#34;&gt;It Came from Userspace&lt;/h3&gt;
+&lt;h3 id="it-came-from-userspace"&gt;It Came from Userspace&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;I always add &lt;code&gt;~/.local/bin&lt;/code&gt; and &lt;code&gt;~/bin/&lt;/code&gt; to my &lt;code&gt;$PATH&lt;/code&gt; so I can manage my own binaries without superuser perms&lt;/li&gt;
-&lt;li&gt;I download &lt;a href=&#34;https://code.visualstudio.com/download&#34;&gt;VS Code&lt;/a&gt; and &lt;a href=&#34;https://go.dev/doc/install&#34;&gt;Go&lt;/a&gt; (setting &lt;code&gt;$GOPATH&lt;/code&gt; to &lt;code&gt;~/.go&lt;/code&gt;) from tarballs and manage them myself, adding &lt;code&gt;~/go/bin&lt;/code&gt; and &lt;code&gt;~/VSCode-linux-x64/bin&lt;/code&gt; to &lt;code&gt;$PATH&lt;/code&gt; &amp;ndash; that way I don&amp;rsquo;t need to deal with native packages or elevated install permissions&lt;/li&gt;
-&lt;li&gt;Same with &lt;a href=&#34;https://deno.com/&#34;&gt;Deno&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Currently in &lt;code&gt;~/bin&lt;/code&gt;: &lt;code&gt;btm&lt;/code&gt; &lt;code&gt;slirp4netns&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;code&gt;tmux&lt;/code&gt; &lt;code&gt;tic80&lt;/code&gt; (static binaries acquired from their release pages)&lt;/li&gt;
+&lt;li&gt;I download &lt;a href="https://code.visualstudio.com/download"&gt;VS Code&lt;/a&gt; and &lt;a href="https://go.dev/doc/install"&gt;Go&lt;/a&gt; (setting &lt;code&gt;$GOPATH&lt;/code&gt; to &lt;code&gt;~/.go&lt;/code&gt;) from tarballs and manage them myself, adding &lt;code&gt;~/go/bin&lt;/code&gt; and &lt;code&gt;~/VSCode-linux-x64/bin&lt;/code&gt; to &lt;code&gt;$PATH&lt;/code&gt; &amp;ndash; that way I don&amp;rsquo;t need to deal with native packages or elevated install permissions&lt;/li&gt;
+&lt;li&gt;Same with &lt;a href="https://deno.com/"&gt;Deno&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Currently in &lt;code&gt;~/bin&lt;/code&gt;: &lt;code&gt;btm&lt;/code&gt; &lt;code&gt;slirp4netns&lt;/code&gt;&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;code&gt;tmux&lt;/code&gt; &lt;code&gt;tic80&lt;/code&gt; (static binaries acquired from their release pages)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;cloud-stuff&#34;&gt;Cloud Stuff&lt;/h2&gt;
+&lt;h2 id="cloud-stuff"&gt;Cloud Stuff&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;In the past, I did &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;A couple of jobs ago, I learned a little &lt;a href=&#34;https://www.pulumi.com/&#34;&gt;Pulumi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;At most places of employment, I use &lt;a href=&#34;https://health.aws.amazon.com/health/status&#34;&gt;AWS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I had to learn &lt;a href=&#34;https://azure.status.microsoft/en-us/status&#34;&gt;Azure&lt;/a&gt; at my last job&lt;/li&gt;
-&lt;li&gt;At home, I use &lt;a href=&#34;https://status.cloud.google.com/&#34;&gt;GCP&lt;/a&gt; for personal projects&lt;/li&gt;
+&lt;li&gt;In the past, I did &lt;a href="https://www.terraform.io/"&gt;Terraform&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A couple of jobs ago, I learned a little &lt;a href="https://www.pulumi.com/"&gt;Pulumi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;At most places of employment, I use &lt;a href="https://health.aws.amazon.com/health/status"&gt;AWS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I had to learn &lt;a href="https://azure.status.microsoft/en-us/status"&gt;Azure&lt;/a&gt; at my last job&lt;/li&gt;
+&lt;li&gt;At home, I use &lt;a href="https://status.cloud.google.com/"&gt;GCP&lt;/a&gt; for personal projects&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;this-site&#34;&gt;This Site&lt;/h1&gt;
+&lt;h1 id="this-site"&gt;This Site&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;The theme for this weblog is a no-longer-recognizable fork of &lt;a href=&#34;https://github.com/colorchestra/smol&#34;&gt;smol&lt;/a&gt;, built in &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Hosted on &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; through the magic of &lt;a href=&#34;https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;a CNAME&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href=&#34;https://ohnotype.co/fonts/forevs&#34;&gt;Forevs&lt;/a&gt;, &lt;a href=&#34;https://github.com/Instrument/instrument-sans&#34;&gt;Instrument Sans&lt;/a&gt; and &lt;a href=&#34;https://github.com/0xType/0xProto&#34;&gt;0xProto&lt;/a&gt; (hosted here with this page and not on Google Fonts).&lt;/li&gt;
+&lt;li&gt;The theme for this weblog is a no-longer-recognizable fork of &lt;a href="https://github.com/colorchestra/smol"&gt;smol&lt;/a&gt;, built in &lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hosted on &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; through the magic of &lt;a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site"&gt;a CNAME&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fonts&lt;/strong&gt;: I&amp;rsquo;m using &lt;a href="https://ohnotype.co/fonts/forevs"&gt;Forevs&lt;/a&gt;, &lt;a href="https://github.com/Instrument/instrument-sans"&gt;Instrument Sans&lt;/a&gt; and &lt;a href="https://github.com/0xType/0xProto"&gt;0xProto&lt;/a&gt; (hosted here with this page and not on Google Fonts).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;productivity&#34;&gt;Productivity&lt;/h1&gt;
-&lt;h2 id=&#34;producing-and-manipulating-visual-artifacts&#34;&gt;Producing and Manipulating Visual Artifacts&lt;/h2&gt;
+&lt;h1 id="productivity"&gt;Productivity&lt;/h1&gt;
+&lt;h2 id="producing-and-manipulating-visual-artifacts"&gt;Producing and Manipulating Visual Artifacts&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.xara.com/us/photo-graphic-designer/&#34;&gt;Xara Photo and Graphic Designer&lt;/a&gt; as I have muscle memory and it&amp;rsquo;s fast to make drawings in&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.gimp.org/&#34;&gt;The Gimp&lt;/a&gt; for quick raster touchups&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.inkscape.Inkscape&#34;&gt;Inkscape&lt;/a&gt; to touch up SVGs&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mermaid.js.org/&#34;&gt;Mermaid&lt;/a&gt; for diagrams extensively because it&amp;rsquo;s everywhere, mark a code block as &lt;code&gt;mermaid&lt;/code&gt; in markdown and you get the rendering for free in things like Obsidian and on Github&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://monodraw.helftone.com/&#34;&gt;Monodraw&lt;/a&gt; for cool text-mode diagrams&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://d2lang.com/&#34;&gt;D2&lt;/a&gt; for diagrams as code &amp;ndash; I like it in terms of how clean the language looks, how clean the output looks, and how easy it is to use&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; comes along for the party, too &amp;ndash; it&amp;rsquo;s old but it gets the job done for a large range of jobs&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.xara.com/us/photo-graphic-designer/"&gt;Xara Photo and Graphic Designer&lt;/a&gt; as I have muscle memory and it&amp;rsquo;s fast to make drawings in&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.gimp.org/"&gt;The Gimp&lt;/a&gt; for quick raster touchups&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flathub.org/apps/org.inkscape.Inkscape"&gt;Inkscape&lt;/a&gt; to touch up SVGs&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mermaid.js.org/"&gt;Mermaid&lt;/a&gt; for diagrams extensively because it&amp;rsquo;s everywhere, mark a code block as &lt;code&gt;mermaid&lt;/code&gt; in markdown and you get the rendering for free in things like Obsidian and on Github&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://monodraw.helftone.com/"&gt;Monodraw&lt;/a&gt; for cool text-mode diagrams&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://d2lang.com/"&gt;D2&lt;/a&gt; for diagrams as code &amp;ndash; I like it in terms of how clean the language looks, how clean the output looks, and how easy it is to use&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://graphviz.org/"&gt;Graphviz&lt;/a&gt; comes along for the party, too &amp;ndash; it&amp;rsquo;s old but it gets the job done for a large range of jobs&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;desktop-apps&#34;&gt;Desktop Apps&lt;/h2&gt;
-&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;h2 id="desktop-apps"&gt;Desktop Apps&lt;/h2&gt;
+&lt;h3 id="windows"&gt;Windows&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;I have &lt;a href=&#34;https://github.com/jasonbot/bootstrap-windows-development-machine&#34;&gt;a script I wrote for work&lt;/a&gt; to boostrap a new Windows machine; it installs and configures most of the tools below&lt;/li&gt;
-&lt;li&gt;I run &lt;a href=&#34;https://github.com/Raphire/Win11Debloat&#34;&gt;Win11Debloat&lt;/a&gt; immediately upon starting on a new Windows desktop machine&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/winget-cli&#34;&gt;Winget&lt;/a&gt; is a command line utility built into the operating system you are sleeping on.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;Windows Terminal&lt;/a&gt; for my terminal emulator&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/powertoys/&#34;&gt;Powertoys&lt;/a&gt; for various tweaks, &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/powertoys/run&#34;&gt;the runner in particular&lt;/a&gt; is nice&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.notion.com/desktop&#34;&gt;Notion Desktop&lt;/a&gt; to do work&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.notion.com/product/calendar&#34;&gt;Notion Calendar&lt;/a&gt; as my calendar&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://syncthing.net/&#34;&gt;SyncThing&lt;/a&gt; to move files around&lt;/li&gt;
+&lt;li&gt;I have &lt;a href="https://github.com/jasonbot/bootstrap-windows-development-machine"&gt;a script I wrote for work&lt;/a&gt; to boostrap a new Windows machine; it installs and configures most of the tools below&lt;/li&gt;
+&lt;li&gt;I run &lt;a href="https://github.com/Raphire/Win11Debloat"&gt;Win11Debloat&lt;/a&gt; immediately upon starting on a new Windows desktop machine&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/microsoft/winget-cli"&gt;Winget&lt;/a&gt; is a command line utility built into the operating system you are sleeping on.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/microsoft/terminal"&gt;Windows Terminal&lt;/a&gt; for my terminal emulator&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://learn.microsoft.com/en-us/windows/powertoys/"&gt;Powertoys&lt;/a&gt; for various tweaks, &lt;a href="https://learn.microsoft.com/en-us/windows/powertoys/run"&gt;the runner in particular&lt;/a&gt; is nice&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.notion.com/desktop"&gt;Notion Desktop&lt;/a&gt; to do work&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.notion.com/product/calendar"&gt;Notion Calendar&lt;/a&gt; as my calendar&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://syncthing.net/"&gt;SyncThing&lt;/a&gt; to move files around&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;mac&#34;&gt;Mac&lt;/h3&gt;
+&lt;h3 id="mac"&gt;Mac&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/waydabber/BetterDisplay&#34;&gt;BetterDisplay&lt;/a&gt; for better external monitor support&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://syncthing.net/&#34;&gt;SyncThing&lt;/a&gt; to move files around&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.notion.com/product/calendar&#34;&gt;Notion Calendar&lt;/a&gt; to see what I&amp;rsquo;m supposed to be doing&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.notion.com/desktop&#34;&gt;Notion Desktop&lt;/a&gt; to do work&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rectangleapp.com/&#34;&gt;Rectangle&lt;/a&gt; to move windows around&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/AugustDev/enchanted&#34;&gt;Enchanted&lt;/a&gt; as a standalone frontend to Ollama&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ghostty.org/&#34;&gt;Ghostty&lt;/a&gt; as my terminal emulator&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/waydabber/BetterDisplay"&gt;BetterDisplay&lt;/a&gt; for better external monitor support&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://syncthing.net/"&gt;SyncThing&lt;/a&gt; to move files around&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.notion.com/product/calendar"&gt;Notion Calendar&lt;/a&gt; to see what I&amp;rsquo;m supposed to be doing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.notion.com/desktop"&gt;Notion Desktop&lt;/a&gt; to do work&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://rectangleapp.com/"&gt;Rectangle&lt;/a&gt; to move windows around&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/AugustDev/enchanted"&gt;Enchanted&lt;/a&gt; as a standalone frontend to Ollama&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ghostty.org/"&gt;Ghostty&lt;/a&gt; as my terminal emulator&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;h3 id="linux"&gt;Linux&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/me.kozec.syncthingtk&#34;&gt;Syncthing&lt;/a&gt; to move files around easily&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.gnome.Rhythmbox3&#34;&gt;Rhythmbox&lt;/a&gt; to handle my large music library&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/org.gnome.Boxes&#34;&gt;Boxes&lt;/a&gt; for light virtualization work&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://podman-desktop.io/&#34;&gt;Podman Desktop&lt;/a&gt; for container-fu&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://virt-manager.org/&#34;&gt;virt-manager&lt;/a&gt; for my Windows VMs&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://prismlauncher.org/&#34;&gt;Prism Launcher&lt;/a&gt; to play Minecraft with my kid&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flathub.org/apps/com.jeffser.Alpaca&#34;&gt;Alpaca&lt;/a&gt; as a standalone frontend to Ollama&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://store.steampowered.com/about/&#34;&gt;Steam&lt;/a&gt; for Steam&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ghostty.org/&#34;&gt;Ghostty&lt;/a&gt; as my terminal emulator&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flathub.org/apps/me.kozec.syncthingtk"&gt;Syncthing&lt;/a&gt; to move files around easily&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flathub.org/apps/org.gnome.Rhythmbox3"&gt;Rhythmbox&lt;/a&gt; to handle my large music library&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flathub.org/apps/org.gnome.Boxes"&gt;Boxes&lt;/a&gt; for light virtualization work&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://podman-desktop.io/"&gt;Podman Desktop&lt;/a&gt; for container-fu&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://virt-manager.org/"&gt;virt-manager&lt;/a&gt; for my Windows VMs&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://prismlauncher.org/"&gt;Prism Launcher&lt;/a&gt; to play Minecraft with my kid&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flathub.org/apps/com.jeffser.Alpaca"&gt;Alpaca&lt;/a&gt; as a standalone frontend to Ollama&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://store.steampowered.com/about/"&gt;Steam&lt;/a&gt; for Steam&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ghostty.org/"&gt;Ghostty&lt;/a&gt; as my terminal emulator&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;networked-software&#34;&gt;Networked Software&lt;/h2&gt;
+&lt;h2 id="networked-software"&gt;Networked Software&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/mastodon&#34;&gt;Mastodon&lt;/a&gt; for one Fediverse server&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gotosocial.org/&#34;&gt;GotoSocial&lt;/a&gt; for the other&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://miniflux.app/&#34;&gt;Miniflux&lt;/a&gt; for keeping up on news&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://forgejo.org/&#34;&gt;Forgejo&lt;/a&gt; for hosting my private repos&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mastodon"&gt;Mastodon&lt;/a&gt; for one Fediverse server&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gotosocial.org/"&gt;GotoSocial&lt;/a&gt; for the other&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://miniflux.app/"&gt;Miniflux&lt;/a&gt; for keeping up on news&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://forgejo.org/"&gt;Forgejo&lt;/a&gt; for hosting my private repos&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;computer-hardware&#34;&gt;Computer Hardware&lt;/h1&gt;
-&lt;h2 id=&#34;general-purpose-computing-and-development&#34;&gt;General-Purpose Computing and Development&lt;/h2&gt;
+&lt;h1 id="computer-hardware"&gt;Computer Hardware&lt;/h1&gt;
+&lt;h2 id="general-purpose-computing-and-development"&gt;General-Purpose Computing and Development&lt;/h2&gt;
 &lt;p&gt;I have a handful of computers I use regularly!&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;An older Legion desktop running &lt;a href=&#34;https://nobaraproject.org/&#34;&gt;Nobara&lt;/a&gt; for gaming and general computing&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pine64.org/devices/pinebook_pro/&#34;&gt;Pinebook Pro&lt;/a&gt; running &lt;a href=&#34;https://manjaro.org/products/download/arm&#34;&gt;Manjaro&lt;/a&gt; for remote terminal stuff and as a lightweight Miniflux client&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://aokzoestore.com/products/aokzoe-8-inch-amd%C2%AE-ryzen%C2%AE-6800u&#34;&gt;AOKZOE A1&lt;/a&gt; running &lt;a href=&#34;https://chimeraos.org/&#34;&gt;ChimeraOS&lt;/a&gt; for handheld PC gaming, also using its Gnome desktop as a portable development setup&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/IPhone_13&#34;&gt;Whatever the smallest iPhone is&lt;/a&gt; on the market at the time for doomscrolling&lt;/li&gt;
+&lt;li&gt;An older Legion desktop running &lt;a href="https://nobaraproject.org/"&gt;Nobara&lt;/a&gt; for gaming and general computing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pine64.org/devices/pinebook_pro/"&gt;Pinebook Pro&lt;/a&gt; running &lt;a href="https://manjaro.org/products/download/arm"&gt;Manjaro&lt;/a&gt; for remote terminal stuff and as a lightweight Miniflux client&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://aokzoestore.com/products/aokzoe-8-inch-amd%C2%AE-ryzen%C2%AE-6800u"&gt;AOKZOE A1&lt;/a&gt; running &lt;a href="https://chimeraos.org/"&gt;ChimeraOS&lt;/a&gt; for handheld PC gaming, also using its Gnome desktop as a portable development setup&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/IPhone_13"&gt;Whatever the smallest iPhone is&lt;/a&gt; on the market at the time for doomscrolling&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;toys&#34;&gt;Toys&lt;/h2&gt;
+&lt;h2 id="toys"&gt;Toys&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.shanling.com/article-IntroM0s.html&#34;&gt;Shanling M0s&lt;/a&gt; for listening to music outside of my home office&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://anbernic.com/products/rg35xx&#34;&gt;RG35XX&lt;/a&gt; running &lt;a href=&#34;https://github.com/Turro75/MyMinUI&#34;&gt;MyMinUI&lt;/a&gt; for video games during my commute hours&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flipperzero.one/&#34;&gt;Flipper&lt;/a&gt; that I never break the law with&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.shanling.com/article-IntroM0s.html"&gt;Shanling M0s&lt;/a&gt; for listening to music outside of my home office&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://anbernic.com/products/rg35xx"&gt;RG35XX&lt;/a&gt; running &lt;a href="https://github.com/Turro75/MyMinUI"&gt;MyMinUI&lt;/a&gt; for video games during my commute hours&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flipperzero.one/"&gt;Flipper&lt;/a&gt; that I never break the law with&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;non-computer-hardware&#34;&gt;Non-Computer Hardware&lt;/h1&gt;
+&lt;h1 id="non-computer-hardware"&gt;Non-Computer Hardware&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;The &lt;a href=&#34;https://www.peakdesign.com/products/everyday-backpack&#34;&gt;Peak Design Everyday Backpack&lt;/a&gt; as a backpack&lt;/li&gt;
+&lt;li&gt;The &lt;a href="https://www.peakdesign.com/products/everyday-backpack"&gt;Peak Design Everyday Backpack&lt;/a&gt; as a backpack&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;This is missing in ChimeraOS for some reason and the only part absent from a working podman setup on my handheld&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;This is missing in ChimeraOS for some reason and the only part absent from a working podman setup on my handheld&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description><category domain="https://www.jasonscheirer.com//tags/uses">uses</category>
-      
-    </item>
-    
-  </channel>
-</rss>
+&lt;/div&gt;</description><category domain="https://www.jasonscheirer.com//tags/uses">uses</category></item></channel></rss>
