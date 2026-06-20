@@ -16,7 +16,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/ebook-finagling&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/xtestink&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I bought an &lt;a href=&#34;https://www.xteink.com/products/xteink-x4&#34;&gt;XTEInk X4!&lt;/a&gt;! It&amp;rsquo;s small! It&amp;rsquo;s cheap! It&amp;rsquo;s hackable!&lt;/p&gt;
+&lt;p&gt;I bought an &lt;a href=&#34;https://www.xteink.com/products/xteink-x4&#34;&gt;Xteink X4&lt;/a&gt;! It&amp;rsquo;s small! It&amp;rsquo;s cheap! It&amp;rsquo;s hackable!&lt;/p&gt;
 &lt;p&gt;I have an e-book collection, if you could call it that, but I always purchased PDFs. This thing reads epubs by default, which I don&amp;rsquo;t have. I want to use this to read my books!&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;ve been hacking on a little go command line utility to get stuff on to the&lt;/p&gt;
 &lt;p&gt;One huge unlock for me was the native &lt;a href=&#34;https://gist.github.com/CrazyCoder/b125f26d6987c0620058249f59f1327d&#34;&gt;XTC/XTCH format&lt;/a&gt; the reader can render which gives you the ability to render bitmapped, pre-rendered pages. I&amp;rsquo;ve abused this to a great extent!&lt;/p&gt;
@@ -5159,7 +5159,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode4s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode6s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
