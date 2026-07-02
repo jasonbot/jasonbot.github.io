@@ -43,7 +43,7 @@ for me on Linux! Boom! We&amp;rsquo;re in business!&lt;/p&gt;
 &lt;p&gt;Back to Rhythmbox. Drag the music I want over to the iPod. It copies! Bingo!&lt;/p&gt;
 &lt;p&gt;Only: no bingo! I disconnect the iPod and it says &amp;rsquo;no music.&amp;rsquo; The music is on
 the device, but the iPod&amp;rsquo;s music database got clobbered. Well crap.&lt;/p&gt;
-&lt;p&gt;So now I know [Gtkpod](&amp;lt;https://github.com/trinitonesounds/gtkpod) is purpose
+&lt;p&gt;So now I know &lt;a href=&#34;https://github.com/trinitonesounds/gtkpod&#34;&gt;Gtkpod&lt;/a&gt; is purpose
 built for this. Apparently the iPod Rhythmbox plugin isn&amp;rsquo;t any good on these
 models, so let&amp;rsquo;s try that. No dice. It repeatedly hangs, crashes, and when it
 does work it still fails to correctly update the database. Still &amp;rsquo;no music.&#39;&lt;/p&gt;
@@ -5290,7 +5290,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode2s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode3s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
