@@ -6,7 +6,35 @@
     <description>Recent content in Tags on Jason Scheirer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 -0800</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jul 2026 08:00:00 +0000</lastBuildDate><atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple</title>
+      <link>https://www.jasonscheirer.com/tags/apple/</link>
+      <pubDate>Thu, 02 Jul 2026 08:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/apple/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hardware Reviews</title>
+      <link>https://www.jasonscheirer.com/tags/hardware/</link>
+      <pubDate>Thu, 02 Jul 2026 08:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/hardware/</guid>
+      <description>&lt;p&gt;Commentary on various pieces of computing technology I have used.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Music</title>
+      <link>https://www.jasonscheirer.com/tags/music/</link>
+      <pubDate>Thu, 02 Jul 2026 08:00:00 +0000</pubDate>
+      
+      <guid>https://www.jasonscheirer.com/tags/music/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Golang</title>
       <link>https://www.jasonscheirer.com/tags/golang/</link>
@@ -124,25 +152,6 @@ other career guides you may use.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Hardware Reviews</title>
-      <link>https://www.jasonscheirer.com/tags/hardware/</link>
-      <pubDate>Sat, 15 Nov 2025 08:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/hardware/</guid>
-      <description>&lt;p&gt;Commentary on various pieces of computing technology I have used.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Music</title>
-      <link>https://www.jasonscheirer.com/tags/music/</link>
-      <pubDate>Sat, 15 Nov 2025 08:00:00 +0000</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Writing</title>
       <link>https://www.jasonscheirer.com/tags/writing/</link>
       <pubDate>Wed, 29 Oct 2025 00:08:00 -0800</pubDate>
@@ -220,15 +229,6 @@ other career guides you may use.&lt;/p&gt;
       <pubDate>Sun, 28 May 2023 08:00:00 -0800</pubDate>
       
       <guid>https://www.jasonscheirer.com/tags/vscode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apple</title>
-      <link>https://www.jasonscheirer.com/tags/apple/</link>
-      <pubDate>Thu, 29 Dec 2022 08:00:00 -0800</pubDate>
-      
-      <guid>https://www.jasonscheirer.com/tags/apple/</guid>
       <description></description>
     </item>
     

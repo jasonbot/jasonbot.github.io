@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/weblog/an-ipod-6g-revival/</loc>
+    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/apple/</loc>
+    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
+    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2026-07-03T08:00:00+00:00</lastmod>
+    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/music/</loc>
+    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/golang/</loc>
     <lastmod>2026-06-20T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/programming/</loc>
-    <lastmod>2026-06-20T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
     <lastmod>2026-06-20T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/xtestink/</loc>
@@ -73,12 +85,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/vignettes/</loc>
     <lastmod>2025-11-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
-    <lastmod>2025-11-15T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/music/</loc>
-    <lastmod>2025-11-15T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/innioasis-y1/</loc>
     <lastmod>2025-11-15T08:00:00+00:00</lastmod>
@@ -205,9 +211,6 @@
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/aokzoe-a1/</loc>
     <lastmod>2023-01-01T08:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/apple/</loc>
-    <lastmod>2022-12-29T08:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/iphone-13-mini/</loc>
     <lastmod>2022-12-29T08:00:00-08:00</lastmod>
