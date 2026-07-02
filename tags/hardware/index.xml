@@ -47,6 +47,11 @@ the device, but the iPod&amp;rsquo;s music database got clobbered. Well crap.&lt
 built for this. Apparently the iPod Rhythmbox plugin isn&amp;rsquo;t any good on these
 models, so let&amp;rsquo;s try that. No dice. It repeatedly hangs, crashes, and when it
 does work it still fails to correctly update the database. Still &amp;rsquo;no music.&#39;&lt;/p&gt;
+&lt;p&gt;Maybe this is all because it&amp;rsquo;s still HFS+ and not FAT? It seems like most tools
+assume you&amp;rsquo;ve liberated your iPod and you&amp;rsquo;re using it in Windows mode, not Mac
+mode. So I attempt to wipe the drive, but can&amp;rsquo;t for the life of me figure out
+how to do it &lt;em&gt;correctly&lt;/em&gt; with Gtkpod or just plain old partitioning tools. Looks like I need
+to restore the hardware from iTunes for this route.&lt;/p&gt;
 &lt;p&gt;What about &lt;a href=&#34;https://rockbox.org/&#34;&gt;Rockbox&lt;/a&gt;? I use it on my Y1. The annoying
 thing is that I have to manually update the database on the actual device,
 whereas the typical iTunes stock experience is one that updates the database
@@ -58,19 +63,15 @@ try&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;I already have the Rockbox utility on my machine from installing it onto my Y1.
 It sees my iPod but dies on an SSL handshake talking to rockbox.org while
 downloading resources. I don&amp;rsquo;t remember this happening last time I ran this. I
-downloaded and ran the utility on anothre Linux machine and got the same result.
-Damn.&lt;/p&gt;
-&lt;p&gt;Maybe this is all because it&amp;rsquo;s still HFS+ and not FAT? It seems like most tools
-assume you&amp;rsquo;ve liberated your iPod and you&amp;rsquo;re using it in Windows mode, not Mac
-mode. So I attempt to wipe the drive, but can&amp;rsquo;t for the life of me figure out
-how to do it &lt;em&gt;correctly&lt;/em&gt; with Gtkpod or just plain old partitioning tools. Looks like I need
-to restore the hardware from iTunes.&lt;/p&gt;
+downloaded and ran the utility on another Linux machine and got the same result.
+I gave up about 45 minutes into building the tool ymself from source.&lt;/p&gt;
+&lt;p&gt;Damn.&lt;/p&gt;
 &lt;p&gt;Now I need a Windows machine to use iTunes in Windows to reformat the iPod. I
 have a debloated Win11 VM in Gnome Boxes, I fire that up and go in to iTunes, I
 plug in the iPod, then I go to set up USB forwarding so the VM can do its magic
 and &amp;ndash; &amp;ldquo;USB Forwarding is Not Supported in the Flatpak version of Boxes.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;So I uninstall the Flatpak and migrate my disk images from
-&lt;code&gt;~/.var/app/org.Gnome.Boxes&lt;/code&gt; to somewheere less Flatpak-specific and install the
+&lt;code&gt;~/.var/app/org.Gnome.Boxes&lt;/code&gt; to somewhere less Flatpak-specific and install the
 dnf version of Gnome Boxes. I migrate the machine over, set up forwarding,
 everything seems to be working.&lt;/p&gt;
 &lt;p&gt;Only USB forwarding forgets the device when it disconnects and I have to

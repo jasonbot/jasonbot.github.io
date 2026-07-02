@@ -17,8 +17,8 @@
 
     <link rel="human-json" href="/human.json" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1783023503" />
-    <link rel="stylesheet" href="/css/fonts.css?rnd=1783023503" />
+    <link rel="stylesheet" href="/css/jasonscheirer.css?rnd=1783023732" />
+    <link rel="stylesheet" href="/css/fonts.css?rnd=1783023732" />
   </head>
   <body>
     <div class="everything">
@@ -156,6 +156,15 @@
               fails to correctly update the database. Still &rsquo;no music.'
             </p>
             <p>
+              Maybe this is all because it&rsquo;s still HFS+ and not FAT? It
+              seems like most tools assume you&rsquo;ve liberated your iPod and
+              you&rsquo;re using it in Windows mode, not Mac mode. So I attempt
+              to wipe the drive, but can&rsquo;t for the life of me figure out
+              how to do it <em>correctly</em> with Gtkpod or just plain old
+              partitioning tools. Looks like I need to restore the hardware from
+              iTunes for this route.
+            </p>
+            <p>
               What about <a href="https://rockbox.org/">Rockbox</a>? I use it on
               my Y1. The annoying thing is that I have to manually update the
               database on the actual device, whereas the typical iTunes stock
@@ -173,18 +182,11 @@
               it onto my Y1. It sees my iPod but dies on an SSL handshake
               talking to rockbox.org while downloading resources. I don&rsquo;t
               remember this happening last time I ran this. I downloaded and ran
-              the utility on anothre Linux machine and got the same result.
-              Damn.
+              the utility on another Linux machine and got the same result. I
+              gave up about 45 minutes into building the tool ymself from
+              source.
             </p>
-            <p>
-              Maybe this is all because it&rsquo;s still HFS+ and not FAT? It
-              seems like most tools assume you&rsquo;ve liberated your iPod and
-              you&rsquo;re using it in Windows mode, not Mac mode. So I attempt
-              to wipe the drive, but can&rsquo;t for the life of me figure out
-              how to do it <em>correctly</em> with Gtkpod or just plain old
-              partitioning tools. Looks like I need to restore the hardware from
-              iTunes.
-            </p>
+            <p>Damn.</p>
             <p>
               Now I need a Windows machine to use iTunes in Windows to reformat
               the iPod. I have a debloated Win11 VM in Gnome Boxes, I fire that
@@ -195,7 +197,7 @@
             </p>
             <p>
               So I uninstall the Flatpak and migrate my disk images from
-              <code>~/.var/app/org.Gnome.Boxes</code> to somewheere less
+              <code>~/.var/app/org.Gnome.Boxes</code> to somewhere less
               Flatpak-specific and install the dnf version of Gnome Boxes. I
               migrate the machine over, set up forwarding, everything seems to
               be working.
