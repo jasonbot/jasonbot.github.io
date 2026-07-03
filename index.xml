@@ -108,7 +108,7 @@ additional Windows components to get it to load, but it works. I flash the iPod.
 &lt;p&gt;I flash it again.&lt;/p&gt;
 &lt;p&gt;It boots. Hell yes. And I have my cool theme.&lt;/p&gt;
 &lt;p&gt;So I drag music over. 16000
-tracks to start, takes 2 hours to copy. HDDs are &lt;em&gt;slow&lt;/em&gt;. Afterward I have to
+tracks to start, takes 2 hours to copy. HDDs are &lt;em&gt;slow&lt;/em&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;. Afterward I have to
 manually update my database from Rockbox, which takes &lt;em&gt;hours&lt;/em&gt;. I fall asleep as it runs. I can hear
 the physical spinning platters. It&amp;rsquo;s a very strange experience having a device
 with a real life magnetic disc hard drive again. The future we occupy today is strange in the UX of the iPod
@@ -136,6 +136,12 @@ inside of my skull in the space where a brain should be.&lt;/p&gt;
 &lt;p&gt;I am not aware of any other MP3 player that can handle large music
 libraries this well and still have a presentable UI. TUIs usually suck,
 &amp;ldquo;new&amp;rdquo; apps are all super slow because of Wirth&amp;rsquo;s Law.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Though not as slow as I initially thought: transferring files in and out
+of the device is hampered by USB 2.0 speeds, but the seek times of the HDD
+are bad. There were two bottlenecks in the file transfer stage, HDD
+seeks/reads are also slow but faster than the Universal Serial Bus.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
@@ -5297,7 +5303,7 @@ I&#39;d have a job at a factory`,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/search/</guid>
-      <description>&lt;h2 id=&#34;hahahugoshortcode5s0hbhb&#34;&gt;
+      <description>&lt;h2 id=&#34;hahahugoshortcode1s0hbhb&#34;&gt;
 &lt;link href=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.css&#34; rel=&#34;stylesheet&#34;&gt;
 &lt;script src=&#34;https://www.jasonscheirer.com/pagefind/pagefind-ui.js&#34;&gt;&lt;/script&gt;
 &lt;div id=&#34;search&#34;&gt;&lt;/div&gt;
