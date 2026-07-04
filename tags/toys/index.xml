@@ -274,11 +274,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.jasonscheirer.com/multialphabet/</guid>
-      <description>&lt;p&gt;There are so many tools to do this online and a lot of them are annoying or covered in ads or both. Type text, get transforms.&lt;/p&gt;
-
-    &lt;script&gt;
-      const randomChoice = (array) =&gt;
-        array[Math.floor(Math.random() * array.length)];
+      <description>&lt;p&gt;There are so many tools to do this online and a lot of them are annoying or
+covered in ads or both. Type text, get transforms.&lt;/p&gt;
+ &lt;script&gt; const randomChoice = (array) =&gt;
+array[Math.floor(Math.random() * array.length)];
 
       const plainAlphabetMapping = (...alphabetString) =&gt; {
         return (mappingString) =&gt;
@@ -291,24 +290,14 @@
                   `So, I want you to get up now. I want all of you to get up out of your chairs. I want you to get up right now and go to the window, open it, and stick your head out and yell, &#34;I&#39;m as mad as hell, and I&#39;m not going to take this anymore!!&#34;`,
                   &#34;Hello from the children of planet Earth.&#34;,
                   `I know how hard it is down in Chino
-I know how you struggle just to get by
-I know they got farm fresh eggs down in Chino
-And tract homes reasonably priced`,
-                  `I don&#39;t wanna pay for anything
-Clothes and food and drugs for free
-If it was 1970
-I&#39;d have a job at a factory`,
-                ])
-              : mappingString),
-          ]
-            .map((letter, i) =&gt; {
-              const charCode = letter.charCodeAt(0);
-              if (charCode &gt;= 65 &amp;&amp; charCode &lt;= 91) {
-                return alphabetString[charCode - 65] ?? letter;
-              }
-              if (charCode &gt;= 97 &amp;&amp; charCode &lt;= 123) {
-                return alphabetString[charCode - 97 + 26] ?? letter;
-              }
+
+I know how you struggle just to get by I know they got farm fresh eggs down in
+Chino And tract homes reasonably priced`,                   `I don&#39;t wanna pay
+for anything Clothes and food and drugs for free If it was 1970 I&#39;d have a job
+at a factory`, ]) : mappingString), ] .map((letter, i) =&gt; { const charCode =
+letter.charCodeAt(0); if (charCode &gt;= 65 &amp;&amp; charCode &lt;= 91) { return
+alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; charCode
+&lt;= 123) { return alphabetString[charCode - 97 + 26] ?? letter; }
 
               return letter;
             })
@@ -1290,7 +1279,8 @@ I&#39;d have a job at a factory`,
         &lt;/div&gt;
       &lt;/template&gt;
     &lt;/div&gt;
-  
+
+
 </description><category domain="https://www.jasonscheirer.com//tags/toys">toys</category>
       
     </item>

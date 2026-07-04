@@ -14,9 +14,13 @@
       
       <guid>https://www.jasonscheirer.com/saddlecreek/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;: &lt;a href=&#34;https://codeberg.org/jasonbot/saddlecreek&#34;&gt;Codeberg for the library&lt;/a&gt;, &lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/saddlecreek&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top Matter&lt;/strong&gt;:
+&lt;a href=&#34;https://codeberg.org/jasonbot/saddlecreek&#34;&gt;Codeberg for the library&lt;/a&gt;,
+&lt;a href=&#34;https://pkg.go.dev/jasonscheirer.com/saddlecreek&#34;&gt;doc for the library&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I took the one part of the shuttered &lt;a href=&#34;https://github.com/google/omaha&#34;&gt;Omaha open source project by Google&lt;/a&gt; and I&amp;rsquo;m making it a library I can consume elsewhere. That is all.&lt;/p&gt;
+&lt;p&gt;I took the one part of the shuttered
+&lt;a href=&#34;https://github.com/google/omaha&#34;&gt;Omaha open source project by Google&lt;/a&gt; and I&amp;rsquo;m
+making it a library I can consume elsewhere. That is all.&lt;/p&gt;
 </description><category domain="https://www.jasonscheirer.com//tags/golang">golang</category>
       <category domain="https://www.jasonscheirer.com//tags/programming">programming</category>
       <category domain="https://www.jasonscheirer.com//tags/windows">windows</category>
