@@ -276,8 +276,10 @@
       <guid>https://www.jasonscheirer.com/multialphabet/</guid>
       <description>&lt;p&gt;There are so many tools to do this online and a lot of them are annoying or
 covered in ads or both. Type text, get transforms.&lt;/p&gt;
- &lt;script&gt; const randomChoice = (array) =&gt;
-array[Math.floor(Math.random() * array.length)];
+
+    &lt;script&gt;
+      const randomChoice = (array) =&gt;
+        array[Math.floor(Math.random() * array.length)];
 
       const plainAlphabetMapping = (...alphabetString) =&gt; {
         return (mappingString) =&gt;
@@ -290,14 +292,24 @@ array[Math.floor(Math.random() * array.length)];
                   `So, I want you to get up now. I want all of you to get up out of your chairs. I want you to get up right now and go to the window, open it, and stick your head out and yell, &#34;I&#39;m as mad as hell, and I&#39;m not going to take this anymore!!&#34;`,
                   &#34;Hello from the children of planet Earth.&#34;,
                   `I know how hard it is down in Chino
-
-I know how you struggle just to get by I know they got farm fresh eggs down in
-Chino And tract homes reasonably priced`,                   `I don&#39;t wanna pay
-for anything Clothes and food and drugs for free If it was 1970 I&#39;d have a job
-at a factory`, ]) : mappingString), ] .map((letter, i) =&gt; { const charCode =
-letter.charCodeAt(0); if (charCode &gt;= 65 &amp;&amp; charCode &lt;= 91) { return
-alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; charCode
-&lt;= 123) { return alphabetString[charCode - 97 + 26] ?? letter; }
+I know how you struggle just to get by
+I know they got farm fresh eggs down in Chino
+And tract homes reasonably priced`,
+                  `I don&#39;t wanna pay for anything
+Clothes and food and drugs for free
+If it was 1970
+I&#39;d have a job at a factory`,
+                ])
+              : mappingString),
+          ]
+            .map((letter, i) =&gt; {
+              const charCode = letter.charCodeAt(0);
+              if (charCode &gt;= 65 &amp;&amp; charCode &lt;= 91) {
+                return alphabetString[charCode - 65] ?? letter;
+              }
+              if (charCode &gt;= 97 &amp;&amp; charCode &lt;= 123) {
+                return alphabetString[charCode - 97 + 26] ?? letter;
+              }
 
               return letter;
             })
@@ -357,7 +369,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝐰&#34;,
           &#34;𝐱&#34;,
           &#34;𝐲&#34;,
-          &#34;𝐳&#34;
+          &#34;𝐳&#34;,
         ),
         Italic: plainAlphabetMapping(
           &#34;𝐴&#34;,
@@ -411,7 +423,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝑤&#34;,
           &#34;𝑥&#34;,
           &#34;𝑦&#34;,
-          &#34;𝑧&#34;
+          &#34;𝑧&#34;,
         ),
         &#34;Bold Italic&#34;: plainAlphabetMapping(
           &#34;𝑨&#34;,
@@ -465,7 +477,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝒘&#34;,
           &#34;𝒙&#34;,
           &#34;𝒚&#34;,
-          &#34;𝒛&#34;
+          &#34;𝒛&#34;,
         ),
         &#34;Italic Cursive&#34;: plainAlphabetMapping(
           &#34;𝒜&#34;,
@@ -519,7 +531,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝓌&#34;,
           &#34;𝓍&#34;,
           &#34;𝓎&#34;,
-          &#34;𝓏&#34;
+          &#34;𝓏&#34;,
         ),
         &#34;Bold Italic Cursive&#34;: plainAlphabetMapping(
           &#34;𝓐&#34;,
@@ -573,7 +585,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝔀&#34;,
           &#34;𝔁&#34;,
           &#34;𝔂&#34;,
-          &#34;𝔃&#34;
+          &#34;𝔃&#34;,
         ),
         Fraktur: plainAlphabetMapping(
           &#34;𝔄&#34;,
@@ -627,7 +639,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝔴&#34;,
           &#34;𝔵&#34;,
           &#34;𝔶&#34;,
-          &#34;𝔷&#34;
+          &#34;𝔷&#34;,
         ),
         &#34;Bold Fraktur&#34;: plainAlphabetMapping(
           &#34;𝕬&#34;,
@@ -681,7 +693,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝖜&#34;,
           &#34;𝖝&#34;,
           &#34;𝖞&#34;,
-          &#34;𝖟&#34;
+          &#34;𝖟&#34;,
         ),
         Draftsman: plainAlphabetMapping(
           &#34;𝔸&#34;,
@@ -735,7 +747,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝕨&#34;,
           &#34;𝕩&#34;,
           &#34;𝕪&#34;,
-          &#34;𝕫&#34;
+          &#34;𝕫&#34;,
         ),
         Wide: plainAlphabetMapping(
           &#34;𝖠&#34;,
@@ -789,7 +801,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝗐&#34;,
           &#34;𝗑&#34;,
           &#34;𝗒&#34;,
-          &#34;𝗓&#34;
+          &#34;𝗓&#34;,
         ),
         &#34;Bold Wide&#34;: plainAlphabetMapping(
           &#34;𝗔&#34;,
@@ -843,7 +855,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝘄&#34;,
           &#34;𝘅&#34;,
           &#34;𝘆&#34;,
-          &#34;𝘇&#34;
+          &#34;𝘇&#34;,
         ),
         &#34;Wide Italic&#34;: plainAlphabetMapping(
           &#34;𝘈&#34;,
@@ -897,7 +909,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝘸&#34;,
           &#34;𝘹&#34;,
           &#34;𝘺&#34;,
-          &#34;𝘻&#34;
+          &#34;𝘻&#34;,
         ),
         &#34;Bold Wide Italic&#34;: plainAlphabetMapping(
           &#34;𝘼&#34;,
@@ -951,7 +963,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝙬&#34;,
           &#34;𝙭&#34;,
           &#34;𝙮&#34;,
-          &#34;𝙯&#34;
+          &#34;𝙯&#34;,
         ),
         Typewriter: plainAlphabetMapping(
           &#34;𝙰&#34;,
@@ -1005,7 +1017,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;𝚠&#34;,
           &#34;𝚡&#34;,
           &#34;𝚢&#34;,
-          &#34;𝚣&#34;
+          &#34;𝚣&#34;,
         ),
         Doublewide: plainAlphabetMapping(
           &#34;Ａ&#34;,
@@ -1059,7 +1071,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
           &#34;ｗ&#34;,
           &#34;ｘ&#34;,
           &#34;ｙ&#34;,
-          &#34;ｚ&#34;
+          &#34;ｚ&#34;,
         ),
       };
 
@@ -1084,7 +1096,7 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
         if (!!text &amp;&amp; activeTranslations.length === 0) {
           addToListOfActiveTranslations(
             randomChoice(Object.keys(translators)),
-            true
+            true,
           );
         }
 
@@ -1114,13 +1126,12 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
 
         const translationElt = document.importNode(
           template.content,
-          true
+          true,
         ).firstElementChild;
         resultElt.appendChild(translationElt);
 
-        translationElt.querySelector(
-          &#34;.name&#34;
-        ).innerText = `${name} (${translators[name](name)})`;
+        translationElt.querySelector(&#34;.name&#34;).innerText =
+          `${name} (${translators[name](name)})`;
 
         const translationTextelt = translationElt.querySelector(&#34;.translation&#34;);
         const copyButton = translationElt.querySelector(&#34;.copy-button&#34;);
@@ -1211,19 +1222,42 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
         user-select: none;
         display: flex;
         flex-direction: row;
+        align-items: center;
 
         .translator-name {
           text-align: center;
+          flex-grow: 1;
         }
 
         &amp; &gt; * {
-          flex-grow: 1;
           align-items: center;
         }
 
-        .copy-button,
-        .remove-button {
+        div.button-bar {
           flex-grow: 0;
+          overflow: hidden;
+          padding: 0;
+          border: 1px solid var(--borders);
+          background: var(--main-border);
+          border-radius: 4px;
+          color: var(--dark-4);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          &amp; &gt; *:not(:first-child) {
+            border-left: 1px solid var(--borders);
+          }
+
+          .copy-button,
+          .remove-button {
+            padding: 4px;
+            flex-grow: 0;
+          }
+
+          button {
+            border: none;
+          }
         }
       }
 
@@ -1242,7 +1276,11 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
         justify-content: center;
 
         #multi-alphabet-selector {
-          font-size: x-large;
+          @media (width &gt; 800px) {
+            max-width: 75vw;
+            font-size: x-large;
+          }
+          max-width: 95vw;
         }
       }
 
@@ -1272,15 +1310,16 @@ alphabetString[charCode - 65] ?? letter; } if (charCode &gt;= 97 &amp;&amp; char
         &lt;div class=&#34;translation-item&#34;&gt;
           &lt;div class=&#34;translation-header&#34;&gt;
             &lt;div class=&#34;name translator-name&#34;&gt;&lt;/div&gt;
-            &lt;button class=&#34;copy-button&#34;&gt;⧉Copy&lt;/button&gt;
-            &lt;button class=&#34;remove-button&#34;&gt;×&lt;/button&gt;
+            &lt;div class=&#34;button-bar&#34;&gt;
+              &lt;button class=&#34;copy-button&#34;&gt;⧉Copy&lt;/button&gt;
+              &lt;button class=&#34;remove-button&#34;&gt;×&lt;/button&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class=&#34;translation translation-text&#34;&gt;&lt;/div&gt;
         &lt;/div&gt;
       &lt;/template&gt;
     &lt;/div&gt;
-
-
+  
 </description><category domain="https://www.jasonscheirer.com//tags/toys">toys</category>
       
     </item>
