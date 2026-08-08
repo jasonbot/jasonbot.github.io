@@ -41,10 +41,33 @@
         color: var(--text-color) !important;
       }
     }
+
+    div.everything {
+      background: linear-gradient(
+        45deg,
+        var(--text-color),
+        color(display-p3 1.5 1.5 1.5),
+        var(--text-color)
+      );
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: shimmer 2.25s linear infinite;
+      animation-direction: alternate;
+    }
   }
 
   ::selection {
     background-color: color-mix(in srgb, var(--light-blue), transparent 80%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
@@ -217,6 +240,7 @@ code {
 }
 
 nav {
+  color: (var(--bg-color));
   font-size: small;
   padding: 0.25em;
   display: block;
