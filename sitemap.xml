@@ -3,28 +3,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.jasonscheirer.com/tags/c&#43;&#43;/</loc>
+    <lastmod>2026-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/</loc>
+    <lastmod>2026-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/cpp-in-2026/</loc>
+    <lastmod>2026-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
+    <lastmod>2026-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/</loc>
+    <lastmod>2026-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/work/</loc>
+    <lastmod>2026-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/weblog/an-ipod-classic-7g-followup/</loc>
+    <lastmod>2026-10-01T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/apple/</loc>
+    <lastmod>2026-10-01T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
+    <lastmod>2026-10-01T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.jasonscheirer.com/tags/music/</loc>
+    <lastmod>2026-10-01T08:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.jasonscheirer.com/weblog/an-ipod-classic-7g-revival/</loc>
     <lastmod>2026-07-02T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/tags/apple/</loc>
-    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/hardware/</loc>
-    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/</loc>
-    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/music/</loc>
-    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/</loc>
-    <lastmod>2026-07-02T08:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/tags/golang/</loc>
-    <lastmod>2026-06-20T00:00:00-08:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/programming/</loc>
     <lastmod>2026-06-20T00:00:00-08:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/xtestink/</loc>
@@ -72,16 +84,10 @@
     <loc>https://www.jasonscheirer.com/engineering-virtues/the-defaults/</loc>
     <lastmod>2026-01-03T00:00:00-08:00</lastmod>
   </url><url>
-    <loc>https://www.jasonscheirer.com/tags/c&#43;&#43;/</loc>
-    <lastmod>2025-12-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.jasonscheirer.com/weblog/on-electron/</loc>
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/tags/web/</loc>
-    <lastmod>2025-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.jasonscheirer.com/tags/work/</loc>
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.jasonscheirer.com/weblog/vignettes/</loc>

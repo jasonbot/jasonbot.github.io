@@ -10,27 +10,48 @@
 		
 		
 		
-			<lastBuildDate>Thu, 02 Jul 2026 08:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Fri, 02 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://www.jasonscheirer.com/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
+				<title>C&#43;&#43;</title>
+				<link>https://www.jasonscheirer.com/tags/c&#43;&#43;/</link>
+				<pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://www.jasonscheirer.com/tags/c&#43;&#43;/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Programming</title>
+				<link>https://www.jasonscheirer.com/tags/programming/</link>
+				<pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://www.jasonscheirer.com/tags/programming/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Work</title>
+				<link>https://www.jasonscheirer.com/tags/work/</link>
+				<pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://www.jasonscheirer.com/tags/work/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Apple</title>
 				<link>https://www.jasonscheirer.com/tags/apple/</link>
-				<pubDate>Thu, 02 Jul 2026 08:00:00 +0000</pubDate>
+				<pubDate>Thu, 01 Oct 2026 08:00:00 +0000</pubDate>
 				<guid>https://www.jasonscheirer.com/tags/apple/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hardware Reviews</title>
 				<link>https://www.jasonscheirer.com/tags/hardware/</link>
-				<pubDate>Thu, 02 Jul 2026 08:00:00 +0000</pubDate>
+				<pubDate>Thu, 01 Oct 2026 08:00:00 +0000</pubDate>
 				<guid>https://www.jasonscheirer.com/tags/hardware/</guid>
 				<description>&lt;p&gt;Commentary on various pieces of computing technology I have used.&lt;/p&gt;&#xA;</description>
 			</item>
 			<item>
 				<title>Music</title>
 				<link>https://www.jasonscheirer.com/tags/music/</link>
-				<pubDate>Thu, 02 Jul 2026 08:00:00 +0000</pubDate>
+				<pubDate>Thu, 01 Oct 2026 08:00:00 +0000</pubDate>
 				<guid>https://www.jasonscheirer.com/tags/music/</guid>
 				<description></description>
 			</item>
@@ -39,13 +60,6 @@
 				<link>https://www.jasonscheirer.com/tags/golang/</link>
 				<pubDate>Sat, 20 Jun 2026 00:00:00 -0800</pubDate>
 				<guid>https://www.jasonscheirer.com/tags/golang/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Programming</title>
-				<link>https://www.jasonscheirer.com/tags/programming/</link>
-				<pubDate>Sat, 20 Jun 2026 00:00:00 -0800</pubDate>
-				<guid>https://www.jasonscheirer.com/tags/programming/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -98,24 +112,10 @@
 				<description>&lt;p&gt;This is a series I am writing based on my experience as a software engineer. In&#xA;this are a list of things that I hold important in myself and others as a&#xA;software engineer, mostly vis-a-vis being an individual contributor interfacing&#xA;with engineering management, product teams, and supporting organizations.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m trying to write things that are useful that you probably would not find in&#xA;any conventional book of professional advice. Use this as a cheeky supplement to&#xA;other career guides you may use.&lt;/p&gt;&#xA;</description>
 			</item>
 			<item>
-				<title>C&#43;&#43;</title>
-				<link>https://www.jasonscheirer.com/tags/c&#43;&#43;/</link>
-				<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://www.jasonscheirer.com/tags/c&#43;&#43;/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Web</title>
 				<link>https://www.jasonscheirer.com/tags/web/</link>
 				<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
 				<guid>https://www.jasonscheirer.com/tags/web/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Work</title>
-				<link>https://www.jasonscheirer.com/tags/work/</link>
-				<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://www.jasonscheirer.com/tags/work/</guid>
 				<description></description>
 			</item>
 			<item>
