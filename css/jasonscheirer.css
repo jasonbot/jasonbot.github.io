@@ -2,7 +2,8 @@
   --alt-header-font: "Forevs";
   --header-font: "Forevs";
   --body-font: "Instrument Sans";
-  --mono-font: "0xProto";
+  /* --mono-font: "0xProto"; */
+  --mono-font: "Paper Mono";
 
   --bg-color: #fbf9f7;
   --main-color: #fdfcfb;

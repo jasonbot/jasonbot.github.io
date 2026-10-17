@@ -915,3 +915,12 @@ explicitly, e.g.
   font-weight: 600;
   src: url(/fonts/Luciole-BoldItalic.woff) format("woff");
 }
+
+@font-face {
+  font-family: "Paper Mono";
+  /* Declare the supported range (e.g., 100 to 900) */
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/PaperMonoVariable.woff2") format("woff2");
+}
